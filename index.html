@@ -682,6 +682,35 @@ buttons.forEach(btn => {
     });
   }
 
+<script>
+  // Función para copiar enlace al portapapeles
+  function copyArticleLink(id) {
+    const baseUrl = window.location.href.split('#')[0];
+    const fullUrl = baseUrl + '#' + id;
+    navigator.clipboard.writeText(fullUrl).then(() => {
+      const btn = document.querySelector(`[data-copy-btn="${id}"]`);
+      if (btn) {
+        const originalText = btn.innerText;
+        btn.innerText = '✅ ¡Enlace copiado!';
+        setTimeout(() => { btn.innerText = originalText; }, 3000);
+      }
+    }).catch(() => {
+      // Método de respaldo para navegadores antiguos
+      const input = document.createElement('input');
+      input.value = fullUrl;
+      document.body.appendChild(input);
+      input.select();
+      document.execCommand('copy');
+      document.body.removeChild(input);
+      const btn = document.querySelector(`[data-copy-btn="${id}"]`);
+      if (btn) {
+        const originalText = btn.innerText;
+        btn.innerText = '✅ ¡Enlace copiado!';
+        setTimeout(() => { btn.innerText = originalText; }, 3000);
+      }
+    });
+  }
+
   // Agregar los botones a todos los artículos (al cargar la página)
   document.addEventListener('DOMContentLoaded', function() {
     const cards = document.querySelectorAll('.card');
@@ -726,7 +755,7 @@ buttons.forEach(btn => {
           copyBtn.href = '#';
           copyBtn.setAttribute('data-copy-btn', id);
           copyBtn.innerText = '🔗 Copiar enlace del artículo';
-          copyBtn.style.color = '#46613F'; // Verde heather
+          copyBtn.style.color = '#46613F';
           copyBtn.style.fontWeight = '600';
           copyBtn.style.textDecoration = 'none';
           copyBtn.style.fontSize = '14px';
@@ -747,14 +776,11 @@ buttons.forEach(btn => {
 
     // --- MAGIA: Abrir el artículo si la URL tiene un # (ej: #defensa-penco-lirquen) ---
     if (window.location.hash) {
-      const targetId = window.location.hash.substring(1); // Quita el '#'
+      const targetId = window.location.hash.substring(1);
       const targetCard = document.getElementById(targetId);
       if (targetCard) {
-        // Forzar que se muestre (por si está oculto por algún filtro)
         targetCard.classList.remove('hidden-by-filter');
-        // Abrir el artículo
         targetCard.classList.add('open');
-        // Esperar medio segundo para que se renderice y hacer scroll suave hacia él
         setTimeout(() => {
           targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }, 300);
