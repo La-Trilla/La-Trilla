@@ -653,47 +653,113 @@ buttons.forEach(btn => {
 });
 </script>
 <script>
-  // Esto agrega un botón para compartir en X al final de CADA artículo automáticamente
+  <script>
+  // Función para copiar enlace al portapapeles
+  function copyArticleLink(id) {
+    const baseUrl = window.location.href.split('#')[0];
+    const fullUrl = baseUrl + '#' + id;
+    navigator.clipboard.writeText(fullUrl).then(() => {
+      const btn = document.querySelector(`[data-copy-btn="${id}"]`);
+      if (btn) {
+        const originalText = btn.innerText;
+        btn.innerText = '✅ ¡Enlace copiado!';
+        setTimeout(() => { btn.innerText = originalText; }, 3000);
+      }
+    }).catch(() => {
+      // Método de respaldo para navegadores antiguos
+      const input = document.createElement('input');
+      input.value = fullUrl;
+      document.body.appendChild(input);
+      input.select();
+      document.execCommand('copy');
+      document.body.removeChild(input);
+      const btn = document.querySelector(`[data-copy-btn="${id}"]`);
+      if (btn) {
+        const originalText = btn.innerText;
+        btn.innerText = '✅ ¡Enlace copiado!';
+        setTimeout(() => { btn.innerText = originalText; }, 3000);
+      }
+    });
+  }
+
+  // Agregar los botones a todos los artículos (al cargar la página)
   document.addEventListener('DOMContentLoaded', function() {
     const cards = document.querySelectorAll('.card');
+    const baseUrl = window.location.href.split('#')[0];
+
     cards.forEach(card => {
       const id = card.id;
+      const fullDiv = card.querySelector('.full');
       const titleElement = card.querySelector('h3');
-      // Asegurarse de que no sea la tarjeta de convocatoria (opcional, pero la incluimos igual si quieres)
-      if (id && titleElement) {
-        const title = titleElement.innerText;
-        const fullDiv = card.querySelector('.full');
-        if (fullDiv) {
-          // Evita que se duplique si ejecutas el script varias veces
-          if (!fullDiv.querySelector('.share-x')) {
-            const shareDiv = document.createElement('div');
-            shareDiv.className = 'share-x';
-            shareDiv.style.marginTop = '20px';
-            shareDiv.style.borderTop = '1px solid #D8C79E';
-            shareDiv.style.paddingTop = '12px';
-            
-            const link = document.createElement('a');
-            // Toma la URL actual de la web (ej: https://la-trilla.netlify.app)
-            const baseUrl = window.location.href.split('#')[0];
-            // Construye el enlace para X (Twitter)
-            const shareUrl = `https://twitter.com/intent/tweet?text=¡Leyendo%20"${encodeURIComponent(title)}"%20en%20La%20Trilla!&url=${encodeURIComponent(baseUrl + '#' + id)}`;
-            
-            link.href = shareUrl;
-            link.target = '_blank';
-            link.rel = 'noopener noreferrer';
-            link.innerText = '🐦 Compartir en X';
-            link.style.color = '#A63A2C'; // Color de La Trilla
-            link.style.fontWeight = '600';
-            link.style.textDecoration = 'none';
-            link.style.fontSize = '14px';
-            link.style.fontFamily = 'Work Sans, sans-serif';
-            
-            shareDiv.appendChild(link);
-            fullDiv.appendChild(shareDiv);
-          }
+      
+      // Solo procesar si tiene ID, tiene contenido desplegable y no es la convocatoria (opcional)
+      if (id && fullDiv && id !== 'convocatoria-debate') {
+        // Evitar duplicados si el script se ejecuta varias veces
+        if (!fullDiv.querySelector('.share-actions')) {
+          const title = titleElement ? titleElement.innerText : 'Artículo';
+          
+          // Contenedor de botones
+          const actionsDiv = document.createElement('div');
+          actionsDiv.className = 'share-actions';
+          actionsDiv.style.marginTop = '16px';
+          actionsDiv.style.borderTop = '1px solid #D8C79E';
+          actionsDiv.style.paddingTop = '14px';
+          actionsDiv.style.display = 'flex';
+          actionsDiv.style.gap = '18px';
+          actionsDiv.style.flexWrap = 'wrap';
+
+          // --- Botón 1: Compartir en X (Twitter) ---
+          const xLink = document.createElement('a');
+          const tweetText = `¡Leyendo "${title}" en La Trilla!`;
+          xLink.href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}&url=${encodeURIComponent(baseUrl + '#' + id)}`;
+          xLink.target = '_blank';
+          xLink.rel = 'noopener noreferrer';
+          xLink.innerText = '🐦 Compartir en X';
+          xLink.style.color = '#A63A2C';
+          xLink.style.fontWeight = '600';
+          xLink.style.textDecoration = 'none';
+          xLink.style.fontSize = '14px';
+          xLink.style.fontFamily = 'Work Sans, sans-serif';
+
+          // --- Botón 2: Copiar enlace (para WhatsApp, correo, etc.) ---
+          const copyBtn = document.createElement('a');
+          copyBtn.href = '#';
+          copyBtn.setAttribute('data-copy-btn', id);
+          copyBtn.innerText = '🔗 Copiar enlace del artículo';
+          copyBtn.style.color = '#46613F'; // Verde heather
+          copyBtn.style.fontWeight = '600';
+          copyBtn.style.textDecoration = 'none';
+          copyBtn.style.fontSize = '14px';
+          copyBtn.style.fontFamily = 'Work Sans, sans-serif';
+          
+          // Al hacer clic, copia el enlace
+          copyBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            copyArticleLink(id);
+          });
+
+          actionsDiv.appendChild(xLink);
+          actionsDiv.appendChild(copyBtn);
+          fullDiv.appendChild(actionsDiv);
         }
       }
     });
+
+    // --- MAGIA: Abrir el artículo si la URL tiene un # (ej: #defensa-penco-lirquen) ---
+    if (window.location.hash) {
+      const targetId = window.location.hash.substring(1); // Quita el '#'
+      const targetCard = document.getElementById(targetId);
+      if (targetCard) {
+        // Forzar que se muestre (por si está oculto por algún filtro)
+        targetCard.classList.remove('hidden-by-filter');
+        // Abrir el artículo
+        targetCard.classList.add('open');
+        // Esperar medio segundo para que se renderice y hacer scroll suave hacia él
+        setTimeout(() => {
+          targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 300);
+      }
+    }
   });
 </script></body>
 </html>
