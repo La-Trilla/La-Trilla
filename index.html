@@ -652,5 +652,48 @@ buttons.forEach(btn => {
   });
 });
 </script>
-</body>
+<script>
+  // Esto agrega un botón para compartir en X al final de CADA artículo automáticamente
+  document.addEventListener('DOMContentLoaded', function() {
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+      const id = card.id;
+      const titleElement = card.querySelector('h3');
+      // Asegurarse de que no sea la tarjeta de convocatoria (opcional, pero la incluimos igual si quieres)
+      if (id && titleElement) {
+        const title = titleElement.innerText;
+        const fullDiv = card.querySelector('.full');
+        if (fullDiv) {
+          // Evita que se duplique si ejecutas el script varias veces
+          if (!fullDiv.querySelector('.share-x')) {
+            const shareDiv = document.createElement('div');
+            shareDiv.className = 'share-x';
+            shareDiv.style.marginTop = '20px';
+            shareDiv.style.borderTop = '1px solid #D8C79E';
+            shareDiv.style.paddingTop = '12px';
+            
+            const link = document.createElement('a');
+            // Toma la URL actual de la web (ej: https://la-trilla.netlify.app)
+            const baseUrl = window.location.href.split('#')[0];
+            // Construye el enlace para X (Twitter)
+            const shareUrl = `https://twitter.com/intent/tweet?text=¡Leyendo%20"${encodeURIComponent(title)}"%20en%20La%20Trilla!&url=${encodeURIComponent(baseUrl + '#' + id)}`;
+            
+            link.href = shareUrl;
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+            link.innerText = '🐦 Compartir en X';
+            link.style.color = '#A63A2C'; // Color de La Trilla
+            link.style.fontWeight = '600';
+            link.style.textDecoration = 'none';
+            link.style.fontSize = '14px';
+            link.style.fontFamily = 'Work Sans, sans-serif';
+            
+            shareDiv.appendChild(link);
+            fullDiv.appendChild(shareDiv);
+          }
+        }
+      }
+    });
+  });
+</script></body>
 </html>
