@@ -711,7 +711,8 @@ buttons.forEach(btn => {
     });
   }
 
-  // Agregar los botones a todos los artículos (al cargar la página)
+<script>
+  // Agrega botones de compartir a cada artículo
   document.addEventListener('DOMContentLoaded', function() {
     const cards = document.querySelectorAll('.card');
     const baseUrl = window.location.href.split('#')[0];
@@ -719,73 +720,70 @@ buttons.forEach(btn => {
     cards.forEach(card => {
       const id = card.id;
       const fullDiv = card.querySelector('.full');
-      const titleElement = card.querySelector('h3');
+      // Saltamos la convocatoria y los artículos sin ID
+      if (!id || !fullDiv || id === 'convocatoria-debate') return;
       
-      // Solo procesar si tiene ID, tiene contenido desplegable y no es la convocatoria (opcional)
-      if (id && fullDiv && id !== 'convocatoria-debate') {
-        // Evitar duplicados si el script se ejecuta varias veces
-        if (!fullDiv.querySelector('.share-actions')) {
-          const title = titleElement ? titleElement.innerText : 'Artículo';
-          
-          // Contenedor de botones
-          const actionsDiv = document.createElement('div');
-          actionsDiv.className = 'share-actions';
-          actionsDiv.style.marginTop = '16px';
-          actionsDiv.style.borderTop = '1px solid #D8C79E';
-          actionsDiv.style.paddingTop = '14px';
-          actionsDiv.style.display = 'flex';
-          actionsDiv.style.gap = '18px';
-          actionsDiv.style.flexWrap = 'wrap';
+      // Evita duplicados
+      if (fullDiv.querySelector('.share-actions')) return;
 
-          // --- Botón 1: Compartir en X (Twitter) ---
-          const xLink = document.createElement('a');
-          const tweetText = `¡Leyendo "${title}" en La Trilla!`;
-          xLink.href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}&url=${encodeURIComponent(baseUrl + '#' + id)}`;
-          xLink.target = '_blank';
-          xLink.rel = 'noopener noreferrer';
-          xLink.innerText = '🐦 Compartir en X';
-          xLink.style.color = '#A63A2C';
-          xLink.style.fontWeight = '600';
-          xLink.style.textDecoration = 'none';
-          xLink.style.fontSize = '14px';
-          xLink.style.fontFamily = 'Work Sans, sans-serif';
+      const title = card.querySelector('h3') ? card.querySelector('h3').innerText : 'Artículo';
 
-          // --- Botón 2: Copiar enlace (para WhatsApp, correo, etc.) ---
-          const copyBtn = document.createElement('a');
-          copyBtn.href = '#';
-          copyBtn.setAttribute('data-copy-btn', id);
-          copyBtn.innerText = '🔗 Copiar enlace del artículo';
-          copyBtn.style.color = '#46613F';
-          copyBtn.style.fontWeight = '600';
-          copyBtn.style.textDecoration = 'none';
-          copyBtn.style.fontSize = '14px';
-          copyBtn.style.fontFamily = 'Work Sans, sans-serif';
-          
-          // Al hacer clic, copia el enlace
-          copyBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            copyArticleLink(id);
+      // Contenedor de botones
+      const actions = document.createElement('div');
+      actions.className = 'share-actions';
+      actions.style.marginTop = '16px';
+      actions.style.borderTop = '1px solid #D8C79E';
+      actions.style.paddingTop = '14px';
+      actions.style.display = 'flex';
+      actions.style.gap = '18px';
+      actions.style.flexWrap = 'wrap';
+
+      // Botón para X (Twitter)
+      const xLink = document.createElement('a');
+      xLink.href = `https://twitter.com/intent/tweet?text=${encodeURIComponent('Leyendo "' + title + '" en La Trilla')}&url=${encodeURIComponent(baseUrl + '#' + id)}`;
+      xLink.target = '_blank';
+      xLink.rel = 'noopener noreferrer';
+      xLink.innerText = '🐦 Compartir en X';
+      xLink.style.color = '#A63A2C';
+      xLink.style.fontWeight = '600';
+      xLink.style.textDecoration = 'none';
+      xLink.style.fontSize = '14px';
+      xLink.style.fontFamily = 'Work Sans, sans-serif';
+
+      // Botón para copiar enlace
+      const copyBtn = document.createElement('a');
+      copyBtn.href = '#';
+      copyBtn.innerText = '🔗 Copiar enlace del artículo';
+      copyBtn.style.color = '#46613F';
+      copyBtn.style.fontWeight = '600';
+      copyBtn.style.textDecoration = 'none';
+      copyBtn.style.fontSize = '14px';
+      copyBtn.style.fontFamily = 'Work Sans, sans-serif';
+      copyBtn.onclick = function(e) {
+        e.preventDefault();
+        const fullUrl = baseUrl + '#' + id;
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(fullUrl).then(() => {
+            copyBtn.innerText = '✅ ¡Enlace copiado!';
+            setTimeout(() => { copyBtn.innerText = '🔗 Copiar enlace del artículo'; }, 2500);
           });
-
-          actionsDiv.appendChild(xLink);
-          actionsDiv.appendChild(copyBtn);
-          fullDiv.appendChild(actionsDiv);
+        } else {
+          // Fallback para navegadores antiguos
+          const input = document.createElement('input');
+          input.value = fullUrl;
+          document.body.appendChild(input);
+          input.select();
+          document.execCommand('copy');
+          document.body.removeChild(input);
+          copyBtn.innerText = '✅ ¡Enlace copiado!';
+          setTimeout(() => { copyBtn.innerText = '🔗 Copiar enlace del artículo'; }, 2500);
         }
-      }
-    });
+      };
 
-    // --- MAGIA: Abrir el artículo si la URL tiene un # (ej: #defensa-penco-lirquen) ---
-    if (window.location.hash) {
-      const targetId = window.location.hash.substring(1);
-      const targetCard = document.getElementById(targetId);
-      if (targetCard) {
-        targetCard.classList.remove('hidden-by-filter');
-        targetCard.classList.add('open');
-        setTimeout(() => {
-          targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }, 300);
-      }
-    }
+      actions.appendChild(xLink);
+      actions.appendChild(copyBtn);
+      fullDiv.appendChild(actions);
+    });
   });
 </script></body>
 </html>
