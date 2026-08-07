@@ -652,12 +652,12 @@ buttons.forEach(btn => {
   });
 });
 </script>
-<script>
   <script>
-  // Función para copiar enlace al portapapeles
-  function copyArticleLink(id) {
-    const baseUrl = window.location.href.split('#')[0];
-    const fullUrl = baseUrl + '#' + id;
+// Función para copiar enlace al portapapeles
+function copyArticleLink(id) {
+  const baseUrl = window.location.href.split('#')[0];
+  const fullUrl = baseUrl + '#' + id;
+  if (navigator.clipboard) {
     navigator.clipboard.writeText(fullUrl).then(() => {
       const btn = document.querySelector(`[data-copy-btn="${id}"]`);
       if (btn) {
@@ -666,74 +666,79 @@ buttons.forEach(btn => {
         setTimeout(() => { btn.innerText = originalText; }, 3000);
       }
     }).catch(() => {
-      // Método de respaldo para navegadores antiguos
-      const input = document.createElement('input');
-      input.value = fullUrl;
-      document.body.appendChild(input);
-      input.select();
-      document.execCommand('copy');
-      document.body.removeChild(input);
-      const btn = document.querySelector(`[data-copy-btn="${id}"]`);
-      if (btn) {
-        const originalText = btn.innerText;
-        btn.innerText = '✅ ¡Enlace copiado!';
-        setTimeout(() => { btn.innerText = originalText; }, 3000);
-      }
+      fallbackCopy(fullUrl, id);
     });
+  } else {
+    fallbackCopy(fullUrl, id);
   }
+}
 
-<script>
-  // Función para copiar enlace al portapapeles
-  function copyArticleLink(id) {
-    const baseUrl = window.location.href.split('#')[0];
-    const fullUrl = baseUrl + '#' + id;
-    navigator.clipboard.writeText(fullUrl).then(() => {
-      const btn = document.querySelector(`[data-copy-btn="${id}"]`);
-      if (btn) {
-        const originalText = btn.innerText;
-        btn.innerText = '✅ ¡Enlace copiado!';
-        setTimeout(() => { btn.innerText = originalText; }, 3000);
-      }
-    }).catch(() => {
-      // Método de respaldo para navegadores antiguos
-      const input = document.createElement('input');
-      input.value = fullUrl;
-      document.body.appendChild(input);
-      input.select();
-      document.execCommand('copy');
-      document.body.removeChild(input);
-      const btn = document.querySelector(`[data-copy-btn="${id}"]`);
-      if (btn) {
-        const originalText = btn.innerText;
-        btn.innerText = '✅ ¡Enlace copiado!';
-        setTimeout(() => { btn.innerText = originalText; }, 3000);
-      }
-    });
+function fallbackCopy(text, id) {
+  const input = document.createElement('input');
+  input.value = text;
+  document.body.appendChild(input);
+  input.select();
+  document.execCommand('copy');
+  document.body.removeChild(input);
+  const btn = document.querySelector(`[data-copy-btn="${id}"]`);
+  if (btn) {
+    const originalText = btn.innerText;
+    btn.innerText = '✅ ¡Enlace copiado!';
+    setTimeout(() => { btn.innerText = originalText; }, 3000);
   }
+}
 
-<script>
- <script>
-  console.log("✅ El script se está ejecutando");
-  document.addEventListener('DOMContentLoaded', function() {
-    console.log("✅ El DOM está cargado");
-    var cards = document.querySelectorAll('.card');
-    console.log("📦 Artículos encontrados:", cards.length);
-    cards.forEach(function(card) {
-      var full = card.querySelector('.full');
-      if (full) {
-        var btn = document.createElement('button');
-        btn.innerText = '🔘 Botón de prueba';
-        btn.style.display = 'block';
-        btn.style.marginTop = '10px';
-        btn.style.padding = '8px';
-        btn.style.background = '#A63A2C';
-        btn.style.color = 'white';
-        btn.style.border = 'none';
-        btn.style.borderRadius = '4px';
-        full.appendChild(btn);
-        console.log("➕ Botón agregado a:", card.id);
-      }
-    });
+// Agregar botones de compartir a todos los artículos
+document.addEventListener('DOMContentLoaded', function() {
+  const cards = document.querySelectorAll('.card');
+  const baseUrl = window.location.href.split('#')[0];
+
+  cards.forEach(card => {
+    const id = card.id;
+    const fullDiv = card.querySelector('.full');
+    if (!id || !fullDiv || id === 'convocatoria-debate') return;
+    if (fullDiv.querySelector('.share-actions')) return;
+
+    const title = card.querySelector('h3') ? card.querySelector('h3').innerText : 'Artículo';
+
+    const actions = document.createElement('div');
+    actions.className = 'share-actions';
+    actions.style.marginTop = '16px';
+    actions.style.borderTop = '1px solid #D8C79E';
+    actions.style.paddingTop = '14px';
+    actions.style.display = 'flex';
+    actions.style.gap = '18px';
+    actions.style.flexWrap = 'wrap';
+
+    const xLink = document.createElement('a');
+    const shareText = `Leyendo "${title}" en La Trilla`;
+    xLink.href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(baseUrl + '#' + id)}`;
+    xLink.target = '_blank';
+    xLink.rel = 'noopener noreferrer';
+    xLink.innerText = '🐦 Compartir en X';
+    xLink.style.color = '#A63A2C';
+    xLink.style.fontWeight = '600';
+    xLink.style.textDecoration = 'none';
+    xLink.style.fontSize = '14px';
+    xLink.style.fontFamily = 'Work Sans, sans-serif';
+
+    const copyBtn = document.createElement('a');
+    copyBtn.href = '#';
+    copyBtn.setAttribute('data-copy-btn', id);
+    copyBtn.innerText = '🔗 Copiar enlace del artículo';
+    copyBtn.style.color = '#46613F';
+    copyBtn.style.fontWeight = '600';
+    copyBtn.style.textDecoration = 'none';
+    copyBtn.style.fontSize = '14px';
+    copyBtn.style.fontFamily = 'Work Sans, sans-serif';
+    copyBtn.onclick = function(e) {
+      e.preventDefault();
+      copyArticleLink(id);
+    };
+
+    actions.appendChild(xLink);
+    actions.appendChild(copyBtn);
+    fullDiv.appendChild(actions);
   });
-</script></body>
-</html>
+});
+</script>
