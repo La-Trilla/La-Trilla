@@ -168,8 +168,12 @@
     <button data-filter="multimedia">Multimedia</button>
   </nav>
 </header>
-<div class="solidarity-banner" style="padding-left:56px"><b>No es guerra, es Genocidio.</b>&nbsp; Solidaridad con Palestina 🇵🇸</div>
-
+<div class="solidarity-banner" style="padding-left:56px"><b>No es guerra, es Genocidio.</b>&nbsp; Solidaridad con Palestina </div>
+<!-- Contador de visitas (Esquina superior derecha) -->
+<div style="text-align: right; margin-top: 5px; margin-right: 20px; padding-bottom: 10px;">
+    <span style="font-size: 14px; font-family: Arial, sans-serif; font-weight: bold;">Visitas: </span>
+    <img src="https://hitcounter.pythonanywhere.com/count/tag" alt="Contador de visitas" style="vertical-align: middle;">
+</div>
 <div class="hero">
   <h1>Separar el grano de la paja</h1>
   <p class="thesis">Análisis y crónica desde el Biobío.</b></p>
@@ -211,7 +215,7 @@
       </div>
       <div class="card-head" onclick="toggleCard('defensa-penco-lirquen')">
         <span class="tag tag-local">Local — Biobío</span>
-        <h3>¡La defensa de Penco y Lirquén llega a la justicia!</h3>
+        <h3 id="La defensa de penco y lirquen">¡La defensa de Penco y Lirquén llega a la justicia!</h3>
         <p class="dek">Las comunidades de Penco y Lirquén presentarán acciones legales para impugnar la aprobación ambiental del proyecto minero de tierras raras, por irregularidades en el proceso de evaluación.</p>
         <p class="meta">Colectivo La Trilla · 6 de agosto de 2026</p>
         <button class="expand-btn">Leer completo ▾</button>
@@ -230,7 +234,7 @@
        <article class="card" id="huelga-general" data-section="nacional">
       <div class="card-head" onclick="toggleCard('huelga-general')">
         <span class="tag tag-nacional">Nacional</span>
-        <h3>Acerca de la Huelga General</h3>
+        <h3 id="Acerca de la Huelga General">Acerca de la Huelga General</h3>
         <p class="dek">Una respuesta crítica al llamado de Luis Mesina y a su amplificación en El Porteño: por qué la huelga general debe ser la culminación de un proceso, no su punto de partida.</p>
         <p class="meta">Equipo La Trilla</p>
         <button class="expand-btn">Leer completo ▾</button>
@@ -268,7 +272,7 @@
       <div class="card-image"><img src="https://i0.wp.com/prensaopal.cl/wp-content/uploads/2026/08/portada-estudiantes.jpg" alt="Movilización estudiantil en Santiago, 4 de agosto de 2026" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
       <div class="card-head" onclick="toggleCard('juventud-en-marcha')">
         <span class="tag tag-nacional">Nacional</span>
-        <h3>Contra el gris de los tiempos, la juventud en marcha</h3>
+        <h3 id="Contra el gris de los tiempos">Contra el gris de los tiempos, la juventud en marcha</h3>
         <p class="dek">Crónica fotográfica de la movilización estudiantil del 4 de agosto en Santiago: los lienzos vuelven a las calles frente a los recortes a la educación pública, mientras el despliegue policial trata la protesta como problema de seguridad.</p>
         <p class="meta">Prensa Opal · 5 de agosto de 2026 · reproducido con enlace al original</p>
         <button class="expand-btn">Leer completo ▾</button>
@@ -282,7 +286,7 @@
     <article class="card" id="plan-kast" data-section="nacional">
       <div class="card-head" onclick="toggleCard('plan-kast')">
         <span class="tag tag-nacional">Nacional</span>
-        <h3>El plan de Kast</h3>
+        <h3 id="El plan de Kast">El plan de Kast</h3>
         <p class="dek">¿A quién representa realmente el gobierno de Kast? Un análisis de las fracciones de la burguesía chilena detrás del plan de reconstrucción.</p>
         <p class="meta">Equipo La Trilla</p>
         <button class="expand-btn">Leer completo ▾</button>
@@ -427,7 +431,7 @@
     <article class="card" id="rumbo-ia" data-section="ciencia">
       <div class="card-head" onclick="toggleCard('rumbo-ia')">
         <span class="tag tag-ciencia">Ciencia</span>
-        <h3>¿Cuál es el rumbo de la inteligencia artificial?</h3>
+        <h3 id="Cual es el rumbo de la inteligencia artificial">¿Cuál es el rumbo de la inteligencia artificial?</h3>
         <p class="dek">Trabajo intelectual, crisis de rentabilidad, vigilancia privatizada y nuevas valorizaciones: una lectura crítica del desarrollo de la IA.</p>
         <p class="meta">Equipo La Trilla</p>
         <button class="expand-btn">Leer completo ▾</button>
@@ -467,7 +471,7 @@
     <article class="card" id="parlamento-arauco" data-section="cultura">
       <div class="card-head" onclick="toggleCard('parlamento-arauco')">
         <span class="tag tag-cultura">Cultura</span>
-        <h3>El parlamento de Arauco de 1835</h3>
+        <h3 id="El parlamento de Arauco">El parlamento de Arauco de 1835</h3>
         <p class="dek">Cómo los cónsules británico y francés en Concepción participaron de un parlamento hispano-mapuche en el fuerte de Arauco, negociando protección para sus náufragos a cambio de regalos y promesas.</p>
         <p class="meta">Piedra del Rayo, blog <i>Toki Kurá</i> · 5 de agosto de 2026 · reproducido con enlace al original</p>
         <button class="expand-btn">Leer completo ▾</button>
@@ -483,7 +487,7 @@
     <article class="card" id="mapuches-catolicismo" data-section="cultura">
       <div class="card-head" onclick="toggleCard('mapuches-catolicismo')">
         <span class="tag tag-cultura">Cultura</span>
-        <h3>¿Los mapuches convertidos al catolicismo?</h3>
+        <h3 id="Los mapuches convertidos al catolicismo">¿Los mapuches convertidos al catolicismo?</h3>
         <p class="dek">El historiador Luis Vitale reúne testimonios coloniales que contradicen el relato oficial de una evangelización exitosa del pueblo mapuche.</p>
         <p class="meta">Luis Vitale, vía blog <i>Toki Kurá</i> · publicado originalmente el 4 de enero de 2014 · reproducido con enlace al original</p>
         <button class="expand-btn">Leer completo ▾</button>
@@ -499,7 +503,7 @@
 <article class="card" id="lecciones-electorales-biobio" data-section="local">
       <div class="card-head" onclick="toggleCard('lecciones-electorales-biobio')">
         <span class="tag tag-local">Local — Biobío</span>
-        <h3>Lecciones del fracaso electoral de la izquierda en la Región del Biobío</h3>
+        <h3 id="Lecciones del fracaso electoral">Lecciones del fracaso electoral de la izquierda en la Región del Biobío</h3>
         <p class="dek">Tras las municipales y de gobernadores de octubre y noviembre, el Biobío se consolida como la región más derechizada de Chile. Un balance sin autocomplacencias sobre la izquierda regional, dentro y fuera del gobierno.</p>
         <p class="meta">Equipo La Trilla · diciembre de 2024 (fecha aproximada, a confirmar)</p>
         <button class="expand-btn">Leer completo ▾</button>
@@ -536,7 +540,7 @@
     <article class="card" id="alba-movimientos" data-section="internacional">
       <div class="card-head" onclick="toggleCard('alba-movimientos')">
         <span class="tag tag-internacional">Internacional</span>
-        <h3>Comienza en La Habana la IV Asamblea Continental de ALBA Movimientos</h3>
+        <h3 id="Comienza en La Habana">Comienza en La Habana la IV Asamblea Continental de ALBA Movimientos</h3>
         <p class="dek">Más de 150 delegados de 25 países se reúnen del 6 al 9 de agosto bajo el lema "cien años caminando con Fidel", en el centenario del natalicio de Fidel Castro, para fortalecer la unidad de los movimientos populares de Nuestra América.</p>
         <p class="meta">Resumen Latinoamericano · 5 de agosto de 2026 · reproducido con enlace al original</p>
         <button class="expand-btn">Leer completo ▾</button>
@@ -552,7 +556,7 @@
       <div class="card-image"><img src="https://elporteno.cl/wp-content/uploads/2026/06/ChatGPT-Image-25-de-jun.-de-2026-19_56_46.png" alt="Ilustración de la entrevista a Michael Roberts en El Porteño" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
       <div class="card-head" onclick="toggleCard('michael-roberts')">
         <span class="tag tag-ciencia">Ciencia</span>
-        <h3>Michael Roberts: una teoría marxista de las crisis del capitalismo contemporáneo</h3>
+        <h3 id="Michael Roberts">Michael Roberts: una teoría marxista de las crisis del capitalismo contemporáneo</h3>
         <p class="dek">El economista marxista repasa la ley de la tendencia decreciente de la tasa de ganancia, discute la financiarización y el "tecnofeudalismo", y explica por qué no considera a la inteligencia artificial un cambio de época para el capitalismo.</p>
         <p class="meta">Entrevista de la Academia China de Ciencias Sociales, vía El Porteño · 25 de junio de 2026 · reproducido con enlace al original</p>
         <button class="expand-btn">Leer completo ▾</button>
@@ -570,7 +574,7 @@
       <div class="card-image"><img src="https://lamarejada.cl/wp-content/uploads/2026/07/Frantz-Fanon-portada.jpg" alt="Frantz Fanon" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
       <div class="card-head" onclick="toggleCard('fanon')">
         <span class="tag tag-cultura">Cultura</span>
-        <h3>Frantz Fanon: el militante y médico psiquiatra que combatió el colonialismo hasta sus últimos días</h3>
+        <h3 id="Frantz Fanon">Frantz Fanon: el militante y médico psiquiatra que combatió el colonialismo hasta sus últimos días</h3>
         <p class="dek">A un siglo de su nacimiento, un repaso por la vida y obra de Fanon: la "epidermización de la inferioridad", la violencia como respuesta al colonialismo, su divergencia con Marx sobre el sujeto revolucionario, y su vigencia frente a Gaza y las nuevas "zonas del no-ser".</p>
         <p class="meta">La Marejada · 20 de julio de 2026 · reproducido con enlace al original</p>
         <button class="expand-btn">Leer completo ▾</button>
@@ -587,7 +591,7 @@
       <div class="card-image"><img src="https://img.youtube.com/vi/pqzBpHY4vrg/hqdefault.jpg" alt="Marxismo y Ecología, charla de Martín Sanzana Calvet" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
       <div class="card-head" onclick="toggleCard('marxismo-ecologia')">
         <span class="tag tag-multimedia">Multimedia</span>
-        <h3>Marxismo y Ecología</h3>
+        <h3 id="Marxismo y Ecologia">Marxismo y Ecología</h3>
         <p class="dek">Charla del sociólogo de la Universidad de Concepción Martín Sanzana Calvet sobre la relación entre marxismo y la crisis ecológica.</p>
         <p class="meta">Martín Sanzana Calvet · canal de YouTube Cervando OrateTV</p>
         <button class="expand-btn">Ver video ▾</button>
