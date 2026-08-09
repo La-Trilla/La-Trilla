@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=2.0">
+<title>Revista La Trilla </title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;700;900&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #EDE2C8;
+    --paper-2: #E4D6B4;
+    --ink: #241C14;
+    --wheat: #C9A227;
+    --wheat-dark: #9C7D1C;
+    --rust: #A63A2C;
+    --heather: #46613F;
+    --teal: #3D6B66;
+    --soil: #4A3B2A;
+    --sub: #6B5D45;
+    --card: #FAF6EC;
+    --border: #D8C79E;
+    --focus: #1F5F8B;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:'Work Sans', -apple-system, sans-serif;
+    line-height:2;
+  }
+  h1,h2,h3,h4{font-family:'Bitter', Georgia, serif; margin:0; color:var(--ink)}
+  a{color:var(--rust)}
+  a:focus-visible, button:focus-visible, .card-head:focus-visible{outline:3px solid var(--focus); outline-offset:2px}
+  @media (prefers-reduced-motion: reduce){ *{transition:none !important; animation:none !important} }
+
+  /* ---- masthead ---- */
+  .masthead{
+    background:var(--ink); color:var(--paper);
+    padding:14px 24px; display:flex; justify-content:space-between; align-items:center;
+    flex-wrap:wrap; gap:10px; position:sticky; top:1; z-index:20;
+    border-bottom:3px solid var(--wheat);
+  }
+  .brand{display:flex; align-items:baseline; gap:10px}
+  .brand .word{font-family:'Bitter', serif; font-weight:900; font-size:26px; letter-spacing:.01em; color:var(--paper)}
+  .brand .sub{font-size:12px; color:var(--wheat); text-transform:uppercase; letter-spacing:.08em}
+  nav{display:flex; gap:4px; flex-wrap:wrap}
+  nav button{
+    font-family:'Work Sans', sans-serif; font-size:13px; font-weight:600; letter-spacing:.02em;
+    background:none; border:none; color:var(--paper); opacity:.75; cursor:pointer;
+    padding:8px 12px; border-radius:4px; text-transform:uppercase;
+  }
+  nav button:hover{opacity:1; background:rgba(255,255,255,.08)}
+  nav button.active{opacity:1; color:var(--wheat); background:rgba(201,162,39,.14)}
+
+  /* ---- hero ---- */
+   /* ---- hero con imagen de fondo (CAMBIA ESTO) ---- */
+  .hero{
+    position: relative; /* Clave para que la imagen funcione */
+    max-width:820px; margin:0 auto; padding:64px 24px 40px; text-align:center;
+    overflow: visible;
+  }
+    .hero::before{
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150vw;
+    height: 180%;
+    background-image: url('trilla.jpg');
+    background-size: cover;
+    background-position: center center;
+    filter: blur(2px);
+    opacity: 0.5;
+    z-index: 1;
+  }
+    .hero h1, .hero .thesis, .hero div{
+    position: relative;
+    z-index: 2;
+  }
+  .hero h1{font-size:clamp(30px, 5vw, 52px); line-height:1.08; margin-bottom:18px}
+  .hero .thesis{font-size:19px; color:var(--soil); max-width:560px; margin:0 auto 8px; font-weight:500}
+  .hero .thesis b{color:var(--rust)}
+  .hero .issue{font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--sub); margin-top:18px}
+
+  /* ---- grain divider (signature element) ---- */
+  .grain-divider{width:100%; height:22px; margin:8px 0 0}
+
+  /* ---- section filter feedback ---- */
+  .section-label{
+    max-width:1080px; margin:36px auto 4px; padding:0 24px;
+    font-size:12px; text-transform:uppercase; letter-spacing:.1em; color:var(--sub);
+  }
+
+  /* ---- grid ---- */
+  main{max-width:1080px; margin:0 auto; padding:0 24px 80px}
+  .grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(300px,1fr)); gap:22px; margin-top:14px}
+
+  .card{
+    background:var(--card); border:1px solid var(--border); border-radius:10px;
+    overflow:hidden; display:flex; flex-direction:column;
+  }
+  .card.open{grid-column:1 / -1}
+  .card.open .full{max-width:760px; margin:0 auto}
+  .card-image{width:100%; aspect-ratio:16/9; overflow:hidden; background:var(--paper-2)}
+  .card-image img{width:100%; height:100%; object-fit:cover; display:block}
+  .card.placeholder{opacity:.72}
+  .card-head{padding:20px 22px; cursor:pointer}
+  .card-head:not([data-static]){cursor:pointer}
+  .placeholder .card-head{cursor:default}
+  .tag{
+    display:inline-block; font-size:10.5px; text-transform:uppercase; letter-spacing:.06em;
+    padding:3px 9px; border-radius:20px; color:#fff; margin-bottom:10px; font-weight:600;
+  }
+  .tag-nacional{background:var(--rust)}
+  .tag-ciencia{background:var(--wheat-dark)}
+  .tag-cultura{background:var(--heather)}
+  .tag-local{background:var(--teal)}
+  .tag-internacional{background:var(--soil)}
+  .tag-multimedia{background:var(--sub)}
+
+  .card h3{font-size:19px; line-height:1.25; margin-bottom:8px}
+  .card .dek{font-size:14px; color:var(--soil); margin:0 0 10px; line-height:1.5}
+  .card .meta{font-size:12px; color:var(--sub); margin:0 0 12px; font-style:italic}
+  .expand-btn{
+    font-family:'Work Sans',sans-serif; font-size:13px; font-weight:600; color:var(--rust);
+    background:none; border:none; padding:0; cursor:pointer;
+  }
+  .full{display:none; padding:0 22px 22px; border-top:1px dashed var(--border)}
+  .card.open .full{display:block; padding-top:16px}
+  .card.open .expand-btn{display:none}
+  .full p{font-size:15px; line-height:1.7; margin:0 0 14px; color:var(--ink)}
+  .full h4{font-size:16px; margin:18px 0 8px; color:var(--rust)}
+  .full .source-note{font-size:13px; color:var(--sub); font-style:italic; border-top:1px solid var(--border); padding-top:12px}
+
+  .hidden-by-filter{display:none !important}
+
+  /* ---- utility sections (contacto/legal) ---- */
+  .utility{
+    max-width:780px; margin:60px auto 0; padding:32px 28px; background:var(--card);
+    border:1px solid var(--border); border-radius:10px;
+  }
+  .utility h2{font-size:22px; margin-bottom:14px}
+  .utility p{font-size:14.5px; line-height:1.65; color:var(--soil)}
+  .utility .note{font-size:12.5px; color:var(--sub); background:var(--paper-2); border-radius:6px; padding:10px 14px; margin-top:16px}
+  .contact-form{display:flex; flex-direction:column; gap:10px; margin-top:16px; max-width:420px}
+  .contact-form input, .contact-form textarea{
+    font-family:'Work Sans',sans-serif; font-size:14px; padding:10px 12px; border:1px solid var(--border);
+    border-radius:6px; background:var(--paper); color:var(--ink);
+  }
+  .contact-form button{
+    font-family:'Work Sans',sans-serif; font-weight:600; font-size:14px; padding:10px 16px;
+    background:var(--rust); color:#fff; border:none; border-radius:6px; cursor:pointer; width:fit-content;
+  }
+
+  footer{background:var(--soil); color:var(--paper); padding:36px 24px 28px; margin-top:70px}
+  .footer-inner{max-width:1080px; margin:0 auto; display:flex; justify-content:space-between; flex-wrap:wrap; gap:20px}
+  .footer-inner a{color:var(--wheat); text-decoration:none; font-size:13px}
+  .footer-inner a:hover{text-decoration:underline}
+  .footer-links{display:flex; gap:18px; flex-wrap:wrap}
+  .footer-note{font-size:12px; color:#c9bfa8; max-width:420px}
+  .solidarity-banner{
+    background:linear-gradient(180deg,#000 0%,#000 33%,#fff 33%,#fff 66%,#007A3D 66%,#007A3D 100%);
+    position:relative; color:#fff; text-align:center; padding:20px 16px;
+    font-size:18px; font-weight:700; letter-spacing:.02em;
+    text-shadow:0 1px 3px rgba(0,0,0,.7);
+  }
+  .solidarity-banner::before{
+    content:''; position:absolute; left:0; top:0; bottom:0; width:36px;
+    background:#CE1126; clip-path:polygon(0 0,100% 50%,0 100%);
+  }
+  .solidarity-banner b{text-transform:uppercase; letter-spacing:.05em; font-size:19px}
+
+  /* ---- layout con columna lateral (X/Twitter) ---- */
+  .layout{display:flex; gap:24px; max-width:1400px; margin:0 auto; align-items:flex-start; padding:0 24px}
+  .layout main{max-width:1080px; margin:0; padding:0 0 80px; flex:1; min-width:0}
+  .sidebar{width:300px; flex-shrink:0; position:sticky; top:90px}
+  .sidebar-box{background:var(--card); border:1px solid var(--border); border-radius:10px; padding:16px}
+  .sidebar-box h3{font-size:13px; text-transform:uppercase; letter-spacing:.06em; margin:0 0 12px; color:var(--sub)}
+  @media (max-width:960px){
+    .layout{flex-direction:column; padding:0}
+    .sidebar{width:100%; position:static; padding:0 24px}
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="brand">
+    <span class="word">REVISTA LA TRILLA</span>
+    <span class="sub">Biobío</span>
+  </div>
+  <nav id="filterNav">
+    <button data-filter="all" class="active">Portada</button>
+    <button data-filter="local">Local</button>
+    <button data-filter="nacional">Nacional</button>
+    <button data-filter="internacional">Internacional</button>
+    <button data-filter="debate">Debate</button>
+    <button data-filter="ciencia">Ciencia</button>
+    <button data-filter="multimedia">Multimedia</button>
+  </nav>
+</header>
+<div class="solidarity-banner" style="padding-left:56px"><b>No es guerra, es Genocidio.</b>&nbsp; Solidaridad con Palestina </div>
+<!-- Contador de visitas (Esquina superior derecha) -->
+<div style="text-align: right; margin-top: 5px; margin-right: 20px; padding-bottom: 10px;">
+    <img src="https://api.visitorbadge.io/api/visitors?path=revista-la-trilla.pages.dev&label=Visitas&countColor=%23263759" alt="Contador de visitas" style="vertical-align: middle;">
+</div>
+
+<div class="hero">
+    <h1>Separar el grano de la paja</h1>
+    <p class="thesis">Análisis y crónica desde el Biobío.</p>
+    <div style="border-left: 15px solid #ce1126; background: repeating-linear-gradient(to bottom, #002a8f 0px, #002a8f 20px, #ffffff 20px, #ffffff 40px); padding: 10px 0 10px 40px; color: white; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
+    <b>Solidaridad con Cuba</b>
+</div>
+</div>
+
+<svg class="grain-divider" viewBox="0 0 800 22" preserveAspectRatio="none" aria-hidden="true">
+  <line x1="0" y1="11" x2="800" y2="11" stroke="#D8C79E" stroke-width="1.5"/>
+  <g fill="#C9A227">
+    <ellipse cx="60" cy="11" rx="5" ry="3" transform="rotate(-20 60 11)"/>
+    <ellipse cx="180" cy="11" rx="5" ry="3" transform="rotate(15 180 11)"/>
+    <ellipse cx="300" cy="11" rx="5" ry="3" transform="rotate(-10 300 11)"/>
+    <ellipse cx="420" cy="11" rx="5" ry="3" transform="rotate(25 420 11)"/>
+    <ellipse cx="540" cy="11" rx="5" ry="3" transform="rotate(-15 540 11)"/>
+    <ellipse cx="660" cy="11" rx="5" ry="3" transform="rotate(10 660 11)"/>
+    <ellipse cx="740" cy="11" rx="5" ry="3" transform="rotate(-25 740 11)"/>
+  </g>
+</svg>
+
+<p class="section-label" id="sectionLabel">Portada — todas las secciones</p>
+
+<div class="layout">
+<main>
+  <div class="grid" id="grid">        <article class="card" id="convocatoria-debate" data-section="nacional">
+      <div class="card-head" onclick="toggleCard('convocatoria-debate')">
+        <span class="tag tag-multimedia">Convocatoria</span>
+        <h3>La tribuna está abierta: escribe en nuestra sección Debate</h3>
+        <p class="dek">La Trilla no es una labor cerrada, sino un trabajo colectivo. Invitamos a compañeros y compañeras de las luchas territoriales, sindicales, estudiantiles y feministas a aportar sus análisis, crónicas y denuncias.</p>
+        <p class="meta">Colectivo La Trilla · Convocatoria abierta</p>
+        <button class="expand-btn">Leer más sobre la convocatoria ▾</button>
+        
+        <!-- La imagen ahora está aquí, al final del bloque visible -->
+        <img src="reunion-bolchevique.jpg" alt="Reunión bolchevique" style="display: block; width: 100%; max-width: 300px; margin: 20px auto 0; border-radius: 4px;">
+        
+      </div>
+      <div class="full">
+        <p>Este espacio nació para informar y pensar críticamente. Queremos que la sección Debate sea el reflejo de la inteligencia colectiva que se forja en el barrio, la fábrica, la universidad y el territorio.</p>
+        <p>No pedimos títulos académicos ni filiaciones partidarias específicas. Pedimos honestidad política, claridad en el diagnóstico y voluntad de lucha. Envíanos tu texto a través del formulario de contacto o escríbenos directamente. Si tu artículo es constructivo y aporta al análisis de nuestra realidad, tiene lugar aquí.</p>
+        <!-- Si quieres evitar que la imagen se duplique al abrir la tarjeta, borra la línea de la imagen que pusiste antes en este bloque <div class="full"> -->
+      </div>
+    </article>
+        <article class="card" id="que-es-el-socialismo" data-section="debate">
+      <div class="card-head" onclick="toggleCard('que-es-el-socialismo')">
+        <span class="tag tag-debate">Debate</span>
+        <h3 id="que-es-el-socialismo">¿Qué es el socialismo?</h3>
+        <p class="dek">Tenemos frente a nosotros un sistema en crisis, tanto imperialista, medioambiental y económico. Y también tenemos una crisis de ideas y organización. El gobierno del Frente Amplio, en los ojos de muchos, iba a ser el nuevo comienzo, pero fue de verdad una versión modernizada de la Concertación. ¿Hace dónde vamos entonces… y cómo? ¿Cuáles son las chispas que pueden encender los motores a una nueva generación de activistas? En mi opinión, la forma que entendemos el futuro, la forma de entender el socialismo, es una de aquellas chispas.</p>
+        <p class="meta">Miguel Silva · 9 de agosto de 2026</p>
+        <button class="expand-btn">Leer completo ▾</button>
+      </div>
+      <div class="full">
+        <p>Para conversar y discutir el socialismo, primero tenemos que estar de acuerdo sobre qué es socialismo. Lo que sostenemos es que socialismo es una sociedad donde la vida es socializada.</p>
+        <p>Socializar es eliminar la propiedad privada y crear la propiedad social; y la propiedad es la expresión “legal” de control efectivo sobre la producción y distribución de los productos. Por ende, la propiedad social es la expresión del control efectivo ejercido por los productores directos para cumplir las necesidades de la mayoría de la población. Por otro lado, la propiedad privada es la expresión del control ejercido por quienes compran las capacidades de los productores y las usan para generar plusvalía.</p>
+        <p>Un ejemplo de esta diferencia es la distribución en el supermercado Lider y la distribución en un supermercado popular. En el de Líder, se compran y venden bienes; es un centro de intercambio. En el supermercado popular, los consumidores entrarían y llevarían lo que necesitaran, bajo las decisiones tomadas por los mismos productores y consumidores. Este supermercado es un ejemplo de la recuperación de la producción de uso, en manos del mercado de intercambio.</p>
+        <p>Marx describió esa libertad en su obra El Capital, afirmando que la producción capitalista es producción para un mercado, pero en una sociedad libre se produce para el uso. Es decir, decidimos qué necesitamos y luego producimos aquellos productos o servicios.</p>
+        <p>Rosa Luxemburgo, por su parte, criticó a los dirigentes parlamentarios y sindicales que creían en una transición gradual hacia un capitalismo planificado. Señaló que en los períodos de calma, los funcionarios sindicales caen fácilmente en el burocratismo y la estrechez de miras. Sin embargo, durante las huelgas masivas, cuando se ponen en marcha grandes masas de trabajadores, son quienes están abajo quienes pueden tomar el control. El socialismo no es la extensión de la reforma de un capitalismo racional, sino el ejercicio de la conciencia práctica y activa de los productores.</p>
+        <p>Por su parte, Luis Emilio Recabarren imaginaba que los municipios debían ser comisiones de vecinos elegidos para ejecutar los deseos colectivos de cada población. Proponía que el vecindario pudiera decidir que el alumbrado y la locomoción urbana fueran servicios propios de la municipalidad, descentralizando funciones del gobierno nacional. Más adelante, Recabarren profundizó esta idea: en cada industria con más de diez personas, los trabajadores, reunidos en asambleas, elegirían a sus administradores. Las asambleas fijarían salarios, condiciones de trabajo y precios, y los administradores rendirían cuentas ante ellas. Esa organización social, bajo democracia directa, era su definición de socialismo.</p>
+        <p>Vladimir Lenin hablaba en términos teóricos generales sobre el poder efectivo de la clase trabajadora. Planteaba que los medios de producción dejan de ser propiedad privada para pertenecer a toda la sociedad, y que los trabajadores obtienen certificados por su trabajo para recibir productos de los almacenes sociales. Sin embargo, el significado de esa frase – "deja de ser propiedad privada para pertenecer a toda la sociedad" – ha sido disputado profundamente a lo largo de la historia.</p>
+        <p>El ejemplo más conocido de control estatal sobre la economía fueron los países de los "socialismos reales". Aunque allí no se competía directamente en un mercado interno, el capital nacional como conjunto sí competía con otros bloques capitalistas. Este estado de cosas llevó a que, con el tiempo, las empresas estatales pasaran de manos del estado a manos de oligarcas, sin que los trabajadores tuvieran control alguno sobre la transición. En esos casos, el control era "privado pero estatal", ejercido por funcionarios del partido, no por los trabajadores.</p>
+        <p>Hoy en día, China genera mucho debate. Cientos de miles de trabajadores laboran en las fábricas FoxConn de I-Pad sin ningún control sobre la producción, mientras el Estado, es decir el partido comunista, controla gran parte de la economía. Se dice que es socialista, pero los trabajadores no ejercen control directo sobre sus vidas. La propiedad en China es privada, porque no está bajo el control social efectivo de los propios trabajadores, sino del partido-estado.</p>
+        <p>En conclusión, la alternativa a la producción para el mercado es una organización social de la producción, donde el control democrático directo sobre la sociedad y la producción es ejercido por los mismos productores. Sin control directo desde abajo por la mayoría de la población, no hay socialismo. Marxismo se ha convertido en una ideología falsa en manos de aquellas clases que gobiernan "en nombre de" los productores, pero que son ellas mismas la clase dominante.</p>
+        <p class="source-note">Texto completo: "Qué es el socialismo" por Miguel Silva.</p>
+      </div>
+  
+    </article>
+        <article class="card" id="aclara-militar" data-section="local">
+      <div class="card-head" onclick="toggleCard('aclara-militar')">
+        <span class="tag tag-local">Local – Biobío</span>
+        <h3 id="aclara-militar">Confirman vínculo de proyecto Aclara en Penco con contratistas militares</h3>
+        <p class="dek">Camila Arriagada, vocera de la campaña Penco-Lirquén Libre de Mineras, señaló que estas declaraciones no son una novedad: «Esta era una advertencia que veníamos dando hace bastante tiempo sobre el uso de estos minerales críticos para la fabricación de armamento». Arriagada denunció que el gobierno de José Antonio Kast firmó un acuerdo con Donald Trump antes de aprobar el proyecto, lo que «nos posiciona a Chile en una situación geopolítica bastante compleja en donde hay genocidios, guerras declaradas y es un tremendo riesgo ser parte de esta red de poder».</p>
+        <p class="meta">Seguel Alfredo · 8 de agosto de 2026</p>
+        <button class="expand-btn">Leer completo ▾</button>
+      </div>
+      <div class="full">
+        <p>El proyecto minero de tierras raras de la empresa AclaraResources en la comuna de Penco (Región del Biobío) ha sido aprobado por unanimidad por la Comisión de Evaluación Ambiental de la región, y enfrenta cuestionamientos de organizaciones sociales que advierten sobre su relación con el complejo industrial militar global.</p>
+        <p>La información fue publicada por Resumen y replicada por Sala de Prensa, a partir de una entrevista del medio especializado MetalMiner al director financiero de la filial Aclara Technologies, Alonso Guzmán. En la entrevista, Guzmán confirmó que Aclara «está actualmente en conversaciones con usuarios finales en Estados Unidos y Japón que fabrican componentes para fabricantes de equipos originales (OEM), incluidas empresas de los sectores de la automoción y los electrodomésticos». Además, declaró que «entre esos usuarios finales también se incluyen contratistas militares». La empresa busca construir una cadena de suministro de tierras raras sin dependencia de China.</p>
+        <p>El experto en defensa Rodrigo Cárcamo, en el medio El Periodista, explicó la importancia de las tierras raras para la industria militar: «las tierras raras tienen una incidencia directa en la superioridad operacional multidominio. Están presentes en aviones F-35, submarinos, drones, radares y sistemas de propulsión militar». Según la Deutsche Welle, «un solo bombardero F-35 utiliza más de 400 kilos de tierras raras», que también se usan en municiones, vehículos blindados y sistemas de sensores.</p>
+        <p>Camila Arriagada, vocera de la campaña Penco-Lirquén Libre de Mineras, señaló que estas declaraciones no son una novedad: «Esta era una advertencia que veníamos dando hace bastante tiempo sobre el uso de estos minerales críticos para la fabricación de armamento». Arriagada denunció que el gobierno de José Antonio Kast firmó un acuerdo con Donald Trump antes de aprobar el proyecto, lo que «nos posiciona a Chile en una situación geopolítica bastante compleja en donde hay genocidios, guerras declaradas y es un tremendo riesgo ser parte de esta red de poder».</p>
+        <p>Oscar Carrillo Zúñiga, de la Corporación Parque para Penco, quien prepara las presentaciones legales para impugnar la aprobación del proyecto, advirtió que «lo que se pretende exportar desde Chile hacia países como EE.UU. o Japón es un concentrado de Tierras Raras, ni siquiera los materiales separados», lo que «desde ahí es imposible generar una trazabilidad de los elementos o más bien a nadie le va a interesar, simplemente van a ser comprados al mejor postor». Añadió que «por estos elementos a propósito de la concentración que tiene China sobre las Tierras Raras, entonces en su carrera armamentista son necesarios para construir misiles, drones, sistemas de radares y submarinos».</p>
+        <p>Sala de Prensa consultó a la Municipalidad de Penco sobre el proyecto, recordando que el alcalde Rodrigo Vera y todo su concejo municipal han manifestado su rechazo a la iniciativa. Sin embargo, hasta el cierre de la nota, no hubo respuesta desde el municipio.</p>
+        <p>La información sobre los vínculos del proyecto con la industria militar refuerza las advertencias de las organizaciones sociales, que han cuestionado el uso bélico de las Tierras Raras, un aspecto que, sostienen, suele quedar fuera de la publicidad de los proyectos y de los procesos de participación ciudadana.</p>
+        <p class="source-note">Fuente: Seguel Alfredo, investigador de Mapuexpress y El Ciudadano. Publicado el 8 de agosto de 2026.</p>
+      </div>
+    </article>
+     <article class="card" id="defensa-penco-lirquen" data-section="local" onclick="window.location.href='la-defensa-de-penco.html'" style="cursor: pointer; flex: 1;">
+    <div class="card-image">
+        <img src="penco-lirquen.jpg" alt="La defensa de Penco y Lirquén" loading="lazy" style="object-fit:contain; background:#EDE2C8; width:100%; height:100%; display:block;">
+    </div>
+    <div class="card-head">
+        <span class="tag tag-local">Local – Biobío</span>
+        <h3>La defensa de Penco y Lirquén llega a la justicia</h3>
+        <p class="dek">Las comunidades de Penco y Lirquén presentarán acciones legales para impugnar la aprobación ambiental del proyecto minero.</p>
+        <p class="meta">Colectivo La Trilla · 6 de agosto de 2026</p>
+        <span style="font-family:'Work Sans',sans-serif; font-size:13px; font-weight:600; color:var(--rust); background:none; border:none; padding:0; cursor:pointer;">Leer completo ▾</span>
+    </div>
+</article>
+    <article class="card" id="huelga-general" data-section="nacional">
+      <div class="card-head" onclick="toggleCard('huelga-general')">
+        <span class="tag tag-nacional">Nacional</span>
+        <h3 id="Acerca-de-la-Huelga General">Acerca de la Huelga General</h3>
+        <p class="dek">Una respuesta crítica al llamado de Luis Mesina y a su amplificación en El Porteño: por qué la huelga general debe ser la culminación de un proceso, no su punto de partida.</p>
+        <p class="meta">Equipo La Trilla</p>
+        <button class="expand-btn">Leer completo ▾</button>
+      </div>
+      <div class="full">
+        <p><b>Acerca del llamado a Huelga General</b></p>
+        <p><i>No mas cortoplacismos: los pasos concretos que sí podemos dar</i></p>
+        <p>En el último tiempo ha circulado entre algunos sectores de la izquierda chilena una propuesta que, por su contundencia verbal, ha captado la atención de quienes buscan una salida al régimen economico que busca imponer el gobierno de Kast: la Huelga General como instrumento central para detener la ofensiva de una fracción de la patronal y cambiar el rumbo del país.</p>
+        <p>El dirigente sindical Luis Mesina, la ha planteado con claridad en su articulo para Le Monde Diplomatique: "Un nuevo ataque al mundo del trabajo: esta vez, mortal". Y hay que reconocer que su diagnóstico sobre el carácter clasista de la ofensiva del gobierno neofascista es correcto. La reforma tributaria, los recortes sociales, la flexibilización laboral y la criminalización de la protesta no son errores técnicos ni productos de una mala asesoría, o la ineptitud general del gobierno; es un plan de superexplotación de la fuerza laboral y la naturaleza.</p>
+        <p>Ahora, la Huelga General, entendida como la interrupción consciente del funcionamiento ordinario de la sociedad por quienes producen su riqueza, transportan sus mercancías y sostienen sus servicios, es un instrumento legítimo y necesario en cualquier proceso de transformación radical. Pero la historia reciente ---y en particular la experiencia del 18 de octubre de 2019--- nos enseño que, con o sin una consigna, o por más correcta que llegue a ser una, no es suficiente para cambiar la correlación de fuerzas si no va acompañada de organización política de masas, dirección y un plan concreto que anticipe las respuestas del adversario.</p>
+        <p>Este planteamiento de Mesina, ha sido recogido y amplificado editorialmente. El artículo de Gustavo Burgos en El Porteño, "Cuando la izquierda comienza a advertir el abismo: del colapso democrático a la huelga general", reúne el diagnóstico de Mesina con el del teólogo Álvaro Ramis ---quien describe un gobierno que "gobierna contra la gente y sin oposición"--- y con las reflexiones del sociólogo Aldo Mascareño sobre una "condición postdemocrática". Según Burgos, Mesina sería quien "avanza más" al identificar el carácter clasista de la ofensiva y colocar la huelga general en el centro del debate. El propio Burgos añade "hasta proponer que la resistencia dispersa se convierta en acción común, la acción común en huelga general, y la huelga general en una alternativa política independiente de la clase trabajadora". Una síntesis atractiva, y compartimos parte del diagnóstico que la sostiene. Pero conviene no confundir la corrección del diagnóstico con la corrección del momento y el método de la respuesta. Y afinar el analisis.</p>
+        <p>Mesina acierta quizá al colocar la huelga en el centro del debate y al definirla como algo más que una protesta intensificada. Acierta a nuestro entender al "apretar" al movimiento sindical: "La hora presente exige un esfuerzo supremo de las alicaídas organizaciones sociales y, principalmente, de las sindicales. Hay que dejar en claro que esto es intolerable: ha llegado el momento de que el movimiento sindical prepare y capacite a los trabajadores para grandes desafíos históricos".</p>
+        <p>La huelga general no es una marcha más grande ni una jornada simbólica; es la demostración práctica de que la sociedad no funciona por la voluntad de los ministros o los empresarios, sino por el trabajo colectivo de millones de personas que, cuando detienen sus manos, paralizan el país. Es una herramienta de lucha de los trabajadores. Aporta además un dato concreto que conviene no perder de vista: la Mesa de Reactivación Laboral del Ministerio del Trabajo, con su paquete de 22 medidas, no es un ajuste técnico menor, sino el intento de sustituir la indemnización por años de servicio por un fondo financiado con un seguro complementario al de cesantía ---lo que en los hechos entrega al empresariado carta blanca para despedir sin costo. Ese es exactamente el tipo de evidencia concreta que sostiene, y no solo declama, el carácter clasista de la ofensiva.</p>
+        <p>Pero la propuesta de Mesina, aunque certera en su diagnostico, adolece de una limitación que no puede pasarse por alto: confunde el anuncio de la acción con la construcción de las condiciones para que esa acción sea efectiva. En opinión de Burgos, intentando dotar de mas contenido la idea, la Huelga General "debe surgir como culminación de una acumulación organizada de fuerzas", pero como es habitual en nuestra izquierda de cualquier cuño, no dice quién va a organizar esa acumulación, ni cómo se va a coordinar entre los distintos sectores, ni qué se va a hacer cuando el sistema responda con sus mecanismos habituales ---concesiones focalizadas, represión selectiva, judicialización de los dirigentes, división del movimiento mediante ofertas a los sindicatos burocratizados. En ese sentido, ambos no plantean un plan concreto y no se identifica el sujeto a movilizar. Queda la impresión, involuntaria probablemente pero peligrosa, de que la huelga general es un acto de fe: si se convoca, las masas trabajadoras responderán, y su fuerza bastará para doblegar al régimen.</p>
+        <p>Y aquí hay una contradicción que merece ser señalada con respeto pero con firmeza. La propia tradición trotskista - de la que Mesina, siendo hoy independiente, entiendo se siente parte - desarrolló una teoría muy precisa sobre las condiciones en que una huelga general puede ser planteada. No se trata de una convocatoria arbitraria que se hace en cualquier momento; responde a condiciones objetivas y subjetivas muy claras: 1° una crisis profunda del sistema que haya agotado las vías institucionales. 2° un ataque generalizado del gobierno contra toda la clase trabajadora. 3° divisiones internas en las clases dominantes. Pero además, exige un "momento subjetivo": que las masas trabajadoras estén maduras para la lucha, que hayan pasado por conflictos locales y parciales que las hayan organizado y radicalizado, que exista una vanguardia reconocida y escuchada por los sectores activos, y que las demandas económicas se hayan transformado en la pregunta política por el poder. Si esas condiciones no se dan, la huelga general no es una estrategia, es una aventura.</p>
+        <p>Pero hay otro aspecto mas de fondo, que esa misma tradición exige, y que el llamado de Mesina o la valoración de Burgos tampoco resuelve: no basta con acumular fuerzas para llegar a la huelga general si no se dice para qué. ¿Cuál es el momento político de esa huelga? ¿La caída del gobierno de Kast y su reemplazo por otro dentro del mismo régimen? ¿La apertura de un nuevo proceso constituyente, como en 2019? ¿La construcción de un gobierno democrático popular? ¿El socialismo? Ni Mesina ni Burgos lo dice, y esa omisión no es un detalle menor: una huelga general sin horizonte de poder corre el riesgo de repetir el 18O, donde la fuerza desplegada en las calles terminó, a falta de un proyecto propio, entregada a instituciones que el mismo sistema había diseñado para contenerla. Una situación similar a la ocurrida en Argentina en 2001, con la dimisión de De la Rúa producto de grandes movilizaciones.</p>
+        <p>La pregunta incómoda, entonces, es: ¿estamos en ese momento? ¿Están las masas maduras? ¿Han pasado por huelgas parciales y asambleas que las hayan organizado y radicalizado? ¿Existe una vanguardia reconocida y escuchada? ¿El descontento económico se ha transformado en la pregunta por el poder? La respuesta, con honestidad, es que no. Hoy, la clase trabajadora está fragmentada, los sindicatos están debilitados, las organizaciones políticas están divididas, y el sentido común dominante aún no ha sido disputado minimamente. Eso no significa que no haya lucha, ni que no haya descontento; significa que la lucha y el descontento aún no han alcanzado el nivel de organización y conciencia que una huelga general requiere. Convocar la Huelga antes de tiempo, sin esas condiciones, no es una muestra de audacia; puede ser una irresponsabilidad que lleve a una nueva derrota que desmovilice a los sectores populares por decadas mas.</p>
+        <p>Y aquí, paradójicamente, el propio artículo de El Porteño ofrece una pista que contradice su conclusión. Cuando plantea que la tarea consiste en "convertir la resistencia dispersa en acción común; la acción común, en huelga general; y la huelga general, en una alternativa política independiente", está describiendo ---sin proponérselo--- exactamente el proceso de acumulación organizada que este artículo defiende, y que ni Mesina ni Burgos especifican en sus pasos concretos. ¿Quién convierte la resistencia dispersa en acción común? ¿Con qué estructuras, en qué territorios, con qué calendario, sobre qué luchas concretas? La secuencia que proponen pueden ser correctas; lo que falta es decir cómo se construye cada eslabón, no solo nombrar el último.</p>
+        <p>La experiencia espontaneista del 18O debería haber cerrado esa particular ilusión política para siempre. El estallido social fue la mayor explosión de lucha de las últimas cuatro décadas, y sin embargo, cinco años después tenemos un gobierno de ultraderecha que está tratando de hacer lo que la dictadura no pudo terminar. Por eso, ante este, en general, justo llamado, no podemos dejar de preguntar: ¿qué ha cambiado desde entonces? ¿Dónde están las estructuras que puedan sostener una huelga general? ¿Qué sectores de trabajadores están dispuestos a movilizarse hoy, que no sean los mismos de siempre? Sin respuestas a estas preguntas, la huelga general no es una estrategia; es una apuesta, y las apuestas las paga el pueblo con sangre y derrota. No se trata de abandonar la huelga como horizonte, si ese terminara siendo el camino; pues existe el ataque generalizado del gobierno contra toda la clase trabajadora, se trata de entender que es la culminación de un proceso, no su punto de partida.</p>
+        <p>El problema de fondo es que esa postura esta operando con una idea abstracta de "la clase trabajadora" y una idea igualmente abstracta del "empresariado", como si ambas fueran bloques homogéneos. Mesina en su articulo indica que "el Gobierno de Kast representa directamente los intereses del gran capital nacional y transnacional". Sin embargo, como hemos desarrollado en nuestro articulo "De quien es el plan de Kast", la burguesía chilena no es un bloque monolítico: el gobierno de Kast no representa a los grandes grupos económicos tradicionales, sino a una fracción subordinada ---retail, agroindustria, pesca, inmobiliarias, banca mediana--- desplazada históricamente de las grandes ganancias, que busca redefinir las reglas de la acumulación a costa de la mayoría. Y que ha puesto al gobierno de ultraderecha como su fuerza de choque política, para ejecutar el trabajo sucio que la derecha tradicional y la socialdemocracia ya no podía hacer sin destruir su propia imagen o futura viabilidad política.</p>
+        <p>Este cambio, negociado o no, entre la gran burguesía y esta fracción subordinada, entrega importantes posibilidades tácticas para el movimiento popular y sindical. Pues al gran capital le incómoda la confrontación abierta con China y la posibilidad de un descalabro político economico; pero una huelga general al voleo que no considere estas grietas del poder, puede terminar uniendo a los capitalistas en su conjunto en defensa de la propiedad, en lugar de dividirlos entre sí.</p>
+        <p>Ese analisis parcelado, tampoco considera que la propia base social del gobierno de Kast ---pequeños empresarios, sectores conservadores empobrecidos, clase media proletarizada--- comenzará a resentir el plan cuando vea sus salarios recortados, sus derechos eliminados y sus sueños de ascenso social desvanecidos. Esa base, que votó por Kast engañada por la demagogia de "mano dura" y "reconstrucción nacional", puede convertirse en un factor de inestabilidad para el gobierno, si se logra mostrar que el plan no beneficia a nadie más que a una fracción de la burguesía subordinada que está usando el poder para su beneficio parasitario. Pero eso requiere una táctica y una estrategia política que sepa distinguir entre los enemigos principales y los aliados potenciales, que sepa aislar a la fracción de Kast sin caer en el voluntarismo.</p>
+        <p>Por lo tanto, en lugar de una convocatoria a la huelga general que no tiene asidero en las fuerzas reales hoy, proponemos un enfoque táctico que parte de los sectores inmediatamente golpeados por el plan, que ya se están movilizando. Esto no significa que el sindicalismo no deba hacer su tarea.</p>
+        <p>Por ahora los estudiantes secundarios, la Confech, junto a pequeñas orgánicas politicas de izquierda antisistemica, fueron los primeros en percibir la virulencia del plan económico. El movimiento ecologista se está reactivando en los territorios amenazados por los proyectos de extracción de litio y tierras raras. Los trabajadores del transporte han protestado en Santiago y anuncian nuevas movilizaciones. La CUT, con todas sus limitaciones, logró convocar a decenas de miles el 1 de mayo. Los sectores de la salud, como la Fenats, se están movilizando incipientemente. Estos movimientos aun fragmentados; son la materia prima de un proceso de coordinación que, si se construye con inteligencia y sin sectarismos, puede convertirse en una fuerza capaz de imponer condiciones al gobierno.</p>
+        <p>La primera batalla táctica podría ser, por ejemplo, frenar la aprobación de un proyecto específico de extracción de tierras raras en algún territorio en conflicto. O evitar recortes economicos en algún área critica para la poblaccion como la educación o la salud. Eso implicaría coordinar a las comunidades locales, a los sindicatos afines, a los movimientos ecologistas y a los estudiantes, y diseñar una campaña de propaganda que exponga los intereses de la fracción de Kast y de sus socios estadounidenses. Si se logra frenar un proyecto, se habrá dado un paso concreto y medible; se habrá demostrado que la resistencia puede imponerse; y se habrá comenzado a construir la confianza que permite coordinar acciones más amplias.</p>
+        <p>No se trata de una meta menor: golpea directamente a la fracción que está en el poder y los compromisos que negoció con su apoyo geopolítico, involucra a comunidades que ya están organizadas, y permite tejer alianzas en torno a un objetivo claro. Porque, por ejemplo, en una mirada netamente política, aunque en la actualidad la mayoría de los conflictos "medioambientales" están en manos de ONGs que con sus recursos lideran las luchas sociales en los territorios, esos proyectos son una muestra de un neocolonialismo guerrerista norteamericano en Chile. Y su conducción política debe ser disputada por el movimiento popular.</p>
+        <p>El siguiente paso colectivo, podría ser apoyar con autonomía las movilizaciones de los gremios afectados por los recortes presupuestarios - salud, educación, transporte - en la perspectiva de un Paro Nacional. Un Paro Nacional considera todas las fuerzas sociales en movimiento, no solo el mundo del trabajo: estudiantes, pobladores, jubilados, comunidades territoriales, junto a los trabajadores.</p>
+        <p>Este trabajo no debe abordarse desde una lógica de dirección burocrática, al estilo de lo que fue NO+AFP, sino desde la solidaridad activa y la coordinación autónoma. Si los trabajadores de la salud ven que su lucha es respaldada por los estudiantes y los ecologistas, y que ese respaldo no es una declaración de principios sino una acción concreta - una jornada de paralización en solidaridad, una campaña de información en los barrios - la confianza se construye en la práctica. Y esa confianza es el único cemento que puede sostener una Huelga General, un Paro Nacional o, si las condiciones lo exigen, algo más, cuando llegue el momento. Porque cabe una tercera posibilidad que Mesina y Burgos no contemplan, y que conviene distinguir con precisión: la insurrección popular, entendida no como la paralización de la producción, sino como el enfrentamiento directo con el aparato del Estado. Es un salto cualitativo distinto, con condiciones y costos propios, que no debe confundirse ni con la huelga ni con el paro. No planteamos que eso vaya a ocurrir, solo decimos que hay mas caminos estratégicos.</p>
+        <p>Pero, para que esta táctica que proponemos funcione, necesitamos espacios de coordinación que no repitan los errores del pasado. No se trata de fundar un nuevo partido ni de redactar un programa detallado que divida en la discusión ideológica. Se trata de convocar a reuniones territoriales donde las organizaciones que ya están en la calle puedan discutir un plan de acción común para los próximos meses, definir objetivos territoriales concretos y medibles, asignar responsabilidades y evaluar los resultados. La dirección de estas coordinaciones no debería ser fija, sino rotativa y temática, de modo que ninguna organización se sienta excluida y todas asuman responsabilidades. No es una receta perfecta, pero es realista, y tiene a la base una analisis mucho mas especifico de la situación: parte del reconocimiento de nuestras fuerzas, de las de nuestro enemigo de clase, y de que la confianza se construye en la acción compartida, no en los debates ideológicos previos.</p>
+        <p>En el plano de la propaganda, debemos desenmascarar a la izquierda neoliberal que hoy se sienta a negociar indicaciones en el Senado mientras dice oponerse al plan de Kast. La "huelga legislativa" que algunos sectores exigieron en el 18O ---que el parlamento se niegue a tramitar las leyes del gobierno mientras se reprima al pueblo--- puede ser rescatada hoy como una demanda propagandística dirigida al PC, al PS, al FA y a toda la oposición institucional. No porque creamos que vayan a hacerla ---porque no la harán---, sino para mostrar en la práctica cómo negocian, tranzan y legitiman la reforma mientras dicen oponerse. Mostrar que no hay diferencia sustancial de proyecto económico entre "oposición" y oficialismo, que todos son parte del mismo engranaje pero con distinto papel, es una tarea política de primer orden para disputar el sentido común de quienes aún creen y creerán por mucho tiempo mas que la salida está en las urnas o en las gestiones parlamentarias y no entienden la abstracción del duopolio.</p>
+        <p>La huelga general, cuando llegue, si es que ese es el camino que elige el pueblo, será la culminación de este proceso, no su punto de partida. Será el momento en que la confianza construida en las acciones concretas, la coordinación tejida en los territorios, y la claridad sobre el enemigo y sus fisuras, permitan que el pueblo paralice el país no como una protesta testimonial, sino como el inicio de una alternativa de poder. Pero para que eso ocurra, hay que dejar de lado el cortoplacismo de quienes creen que una consigna puede reemplazar la organización, y también el sectarismo de quienes se niegan a coordinar con otros porque no comparten todos sus principios. La paciencia estratégica no es pasividad; es la disciplina de construir, paso a paso, las condiciones para que cuando la huelga, el paro o la insurrección lleguen, no sean un acto de fe, sino una expresión de fuerza real. Advertir el abismo, como titula Burgos, es necesario. Pero advertirlo no construye el puente para cruzarlo; ese puente se construye tramo a tramo, con pasos concretos como los que aquí proponemos. El gobierno de Kast está produciendo contradicciones que podemos aprovechar, pero solo si aprendemos de los errores del pasado y nos atrevemos a ensayar formas nuevas de organización. Eso es lo que está en juego, y no hay tiempo que perder.</p>
+      </div>
+    </article>
+    <article class="card" id="juventud-en-marcha" data-section="nacional">
+      <div class="card-image"><img src="https://i0.wp.com/prensaopal.cl/wp-content/uploads/2026/08/portada-estudiantes.jpg" alt="Movilización estudiantil en Santiago, 4 de agosto de 2026" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+      <div class="card-head" onclick="toggleCard('juventud-en-marcha')">
+        <span class="tag tag-nacional">Nacional</span>
+        <h3 id="Contra-el-gris-de-los-tiempos">Contra el gris de los tiempos, la juventud en marcha</h3>
+        <p class="dek">Crónica fotográfica de la movilización estudiantil del 4 de agosto en Santiago: los lienzos vuelven a las calles frente a los recortes a la educación pública, mientras el despliegue policial trata la protesta como problema de seguridad.</p>
+        <p class="meta">Prensa Opal · 5 de agosto de 2026 · reproducido con enlace al original</p>
+        <button class="expand-btn">Leer completo ▾</button>
+      </div>
+      <div class="full">
+        <p>Miles de estudiantes volvieron a caminar por Santiago con una consigna clara: la educación pública no puede ser la variable de ajuste de ningún gobierno. Prensa Opal registra una movilización que se define contra los recortes que amenazan espacios conquistados durante años, y contra la idea de que los derechos sociales deben someterse a la lógica del mercado.</p>
+        <p>La crónica describe también la indiferencia de un sector de la sociedad —el mismo que respaldó un proyecto político de "orden y austeridad"— y cómo la respuesta estatal privilegia el despliegue policial por sobre el diálogo, tratando la protesta social como un problema de seguridad antes que como una expresión democrática.</p>
+        <p class="source-note">Fuente original, con el registro fotográfico completo de la movilización: <a href="https://prensaopal.cl/2026/08/05/contra-el-gris-de-los-tiempos-la-juventud-en-marcha/" target="_blank" rel="noopener">Prensa Opal — "Contra el gris de los tiempos, la juventud en marcha"</a>, 5 de agosto de 2026.</p>
+      </div>
+    </article>
+    <article class="card" id="plan-kast" data-section="nacional">
+      <div class="card-head" onclick="toggleCard('plan-kast')">
+        <span class="tag tag-nacional">Nacional</span>
+        <h3 id="El-plan-de-Kast">El plan de Kast</h3>
+        <p class="dek">¿A quién representa realmente el gobierno de Kast? Un análisis de las fracciones de la burguesía chilena detrás del plan de reconstrucción.</p>
+        <p class="meta">Equipo La Trilla</p>
+        <button class="expand-btn">Leer completo ▾</button>
+      </div>
+      <div class="full">
+       
+        <p>La derecha chilena aprendió la lección. Después de que la revuelta popular de 2019 pusiera en jaque la Constitución de 1980 y que la Convención Constitucional demostrara, con todos sus defectos, que el pacto jurídico de la dictadura podía ser discutido, sectores de la oligarquía nacional cambiaron de estrategia. Ya no se trata de defender o reformar la constitución de Pinochet. Se trata de hacerla irrelevante. El gobierno de Kast, bajo el rótulo de "Plan de Reconstrucción Nacional", está intentando llevar a cabo un verdadero proceso constituyente por la vía económica y de los decretos.</p>
+        <p>Así teoriza en sendo articulo titulado "Gobierno refundacional", el doctor en filosofía y profesor de la Universidad de Chile, Rodrigo Karmy.</p>
+        <p>En su análisis nos plantea que en el gobierno de Kast no habrá nueva convención, ni plebiscito, y que no permitirán una discusión parlamentaria sustantiva. Lo que habría es una reforma tributaria ya en despliegue que junto a un paquete de medidas adicionales apuntarían a blindar el gran capital rentista, intentando cerrar cualquier posibilidad de que un futuro gobierno progresista o de izquierda modifique el régimen tributario y de acumulación que impulsan. La apuesta seria clara: <b>la Constitución que ellos quisieran para garantizar el nuevo reparto, se escribe ahora directamente con números, decisiones economicas y decretos como los gobiernos de Milei o antes de Bolsonaro</b>.</p>
+        <h4>La burguesía no es una, son varias fracciones</h4>
+        <p>No creemos que alguien un poco informado pudiese estar sorprendido por los afanes de la ultraderecha en el mundo o Latinoamérica. Sin embargo hay asuntos que Karmy no aborda, no comprende correctamente, o quizá solo cae en el fenómeno de "la economía del pensamiento" tan usual entre nuestra izquierda, al tildar a quienes están en el gobierno como esbirros de una "oligarquía" genérica de los grandes grupos economicos, o es mas, de la oligarquía rentista en particular.</p>
+        <p>No interroga el origen social del gobierno ultraderechista, no intenta comprender la composición y correlación de fuerzas al interior del bloque que accedió al poder, o las pugnas internas debilitantes que pueda generar su plan ante otras fracciones de la burguesía, de la socialdemocracia o el liberalismo. Y por ello no ha logrado ver el "verdadero contenido" de la propuesta neofascista.</p>
+        <p>Esta falencia del análisis lo ha llevado a abordar la critica al "plan de reconstrucción" de Kast, desde una perspectiva jurídico constitucional, en la cual la maniobra económica vendría de la mano de un proceso que, por la vía de la fuerza buscaría combatir "el agotamiento" y la suerte de "destitución" de la constitución pinochetista de Guzmán ocurrida por el levantamiento popular de Octubre de 2019. Constitución que a su entender, garantizaban la articulación del estado y el capital inmunizando a la oligarquía y sus privilegios, cuestión que si compartimos.</p>
+        <p>En nuestra opinión esta suerte de miopía ocurre porque al centrar la discusión en los procesos constituyentes previos, otorgándole el estatus de "espacios de discusión a pesar de los defectos", demuestra no entender el papel de esos procesos como sucedáneos homeostáticos estructurales que solo buscaban apaciguar las verdaderas demandas democráticas y sociales del pueblo chileno. Es importante recordar que la idea de una asamblea constituyente no estuvo en el origen del estallido de 2019, donde la consigna inicial fue "Que se vayan todos". Posteriormente desde cierto sindicalismo y partidos de oposición como el PC, el PS y el FA, se impuso esta linea que traspasaba el control del movimiento desde las organizaciones territoriales y el sindicalismo radical, a sus manos, para terminar desmovilizando al pueblo en las calles.</p>
+        <p>Un poco de historia. El proceso constituyente de Bachelet II que inicio en 2016, tuvo su origen como respuesta a las movilizaciones estudiantiles de 2011 y fueron parte de los compromisos de programa. En rigor se trato de un experimento burocrático y oficialista, con consultas ciudadanas y cabildos, que termino sin pena ni gloria como un breve ademan democrático cuyo resultado fue la imposición de una agenda woke que desplazo gran parte de las demandas populares, mas algunas concesiones focalizadas para responder a su origen, como la gratuidad estudiantil y derechos de minorías.</p>
+        <p>El proceso abierto con Piñera II, tuvo que ser mas profundo por la masividad y profundidad de las luchas sociales que se habían iniciado el 18O. Proceso que luego no fue apoyado consecuentemente por el gobierno de Boric, que en un giro "republicano" se posiciono en el rol de garante del "evento", sin empujar ni sostener ideologicamente el proceso. Esto genero nuevas contradicciones al interior del conglomerado de gobierno, llevando a la derrota del 1er proceso constituyente. Cabe hacerse una pregunta ¿Karmy o cualquier ciudadano creía realmente que se podía nacionalizar los recursos naturales vía constituyente? ¿nacionalizar lo que fuese? ¿por eso salio la gente a la calle, o por necesidades economicas inmediatas? La salida constituyente fue lo que nos vendieron, para terminar culpando a los votantes por no conseguir los cambios que perseguían.</p>
+        <p>El 2° proceso constituyente, ya completamente cooptado por la clase política y económica, fue un espacio político que con maniobras muy hábiles la derecha trato de aprovechar. Llegando al punto de que por medio de las reformas que incluían en la nueva carta, casi logran actualizar ultraneoliberalmente la constitución guzmaniana e iniciar el proceso que hoy viene a imponer de facto el gobierno de Kast. Mas alla de eso, Chile paso 4 años de constantes procesos eleccionarios que terminaron por sepultar cualquier afán de lucha social.</p>
+        <p>En este contexto mucho se ha especulado sobre el agotamiento sistémico en general, el agotamiento electoral, sobre el declive de los acuerdos entre la clase política y la oligarquía y el estrechamiento de la gobernabilidad y la democracia, pero solo lo mencionan a propósito de procesos y resultados electorales. Las democracia formal chilena y latinoamericana, sin embargo, han dado hasta ahora signos de salud para seguir liderando los procesos de acumulación y reorganización capitalista, a pesar del empoderamiento momentáneo de ultralibertarios fascistoides, traidores como Lenin Moreno o Luis Arce, o de rebeliones como las varias argentinas o la chilena. O por ultimo nada que la represión acotada o un estado policiaco no pueda resolver. Por el momento.</p>
+        <p>Y he aquí, un ultimo aspecto que Karmy extrañamente no explicito hablando de la mención a Portales del neofascista Kast. Si este gobierno tiene posibilidades de reprimir con mayor intensidad y eficacia las movilizaciones que puedan darse por su plan expoliador, se lo debe precisamente al gobierno de Boric. La socialdemocracia y la izquierda liberal institucional no son los defensores de la democracia frente al fascismo; fueron lo encargados de gestionar el tránsito hacia una sociedad mas represiva.</p>
+        <p><b>El famoso Duopolio o los grandes grupos economicos</b></p>
+        <p>Para intentar entender la operación que comenzó en Marzo, deberemos dejar de hablar de la clase política, "la oligarquía" o los grupos economicos al voleo como si fuesen una unidad monolítica. No toda la gran burguesía nacional ni los grupos políticos asociados a ellos ganan ni están tranquilos con este plan. Tampoco los capitales rentistas internacionales, que en un par de semanas sacaron ingentes sumas de dinero del país, en un gobierno se supone afín a su capitalización. Chile según todas las cifras economicas no sufre por el momento de un proceso de caída de la tasa de ganancia de los capitales, todo lo contrario se continua acumulando y exportando capital. Sin embargo la llegada del neofascismo ultraliberal parece indicar un proceso de preparación y readecuación del régimen para las nuevas condiciones economicas nacionales y mundiales.</p>
+        <p>El núcleo duro de la gran burguesía ---dueños de tierras mineras, forestales, industrias energéticas ligadas a la gran minería y los grandes grupos financieros rentistas parasitarios nacionales y extranjeros, incluidas las AFP y quienes participan de esa riqueza--- tienen asegurada su hegemonía en la acumulación económica desde la salida de la dictadura. A ellos no hay que convencerlos de nada.</p>
+        <p>Han manejado y trabajado con todos los gobiernos posdictatoriales, pero <b>hoy con su venia o sin ella, con algún nivel de acuerdo o no</b>, <b>han sido desplazados del poder político por la ultraderecha.</b> Esto no es un hecho político menor. Hasta ahora la alternancia del progresismo con la derecha siempre fue con su beneplácito, y jamas se vieron afectados ni en su control ni su acumulación de riqueza. Las cifras no mienten.</p>
+        <p>Y he aquí el meollo de la situación: el verdadero pilar economico y político de Kast es otra fracción del capital: <b>la mediana burguesía subordinada empresarial y rentista</b>. Grupos economicos y familiares como el del propio presidente o de sus ministros, exportadores no mineros, del retail, agroindustria, pesca, servicios, inmobiliarias, salud y educación privada, comunicaciones, de la banca. Sectores que crecieron a la sombra de los grandes grupos, que siempre quedaron relegados en las decisiones y en las ganancias extraordinarias. Son ellos los que más han resentido la concentración del poder económico y la falta de acceso al crédito barato o las platas de las AFPs.</p>
+        <p>Son ellos los que vieron en Kast a alguien que les promete, a diferencia de Piñera que gobernó para el y los de siempre, romper el statu quo que los ha mantenido a raya sin acceso a las grandes ganancias. Hoy en 3 meses de gobierno, con solo aumentar el precio de la gasolina, se han visto beneficiados por la inflación, la devaluación del peso, el aumento del dolar, y la subida de la UF. Porque a estos grupos economicos subordinados esta situación económica les conviene parasitariamente.</p>
+        <p>El ministro Quiroz, por poner un ejemplo vulgar, no es el abogado de la gran minería. Es el abogado de las colusiones de los pollos, el papel higiénico, las farmacias, el de las ganancias con picanterias. Su plan está diseñado para mantener aunada a esta burguesía subordinada, ofreciéndole ventajas tributarias, desregulación laboral y participación en las decisiones a cambio de lealtad política para mantenerse en el poder. De todos modos la relación es simbiotica, ese capital subvenciono, condiciono estos grupos de ultraderecha y los llevo al poder político.</p>
+        <p>No es un blindaje de los grandes capitales rentistas, aunque igual a ellos les conviene; o de un supuesto quiebre de la legitimidad de la constitución de Pinochet, que ciertamente necesita una actualización para aumentar los margenes de utilidad y acumulación; en lo central se trata de una <b>redistribución forzada de la acumulación de riqueza, a través de la sobreexplotación del trabajo y la naturaleza al interior de la propia burguesía, que requería el poder político y la fuerza del estado</b>.</p>
+        <h4>La DC, Fa, el PC y el PS se oponen, pero el PDG pone los votos</h4>
+        <p>Veamos el accionar de los grupos políticos del gobierno saliente ahora oposición. En el Congreso la Democracia Cristiana votó en contra del plan Kast. Pero su voto fue un gesto moral calculado y sin consecuencias, pues ya sabían que el Partido de la Gente (PDG) les daría los votos al gobierno para aprobarlo. Algo similar ocurrió con el FA, el PC, el PS, PPD, FRVS. Aunque en general todos ellos no solo se opusieron por el "pobre pueblo" que "representan", sino porque ellos son agentes de otros intereses economicos en la acumulación nacional y trasnacional.</p>
+        <p>Eso quedo claro con el regalo de la estrategia nacional del Litio, la bajada de pantalones con el Royalty minero, su deflexión ecologista y feminista, la firma de los tratados TPP11 o el traspaso milmillonario a las AFPs y aseguradoras realizados por el Gobierno de Boric. Busquemos allí quienes eran o son sus verdaderos patrones.</p>
+        <p>El PDG en cambio, partido bisagra que representa a sectores populares y profesionales despolitizados y a la pequeña burguesía empobrecida, demostró una vez más que su única lealtad es a la prebenda. Que son una operación de engaño social político electoral, como lo es el socialismo democrático, amarillos, demócratas, Evopoli o MEO. Así funciona la ingeniería parlamentaria del capital: unos se compran, otro sector se posiciona para las próximas elecciones, el otro ejecuta el ajuste.</p>
+        <p><b>Descomposición social como estrategia</b></p>
+        <p>El sofistamente llamado plan de "Reconstrucción Nacional", como vemos, no se limita a la cuestión impositiva como forma de garantizar ganancias a un grupo monolítico del capital nacional. Seria una locura que esa sea todo el plan, algo que ya tenían asegurado. Mas bien, a través de una enorme y profunda reforma impositiva, sumada a cambios constitucionales por la vía de facto y la consolidación de un estado policial, apuesta por la <b>sobreexplotación del trabajo y la naturaleza bajo la tutela de una nueva y voraz fracción de los grupos economicos nacionales</b>: con salarios reales a la baja, flexibilidad laboral extrema, arrasamiento de territorios sin consulta ambiental, aumento del costo de la vida y perdida de todos los derechos sociales.</p>
+        <p>Debemos suponer que ellos saben que la implementación de su plan generara inevitablemente reacción social. Por eso es importante entender quienes blindaron policialmente al estado. El gobierno de Boric, empleados ellos si del gran capital nacional e internacional. Mas alla de eso, la derecha confía en que esa reacción si ocurre, será localizada, fragmentada y reprimible.</p>
+        <p>Más aún, la actual administración no solo tolerara la descomposición social (violencia, narcotráfico, crisis de salud mental, desintegración familiar); la estimulara como mecanismo de control. Una sociedad que se desarma es una sociedad que no se organiza. El miedo, la precariedad y la desconfianza impiden la formación de sujetos colectivos estables. Disciplinamiento del sentido común por precariedad, temor o la fuerza. Esta es otra parte de la apuesta, quizá aun mas importante que un estado policial: <b>descomponer económica, social y eticamente para dominar a largo plazo</b>.</p>
+        <p><b>¿Hay posibilidades de poner límites?</b></p>
+        <p>La historia nos enseña que este tipo de estrategias tiene un punto de quiebre. Dadas las condiciones organizativas de los sectores populares y sus organizaciones politicas, generalmente de forma espontanea, por mas que sea dentro de ciclos de movilizaciones sociales nacionales o mundiales. Lo que pasa a ser un dato mas. En Argentina el 2001 la protesta social logro sacar a De La Rúa. 25 años después tienen a Milei!. En Chile a pesar de un ciclo de movilizaciones sociales desde 2008 mas o menos, hemos tenido gobiernos de derecha en 2 ocasiones sin resultados organizativos relevantes; la revuelta de 2019 fue un claro ejemplo: nadie la anticipó, nadie la organizo, nadie vio la maniobra política constituyente del poder, mucho menos en su magnitud.</p>
+        <p>A pesar de todo, el descontento acumulado durante décadas encontró un detonante y se desbordó. Kast hoy puede ganar tiempo con el actuar solapado de su gobierno, con su no-comunicación efectiva, con el extenso trabajo de control de los medios de comunicación, pero las contradicciones y aprendizajes que quedaron de ese proceso no desaparecieron, se acumularan junto a las que su gobierno provoque: la caída del consumo, las quiebras de pymes, la cesantia, los conflictos ambientales, el desgaste de la alianza gobernante, la pérdida de legitimidad del "orden" por la represión... todo eso les puede pasar la cuenta.</p>
+        <p><b>¿En que condiciones el gobierno neofascista de Kast podría entrar en crisis?</b></p>
+        <p>Por aquí es donde toma relevancia el análisis de los sectores en el poder. Ante la eventualidad del aumento de la lucha social, conocer los sectores de la burguesía que son beneficiados y afectados por este gobierno, o conocer las posiciones politicas de cada uno de ellos, ayuda a planificar las posibilidades de los desposeídos a resistir el embate y a intentar debilitar el gobierno de Kast para comenzar a empujar nuevamente hacia el otro lado.</p>
+        <p>Primero, una cosa es la base social del Kastismo, y otra son sus verdaderos acreedores como indicábamos mas arriba. Medianos y pequeños empresarios (comerciantes, transportistas, pequeños agricultores, profesionales independientes, sectores inmobiliarios) el sector rural y agrícola, sectores conservadores de la sociedad, clase media proletarizada y sectores populares pauperizados, que constituyen lo mas importante de la base social del neofascismo criollo, o que esta votando por ellos, sostienen intereses antagónicos al de las fracciones de <b>la burguesía subordinada empresarial y rentista</b> que impulsan el proyecto de "reconstrucción" a través de la ultraderecha.</p>
+        <p>Es decir, en primer lugar su propia base social "votante" sufrirá la competencia desleal de los grandes grupos, el endeudamiento, la presión tributaria, la falta de acceso al crédito y sufrirá el embate sobreexplotador del trabajo y la perdida de derechos. La nueva concentración económica los pondrá contra la pared y con ellos a miles de trabajadores.</p>
+        <p>Si los sectores burgueses que están detrás del gobierno de Kast, incluidos los sectores de la derecha tradicional que apoyan "haciéndose los lesos" como RN o la UDI, ven que este comienza a desdibujarse políticamente perdiendo posibilidades de continuar un segundo mandato derechista, o si mas importante, no logran beneficios rápidos para lo que los han puesto en el poder, comenzaran a poner en duda su apoyo.</p>
+        <p>Y aunque no lo parezca, a la gran burguesía nacional, que en rigor les conviene o permitieron este gobierno, la idea de un gobierno policial nunca les ha agradado mucho. No por nada, de 37 años de "democracia", han gobernado 29 años de la mano de la DC y la socialdemocracia liberal hasta el PC y 8 años con la derecha tradicional. Sin embargo la condición de un estado fallido, pondría al país y su economía en una posición internacional difícil que si los afectaría. A través de medios como El Mercurio, Diario Financiero y varios otros, ya han comenzado a aleccionar al gobierno y los ministros de Kast. Recordemos que ellos, la gran burguesía, también estuvieron detrás del "Acuerdo por la Paz Social y la Nueva Constitución".</p>
+        <p>Por ahora, muy rápidamente, solo los escolares y algunos gremios están comenzando a comprender la magnitud y la esencia del "plan de reconstrucción" ultraderechista, y han salido a manifestarlo junto a pequeñas orgánicas politicas de izquierda que aun existen.</p>
+        <p>Así las cosas, un plan político para abordar la desposesión que se proponen, a nuestro parecer, solo debería considerar acciones que permitan acumular fuerzas y ojala propinar algún tipo de derrota central concreta a la facción de la burguesía tras el gobierno de Kast. La idea de maniobra es ponerlos rápidamente a la defensiva y profundizar la inestabilidad política que han mostrado tener.</p>
+        <p>El movimiento ecologista, los estudiantes movilizados y sectores gremiales como la salud y el profesorado son los inicialmente mas afectados, y los que en rigor deberían ir a la vanguardia de la respuesta. Otros importantes grupos de presión son los portuarios y los pescadores artesanales.</p>
+        <p>Muchos intereses economicos de este políticamente precario nuevo bloque en el poder, están en esas áreas de interés.</p>
+        <p>Hoy mas que nunca la diferencia entre que la descomposición social derive en mas anomia o en procesos organizativos en defensa de los intereses de los postergados, depende de un factor clave: <b>la existencia de organización, plan y dirección política</b>. Coincidir en las calles es un paso fundamental, pero no para inmolarse, sino para construir fuerza. También lo es la propaganda coordinada. En este sentido resulta vital tener presente la experiencia del 18O y no repetir las manifestaciones episodicas y rutinarias en puntos céntricos donde la represión se hace mas fuerte.</p>
+        <p>Hay posibilidades, es de esperar que todos los involucrados lo comprendamos lo mas pronto posible.</p>
+        <p>: https://lavozdelosquesobran.cl/opinion/gobierno-refundacional/17052026</p>
+      </div>
+    </article>
+    <article class="card" id="hora-politica" data-section="nacional">
+      <div class="card-head" onclick="toggleCard('hora-politica')">
+        <span class="tag tag-nacional">Nacional</span>
+        <h3 Id="La-hora-de-la-politica">La hora de la política</h3>
+        <p class="dek">A cinco meses del gobierno de Kast: crisis económica, la lección del 18O, y la construcción de un plan táctico para las luchas populares.</p>
+        <p class="meta">Equipo La Trilla</p>
+        <button class="expand-btn">Leer completo ▾</button>
+      </div>
+      <div class="full">
+        <p>Han pasado cinco meses desde que José Antonio Kast asumió la presidencia de Chile. Para cualquier analista o militante político debiera ser evidente que el 99% de su programa de gobierno fueron solo mentiras demagógicas. Mas aún. Mas allá de la falta de fiabilidad evidente de las encuestas, resulta claro que su propio electorado ya ha percibido que fue engañado. Su aprobación inicial ha caído 16 puntos.</p>
+        <p>Aunque la prensa mass media actúa como tapadera del verdadero programa del gobierno neofascista de Kast, las cifras son elocuentes: el Imacec de mayo cayó 0,9%, el desempleo subió a 9,4% y la producción industrial retrocedió 7,5%; en los hechos el país está camino de una recesión. Para la mayoría trabajadora del país que sobrevive con sueldos miserables, esta situación no requiere necesariamente aparecer en la televisión. Se comienza a palpar cotidianamente al "parar la olla" o al aumentar el endeudamiento.</p>
+        <p>Ahora, parece obvio que un gobierno pinochetista y ultraneoliberal, que ademas anunció un recorte presupuestario de 6 mil millones de dolares, provocaría movilizaciones. La pregunta no es si habrá protestas --- ya las hay --- sino si lograrán darse una <b>orientación política</b> y un nivel de desarrollo organizativo mas permanente. Es decir, que destino tendrán esta vez las fuerzas populares y de trabajadores.</p>
+        <p>Porque la historia reciente es brutalmente elocuente: el 18 de octubre de 2019 fue la mayor explosión social de las últimas 4 décadas y sin embargo, cinco años después tenemos un gobierno de ultraderecha. No fue porque el pueblo no haya luchado. En nuestra opinión este resultado es producto del carácter espontáneo de estos episodios, incluido el 18O, que no logran articular organización mucho menos disputar el sentido común dominante. Pues, aunque se considere como parte de un ciclo de luchas sociales desde el 2006, todos ellos carecieron de dirección política y un plan de acción con objetivos claros.</p>
+        <p>En cuanto al estallido social, en el momento más álgido cuando las demandas económicas se cruzaron con las políticas, esta carencia ideológica permitió que la oligarquía, ante la debilidad evidente del gobierno de Piñera II para garantizar algún nivel de gobernabilidad, lograra rearmar <i>sus</i> fuerzas. Hablamos no solo de la derecha tradicional, sino también la socialdemocracia y la izquierda neoliberal, quienes en conjunto disputaron la conducción del proceso e iniciaron un camino institucional de desactivación.</p>
+        <p>¿Que explica entonces que el 18O haya sido cooptado con tanta rapidez?</p>
+        <p>Desde hace décadas, la izquierda revolucionaria anticapitalista o antisistémica chilena, arrastra una crisis que no es solo organizativa. De hecho, la crisis orgánica es producto de una crisis teórica, estratégica y cultural. La verdad es más dura: la izquierda chilena no logró articularse en un proyecto nacional ni siquiera en la Unidad Popular.</p>
+        <p>Esta izquierda post dictatorial no ha logrado desentrañar el proceso actual de desconstitución social e ideológica de la clase trabajadora y sus organizaciones. Se trata de la fragmentación social y sindical producto de la precarizacíon, la tercerización y la subsunción de toda nuestra forma de vida bajo el consumo capitalista neoliberal, donde el viejo proletariado fabril ya casi no existe. En el mundo del trabajo asalariado conviven en la actualidad, desde la aristocracia obrera de los trabajadores del cobre hasta los repartidores de aplicaciones y trabajadores a domicilio sin contrato. Todo esto ocurre en un contexto mas amplio de proletarización creciente y no asumida ideológicamente, de muchas ramas profesionales, junto a una masa de trabajadores informales que no encuentran representación en las estructuras políticas y sindicales tradicionales.</p>
+        <p>La crisis teórica que no logra aprehender la realidad, no es sólo un dato objetivo manifiesto en el mundo del trabajo. Es también el resultado subjetivo de la <b>derrota política e ideológica</b> de los proyectos de izquierda históricos nacionales e internacionales. En Chile, luego de la salida pseudo "democrática" de la dictadura, los distintos gobiernos y sus organismos defensivos del capital (económicos, políticos, ideológicos y culturales) han logrado orientar al movimiento político-social a moverse entre dos polos igualmente funcionales al sistema: por un lado el aventurerismo político radical de quienes confunden cortoplacistamente protestas y procesos organizativos incipientes con la revolución y los principios personales y éticos con las necesidades de la lucha política.</p>
+        <p>Y por el otro lado, muchos sectores políticos y sociales fueron empujados al inmovilismo resignado, de quienes creen que ya no hay alternativa o quizá que el enemigo es muy grande para darle una pelea revolucionaria. Aceptando ideologicamente las ideas de "mejoramiento" del sistema y del famoso "chorreo", manteniendo al empresariado como sujeto fundamental del desarrollo. Es la deflexión patética del viejo Partido Socialista de Chile y del Partido Comunista, o de otras pequeñas fuerzas politicas que oscilan entre la lucha social, el asistencialismo y la vía electoral, para reformar como único camino.</p>
+        <p>Ambas posiciones permiten que el sistema siga su curso. La primera, cae en un análisis voluntarista que lo aleja de las grandes masas "impuras" o "electoralistas", dándole prioridad al camino propio. No logrando abordar la necesidad de construir poder de masas duradero, ni la necesaria disputa del enajenado sentido común. La segunda, aun con dejos antisistémicos, acepta acríticamente lo aparentemente inevitable. En el mejor de los casos sobrevive buscando representar electoralmente aspectos de las necesidades y derechos sociales; en el peor haciéndose parte del sistema, como vemos.</p>
+        <p>La porfiada historia nos dice que el sujeto revolucionario y sus organizaciones no preexisten a la lucha: <b>se construye en la lucha</b>. Pero para salir de esta posición de derrota, se requiere una profunda autocrítica para llegar a lo que precisamente hoy se carece: teoría, organización, dirección y objetivos concretos. No basta con "estar en la calle" o que las condiciones economicas desmejoren, como creen algunos sectores. Minimamente hay que saber qué se hace en la calle, con quién se coordina, y hacia dónde se va.</p>
+        <p>Ahora, la falta de comprensión de la realidad afianzada en un análisis "económico" de ella - economico en el sentido de "estrecho", obtuso, "economicista" - donde todo y todos excepto sus propias fuerzas son iguales, deriva en una práctica moralista y en un sectarismo doctrinario que se expresa de varias formas.</p>
+        <p>Primero vemos un maximalismo reivindicativo sin asidero en fuerzas reales. Todo o nada para el pueblo: exigencias de carácter socialista en un contexto de descomposición organizativa y pauperización intelectual de las masas. Por otro lado, el purismo de quienes consideran que cualquier acercamiento a sectores "no revolucionarios" es una "traición". Rechazando la lucha por la hegemonía política con el "no tranzo" como mantra. O aceptando alianzas solo con quienes asuman <i>todas</i> sus posiciones político-ideológicas.</p>
+        <p>Una expresión mas de estas desviaciones, es el "identitarismo" organizativo de quienes defienden su historia, sus símbolos y sus próceres como si eso reemplazara el análisis concreto de la realidad. Por último, el rechazo a priori, anarquista, a cualquier forma de organización centralizada, incluidos los partidos "tradicionales", como si la horizontalidad por sí misma fuera una garantía de pureza política.</p>
+        <p>El resultado general, es una izquierda "revolucionaria" que ha abandonado la lucha de masas, entregándola en manos de la clase política burguesa, refugiándose en un abstencionismo principista casi como única política. Una izquierda que gasta más energías en disputas espurias por el "poder" de conducción entre orgánicas marginales o en políticas de construcción de fuerza propia, creyendo que su historia o su identidad garantizaran la conducción política. Pero lo único que posibilita a cualquier fuerza la conducción, es la <b>capacidad de mantenerse junto al pueblo aun en esas luchas que parecen estar por debajo de nuestra "capacidad ideológica", leer con ellos la realidad, proponer un plan y ejecutarlo con fraternidad, solidaridad y disciplina</b>.</p>
+        <p>El estallido de Octubre de 2019 fue una explosión de rabia legítima y acumulada. Las consignas iniciales del movimiento: "Que Se Vayan Todos" y "No eran 30 pesos, Sino 30 años" mostraban el nivel de memoria y beligerancia del malestar social. Sin embargo, ante la radicalidad del movimiento, la clase política en general, la oposición a Piñera - el PC, el PS, el Frente Amplio - mas movimientos sociales afines y el propio gobierno, finalmente negociaron e impusieron una línea de salida institucional: plebiscito para una nueva Constitución.</p>
+        <p>El fenómeno político más nuevo e interesante de la rebelión popular, la aparición de centenares de Asambleas Populares por todo el territorio. Impulsadas en parte por pequeños movimientos y sectores de izquierda revolucionaria y el anarquismo, pasaron de intentar planificar y coordinar formas de control de sus espacios vitales, a discutir el posible contenido de una nueva constitución no pinochetista. Un canto de sirena no menor: <b>el espejismo de la recuperación de derechos sociales conculcados y la nacionalización de procesos productivos y recursos naturales (RRNN) eran parte de la oferta</b>.</p>
+        <p>En términos generales el error no fue haber participado en el proceso constituyente, que ciertamente contenía la posibilidad de un momento de politización popular. El error fue que ante la carencia de objetivos tácticos concretos se abandono el proceso de construcción social y se termino centralizando la discusión en el posible contenido de una Nueva Constitución, sin lograr una mirada crítica de lo que ese proceso implicaba para el movimiento.</p>
+        <p>La izquierda liberal y el liberalismo de izquierda, se convirtieron así en los garantes de la desmovilización; también la burocracia sindical que en lugar de profundizar el paro, llamó a "depositar la confianza en el proceso constituyente". Esa fue otra pieza clave de la desmovilización. Cuando el aporte de fuerza social que estas organizaciones brindaban se replegó de las calles, los movimientos asamblearios territoriales experimentaron un rápido declive. Unos apostaron por la autonomía absoluta, otros continuaron en gestos simbólicos sin capacidad de incidir, ya desnudos de las fuerzas de las masas.</p>
+        <p>Esta jugada sentó a díscolos personajes de la oposición en la mesa de la derecha y la oligarquía. El movimiento terminó fácticamente entregando su fuerza a las urnas y desmovilizando las calles. La socialdemocracia, la derecha y la oligarquía aprovecharon el proceso constituyente para terminar de desgastar, dividir y finalmente enterrar cualquier posibilidad de cambio.</p>
+        <p>Uno de los errores recurrentes del análisis en la izquierda - o mejor dicho de su evidente carencia - es que los lleva a hablar de "la oligarquía" o "el duopolio" abstractamente y en general. Ese planteamiento simplista no solo genera gran parte de los problemas ideológicos y las prácticas políticas mencionadas más arriba, sino que impide ver las contradicciones al interior del bloque dominante y, por lo tanto, diseñar una táctica y una estrategia que logre explotarlas para beneficio popular.</p>
+        <p>Como ya escribimos en el artículo "De quien es el Plan de Kast", este no es el gobierno de los grandes grupos económicos tradicionales. Es el gobierno de <b>una fracción específica del capital</b>: la burguesía subordinada empresarial y rentista. Aquí solo afinaremos el analisis en un aspecto de esta nueva situación.</p>
+        <p><b>La gran burguesía fue desplazada del poder político porque en cierto sentido lo permitió.</b> No fue una derrota; podemos especular que fue una delegación. La gran burguesía y su bloque no quiso asumir el costo político que un plan como el mal llamado "Plan de Reconstrucción" requería. Para eso está el neofascismo: para hacer el trabajo sucio que la derecha tradicional y la socialdemocracia ya no puede hacer sin destruirse. Kast y su fracción son la <b>fuerza de choque política</b> de un nuevo bloque en gestación, que se debate entre seguir subordinado al gran capital o liderar el proceso de acumulación capitalista inmediato y futuro para su beneficio.</p>
+        <p>Dejando de lado las obvios conflictos sociales con las clases desposeídas - que abordaremos más abajo - este nuevo bloque en el poder tiene sus propias tensiones internas. Pero no hay que confundir disputas coyunturales con contradicciones tácticas o estratégicas.</p>
+        <p>La gran burguesía puede no estar de acuerdo con todos los detalles del plan, pero está de acuerdo con su <b>dirección general</b>: profundizar la explotación de la fuerza de trabajo, la naturaleza y la proletarización creciente de sectores profesionales. En el fondo, un nuevo disciplinamiento de la clase trabajadora para asegurar las condiciones de acumulación de capital.</p>
+        <p>Postulamos que la contradicción estratégica sigue siendo la lucha entre el gran capital versus la fuerza de trabajo. Pero <b>la contradicción táctica explotable</b> en este periodo, no es entre la gran burguesía y la clase trabajadora en general. Es <b>entre la fracción que impulsa el gobierno de Kast -</b> la burguesía subordinada empresarial y rentista - versus la clase trabajadora en general y, por otro lado, <b>la propia base social del gobierno</b> (pequeños y medianos empresarios, sectores populares conservadores y pauperizados, clase media profesional y no profesional proletarizada) junto a <b>su apoyo geopolítico:</b> EEUU (Trump) que tensiona a la gran burguesía nacional con China el mayor socio comercial del país de los últimos 40 años!</p>
+        <p>Veamos, el "Plan de Reconstrucción Nacional" no es un conjunto de medidas económicas mal diseñadas. Es un <b>proyecto de clase.</b>  Busca, tras el estallido social que prendió las alarmas, re-viabilizar el proyecto de acumulación capitalista nacional, ante lo que algunos politólogos consideran un aparente desgaste de la protección de la constitución pinochetista. <b>Nosotros consideramos, que mas bien se trata de un proceso de reorganización capitalista ante un inminente decrecimiento de la tasa de ganancia y la acumulación, ademas de una nueva realidad tecnológica y geopolitica.</b>. Para ello el gran capital permitió la redistribución de la acumulación al interior de la clase poseedora, con la condición que esta fracción económica logre redisciplinar la masa laboral y el ejército laboral de reserva.</p>
+        <p>El corazón del proyecto es presentado como la rebaja del impuesto corporativo del 27% al 23%, la invariabilidad tributaria para inversiones sobre US\$50 millones, la exención transitoria del IVA a la venta de viviendas nuevas y beneficios fiscales para repatriar capitales. Una especie de "recesión controlada", que permite también indirectamente a muchos capitales obtener ganancias parasitarias y traspasarse sin esfuerzo ingentes cantidades de capital. <b>Pero probablemente, lo mas importante sea el afán de privatizar el total de la explotación extractivista de los escasos recursos naturales del país.</b></p>
+        <p>Todo ello financiado con recortes masivos al gasto social y sobreexplotación: el fin de la seguridad social - recortes en salud, educación, transporte público, jubilaciones, cultura - la baja de sueldos, el aumento de las horas de trabajo, el fin de las huelgas, el fin del seguro de cesantía y la eliminación de indemnizaciones por años de servicio. Obviamente no es una política "errónea" desde el punto de vista del poder economico. Es <b>correcta</b> para sus intereses: concentrar la riqueza en sus manos y disciplinar al conjunto de la sociedad. Por eso no basta con decirle al pueblo que "la reforma es mala", "el gobierno es malo" o que "es culpa del duopolio", pues ese tipo de discurso es un factor que, precisamente, abrió la puerta a la ultraderecha para decir que ante la ineficacia y la estupidez de los otros, ellos lo podían hacer mejor. Debemos mostrar <b>quién está detrás del plan, a quién beneficia y particularmente a quiénes perjudica</b>. En ese contexto, hay que hacer evidente para los trabajadores y el pueblo, el origen de esta nueva fracción económica en el poder, sus objetivos, sus debilidades y obviamente, <b>el papel del parlamento, la izquierda liberal, la socialdemocracia, el liberalismo de izquierda, la burocracia sindical y el Estado de derecho en el mantenimiento del orden capitalista</b>. Es decir el trabajo de "politizar" que los analisis "economicos" quieren saltarse!</p>
+        <p>El gobierno de Kast es frágil. No sólo por la caída de su aprobación o por el deterioro económico que propugna, sino porque su coalición es un experimento heterogéneo en formación y su principal punto de apoyo externo - Estados Unidos y Trump - están en su propia crisis.</p>
+        <p>En el país las tensiones entre Republicanos y Chile Vamos son públicas y recurrentes<b>.</b> La acusación constitucional contra Nicolás Grau evidenció la descoordinación de la derecha: republicanos sostuvieron el libelo de manera consistente, pero en Chile Vamos hubo apoyos parciales, rechazos, abstenciones e inhabilidades. Kast ha tenido que convocar a desayunos en La Moneda para intentar recomponer las confianzas. La UDI mantiene la guardia en alto y remarca las distancias con el Partido Republicano.</p>
+        <p>Pero hay que ser cautos: esas diferencias son, en gran medida, <b>chismografía política</b>. Lo importante son los <b>acuerdos de fondo</b> sobre el plan de esta fracción. A pesar de las precisiones que la gran burguesía dicta al gobierno a través de sus medios y sus lobistas, la <b>cuestión es cómo este plan afectará a su propia base social, que en rigor <i>no es</i> su base social orgánica, sino una construida sobre el engaño demagógico.</b> Porque finalmente los votos de la derecha en el Congreso son coherentes con el proyecto: la Megarreforma avanza.</p>
+        <p><b>La fragilidad geopolítica es otro factor clave.</b> Kast llegó al poder alineado explícitamente con Washington, y en particular con la figura de Donald Trump quien está en su segundo mandato pero cuya posición actual es difícil. Las elecciones de "medio término" de noviembre de 2026, en medio de una de las escaladas guerreristas más impactantes de las últimas décadas, son un momento clave. La posibilidad de que Trump pierda el control del Congreso es real. Si Trump cae - ya sea por una derrota electoral o por un debilitamiento progresivo - el gobierno de Kast <b>pierde nominalmente su principal punto de apoyo externo</b>.</p>
+        <p>Eso no significa que un gobierno demócrata en EE.UU. sea mejor para Chile. Los intereses estratégicos de Estados Unidos en la región no cambian con el color del partido gobernante. Pero la incertidumbre que generaría la caída de Trump afecta los intereses de la gran burguesía nacional, que como mencionamos ha apostado por el en contra de sus socios más importantes de las últimas décadas: los Chinos. Los grandes grupos económicos necesitan estabilidad y previsibilidad para sus negocios. Un gobierno de Kast tambaleante, sumado a un socio externo en crisis, no es buen negocio.</p>
+        <p>Mientras avanzan los meses, la izquierda neoliberal - Frente Amplio, Partido Socialista, Partido Comunista, PPD - intenta recomponerse como oposición "responsable". La presidenta del FA, Constanza Martínez, calificó la reforma de "radical" y lamentó que se aprobó "sin acuerdos, sin diálogo real". El senador comunista Daniel Núñez dijo que el ministro Quiroz "se ha ganado el título de ser el Robin Hood de los superricos". La CUT, por su parte, "valora" que el gobierno se siente a dialogar.</p>
+        <p>Pero las críticas se quedan en el discurso y en el parlamento. Y por cierto en los medios, donde hoy pululan ideólogos comunistas y frenteamplistas hablándonos del "leninismo del PC", del afán de "reemplazo de las leyes" por parte del gobierno, y la "Mano Izquierda del capital" de no se quién. Pero cuando la Megarreforma llegó al Senado, la "oposición" no se negó a discutir; se sentó a negociar indicaciones y en eso están. El voto de Pedro Araya (PPD) fue el ejemplo perfecto: su abstención fue el voto que permitió políticamente la aprobación de la idea de legislar. No se trataba de rechazar el contenido de clase de la reforma, sino de <b>reclamar un lugar en la mesa donde se administrará su tramitación y correrá la plata</b>.</p>
+        <p>Esa es la lógica de la izquierda neoliberal: <b>estar en la mesa, no cambiar la mesa</b>. Su papel es doble: por un lado, contener el descontento social canalizándolo hacia cauces institucionales, obteniendo pequeñas prebendas para el país y los sectores populares que le permitan volver a proyectarse al gobierno; por otro, en la medida que "republicanamente" asisten al parlamento a votar el "plan de reconstrucción", dar cobertura "popular" a una estrategia de adaptación parlamentaria derechista.</p>
+        <p>En este sentido, el gobierno de Boric fue el remate del proceso de transición que allanó el camino para el extractivismo - la Estrategia Nacional del Litio, el Royalty minero light, el TPP11 - y para la construcción de un estado policial que hoy Kast utiliza sin reparos y busca profundizar aún mas. Estos aspectos son antecedentes de la actual situación. La izquierda neoliberal no es ni sera una alternativa antisistemica; no representa mas que su gestión con rostro humano. Su papel hoy sigue siendo desactivar cualquier intento de lucha popular que amenace con desbordar los marcos institucionales. Pero un numero importante de ciudadanos aun creen en ellos y en el sistema ¿qué hacer? ¿seguiremos ignorándolos como hasta ahora? ¿cómo en el 18O? Más adelante en el artículo veremos algunas posibilidades.</p>
+        <p><b>Agudización de las contradicciones y reorganización popular</b></p>
+        <p>"Hay que agudizar las contradicciones" fue una frase recurrente entre los sectores de izquierda de los 80s. En ese momento critico, la militancia político-social olvidábamos que detrás de esas contradicciones estaban los sectores populares que las sufrían. Hoy, en un contexto geopolítico caótico, con un avance de la derecha y los yanquis en América Latina, un nuevo afán expoliador de la burguesía nacional está agudizando las contradicciones en nuestro país.</p>
+        <p>Para nosotros la "agudización de las contradicciones" no es suficiente como postura política. Primero debemos responder ¿qué contradicciones? En este sentido el materialismo histórico nos enseña que la conciencia política no surge necesariamente de la precariedad, todo lo contrario. Por lo que la oportunidad que abre la actual situación, es la de identificar nuestras posibilidades de lucha, avanzar en procesos de reorganización y en la disputa de las conciencias populares.</p>
+        <p>Es prioritario avanzar con ese horizonte: es decir la rearticulación de las organizaciones y la recuperación del sentido común popular. Para eso necesitamos un <b>plan táctico</b> con objetivos concretos que perseguir en este periodo que nos permitan articular a los distintos sectores que comienzan a movilizarse. <b>Pero esta vez con la clara conciencia de un proceso de construcción de poder popular de masas de largo plazo.</b></p>
+        <p>Demos una mirada a los sectores de trabajadores, sociales y populares que ya se han movilizado o mas propensos a movilizarse: los estudiantes secundarios, esta vez junto a la Confech y pequeños grupos de izquierda, fueron los primeros en percibir la virulencia del plan económico de la ultraderecha. Luego se reactivó el movimiento ecologista en lucha por la preservación de los territorios amenazados directamente. La Confederación Nacional de Trabajadores del Transporte (CNTT) y el Movimiento 100X100% con el Pueblo han protestado en Santiago y anuncian nuevas movilizaciones. La CUT, convocó a la primera gran marcha contra Kast el 1 de mayo, con la participación de decenas de miles de trabajadores y ciudadanos. Sectores de la salud como la Fenats, se han movilizado incipientemente. Otros como la Confusam y los portuarios anuncian movilizaciones futuras contra los recortes que afectan el que hacer de su gremio, íntimamente ligada a la realidad social.</p>
+        <p>La realidad objetiva que se desprende del Plan de Kast, es que estos son los sectores más perjudicados desde el primer minuto por los recortes presupuestarios. Para dar un ejemplo, los proyectos de extracción de litio y tierras raras que EEUU impulsa a través del gobierno de Kast, están encontrando resistencia en los territorios. Esa resistencia no es solo ecologista; es una resistencia <b>anticolonial y anticapitalista</b>. Apoyarla, visibilizarla con ese carácter, conectarla con las luchas sectoriales de la salud, el estudiantado, es una forma de <b>golpear a la fracción que está en el poder y a su socio externo</b>."</p>
+        <p><b>La primera batalla táctica entonces podría ser, por ejemplo, frenar la aprobación de un proyecto específico de extracción de litio o tierras raras. Eso implicaría coordinar a las comunidades locales, a los sindicatos afines, a los movimientos ecologistas y a los estudiantes y diseñando una campaña de propaganda que exponga los intereses de la fracción de Kast y de sus socios estadounidenses.</b></p>
+        <p>Los partidos y organizaciones políticas de izquierda consecuente deberían tomar esta labor como una de las centralidades tácticas del periodo. Pero ejecutando un plan que evite dispersar la energía en protestas simbólicas sin dirección, estableciendo en cada movilización un objetivo pequeño o grande pero concreto y medible en el tiempo: impedir un desalojo, paralizar un sector productivo, conseguir un aliado para la causa. Ser articuladores activos de las luchas particulares - ecologistas, feministas, estudiantes, trabajadores - en una lucha común contra la esencia del sistema. No como un "frente amplio" electoral, sino como un polo de construcción de poder popular con capacidad de veto y de propuesta<b>.</b></p>
+        <p>##</p>
+        <p>Para ello, nuestra comprensión sobre la lucha política y sus necesidades debe dar un salto cualitativo. Reincorporar autocríticamente la importancia de la discusión política y el analisis de nuestras fuerzas y de las masas populares es una exigencia ética del momento.</p>
+        <p>Revisemos un par de situaciones del estallido social:</p>
+        <p>Un hecho relevante que da cuenta de las dificultades de interpretación de la realidad que indicamos, dice relación con la no participación de un grupo importante de asambleas territoriales en los esfuerzos centrales que se realizaban desde el bloque de Unidad Social (US). Bloque donde se concentraba el numero mas importante de organizaciones de trabajadores, sociales y políticas. Este grupo de asambleas era impulsado por pequeñas orgánicas extrasistémicas, anarquistas y ONGs que enfrentaron el proceso con un plan de construcción de fuerza propia, con una política anti partido, abstencionista y de no participación en los espacios de la "clase política y sindicatos tradicionales vendidos".</p>
+        <p>Por esta razón y con una opacidad conspirativa, sin muchas explicaciones, no marchaban junto a la Mesa. No se sumaron a los llamados a Huelga Nacional del 4 ni el 12 de Noviembre, sino que lo hicieron en otras fechas y lugares. Restaron así grupos de miles de ciudadanos, que comenzaban a comprometerse en la lucha a las manifestaciones mas importantes del momento. Estas asambleas construían un instrumento llamado El Pliego del Pueblo, una serie de demandas reivindicativas generales, pero sin contar con un plan mas alla de la necesidad de organizarse. Y aún siendo grupos organizados, la idea de maniobra era que el plan debía surgir del encuentro con la gente. Finalmente, al igual que todo el movimiento, abandonaron sus demandas particulares por la discusión de la Asamblea constituyente.</p>
+        <p>Una reivindicación, parte del contexto político más amplio del 18O, surgió cuando la llamada Mesa o Bloque de Unidad Social - como decíamos, una coordinación de organizaciones sociales, territoriales, políticas y sindicales - planteó a la clase política la exigencia de ejercer una Huelga Legislativa. Es decir, que la oposición al gobierno de Piñera se niegue a legislar mientras se siguiese reprimiendo las movilizaciones, que entonces ya contaban con decenas de asesinados, mutilados y torturados por las fuerzas policiales.</p>
+        <p>Para sorpresa de todos, fueron expresadas en nombre de la mesa por la comunista Bárbara Figueroa entonces presidenta de la CUT. Esa exigencia hacia la clase política - surgida de los gremios organizados más importantes del país - se planteó junto a demandas por la vuelta a los cuarteles de los militares, la derogación del estado de emergencia y, por primera vez, como una reivindicación del movimiento se incluyó la exigencia de una Asamblea Constituyente.</p>
+        <p>Estas demandas sumadas al crecimiento acelerado de organizaciones territoriales fueron desde nuestro punto de vista un momento de inflexión de la lucha social.</p>
+        <p>La importancia de la aparición de estas demandas, fue que terminó de alertar a la clase política que el movimiento no se estaba dejando cooptar fácilmente y que ademas atacaba su sistema representativo. Entonces Boric - diputado y uno de los líderes de la oposición - se sentó con la derecha para negociar la salida institucional de un plebiscito y proceso constituyente.</p>
+        <p>Aun cuando la Huelga Legislativa fue una exigencia hacia los parlamentarios - no una acción autónoma del movimiento - mostró la rapidez con que las demandas económico-sociales pueden avanzar hacia demandas políticas.</p>
+        <p>Consideramos que, análogamente a aquella situación, la actual Megarreforma fascista nos permitiría levantar hoy esta misma reivindicación con un carácter "propagandístico", para contribuir a la comprensión de los sectores populares sobre el verdadero papel de los procesos electorales y el parlamento como elementos de control social usado por el gran capital.</p>
+        <p>La proponemos como una reivindicación táctica exigiendo al conjunto de la oposición una Huelga Legislativa en defensa de los intereses populares y nacionales. Esta exigencia debe ir de la mano con el desenmascaramiento de los intereses específicos del nuevo gobierno. Exigiéndole al PC, al PS, al FA y a toda la oposición parlamentaria que se nieguen sistemáticamente a participar en la tramitación de la Megarreforma. Que no se sienten a negociar indicaciones. Que no legitimen con su participación un debate cuyo terreno ya ha sido definido por el enemigo. <b>Que hagan huelga legislativa</b>.</p>
+        <p>No porque creamos que vayan a hacerlo ---porque no lo harán--- <b>sino para mostrar en la práctica cómo negocian, tranzan y legitiman la reforma mientras dicen oponerse</b>. Dicho de otro modo: desenmascarar a la izquierda neoliberal, mostrar que no hay diferencia sustancial de proyecto económico entre "oposición" y oficialismo, que todos son parte del mismo engranaje, pero con distinto papel. Esa es la función practica de la idea del 'duopolio' que algunos sectores antisistémicos repiten sin traducirla en acción alguna. La forma no conspirativa, dirigida a todo el pueblo sometido, de integrar la política y la lucha social.</p>
+        <p>##</p>
+        <p>Otro de los grandes problemas del movimiento popular chileno es la debilidad del sindicalismo. La Central Unitaria de Trabajadores (CUT) donde participan los empleados fiscales, profesores, de la salud, del cobre, etc. sigue siendo nominalmente la principal organización sindical, pero su capacidad de convocatoria es limitada y su dirección ha sido absorbida hace mucho tiempo por la lógica de la negociación institucional.</p>
+        <p>Otros sectores de trabajadores, en los que algunos actores políticos de izquierda revolucionaria depositaron en su momento esperanzas de construcción de una nueva política sindical clasista, como los portuarios, los trabajadores del retail, de montaje industrial, de la construcción, etc. se han burocratizado y/o corrompido tanto o más que las viejas organizaciones sindicales de trabajadores del estado.</p>
+        <p>Los nuevos sectores precarizados, la gran mayoría de los trabajadores --- del área de servicios, repartidores, trabajadores de plataformas, trabajadoras a domicilio, a contrata, que boletean --- están prácticamente desorganizados. No se ha logrado construir un nuevo sindicalismo, ni uno que represente a estos sectores. Y no se logrará de la noche a la mañana.</p>
+        <p>Así las cosas, es indispensable reconsiderar estas fuerzas como parte de las luchas del movimiento popular. Después de todo, así como todo lo demás, el mundo del trabajo siempre está en disputa en la lucha de clases: oscilan entre la cooptación patronal y posiciones clasistas, o siquiera progresistas. Lo que no se puede hacer es confiar en los compromisos de sus dirigentes, por lo que no son sujetos actuales de políticas de alianzas, es decir tanto o menos que la izquierda neoliberal.</p>
+        <p><b>Proponemos, como parte de la táctica general, sumarse con autonomía política a sus luchas y movilizaciones</b>. También desarrollar una presión propagandística similar a la ejercida contra la clase política, entendible para sus bases, llamando a que se movilicen y defiendan sus intereses. Esto servirá también para desenmascarar a los dirigentes cooptados y serviles al gran capital.</p>
+        <p>El estallido social nos mostró estos aspectos de los problemas teóricos y organizativos de la lucha: una izquierda revolucionaria ultraizquierdista que asume parcelada y conspirativamente la construcción de fuerza popular. En la practica apartándose de las masas. Que no hay un nuevo sindicalismo de clase, que el movimiento sindical tradicional aún tiene una importante capacidad de lucha. Pero cooptado por una burocracia sindical que es una <b>pieza del engranaje de desmovilización, aunque ellos no son lo mismo que sus asociados</b>, ese es el quid del asunto.</p>
+        <p>A pesar de todas las dificultades, hay señales alentadoras que deben abordarse. El comienzo de las movilizaciones, muestra un grupo heterogéneo de movimientos políticos y sectores de trabajadores y sociales, que han asumido temprana y consecuentemente la defensa de sus derechos e intereses.</p>
+        <p><b>Proponemos a ese activo social convocar a reuniones de coordinación territorial entre estas organizaciones: no para fundar un nuevo partido, sino para discutir un plan de acción común para los próximos meses.</b> Estas reuniones deberían tener como primer punto la definición de un objetivo táctico prioritario y el diseño de una campaña de acciones y comunicacional conjunta. Las realidades territoriales les indicarán a las fuerzas involucradas especificidades propias sobre las que articularse y proponerse objetivos.</p>
+        <p>Nos parece fundamental una <b>concepción organizativa que combine centralismo y democracia</b>. No se trata de imponer una dirección desde arriba, pero tampoco que no tenerla implique renunciar a darse una conducción del proceso otra vez. La dirección de estas coordinaciones no debería ser fija, sino rotativa y temática, de modo que ninguna organización se sienta excluida y todas asuman responsabilidades.</p>
+        <p>Es necesario construir espacios que no evadan la discusión política, sino uno donde las organizaciones puedan fraternalmente discutir, planificar, coordinarse, priorizar según sus realidades territoriales, sus convicciones politicas y ejecutar acciones conjuntas con disciplina y evaluaciones posteriores.</p>
+        <p>En este contexto, la disputa comunicacional es un trabajo táctico de primer orden que no requiere grandes medios; sino una red de "militantes" que produzcan y distribuyan materiales simples: volantes para la salida de las empresas, para las calles y los malls, vídeos cortos que desmonten una mentira del gobierno, etc.. La coordinación que proponemos debería tener un grupo de trabajo dedicado a esta tarea con el objetivo de centralizar su que hacer.</p>
+        <p>En fin, la experiencia acumulada desde el 2006 hasta el 18O nos enseñó que la espontaneidad no basta. Que nos falta analisis y objetivos. Este articulo que entregamos para su lectura es una invitación y quizá una critica muy dura, muy difícil de asumir, pero cuyo objetivo primario es resolver nuestras falencias y esta vez estar preparados.</p>
+      </div>
+    </article>
+    
+
+
+
+    <article class="card" id="rumbo-ia" data-section="ciencia">
+      <div class="card-head" onclick="toggleCard('rumbo-ia')">
+        <span class="tag tag-ciencia">Ciencia</span>
+        <h3 id="Cual-es-el-rumbo-de-la-inteligencia-artificial">¿Cuál es el rumbo de la inteligencia artificial?</h3>
+        <p class="ek">Trabajo intelectual, crisis de rentabilidad, vigilancia privatizada y nuevas valorizaciones: una lectura crítica del desarrollo de la IA.</p>
+        <p class="meta">Equipo La Trilla</p>
+        <button class="expand-btn">Leer completo ▾</button>
+      </div>
+      <div class="full">
+        <p><b>¿Cual es el rumbo de la inteligencia artificial?</b></p>
+        <p>Trabajo intelectual, crisis de rentabilidad, vigilancia privatizada y nuevas valorizaciones.</p>
+        
+       <p>Como investigador en inteligencia artificial, observo con creciente preocupación la dirección que ha tomado el desarrollo de esta tecnología. No porque desconfíe de sus capacidades técnicas --las conozco bien-- sino porque las decisiones de diseño que están adoptando las grandes corporaciones revelan una lógica que poco tiene que ver con el bienestar colectivo y mucho con la reducción de costos laborales, la extracción masiva de datos y la concentración del poder.</p>
+        <p>El discurso dominante presenta la automatización como un proceso inexorable, un destino tecnológico ante el cual solo cabe adaptarse. Esta narrativa, sin embargo, merece ser interrogada. La historia del capitalismo muestra que la incorporación de maquinaria o nueva tecnología nunca ha sido neutral: cada oleada tecnológica ha reflejado los intereses de quienes controlan los medios de producción. La inteligencia artificial no es una excepción.</p>
+        <p>Suele afirmarse que la automatización afectará al conjunto del trabajo humano. La evidencia disponible sugiere lo contrario. Los grandes modelos de lenguaje y los sistemas de aprendizaje automático actuales destacan en tareas simbólicas, procesamiento de datos estructurados, generación de textos y toma de decisiones basadas en patrones estadísticos. En cambio, carecen de corporalidad, de percepción situada, de la flexibilidad sensorial necesaria para desenvolverse en entornos físicos impredecibles.</p>
+        <p>Esta asimetría técnica implica que los primeros empleos en ser sustituidos serán los de carácter intelectual rutinizable: secretariado, análisis financiero, asesoría legal estandarizada, contabilidad básica, generación de código repetitivo. Un electricista, una enfermera o un técnico de mantenimiento seguirán siendo insustituibles por más tiempo, hasta que la robótica y la construcción de una IA general(AGi) avance significativamente. Entre el consenso optimista y el escepticismo estructural, entre el 2006 y el 2035.</p>
+        <p>Como han documentado Acemoglu y Johnson, la industria tecnológica ha caído en una "falacia de la imitación": la obsesión por alcanzar la paridad con el desempeño humano (human parity) ha desplazado la pregunta más relevante, que es la utilidad de las máquinas para complementar nuestras capacidades (machine usefulness). El resultado es una "automatización mediocre" (so-so automation) que destruye puestos de trabajo sin generar las ganancias de productividad prometidas.</p>
+        <p>Existe una paradoja estructural que los economistas ortodoxos suelen eludir. La maquinaria, incluido el software y los algoritmos, constituye en la industria capital fijo: un valor ya incorporado que no crea nueva riqueza por sí mismo. La única fuente de valor nuevo es el trabajo humano vivo. Cuando la inteligencia artificial sustituye trabajo, reduce la masa de valor susceptible de ser apropiada. En otros términos, el capital invierte para ahorrar salarios, pero al hacerlo estrecha la base real de su propia ganancia.</p>
+        <p>Esta contradicción ha sido señalada por diversos autores desde la economía política. Pasquinelli, por ejemplo, muestra cómo la automatización del conocimiento replica la misma dinámica que la automatización industrial: el trabajador deja de ser sujeto que domina la herramienta para convertirse en objeto subordinado al capital fijo. La inteligencia artificial, al absorber el "intelecto general" de una tarea, se enfrenta al trabajador como una potencia autónoma y extraña.</p>
+        <p>Las consecuencias de esta dinámica ya son visibles. El desempleo o la reducción salarial de los trabajadores intelectuales disminuirá el consumo efectivo, lo que a su vez puede desencadenar crisis de sobreproducción y caída de la rentabilidad agregada. Los propios promotores de la IA reconocen este riesgo, aunque lo minimizan en sus declaraciones públicas.</p>
+        <p>Ante el agotamiento de las "fuentes tradicionales de ganancia", es decir el trabajo humano y la naturaleza, que determinan el decrecimiento de la tasa de ganancia, el capitalismo comienza a migrar hacia un nuevo modelo de acumulación. Shoshana Zuboff ha denominado a una parte de este nuevo desarrollo "capitalismo de vigilancia". En este esquema, la experiencia humana es expropiada gratuitamente y transformada en datos de comportamiento. Esos datos alimentan modelos predictivos que anticipan nuestras decisiones, y esas predicciones se venden en mercados de futuros conductuales.</p>
+        <p>Pero no es solo eso, sino también la puesta en valor de aspectos del <i>ser</i> humano ligados al desarrollo espiritual de la humanidad los que pretenden convertir en rentabilidad.</p>
+        <p>El filósofo Roger Garaudy, en sus análisis de mediados del siglo XX, ya había detectado la deriva hacia una racionalidad instrumental que aplasta la iniciativa individual. Advertía sobre la creación de "reflejos condicionados" a través de la publicidad y los medios, y sobre el fetichismo de las estructuras --la tendencia a tratar como naturales e inmutables lo que son decisiones políticas contingentes. Estas intuiciones resultan hoy más vigentes que nunca. La publicidad algorítmica no busca informar, sino condicionar; las recomendaciones personalizadas no amplían nuestra libertad, la estrechan suavemente, volviendo difusa la frontera entre lo que realmente deseamos y lo que se nos sugiere desear.</p>
+        <p>Esta lógica se ha extendido del consumo al trabajo. Empresas como Amazon utilizan sistemas de IA para monitorizar el rendimiento físico y mental de sus empleados en tiempo real, automatizando penalizaciones y despidos cuando no se alcanzan las métricas fijadas por los algoritmos. El trabajador es tratado como un nodo más de una cadena de optimización, desposeído de su condición de sujeto.</p>
+        <p>La deriva más preocupante, sin embargo, es la mercantilización de la soberanía. Empresas como Palantir, cofundada por Peter Thiel, no se limitan a vender software de análisis de datos: imponen una cosmología completa. Su discurso parte de la premisa de que el conflicto es la condición permanente del mundo, que la deliberación democrática constituye una debilidad táctica, y que una élite tecnológica privada está mejor posicionada que el Estado para decidir quién debe ser vigilado, señalado o neutralizado.</p>
+        <p>Palantir opera como un mecanismo de homeostasis social: detecta y suprime cualquier alteración al orden establecido. Sus herramientas son utilizadas por agencias de inteligencia, fuerzas policiales y ejércitos de numerosos países. Lo que está en juego es nada menos que la transferencia de funciones soberanas indelegables --definir una amenaza, determinar un perfil de riesgo, ordenar una intervención-- desde la esfera de la deliberación democrática a la de la optimización algorítmica corporativa.</p>
+        <p>Como advierte Suleyman, estas tecnologías son "amplificadores de fragilidad". Debilitan al Estado-nación, redistribuyen el poder hacia actores privados que no rinden cuentas, y clausuran la política no mediante la prohibición explícita, sino volviendo incuestionable el entramado de vigilancia bajo el ropaje de la eficiencia técnica.</p>
+        <p>Deseo ser claro: no postulo una posición tecnófoba. La inteligencia artificial podría diseñarse y desplegarse de maneras radicalmente distintas. La complementariedad humano-máquina, la potenciación de las capacidades de los trabajadores, el diseño centrado en las personas, la transparencia algorítmica y el control democrático de los sistemas de vigilancia son alternativas técnica y económicamente viables. No se implementan porque no sirven a los intereses de quienes detentan el poder en la actual estructura de acumulación.</p>
+        <p>La trayectoria actual de la IA es, por tanto, una decisión política, no un imperativo técnico. Como tal, puede ser revertida. Pero para ello se requiere, en primer lugar, desmontar la ilusión de inevitabilidad que acompaña a esta tecnología. El algoritmo no es neutral, viene adosado con el una gnoseología Kantiano - Popperiana; el mercado no se autorregula; la eficiencia no es un valor supremo. Detrás de cada modelo de inteligencia artificial hay una opción de diseño que refleja una concepción particular del ser humano y de la sociedad.</p>
+        <p>Mi convicción, fundada en el análisis de la evidencia disponible y en mi propia experiencia en el campo, es que el rumbo actual conduce a una sociedad más desigual, más vigilada y con menos espacios de deliberación. Frente a ello, la tarea intelectual y política de nuestra generación consiste en disputar el sentido de estas tecnologías. No se trata de detener el progreso, sino de definir qué progreso queremos y para quién.</p>
+        <p>Para quienes deseen profundizar en los argumentos aquí esbozados, recomiendo consultar las siguientes obras:</p>
+        <p>Acemoglu, D. y Johnson, S. (2023). Power and Progress: Our Thousand-Year Struggle over Technology and Prosperity. PublicAffairs.</p>
+        <p>Suleyman, M. y Bhaskar, M. (2023). The Coming Wave: The 21st Century's Greatest Dilemma. Crown.</p>
+        <p>Zuboff, S. (2019). The Age of Surveillance Capitalism. PublicAffairs.</p>
+        <p>Pasquinelli, M. (2023). The Eye of the Master: A Social History of Artificial Intelligence. Verso.</p>
+        <p>Garaudy, R. (1966). Marxismo del siglo XX. Editorial Losada. (Particularmente sus capítulos sobre la racionalidad instrumental y el fetichismo de las estructuras).</p>
+        <p>Marx, K. (1844). Manuscritos económico-filosóficos. (Especialmente la sección sobre el trabajo enajenado).</p>
+      </div>
+    </article>
+    <article class="card" id="parlamento-arauco" data-section="cultura">
+      <div class="card-head" onclick="toggleCard('parlamento-arauco')">
+        <span class="tag tag-cultura">Cultura</span>
+        <h3 id="El-parlamento-de-Arauco">El parlamento de Arauco de 1835</h3>
+        <p class="dek">Cómo los cónsules británico y francés en Concepción participaron de un parlamento hispano-mapuche en el fuerte de Arauco, negociando protección para sus náufragos a cambio de regalos y promesas.</p>
+        <p class="meta">Piedra del Rayo, blog <i>Toki Kurá</i> · 5 de agosto de 2026 · reproducido con enlace al original</p>
+        <button class="expand-btn">Leer completo ▾</button>
+      </div>
+      <div class="full">
+        <p>Los parlamentos fueron, durante todo el período colonial y buena parte del siglo XIX, la institución que ordenaba la relación entre las autoridades hispano-chilenas y el pueblo mapuche: llamados <i>coyag</i> en mapudungun, perdieron su carácter ritual tras la independencia y se volvieron un espacio más neutral y menos simbólico, según documenta la investigación de Payàs, Zavala y Curivil (2014).</p>
+        <p>El blog <i>Toki Kurá</i> reconstruye, a partir de los informes de los vicecónsules británico Henry W. Rouse y francés Auguste Bardel, el parlamento convocado por el intendente de Concepción José Antonio Alemparte en el fuerte de Arauco en marzo de 1837. Ambos representantes buscaban asegurar protección para los marineros de sus países que naufragaran en la costa mapuche, a cambio de regalos —añil, pañuelos, tabaco— y promesas de buen trato recíproco.</p>
+        <p>El relato incluye el detalle de la ceremonia de saludo, con los caciques ordenados a ambos lados del cacique principal, y la reflexión de Bardel sobre la elocuencia de los oradores mapuche: los describe como intrépidos y de intervenciones extensas. El texto completo, con las citas originales de Rouse y Bardel, está disponible en el blog.</p>
+        <p class="source-note">Fuente original: <a href="https://tokikura-piedradelrayo.blogspot.com/2026/08/el-parlamento-de-arauco-de-1835.html" target="_blank" rel="noopener">Toki Kurá — "El parlamento de Arauco de 1835"</a>, publicado el 5 de agosto de 2026 por Piedra del Rayo.</p>
+      </div>
+    </article>
+
+    <article class="card" id="mapuches-catolicismo" data-section="cultura">
+      <div class="card-head" onclick="toggleCard('mapuches-catolicismo')">
+        <span class="tag tag-cultura">Cultura</span>
+        <h3 id="Los-mapuches-convertidos-al-catolicismo">¿Los mapuches convertidos al catolicismo?</h3>
+        <p class="dek">El historiador Luis Vitale reúne testimonios coloniales que contradicen el relato oficial de una evangelización exitosa del pueblo mapuche.</p>
+        <p class="meta">Luis Vitale, vía blog <i>Toki Kurá</i> · publicado originalmente el 4 de enero de 2014 · reproducido con enlace al original</p>
+        <button class="expand-btn">Leer completo ▾</button>
+      </div>
+      <div class="full">
+        <p>Frente a la versión que sostiene que la Iglesia Católica trató "en esencia como iguales" a los mapuches durante la Colonia, el historiador Luis Vitale reúne una serie de testimonios de la época que sugieren lo contrario: cartas de autoridades y misioneros españoles que describen el rechazo mapuche a la evangelización, y crónicas que registran actos de resistencia simbólica frente a los símbolos religiosos impuestos.</p>
+        <p>El texto recopila, entre otras fuentes, la carta del procurador jesuita Lorenzo Arizábalo al rey Felipe IV narrando la respuesta de un mapuche condenado a muerte ante la promesa del cielo cristiano, y la correspondencia de Juan Henríquez en 1672 admitiendo que "los indios no son, ni han sido cristianos". Vitale conecta estos testimonios con la codicia por el oro que documentan las propias cartas de Colón y la muerte de Pedro de Valdivia, para argumentar que la evangelización operó, sobre todo, como cobertura ideológica de la conquista.</p>
+        <p class="source-note">Fuente original: <a href="https://tokikura-piedradelrayo.blogspot.com/2014/01/los-mapuches-convertidos-al-catolicismo.html" target="_blank" rel="noopener">Toki Kurá — "¿Los mapuches convertidos al catolicismo? de Luis Vitale"</a>, publicado el 4 de enero de 2014 por Piedra del Rayo.</p>
+      </div>
+    </article>
+
+    
+<article class="card" id="lecciones-electorales-biobio" data-section="local">
+      <div class="card-head" onclick="toggleCard('lecciones-electorales-biobio')">
+        <span class="tag tag-local">Local — Biobío</span>
+        <h3 id="Lecciones-del-fracaso-electoral">Lecciones del fracaso electoral de la izquierda en la Región del Biobío</h3>
+        <p class="dek">Tras las municipales y de gobernadores de octubre y noviembre, el Biobío se consolida como la región más derechizada de Chile. Un balance sin autocomplacencias sobre la izquierda regional, dentro y fuera del gobierno.</p>
+        <p class="meta">Equipo La Trilla · diciembre de 2024 (fecha aproximada, a confirmar)</p>
+        <button class="expand-btn">Leer completo ▾</button>
+      </div>
+      <div class="full">
+        <p>Las recientes Elecciones Municipales y de Gobiernos Regionales (27 de octubre y 24 de noviembre) vienen a ser el vigésimo proceso electoral posterior al 18 de octubre de 2019. Durante la campaña, la escena nacional estuvo dominada por los coletazos de los casos de corrupción, con figuras notables del poder público y privado (Hermosilla, Cubillos, Monsalve) y la percepción generalizada de inseguridad, fundada en las cifras de crímenes violentos y explotada hasta el cansancio por los medios de comunicación del poder. A nivel local, resonaban los impactos del cierre de Huachipato y la respuesta proempresarial del Plan de Fortalecimiento Industrial, o Grau, en un marco de naturalización de la militarización del Wallmapu vía aplicación de Estado de Excepción.</p>
+
+        <h4>La Región del Biobío pasa a ser la más derechizada de Chile</h4>
+        <p>El triunfo de Sergio Giacaman como Gobernador Regional (sobre 72% de los votos) reanima a la derecha y una debilitada UDI regional, con miras a las elecciones 2025 y con ello a un nuevo reparto de puestos y favores. Aunque muy ajustada (22%), la inédita victoria del Partido Social Cristiano en la alcaldía de Concepción consolida al voto evangélico como una fuerza emergente a nivel nacional y un actor de peso a nivel regional, ampliando la base social de la derecha, que ya controla la gran mayoría de las comunas y la población regional. El gobierno logra mantener algunas plazas importantes con caudillos de origen concertacionista en Coronel, Hualpén o Talcahuano.</p>
+        <p>De todos modos, el Frente Amplio brilló por su ausencia; el Partido Comunista no tuvo ni candidaturas competitivas ni ningún perfil crítico a la situación política regional. La Izquierda Libertaria, en un ejercicio de autosuficiencia, perdió la alcaldía en Santa Juana; al igual que Transformar, que sumándose a la campaña de Navarro perdió la alcaldía de Curanilahue. El Partido Igualdad obtuvo una sola concejalía en la Región, un duro golpe que lo lleva a perder su representación en el CORE del Biobío, de destacada actividad en la lucha contra la corrupción. Ni FENAPO —organización de lucha por la vivienda que polémicamente se subió al carro del FRVS, lista del ex senador Navarro, en medio de disputas más polémicas aún por su afán de construir viviendas sociales en el Humedal Paicaví— ni el PC-AP al interior de la Lista Izquierda Ecologista Popular lograron cargo alguno, ni tampoco alguna votación significativa.</p>
+        <p>El movimiento Municipio Ciudadano, coalición social conducida por "ex frenteamplistas" que en un cálculo tibio no mostró coraje político para apoyar ninguna lista de candidatos al GORE, obtuvo apenas el cuarto lugar con Camilo Riffo en Concepción. En este contexto, el candidato a gobernador por defecto del oficialismo, Alejandro Navarro, sufrió una aplastante derrota. Los votos nulos, muy significativos en la elección de cores y en la primera vuelta de gobernadores, bajaron a menos de dos dígitos en la segunda vuelta.</p>
+        <p>La alta participación "obligatoria", con una baja en los indicadores de "descontento social", parece obligar a reevaluar las tesis sobre la crisis de legitimidad del sistema político.</p>
+        <p>Los resultados a Gobernador Regional y Cores garantizan la continuidad de la captura de las políticas regionales por el gran empresariado, la aceleración de nuevos proyectos extractivistas, la redistribución de los recursos del FNDR a seguridad ciudadana, nuevos traspasos a fundaciones y corporaciones, y la modificación —nuevamente en beneficio de las grandes inmobiliarias— de los instrumentos de planificación territorial. Esto arroja un manto de dudas sobre la voluntad real de la nueva autoridad regional para perseguir las responsabilidades de Rodrigo Díaz y otros ex intendentes por las irregulares transferencias de fondos regionales de las gestiones pasadas. No hay a la vista factores que obliguen a los gobiernos locales a abandonar el clientelismo como forma de hacer política, eso sí, ahora con mayor peso de la ideología reaccionaria en las comunas dominadas por la ultraderecha y los evangélicos. Muchas de las candidaturas derrotadas y las ex autoridades ya han iniciado su campaña al parlamento, sin autocrítica ni reflexión alguna sobre la coyuntura, animadas por las necesidades vitales de los candidatos y de los propios partidos políticos en cuanto a mantener la legalidad y, con ello, los diversos apoyos económicos estatales.</p>
+
+        <h4>Un voto de castigo al gobierno por su abandono de la región</h4>
+        <p>Hay factores estructurales que podrían explicar en parte estos resultados: en primer lugar, las transformaciones operadas en la sociedad chilena en su conjunto, producto de la modernización neoliberal impulsada por la dictadura cívico-militar y su prolongación en los 30 años de "democracia". A estos factores hay que sumar las responsabilidades propias de la autodenominada izquierda.</p>
+        <p>En primer lugar, la incapacidad del gobierno de Boric por establecer medidas adecuadas para corregir el rumbo de la crítica situación económica y laboral, de la salud pública, de sacrificio socioambiental y vial, las catástrofes mal gestionadas, la inseguridad cotidiana, y la eternización del conflicto en Wallmapu. Este abandono político, económico, social y medioambiental de la región del Biobío ha llevado a la capitulación del gobierno central y regional ante intereses empresariales que hacen de la crisis una oportunidad para aumentar la explotación laboral y el saqueo de los territorios, es decir, la defensa de la tasa de ganancia de su riqueza.</p>
+        <p>Los principales partidos oficialistas (FA-PS-PC) claudicaron ante la gestión corrupta y proempresarial del gobernador Díaz y sus aliados, y para no hacer olitas a su gobierno han renunciado a levantar una mínima base social y política que pueda hacer frente al modelo y sus consecuencias. En la elección a gobernador, especial responsabilidad recae en el FA y en el personalismo del candidato Navarro, que impuso su candidatura a toda costa, dividiendo el voto de izquierda y avanzando a segunda vuelta a costa de sacrificar cualquier posibilidad de triunfo y proyección de nuevos liderazgos —primero desconociendo y luego desplazando la candidatura del ex CORE Javier Sandoval, del Partido Igualdad, única candidatura comprometida con una agenda anticorrupción, de defensa de los territorios y organizaciones populares, que además había avanzado un interesante programa de gobierno de transición anti extractivista.</p>
+
+        <h4>Ausencia de proyecto político y organización en las formaciones de izquierda</h4>
+        <p>Las fuerzas de izquierda extraparlamentaria tienen su cuota de responsabilidad. La ofensiva empresarial para desarmar las débiles regulaciones institucionales no encuentra ninguna oposición efectiva, pese a la digna lucha de algunas comunidades, organizaciones ambientalistas y un puñado marginal de representaciones políticas. El legítimo debate sobre la conveniencia o no de la lucha electoral, siquiera como una posibilidad defensiva de ciertos territorios y/o derechos sociales, es desdeñado, y se enfrenta mayormente desde posiciones despolitizadas, sean estas de oportunismo electoralista o de principismos abstencionistas antielectorales.</p>
+        <p>La miopía política de estas organizaciones, preocupadas cada una de mantener sus pequeños nichos marginales y atadas a sus disputas intestinas e identitarias, manteniéndose así alejadas de la realidad social de las mayorías y sus necesidades inmediatas, influye decisivamente en que no se desarrolle un proceso amplio de discusión y convergencia en una postura común básica de crítica y unidad antisistémica, aportando al proceso de despolitización general de la sociedad.</p>
+        <p>Esta situación y estos resultados confirman el sostenido avance de la captura de amplios sectores sociales y del mundo popular por corrientes políticas ultraderechistas y ultraconservadoras, tanto en su subjetividad como en redes clientelares y vínculos organizativos; pero también el embate violento de la subjetividad neoliberal en los propios sectores de izquierda, que deja en evidencia su incapacidad para conectar con las mayorías sociales y ofrecer una alternativa de transformación viable y adecuada a las actuales condiciones.</p>
+        <p>Ante esta desmedrada situación, solo un replanteamiento estratégico y una apuesta común por afrontar las disyuntivas del presente con creatividad, generosidad y determinación puede hacer de esta crisis de las fuerzas transformadoras y populares una oportunidad para nuestros pueblos en los territorios del Biobío.</p>
+      </div>
+    </article>
+
+
+
+
+
+
+
+    <article class="card" id="alba-movimientos" data-section="internacional">
+      <div class="card-head" onclick="toggleCard('alba-movimientos')">
+        <span class="tag tag-internacional">Internacional</span>
+        <h3 id="Comienza-en-La Habana">Comienza en La Habana la IV Asamblea Continental de ALBA Movimientos</h3>
+        <p class="dek">Más de 150 delegados de 25 países se reúnen del 6 al 9 de agosto bajo el lema "cien años caminando con Fidel", en el centenario del natalicio de Fidel Castro, para fortalecer la unidad de los movimientos populares de Nuestra América.</p>
+        <p class="meta">Resumen Latinoamericano · 5 de agosto de 2026 · reproducido con enlace al original</p>
+        <button class="expand-btn">Leer completo ▾</button>
+      </div>
+      <div class="full">
+        <p>ALBA Movimientos, articulación continental que agrupa a unas 400 organizaciones campesinas, indígenas, urbanas, estudiantiles y feministas, celebra en La Habana su IV Asamblea Continental. Resumen Latinoamericano destaca que la elección de Cuba como sede responde a una decisión política: un gesto de solidaridad con la isla frente al recrudecimiento del bloqueo económico, y un reconocimiento a la Revolución Cubana como la primera revolución socialista del continente.</p>
+        <p>Según Laura Capote, de la Secretaría Operativa de la organización, defender a Cuba es defender la posibilidad misma de construir un proyecto alternativo al capitalismo en la región. El encuentro fue precedido por sesiones de trabajo de la Coordinación Política los días 3 y 4 de agosto en el Centro Memorial Martin Luther King de La Habana.</p>
+        <p class="source-note">Fuente original: <a href="https://www.resumenlatinoamericano.org/2026/08/05/nuestramerica-este-jueves-comienza-en-la-habana-la-iv-asamblea-continental-de-alba-movimientos-un-espacio-para-fortalecer-la-unidad-popular/" target="_blank" rel="noopener">Resumen Latinoamericano — "Este jueves comienza en La Habana la IV Asamblea Continental de ALBA Movimientos"</a>, 5 de agosto de 2026.</p>
+      </div>
+    </article>
+
+    <article class="card" id="michael-roberts" data-section="ciencia">
+      <div class="card-image"><img src="https://elporteno.cl/wp-content/uploads/2026/06/ChatGPT-Image-25-de-jun.-de-2026-19_56_46.png" alt="Ilustración de la entrevista a Michael Roberts en El Porteño" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+      <div class="card-head" onclick="toggleCard('michael-roberts')">
+        <span class="tag tag-ciencia">Ciencia</span>
+        <h3 id="Michael-Roberts">Michael Roberts: una teoría marxista de las crisis del capitalismo contemporáneo</h3>
+        <p class="dek">El economista marxista repasa la ley de la tendencia decreciente de la tasa de ganancia, discute la financiarización y el "tecnofeudalismo", y explica por qué no considera a la inteligencia artificial un cambio de época para el capitalismo.</p>
+        <p class="meta">Entrevista de la Academia China de Ciencias Sociales, vía El Porteño · 25 de junio de 2026 · reproducido con enlace al original</p>
+        <button class="expand-btn">Leer completo ▾</button>
+      </div>
+      <div class="full">
+        <p>El Porteño reproduce una extensa entrevista al economista Michael Roberts, publicada originalmente en chino por la Academia China de Ciencias Sociales y luego en inglés en el propio blog de Roberts, The Next Recession. Roberts sitúa el núcleo del marxismo en dos ideas: la historia como lucha de clases, y la ley del valor, según la cual la fuerza de trabajo es la fuente de toda riqueza social, apropiada por el capital como plusvalía.</p>
+        <p>Sobre la teoría de la crisis, Roberts defiende la vigencia de la ley de la tendencia decreciente de la tasa de ganancia frente a las explicaciones rivales del subconsumo y la sobreproducción: para él, ambas invierten la causalidad, porque es la caída de la rentabilidad la que provoca que los capitalistas dejen de invertir, no al revés. Las crisis, sostiene, no son accidentes ni fallos de regulación, sino un mecanismo de "limpieza" necesario para que el capital recupere rentabilidad.</p>
+        <p>Roberts también discute la financiarización de la economía, rechazando la idea de que el capitalismo haya mutado hacia un sistema donde "el dinero hace dinero" sin pasar por la explotación del trabajo; y hace lo mismo con el concepto de "tecnofeudalismo", argumentando que la renta que cobran los gigantes tecnológicos sigue derivando, en último término, de la plusvalía extraída del trabajo humano. Sobre la inteligencia artificial, la considera una tecnología más de ahorro de mano de obra —significativa, pero no un "cambio de juego" capaz de salvar al capitalismo de sus contradicciones—.</p>
+        <p>El resto de la entrevista aborda la rivalidad entre Estados Unidos y China, las políticas económicas de Trump, y las perspectivas de una nueva crisis internacional antes del final de la década.</p>
+        <p class="source-note">Fuente original, con la entrevista completa: <a href="https://elporteno.cl/entrevista-michael-roberts-una-teoria-marxista-de-las-crisis-del-capitalismo-contemporaneo/" target="_blank" rel="noopener">El Porteño — "Entrevista Michael Roberts: una teoría marxista de las crisis del capitalismo contemporáneo"</a>, 25 de junio de 2026. Entrevista realizada originalmente por la Academia China de Ciencias Sociales.</p>
+      </div>
+    </article>
+
+    <article class="card" id="fanon" data-section="cultura">
+      <div class="card-image"><img src="https://lamarejada.cl/wp-content/uploads/2026/07/Frantz-Fanon-portada.jpg" alt="Frantz Fanon" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+      <div class="card-head" onclick="toggleCard('fanon')">
+        <span class="tag tag-cultura">Cultura</span>
+        <h3 id="Frantz-Fanon">Frantz Fanon: el militante y médico psiquiatra que combatió el colonialismo hasta sus últimos días</h3>
+        <p class="dek">A un siglo de su nacimiento, un repaso por la vida y obra de Fanon: la "epidermización de la inferioridad", la violencia como respuesta al colonialismo, su divergencia con Marx sobre el sujeto revolucionario, y su vigencia frente a Gaza y las nuevas "zonas del no-ser".</p>
+        <p class="meta">La Marejada · 20 de julio de 2026 · reproducido con enlace al original</p>
+        <button class="expand-btn">Leer completo ▾</button>
+      </div>
+      <div class="full">
+        <p>La Marejada reconstruye la biografía de Frantz Fanon: nacido en Martinica en 1925, alumno de Aimé Césaire, combatiente contra el nazismo antes de descubrir el racismo estructural del propio ejército francés que decía liberar Europa. Psiquiatra formado en Lyon, dirigió después el hospital de Blida-Joinville en Argelia, donde se sumó clandestinamente al Frente de Liberación Nacional cuando estalló la guerra de independencia en 1954.</p>
+        <p>El artículo repasa sus conceptos centrales: la "epidermización de la inferioridad" que describe en <i>Piel negra, máscaras blancas</i>, la figura del "desembarcado" que renuncia a su lengua materna para adoptar la del colonizador, y la defensa de la violencia revolucionaria en <i>Los condenados de la tierra</i> como respuesta —no elección— a un sistema colonial que él mismo caracteriza como "violencia en estado de naturaleza".</p>
+        <p>Un eje central del texto es la divergencia de Fanon con Marx: mientras este último identifica al proletariado industrial como sujeto revolucionario, Fanon sostiene que en el contexto colonial es el campesinado —y el lumpenproletariado urbano— quien no tiene nada que perder y todo por ganar. El artículo repasa también su crítica a la "burguesía nacional" postcolonial, su muerte en 1961 bajo circunstancias que involucraron a la CIA, y su vigencia actual en las lecturas sobre Gaza, las banlieues francesas y la colonización del imaginario digital por la inteligencia artificial.</p>
+        <p class="source-note">Fuente original, con bibliografía y videos recomendados: <a href="https://lamarejada.cl/2026/07/20/frantz-fanon-el-militante-y-medico-psiquiatra-que-analizo-y-combatio-incansablemente-al-colonialismo-y-racismo-occidental-hasta-sus-ultimos-dias/" target="_blank" rel="noopener">La Marejada — "Frantz Fanon: el militante y médico psiquiatra..."</a>, 20 de julio de 2026.</p>
+      </div>
+    </article>
+
+    <article class="card" id="marxismo-ecologia" data-section="multimedia">
+      <div class="card-image"><img src="https://img.youtube.com/vi/pqzBpHY4vrg/hqdefault.jpg" alt="Marxismo y Ecología, charla de Martín Sanzana Calvet" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+      <div class="card-head" onclick="toggleCard('marxismo-ecologia')">
+        <span class="tag tag-multimedia">Multimedia</span>
+        <h3 id="Marxismo-y-Ecologia">Marxismo y Ecología</h3>
+        <p class="dek">Charla del sociólogo de la Universidad de Concepción Martín Sanzana Calvet sobre la relación entre marxismo y la crisis ecológica.</p>
+        <p class="meta">Martín Sanzana Calvet · canal de YouTube Cervando OrateTV</p>
+        <button class="expand-btn">Ver video ▾</button>
+      </div>
+      <div class="full">
+        <p>Charla dictada por Martín Sanzana Calvet, sociólogo de la Universidad de Concepción, sobre marxismo y ecología.</p>
+        <p class="source-note">Video original: <a href="https://youtu.be/pqzBpHY4vrg?si=fmqCwoXz0Mtqkt75" target="_blank" rel="noopener">"Marxismo y Ecología" — canal de YouTube Cervando OrateTV</a>.</p>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="utility" id="contacto">
+    <h2>Contacto y colaboraciones</h2>
+    <p>¿Tienes un artículo, una denuncia territorial, una corrección o una propuesta de colaboración? Escríbenos.</p>
+    <form class="contact-form" onsubmit="event.preventDefault(); alert('Formulario de ejemplo: aún falta conectar un correo de destino real.');">
+      <input type="text" placeholder="Nombre" required>
+      <input type="email" placeholder="Correo electrónico" required>
+      <textarea rows="4" placeholder="Tu mensaje o propuesta"></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+    <p class="note">Aún no existe una casilla de correo definitiva para el colectivo. Este formulario es un marcador de posición: en cuanto tengan un correo de contacto, se reemplaza el destino del envío por esa dirección.</p>
+  </div>
+
+  <div class="utility" id="legal">
+    <h2>Aspectos legales</h2>
+    <p><b>Autoría y licencia.</b> Los artículos firmados pertenecen a sus autores. Su reproducción total o parcial en otros medios debe citar la fuente y, cuando corresponda, enlazar a esta página.</p>
+    <p><b>Contenido reproducido de terceros.</b> Cuando La Trilla reproduce o resume artículos de otros medios o autores, se indica explícitamente el origen, el autor y la fecha de publicación original, con enlace directo a la fuente. La Trilla no reclama autoría sobre ese material.</p>
+    <p><b>Opiniones.</b> Los artículos de opinión reflejan la posición de quien firma, no necesariamente la línea editorial del colectivo en su conjunto.</p>
+    <p><b>Datos personales.</b> Los datos entregados a través del formulario de contacto se usan exclusivamente para responder la consulta o colaboración, y no se comparten con terceros.</p>
+    <p class="note">Esta es una plantilla genérica de aviso legal para un medio digital independiente en Chile, pensada como punto de partida. No reemplaza la asesoría de un abogado si el colectivo necesita algo con validez jurídica específica (por ejemplo, ante una demanda por contenido, uso de imagen de terceros, o registro de marca).</p>
+  </div>
+</main>
+
+  <aside class="sidebar">
+    <div class="sidebar-box">
+      <h3>En X</h3>
+      <a class="twitter-timeline" data-tweet-limit="3" href="https://twitter.com/PressSold">Tweets de @PressSold</a>
+      <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-note">
+      La Trilla es un espacio editorial del Colectivo La Trilla, región del Biobío. El nombre honra la faena campesina de separar el grano de la paja: la misma tarea que este espacio quiere hacer con el debate político y cultural.
+    </div>
+    <div class="footer-links">
+      <a href="#contacto">Contacto</a>
+      <a href="#legal">Aspectos legales</a>
+      <a href="https://www.instagram.com/colectivolatrilla/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleCard(id){
+  document.getElementById(id).classList.toggle('open');
+}
+const buttons = document.querySelectorAll('#filterNav button');
+const label = document.getElementById('sectionLabel');
+const names = {all:'todas las secciones', local:'Local — Biobío', nacional:'Nacional', internacional:'Internacional', cultura:'Cultura', ciencia:'Ciencia', multimedia:'Multimedia'};
+buttons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    buttons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    label.textContent = (filter === 'all' ? 'Portada — ' : '') + names[filter];
+    document.querySelectorAll('.card').forEach(card => {
+      const show = filter === 'all' || card.dataset.section === filter;
+      card.classList.toggle('hidden-by-filter', !show);
+    });
+  });
+});
+</script>
+  <script>
+// Función para copiar enlace al portapapeles
+function copyArticleLink(id) {
+  const baseUrl = window.location.href.split('#')[0];
+  const fullUrl = baseUrl + '#' + id;
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(fullUrl).then(() => {
+      const btn = document.querySelector(`[data-copy-btn="${id}"]`);
+      if (btn) {
+        const originalText = btn.innerText;
+        btn.innerText = '✅ ¡Enlace copiado!';
+        setTimeout(() => { btn.innerText = originalText; }, 3000);
+      }
+    }).catch(() => {
+      fallbackCopy(fullUrl, id);
+    });
+  } else {
+    fallbackCopy(fullUrl, id);
+  }
+}
+
+function fallbackCopy(text, id) {
+  const input = document.createElement('input');
+  input.value = text;
+  document.body.appendChild(input);
+  input.select();
+  document.execCommand('copy');
+  document.body.removeChild(input);
+  const btn = document.querySelector(`[data-copy-btn="${id}"]`);
+  if (btn) {
+    const originalText = btn.innerText;
+    btn.innerText = '✅ ¡Enlace copiado!';
+    setTimeout(() => { btn.innerText = originalText; }, 3000);
+  }
+}
+
+// Agregar botones de compartir a todos los artículos
+document.addEventListener('DOMContentLoaded', function() {
+  const cards = document.querySelectorAll('.card');
+  const baseUrl = window.location.href.split('#')[0];
+
+  cards.forEach(card => {
+    const id = card.id;
+    const fullDiv = card.querySelector('.full');
+    if (!id || !fullDiv || id === 'convocatoria-debate') return;
+    if (fullDiv.querySelector('.share-actions')) return;
+
+    const title = card.querySelector('h3') ? card.querySelector('h3').innerText : 'Artículo';
+
+    const actions = document.createElement('div');
+    actions.className = 'share-actions';
+    actions.style.marginTop = '16px';
+    actions.style.borderTop = '1px solid #D8C79E';
+    actions.style.paddingTop = '14px';
+    actions.style.display = 'flex';
+    actions.style.gap = '18px';
+    actions.style.flexWrap = 'wrap';
+
+    const xLink = document.createElement('a');
+    const shareText = `Leyendo "${title}" en La Trilla`;
+    xLink.href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(baseUrl + '#' + id)}`;
+    xLink.target = '_blank';
+    xLink.rel = 'noopener noreferrer';
+    xLink.innerText = '🐦 Compartir en X';
+    xLink.style.color = '#A63A2C';
+    xLink.style.fontWeight = '600';
+    xLink.style.textDecoration = 'none';
+    xLink.style.fontSize = '14px';
+    xLink.style.fontFamily = 'Work Sans, sans-serif';
+
+    const copyBtn = document.createElement('a');
+    copyBtn.href = '#';
+    copyBtn.setAttribute('data-copy-btn', id);
+    copyBtn.innerText = '🔗 Copiar enlace del artículo';
+    copyBtn.style.color = '#46613F';
+    copyBtn.style.fontWeight = '600';
+    copyBtn.style.textDecoration = 'none';
+    copyBtn.style.fontSize = '14px';
+    copyBtn.style.fontFamily = 'Work Sans, sans-serif';
+    copyBtn.onclick = function(e) {
+      e.preventDefault();
+      copyArticleLink(id);
+    };
+
+    actions.appendChild(xLink);
+    actions.appendChild(copyBtn);
+    fullDiv.appendChild(actions);
+  });
+});
+</script>
+<!-- Botón flotante de Instagram -->
+<style>
+  .floating-ig {
+    position: fixed;
+    right: 20px;      /* Distancia desde el borde derecho */
+    bottom: 140px;    /* <--- Aquí ajustas la altura. Si el botón de X está más arriba, bajas este número */
+    z-index: 1000;
+    background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.2s ease;
+  }
+  .floating-ig:hover {
+    transform: scale(1.1); /* Efecto de agrandamiento al pasar el mouse */
+  }
+</style>
+
+<a href="https://www.instagram.com/colectivolatrilla/" target="_blank" rel="noopener noreferrer" class="floating-ig" aria-label="Instagram">
+  <!-- Icono SVG de Instagram -->
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+</a>
