@@ -1057,7 +1057,7 @@ document.addEventListener('DOMContentLoaded', function() {
     xLink.href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(baseUrl + '#' + id)}`;
     xLink.target = '_blank';
     xLink.rel = 'noopener noreferrer';
-    xLink.innerText = '🐦 Compartir en X';
+    xLink.innerHTML = '<svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" style="vertical-align:-2px; margin-right:5px"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>Compartir en X'
     xLink.style.color = '#A63A2C';
     xLink.style.fontWeight = '600';
     xLink.style.textDecoration = 'none';
@@ -1073,6 +1073,8 @@ document.addEventListener('DOMContentLoaded', function() {
     copyBtn.style.textDecoration = 'none';
     copyBtn.style.fontSize = '14px';
     copyBtn.style.fontFamily = 'Work Sans, sans-serif';
+    xLink.style.display = 'inline-flex';
+xLink.style.alignItems = 'center';
     copyBtn.onclick = function(e) {
       e.preventDefault();
       copyArticleLink(id);
