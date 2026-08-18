@@ -1135,10 +1135,20 @@ const label = document.getElementById('sectionLabel');
 const names = {all:'todas las secciones', local:'Local — Biobío', nacional:'Nacional', internacional:'Internacional', cultura:'Cultura', ciencia:'Ciencia', multimedia:'Multimedia', debate:'Debate'};
 buttons.forEach(btn => {
   btn.addEventListener('click', () => {
+    // 1. Cerrar todos los artículos abiertos (evita que queden abiertos al cambiar de sección)
+    document.querySelectorAll('.card.open').forEach(card => {
+      card.classList.remove('open');
+    });
+
+    // 2. Cambiar el estado activo del botón
     buttons.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
+
+    // 3. Actualizar la etiqueta de la sección
     const filter = btn.dataset.filter;
     label.textContent = (filter === 'all' ? 'Portada — ' : '') + names[filter];
+
+    // 4. Filtrar los artículos
     document.querySelectorAll('.card').forEach(card => {
       const show = filter === 'all' || card.dataset.section === filter;
       card.classList.toggle('hidden-by-filter', !show);
