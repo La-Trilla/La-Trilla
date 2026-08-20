@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marxismo y Ecología — Revista La Trilla</title>
+<meta name="description" content="Charla del sociólogo de la Universidad de Concepción Martín Sanzana Calvet sobre la relación entre marxismo y la crisis ecológica.">
+<link rel="canonical" href="https://revista-la-trilla.pages.dev/publicaciones/marxismo-ecologia.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Revista La Trilla">
+<meta property="og:title" content="Marxismo y Ecología">
+<meta property="og:description" content="Charla del sociólogo de la Universidad de Concepción Martín Sanzana Calvet sobre la relación entre marxismo y la crisis ecológica.">
+<meta property="og:url" content="https://revista-la-trilla.pages.dev/publicaciones/marxismo-ecologia.html">
+<meta property="og:image" content="https://img.youtube.com/vi/wPkynBb7SPU/hqdefault.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;700;900&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #EDE2C8;
+    --paper-2: #E4D6B4;
+    --ink: #241C14;
+    --wheat: #C9A227;
+    --wheat-dark: #9C7D1C;
+    --rust: #A63A2C;
+    --heather: #46613F;
+    --teal: #3D6B66;
+    --soil: #4A3B2A;
+    --sub: #6B5D45;
+    --card: #FAF6EC;
+    --border: #D8C79E;
+    --focus: #1F5F8B;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; overflow-x:hidden; background:var(--paper); color:var(--ink);
+    font-family:'Work Sans', -apple-system, sans-serif;
+    line-height:1.5;
+  }
+  h1,h2,h3,h4{font-family:'Bitter', Georgia, serif; margin:0; color:var(--ink)}
+  a{color:var(--rust)}
+  a:focus-visible, button:focus-visible, .card-head:focus-visible{outline:3px solid var(--focus); outline-offset:2px}
+  @media (prefers-reduced-motion: reduce){ *{transition:none !important; animation:none !important} }
+
+  /* ---- masthead ---- */
+  .masthead{
+    background:var(--ink); color:var(--paper);
+    padding:14px 24px; display:flex; justify-content:space-between; align-items:center;
+    flex-wrap:wrap; gap:10px; position:sticky; top:0; z-index:20;
+    border-bottom:3px solid var(--wheat);
+  }
+  .brand{display:flex; align-items:baseline; gap:10px}
+  .brand .word{font-family:'Bitter', serif; font-weight:900; font-size:26px; letter-spacing:.01em; color:var(--paper)}
+  .brand .sub{font-size:12px; color:var(--wheat); text-transform:uppercase; letter-spacing:.08em}
+  nav{display:flex; gap:4px; flex-wrap:wrap}
+  nav button, nav a{
+    font-family:'Work Sans', sans-serif; font-size:13px; font-weight:600; letter-spacing:.02em;
+    background:none; border:none; color:var(--paper); opacity:.75; cursor:pointer;
+    padding:8px 12px; border-radius:4px; text-transform:uppercase; text-decoration:none;
+  }
+  nav button:hover, nav a:hover{opacity:1; background:rgba(255,255,255,.08)}
+  nav button.active{opacity:1; color:var(--wheat); background:rgba(201,162,39,.14)}
+
+  /* ---- hero con imagen de fondo ---- */
+  .hero-wrap{position:relative; overflow:hidden; isolation:isolate}
+  .hero-wrap::before{
+    content:''; position:absolute; inset:-8px; z-index:-1;
+    background:url('../imagenes/trilla.jpg') center/cover no-repeat;
+    filter:blur(2px); opacity:.5;
+  }
+  .hero{max-width:820px; margin:0 auto; padding:64px 24px 40px; text-align:center}
+  .cuba-banner{
+    border-left:15px solid #ce1126;
+    background:repeating-linear-gradient(to bottom,#002a8f 0 20px,#fff 20px 40px);
+    padding:10px 0 10px 40px; color:#fff; font-weight:700; text-shadow:2px 2px 4px rgba(0,0,0,.8);
+  }
+  .solidarity-banner{padding-left:56px}
+  .visit-counter{text-align:right; margin:5px 20px 0; padding-bottom:10px}
+  .visit-counter img{vertical-align:middle}
+  .hero h1{font-size:clamp(30px, 5vw, 52px); line-height:1.08; margin-bottom:18px}
+  .hero .thesis{font-size:19px; color:var(--soil); max-width:560px; margin:0 auto 8px; font-weight:500}
+  .hero .thesis b{color:var(--rust)}
+  .hero .issue{font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--sub); margin-top:18px}
+
+  /* ---- grain divider (signature element) ---- */
+  .grain-divider{width:100%; height:22px; margin:8px 0 0}
+
+  /* ---- section filter feedback ---- */
+  .section-label{
+    max-width:1080px; margin:36px auto 4px; padding:0 24px;
+    font-size:12px; text-transform:uppercase; letter-spacing:.1em; color:var(--sub);
+  }
+
+  /* ---- grid ---- */
+  main{max-width:1080px; margin:0 auto; padding:0 24px 80px}
+  .grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(300px,1fr)); gap:22px; margin-top:14px}
+
+  .card{
+    background:var(--card); border:1px solid var(--border); border-radius:10px;
+    overflow:hidden; display:flex; flex-direction:column;
+  }
+  .card.open{grid-column:1 / -1}
+  .card.open .full{max-width:760px; margin:0 auto}
+  .card-image{width:100%; aspect-ratio:16/9; overflow:hidden; background:var(--paper-2)}
+  .card-image img{width:100%; height:100%; object-fit:cover; display:block; background:var(--paper-2)}
+  .card-image.contain img{object-fit:contain}
+  .card-head{padding:20px 22px; cursor:pointer}
+  .card-head .inline-figure{display:block; width:100%; max-width:300px; margin:20px auto 0; border-radius:4px}
+  a.card-link{text-decoration:none; color:inherit}
+  a.card-link:hover h3{color:var(--rust)}
+  a.card-link .expand-btn{display:inline-block; margin-top:4px}
+  .tag{
+    display:inline-block; font-size:10.5px; text-transform:uppercase; letter-spacing:.06em;
+    padding:3px 9px; border-radius:20px; color:#fff; margin-bottom:10px; font-weight:600;
+  }
+  .tag-nacional{background:var(--rust)}
+  .tag-ciencia{background:var(--wheat-dark)}
+  .tag-cultura{background:var(--heather)}
+  .tag-local{background:var(--teal)}
+  .tag-internacional{background:var(--soil)}
+  .tag-multimedia{background:var(--sub)}
+  .tag-debate{background:#5A4A7A}
+
+  .card h3{font-size:19px; line-height:1.25; margin-bottom:8px}
+  .card .dek{font-size:14px; color:var(--soil); margin:0 0 10px; line-height:1.5}
+  .card .meta{font-size:12px; color:var(--sub); margin:0 0 12px; font-style:italic}
+  .expand-btn{
+    font-family:'Work Sans',sans-serif; font-size:13px; font-weight:600; color:var(--rust);
+    background:none; border:none; padding:0; cursor:pointer;
+  }
+  .full{display:none; padding:0 22px 22px; border-top:1px dashed var(--border)}
+  .card.open .full{display:block; padding-top:16px}
+  .full p{font-size:15px; line-height:1.7; margin:0 0 14px; color:var(--ink)}
+  .full h4{font-size:16px; margin:18px 0 8px; color:var(--rust)}
+  .full h5{font-size:15px; margin:16px 0 6px; color:var(--soil)}
+  .full ul{margin:0 0 14px; padding-left:20px}
+  .full li{font-size:15px; line-height:1.6; margin-bottom:6px}
+  .full .plain-list{list-style:none; padding-left:0}
+  .full .plain-list li{margin-bottom:4px}
+  .full table{width:100%; border-collapse:collapse; margin:1.2em 0; font-size:.9rem; background:var(--card); border:1px solid var(--border)}
+  .full th, .full td{padding:8px; border:1px solid var(--border)}
+  .full thead tr{background:var(--soil); color:#fff}
+  .full th:first-child, .full td:first-child{text-align:center}
+  .full td:first-child{font-weight:700; background:var(--paper-2)}
+  .full blockquote{border-left:4px solid var(--rust); padding:.8em 1.2em; margin:1em 0; background:var(--paper-2); font-style:italic}
+  .full blockquote footer{margin-top:.5em; font-style:normal; font-weight:600}
+  .full .credits{font-size:.9rem; color:var(--sub); border-top:1px solid var(--border); padding-top:.8em; margin-top:1.5em}
+  .card.open .card-head .expand-btn::after{content:' — cerrar ▴'}
+  .share-actions{margin-top:16px; border-top:1px solid var(--border); padding-top:14px; display:flex; gap:18px; flex-wrap:wrap}
+  .share-actions a{font-family:'Work Sans',sans-serif; font-size:14px; font-weight:600; text-decoration:none; display:inline-flex; align-items:center; gap:5px}
+  .share-actions .share-x{color:var(--rust)}
+  .share-actions .share-copy{color:var(--heather)}
+  .card:target{outline:3px solid var(--wheat); outline-offset:2px}
+  .full .source-note{font-size:13px; color:var(--sub); font-style:italic; border-top:1px solid var(--border); padding-top:12px}
+
+  .hidden-by-filter{display:none !important}
+
+  /* ---- utility sections (contacto/legal) ---- */
+  .utility{
+    max-width:780px; margin:60px auto 0; padding:32px 28px; background:var(--card);
+    border:1px solid var(--border); border-radius:10px;
+  }
+  .utility h2{font-size:22px; margin-bottom:14px}
+  .utility p{font-size:14.5px; line-height:1.65; color:var(--soil)}
+  .utility .note{font-size:12.5px; color:var(--sub); background:var(--paper-2); border-radius:6px; padding:10px 14px; margin-top:16px}
+  .contact-form{display:flex; flex-direction:column; gap:10px; margin-top:16px; max-width:420px}
+  .contact-form input, .contact-form textarea{
+    font-family:'Work Sans',sans-serif; font-size:14px; padding:10px 12px; border:1px solid var(--border);
+    border-radius:6px; background:var(--paper); color:var(--ink);
+  }
+  .contact-form button{
+    font-family:'Work Sans',sans-serif; font-weight:600; font-size:14px; padding:10px 16px;
+    background:var(--rust); color:#fff; border:none; border-radius:6px; cursor:pointer; width:fit-content;
+  }
+
+  footer{background:var(--soil); color:var(--paper); padding:36px 24px 28px; margin-top:70px}
+  .footer-inner{max-width:1080px; margin:0 auto; display:flex; justify-content:space-between; flex-wrap:wrap; gap:20px}
+  .footer-inner a{color:var(--wheat); text-decoration:none; font-size:13px}
+  .footer-inner a:hover{text-decoration:underline}
+  .footer-links{display:flex; gap:18px; flex-wrap:wrap}
+  .footer-note{font-size:12px; color:#c9bfa8; max-width:420px}
+  .solidarity-banner{
+    background:linear-gradient(180deg,#000 0%,#000 33%,#fff 33%,#fff 66%,#007A3D 66%,#007A3D 100%);
+    position:relative; color:#fff; text-align:center; padding:20px 16px;
+    font-size:18px; font-weight:700; letter-spacing:.02em;
+    text-shadow:0 1px 3px rgba(0,0,0,.7);
+  }
+  .solidarity-banner::before{
+    content:''; position:absolute; left:0; top:0; bottom:0; width:36px;
+    background:#CE1126; clip-path:polygon(0 0,100% 50%,0 100%);
+  }
+  .solidarity-banner b{text-transform:uppercase; letter-spacing:.05em; font-size:19px}
+
+  /* ---- layout con columna lateral (X/Twitter) ---- */
+  .layout{display:flex; gap:24px; max-width:1400px; margin:0 auto; align-items:flex-start; padding:0 24px}
+  .layout main{max-width:1080px; margin:0; padding:0 0 80px; flex:1; min-width:0}
+  .sidebar{width:300px; flex-shrink:0; position:sticky; top:90px}
+  .sidebar-box{background:var(--card); border:1px solid var(--border); border-radius:10px; padding:16px}
+  .sidebar-box h3{font-size:13px; text-transform:uppercase; letter-spacing:.06em; margin:0 0 12px; color:var(--sub)}
+  @media (max-width:960px){
+    .layout{flex-direction:column; padding:0}
+    .sidebar{width:100%; position:static; padding:0 24px}
+  }
+
+  /* ---- botón flotante de Instagram ---- */
+  .floating-ig{
+    position:fixed; right:20px; bottom:140px; z-index:1000;
+    background:linear-gradient(45deg,#405DE6,#5851DB,#833AB4,#C13584,#E1306C,#FD1D1D);
+    color:#fff; width:50px; height:50px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    text-decoration:none; box-shadow:0 4px 10px rgba(0,0,0,.3); transition:transform .2s ease;
+  }
+  .floating-ig:hover{transform:scale(1.1)}
+
+  /* ---- página de publicación ---- */
+  .publicacion{max-width:820px; margin:0 auto; padding:40px 24px 80px}
+  .publicacion .volver{display:block; width:fit-content; font-size:13px; font-weight:600; text-transform:uppercase; letter-spacing:.04em; text-decoration:none; margin-bottom:26px}
+  .publicacion .tag{display:block; width:fit-content}
+  .publicacion h1{font-size:clamp(26px,4vw,40px); line-height:1.15; margin:0 0 14px}
+  .publicacion .dek{font-size:17px; color:var(--soil); line-height:1.5; margin:0 0 10px}
+  .publicacion .meta{font-size:13px; color:var(--sub); font-style:italic; margin:0 0 22px}
+  .publicacion figure{margin:0 0 26px; background:var(--paper-2); border-radius:10px; overflow:hidden}
+  .publicacion figure img{display:block; width:100%; max-height:480px; object-fit:contain}
+  .publicacion .full{display:block; background:var(--card); border:1px solid var(--border); border-radius:10px; padding:26px 28px; border-top:1px solid var(--border)}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="brand">
+    <span class="word">REVISTA LA TRILLA</span>
+    <span class="sub">Biobío</span>
+  </div>
+     <nav>
+    <a href="../index.html">← Portada</a>
+    <a href="../archivo.html">Archivo</a>
+  </nav>
+</header>
+<div class="solidarity-banner"><b>No es guerra, es Genocidio.</b>&nbsp; Solidaridad con Palestina </div>
+
+<main class="publicacion">
+  <a class="volver" href="../index.html">← Volver a la portada</a>
+  <span class="tag tag-multimedia">Multimedia</span>
+  <h1>Marxismo y Ecología</h1>
+  <p class="dek">Charla del sociólogo de la Universidad de Concepción Martín Sanzana Calvet sobre la relación entre marxismo y la crisis ecológica.</p>
+  <p class="meta">Martín Sanzana Calvet · canal de YouTube Cervando OrateTV</p>
+  <figure><img src="https://img.youtube.com/vi/wPkynBb7SPU/hqdefault.jpg" alt="Marxismo y Ecología, charla de Martín Sanzana Calvet" onerror="this.parentElement.style.display='none'"></figure>
+  <div class="full">
+<p>Charla dictada por Martín Sanzana Calvet, sociólogo de la Universidad de Concepción, sobre marxismo y ecología.</p>
+<p class="source-note">Video original: <a href="https://www.youtube.com/watch?v=wPkynBb7SPU" rel="noopener" target="_blank">"Marxismo y Ecología" — canal de YouTube Cervando OrateTV</a>.</p>
+    <div class="share-actions">
+      <a class="share-x" target="_blank" rel="noopener noreferrer" href="https://twitter.com/intent/tweet?text=Leyendo%20%22Marxismo%20y%20Ecolog%C3%ADa%22%20en%20La%20Trilla&amp;url=https%3A%2F%2Frevista-la-trilla.pages.dev%2Fpublicaciones%2Fmarxismo-ecologia.html"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>Compartir en X</a>
+      <a class="share-copy" href="https://revista-la-trilla.pages.dev/publicaciones/marxismo-ecologia.html" onclick="event.preventDefault(); navigator.clipboard.writeText(this.href).then(()=>{const t=this.textContent; this.textContent='✅ ¡Enlace copiado!'; setTimeout(()=>this.textContent=t,3000);});">🔗 Copiar enlace del artículo</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-note">
+      La Trilla es un espacio editorial del Colectivo La Trilla, región del Biobío. El nombre honra la faena campesina de separar el grano de la paja: la misma tarea que este espacio quiere hacer con el debate político y cultural.
+    </div>
+    <div class="footer-links">
+      <a href="../index.html#contacto">Contacto</a>
+      <a href="../index.html#legal">Aspectos legales</a>
+      <a href="https://www.instagram.com/colectivolatrilla/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+</footer>
+
+<a href="https://www.instagram.com/colectivolatrilla/" target="_blank" rel="noopener noreferrer" class="floating-ig" aria-label="Instagram">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+</a>
+</body>
+</html>

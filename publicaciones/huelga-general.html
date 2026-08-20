@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acerca de la Huelga General — Revista La Trilla</title>
+<meta name="description" content="Una respuesta crítica al llamado de Luis Mesina y a su amplificación en El Porteño: por qué la huelga general debe ser la culminación de un proceso, no su punto de partida.">
+<link rel="canonical" href="https://revista-la-trilla.pages.dev/publicaciones/huelga-general.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Revista La Trilla">
+<meta property="og:title" content="Acerca de la Huelga General">
+<meta property="og:description" content="Una respuesta crítica al llamado de Luis Mesina y a su amplificación en El Porteño: por qué la huelga general debe ser la culminación de un proceso, no su punto de partida.">
+<meta property="og:url" content="https://revista-la-trilla.pages.dev/publicaciones/huelga-general.html">
+<meta property="og:image" content="https://revista-la-trilla.pages.dev/imagenes/trilla.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;700;900&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #EDE2C8;
+    --paper-2: #E4D6B4;
+    --ink: #241C14;
+    --wheat: #C9A227;
+    --wheat-dark: #9C7D1C;
+    --rust: #A63A2C;
+    --heather: #46613F;
+    --teal: #3D6B66;
+    --soil: #4A3B2A;
+    --sub: #6B5D45;
+    --card: #FAF6EC;
+    --border: #D8C79E;
+    --focus: #1F5F8B;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; overflow-x:hidden; background:var(--paper); color:var(--ink);
+    font-family:'Work Sans', -apple-system, sans-serif;
+    line-height:1.5;
+  }
+  h1,h2,h3,h4{font-family:'Bitter', Georgia, serif; margin:0; color:var(--ink)}
+  a{color:var(--rust)}
+  a:focus-visible, button:focus-visible, .card-head:focus-visible{outline:3px solid var(--focus); outline-offset:2px}
+  @media (prefers-reduced-motion: reduce){ *{transition:none !important; animation:none !important} }
+
+  /* ---- masthead ---- */
+  .masthead{
+    background:var(--ink); color:var(--paper);
+    padding:14px 24px; display:flex; justify-content:space-between; align-items:center;
+    flex-wrap:wrap; gap:10px; position:sticky; top:0; z-index:20;
+    border-bottom:3px solid var(--wheat);
+  }
+  .brand{display:flex; align-items:baseline; gap:10px}
+  .brand .word{font-family:'Bitter', serif; font-weight:900; font-size:26px; letter-spacing:.01em; color:var(--paper)}
+  .brand .sub{font-size:12px; color:var(--wheat); text-transform:uppercase; letter-spacing:.08em}
+  nav{display:flex; gap:4px; flex-wrap:wrap}
+  nav button, nav a{
+    font-family:'Work Sans', sans-serif; font-size:13px; font-weight:600; letter-spacing:.02em;
+    background:none; border:none; color:var(--paper); opacity:.75; cursor:pointer;
+    padding:8px 12px; border-radius:4px; text-transform:uppercase; text-decoration:none;
+  }
+  nav button:hover, nav a:hover{opacity:1; background:rgba(255,255,255,.08)}
+  nav button.active{opacity:1; color:var(--wheat); background:rgba(201,162,39,.14)}
+
+  /* ---- hero con imagen de fondo ---- */
+  .hero-wrap{position:relative; overflow:hidden; isolation:isolate}
+  .hero-wrap::before{
+    content:''; position:absolute; inset:-8px; z-index:-1;
+    background:url('../imagenes/trilla.jpg') center/cover no-repeat;
+    filter:blur(2px); opacity:.5;
+  }
+  .hero{max-width:820px; margin:0 auto; padding:64px 24px 40px; text-align:center}
+  .cuba-banner{
+    border-left:15px solid #ce1126;
+    background:repeating-linear-gradient(to bottom,#002a8f 0 20px,#fff 20px 40px);
+    padding:10px 0 10px 40px; color:#fff; font-weight:700; text-shadow:2px 2px 4px rgba(0,0,0,.8);
+  }
+  .solidarity-banner{padding-left:56px}
+  .visit-counter{text-align:right; margin:5px 20px 0; padding-bottom:10px}
+  .visit-counter img{vertical-align:middle}
+  .hero h1{font-size:clamp(30px, 5vw, 52px); line-height:1.08; margin-bottom:18px}
+  .hero .thesis{font-size:19px; color:var(--soil); max-width:560px; margin:0 auto 8px; font-weight:500}
+  .hero .thesis b{color:var(--rust)}
+  .hero .issue{font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--sub); margin-top:18px}
+
+  /* ---- grain divider (signature element) ---- */
+  .grain-divider{width:100%; height:22px; margin:8px 0 0}
+
+  /* ---- section filter feedback ---- */
+  .section-label{
+    max-width:1080px; margin:36px auto 4px; padding:0 24px;
+    font-size:12px; text-transform:uppercase; letter-spacing:.1em; color:var(--sub);
+  }
+
+  /* ---- grid ---- */
+  main{max-width:1080px; margin:0 auto; padding:0 24px 80px}
+  .grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(300px,1fr)); gap:22px; margin-top:14px}
+
+  .card{
+    background:var(--card); border:1px solid var(--border); border-radius:10px;
+    overflow:hidden; display:flex; flex-direction:column;
+  }
+  .card.open{grid-column:1 / -1}
+  .card.open .full{max-width:760px; margin:0 auto}
+  .card-image{width:100%; aspect-ratio:16/9; overflow:hidden; background:var(--paper-2)}
+  .card-image img{width:100%; height:100%; object-fit:cover; display:block; background:var(--paper-2)}
+  .card-image.contain img{object-fit:contain}
+  .card-head{padding:20px 22px; cursor:pointer}
+  .card-head .inline-figure{display:block; width:100%; max-width:300px; margin:20px auto 0; border-radius:4px}
+  a.card-link{text-decoration:none; color:inherit}
+  a.card-link:hover h3{color:var(--rust)}
+  a.card-link .expand-btn{display:inline-block; margin-top:4px}
+  .tag{
+    display:inline-block; font-size:10.5px; text-transform:uppercase; letter-spacing:.06em;
+    padding:3px 9px; border-radius:20px; color:#fff; margin-bottom:10px; font-weight:600;
+  }
+  .tag-nacional{background:var(--rust)}
+  .tag-ciencia{background:var(--wheat-dark)}
+  .tag-cultura{background:var(--heather)}
+  .tag-local{background:var(--teal)}
+  .tag-internacional{background:var(--soil)}
+  .tag-multimedia{background:var(--sub)}
+  .tag-debate{background:#5A4A7A}
+
+  .card h3{font-size:19px; line-height:1.25; margin-bottom:8px}
+  .card .dek{font-size:14px; color:var(--soil); margin:0 0 10px; line-height:1.5}
+  .card .meta{font-size:12px; color:var(--sub); margin:0 0 12px; font-style:italic}
+  .expand-btn{
+    font-family:'Work Sans',sans-serif; font-size:13px; font-weight:600; color:var(--rust);
+    background:none; border:none; padding:0; cursor:pointer;
+  }
+  .full{display:none; padding:0 22px 22px; border-top:1px dashed var(--border)}
+  .card.open .full{display:block; padding-top:16px}
+  .full p{font-size:15px; line-height:1.7; margin:0 0 14px; color:var(--ink)}
+  .full h4{font-size:16px; margin:18px 0 8px; color:var(--rust)}
+  .full h5{font-size:15px; margin:16px 0 6px; color:var(--soil)}
+  .full ul{margin:0 0 14px; padding-left:20px}
+  .full li{font-size:15px; line-height:1.6; margin-bottom:6px}
+  .full .plain-list{list-style:none; padding-left:0}
+  .full .plain-list li{margin-bottom:4px}
+  .full table{width:100%; border-collapse:collapse; margin:1.2em 0; font-size:.9rem; background:var(--card); border:1px solid var(--border)}
+  .full th, .full td{padding:8px; border:1px solid var(--border)}
+  .full thead tr{background:var(--soil); color:#fff}
+  .full th:first-child, .full td:first-child{text-align:center}
+  .full td:first-child{font-weight:700; background:var(--paper-2)}
+  .full blockquote{border-left:4px solid var(--rust); padding:.8em 1.2em; margin:1em 0; background:var(--paper-2); font-style:italic}
+  .full blockquote footer{margin-top:.5em; font-style:normal; font-weight:600}
+  .full .credits{font-size:.9rem; color:var(--sub); border-top:1px solid var(--border); padding-top:.8em; margin-top:1.5em}
+  .card.open .card-head .expand-btn::after{content:' — cerrar ▴'}
+  .share-actions{margin-top:16px; border-top:1px solid var(--border); padding-top:14px; display:flex; gap:18px; flex-wrap:wrap}
+  .share-actions a{font-family:'Work Sans',sans-serif; font-size:14px; font-weight:600; text-decoration:none; display:inline-flex; align-items:center; gap:5px}
+  .share-actions .share-x{color:var(--rust)}
+  .share-actions .share-copy{color:var(--heather)}
+  .card:target{outline:3px solid var(--wheat); outline-offset:2px}
+  .full .source-note{font-size:13px; color:var(--sub); font-style:italic; border-top:1px solid var(--border); padding-top:12px}
+
+  .hidden-by-filter{display:none !important}
+
+  /* ---- utility sections (contacto/legal) ---- */
+  .utility{
+    max-width:780px; margin:60px auto 0; padding:32px 28px; background:var(--card);
+    border:1px solid var(--border); border-radius:10px;
+  }
+  .utility h2{font-size:22px; margin-bottom:14px}
+  .utility p{font-size:14.5px; line-height:1.65; color:var(--soil)}
+  .utility .note{font-size:12.5px; color:var(--sub); background:var(--paper-2); border-radius:6px; padding:10px 14px; margin-top:16px}
+  .contact-form{display:flex; flex-direction:column; gap:10px; margin-top:16px; max-width:420px}
+  .contact-form input, .contact-form textarea{
+    font-family:'Work Sans',sans-serif; font-size:14px; padding:10px 12px; border:1px solid var(--border);
+    border-radius:6px; background:var(--paper); color:var(--ink);
+  }
+  .contact-form button{
+    font-family:'Work Sans',sans-serif; font-weight:600; font-size:14px; padding:10px 16px;
+    background:var(--rust); color:#fff; border:none; border-radius:6px; cursor:pointer; width:fit-content;
+  }
+
+  footer{background:var(--soil); color:var(--paper); padding:36px 24px 28px; margin-top:70px}
+  .footer-inner{max-width:1080px; margin:0 auto; display:flex; justify-content:space-between; flex-wrap:wrap; gap:20px}
+  .footer-inner a{color:var(--wheat); text-decoration:none; font-size:13px}
+  .footer-inner a:hover{text-decoration:underline}
+  .footer-links{display:flex; gap:18px; flex-wrap:wrap}
+  .footer-note{font-size:12px; color:#c9bfa8; max-width:420px}
+  .solidarity-banner{
+    background:linear-gradient(180deg,#000 0%,#000 33%,#fff 33%,#fff 66%,#007A3D 66%,#007A3D 100%);
+    position:relative; color:#fff; text-align:center; padding:20px 16px;
+    font-size:18px; font-weight:700; letter-spacing:.02em;
+    text-shadow:0 1px 3px rgba(0,0,0,.7);
+  }
+  .solidarity-banner::before{
+    content:''; position:absolute; left:0; top:0; bottom:0; width:36px;
+    background:#CE1126; clip-path:polygon(0 0,100% 50%,0 100%);
+  }
+  .solidarity-banner b{text-transform:uppercase; letter-spacing:.05em; font-size:19px}
+
+  /* ---- layout con columna lateral (X/Twitter) ---- */
+  .layout{display:flex; gap:24px; max-width:1400px; margin:0 auto; align-items:flex-start; padding:0 24px}
+  .layout main{max-width:1080px; margin:0; padding:0 0 80px; flex:1; min-width:0}
+  .sidebar{width:300px; flex-shrink:0; position:sticky; top:90px}
+  .sidebar-box{background:var(--card); border:1px solid var(--border); border-radius:10px; padding:16px}
+  .sidebar-box h3{font-size:13px; text-transform:uppercase; letter-spacing:.06em; margin:0 0 12px; color:var(--sub)}
+  @media (max-width:960px){
+    .layout{flex-direction:column; padding:0}
+    .sidebar{width:100%; position:static; padding:0 24px}
+  }
+
+  /* ---- botón flotante de Instagram ---- */
+  .floating-ig{
+    position:fixed; right:20px; bottom:140px; z-index:1000;
+    background:linear-gradient(45deg,#405DE6,#5851DB,#833AB4,#C13584,#E1306C,#FD1D1D);
+    color:#fff; width:50px; height:50px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    text-decoration:none; box-shadow:0 4px 10px rgba(0,0,0,.3); transition:transform .2s ease;
+  }
+  .floating-ig:hover{transform:scale(1.1)}
+
+  /* ---- página de publicación ---- */
+  .publicacion{max-width:820px; margin:0 auto; padding:40px 24px 80px}
+  .publicacion .volver{display:block; width:fit-content; font-size:13px; font-weight:600; text-transform:uppercase; letter-spacing:.04em; text-decoration:none; margin-bottom:26px}
+  .publicacion .tag{display:block; width:fit-content}
+  .publicacion h1{font-size:clamp(26px,4vw,40px); line-height:1.15; margin:0 0 14px}
+  .publicacion .dek{font-size:17px; color:var(--soil); line-height:1.5; margin:0 0 10px}
+  .publicacion .meta{font-size:13px; color:var(--sub); font-style:italic; margin:0 0 22px}
+  .publicacion figure{margin:0 0 26px; background:var(--paper-2); border-radius:10px; overflow:hidden}
+  .publicacion figure img{display:block; width:100%; max-height:480px; object-fit:contain}
+  .publicacion .full{display:block; background:var(--card); border:1px solid var(--border); border-radius:10px; padding:26px 28px; border-top:1px solid var(--border)}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="brand">
+    <span class="word">REVISTA LA TRILLA</span>
+    <span class="sub">Biobío</span>
+  </div>
+     <nav>
+    <a href="../index.html">← Portada</a>
+    <a href="../archivo.html">Archivo</a>
+  </nav>
+</header>
+<div class="solidarity-banner"><b>No es guerra, es Genocidio.</b>&nbsp; Solidaridad con Palestina </div>
+
+<main class="publicacion">
+  <a class="volver" href="../index.html">← Volver a la portada</a>
+  <span class="tag tag-nacional">Nacional</span>
+  <h1>Acerca de la Huelga General</h1>
+  <p class="dek">Una respuesta crítica al llamado de Luis Mesina y a su amplificación en El Porteño: por qué la huelga general debe ser la culminación de un proceso, no su punto de partida.</p>
+  <p class="meta">Equipo La Trilla</p>
+  <div class="full">
+<p><b>Acerca del llamado a Huelga General</b></p>
+<p><i>No mas cortoplacismos: los pasos concretos que sí podemos dar</i></p>
+<p>En el último tiempo ha circulado entre algunos sectores de la izquierda chilena una propuesta que, por su contundencia verbal, ha captado la atención de quienes buscan una salida al régimen economico que busca imponer el gobierno de Kast: la Huelga General como instrumento central para detener la ofensiva de una fracción de la patronal y cambiar el rumbo del país.</p>
+<p>El dirigente sindical Luis Mesina, la ha planteado con claridad en su articulo para Le Monde Diplomatique: "Un nuevo ataque al mundo del trabajo: esta vez, mortal". Y hay que reconocer que su diagnóstico sobre el carácter clasista de la ofensiva del gobierno neofascista es correcto. La reforma tributaria, los recortes sociales, la flexibilización laboral y la criminalización de la protesta no son errores técnicos ni productos de una mala asesoría, o la ineptitud general del gobierno; es un plan de superexplotación de la fuerza laboral y la naturaleza.</p>
+<p>Ahora, la Huelga General, entendida como la interrupción consciente del funcionamiento ordinario de la sociedad por quienes producen su riqueza, transportan sus mercancías y sostienen sus servicios, es un instrumento legítimo y necesario en cualquier proceso de transformación radical. Pero la historia reciente ---y en particular la experiencia del 18 de octubre de 2019--- nos enseño que, con o sin una consigna, o por más correcta que llegue a ser una, no es suficiente para cambiar la correlación de fuerzas si no va acompañada de organización política de masas, dirección y un plan concreto que anticipe las respuestas del adversario.</p>
+<p>Este planteamiento de Mesina, ha sido recogido y amplificado editorialmente. El artículo de Gustavo Burgos en El Porteño, "Cuando la izquierda comienza a advertir el abismo: del colapso democrático a la huelga general", reúne el diagnóstico de Mesina con el del teólogo Álvaro Ramis ---quien describe un gobierno que "gobierna contra la gente y sin oposición"--- y con las reflexiones del sociólogo Aldo Mascareño sobre una "condición postdemocrática". Según Burgos, Mesina sería quien "avanza más" al identificar el carácter clasista de la ofensiva y colocar la huelga general en el centro del debate. El propio Burgos añade "hasta proponer que la resistencia dispersa se convierta en acción común, la acción común en huelga general, y la huelga general en una alternativa política independiente de la clase trabajadora". Una síntesis atractiva, y compartimos parte del diagnóstico que la sostiene. Pero conviene no confundir la corrección del diagnóstico con la corrección del momento y el método de la respuesta. Y afinar el analisis.</p>
+<p>Mesina acierta quizá al colocar la huelga en el centro del debate y al definirla como algo más que una protesta intensificada. Acierta a nuestro entender al "apretar" al movimiento sindical: "La hora presente exige un esfuerzo supremo de las alicaídas organizaciones sociales y, principalmente, de las sindicales. Hay que dejar en claro que esto es intolerable: ha llegado el momento de que el movimiento sindical prepare y capacite a los trabajadores para grandes desafíos históricos".</p>
+<p>La huelga general no es una marcha más grande ni una jornada simbólica; es la demostración práctica de que la sociedad no funciona por la voluntad de los ministros o los empresarios, sino por el trabajo colectivo de millones de personas que, cuando detienen sus manos, paralizan el país. Es una herramienta de lucha de los trabajadores. Aporta además un dato concreto que conviene no perder de vista: la Mesa de Reactivación Laboral del Ministerio del Trabajo, con su paquete de 22 medidas, no es un ajuste técnico menor, sino el intento de sustituir la indemnización por años de servicio por un fondo financiado con un seguro complementario al de cesantía ---lo que en los hechos entrega al empresariado carta blanca para despedir sin costo. Ese es exactamente el tipo de evidencia concreta que sostiene, y no solo declama, el carácter clasista de la ofensiva.</p>
+<p>Pero la propuesta de Mesina, aunque certera en su diagnostico, adolece de una limitación que no puede pasarse por alto: confunde el anuncio de la acción con la construcción de las condiciones para que esa acción sea efectiva. En opinión de Burgos, intentando dotar de mas contenido la idea, la Huelga General "debe surgir como culminación de una acumulación organizada de fuerzas", pero como es habitual en nuestra izquierda de cualquier cuño, no dice quién va a organizar esa acumulación, ni cómo se va a coordinar entre los distintos sectores, ni qué se va a hacer cuando el sistema responda con sus mecanismos habituales ---concesiones focalizadas, represión selectiva, judicialización de los dirigentes, división del movimiento mediante ofertas a los sindicatos burocratizados. En ese sentido, ambos no plantean un plan concreto y no se identifica el sujeto a movilizar. Queda la impresión, involuntaria probablemente pero peligrosa, de que la huelga general es un acto de fe: si se convoca, las masas trabajadoras responderán, y su fuerza bastará para doblegar al régimen.</p>
+<p>Y aquí hay una contradicción que merece ser señalada con respeto pero con firmeza. La propia tradición trotskista - de la que Mesina, siendo hoy independiente, entiendo se siente parte - desarrolló una teoría muy precisa sobre las condiciones en que una huelga general puede ser planteada. No se trata de una convocatoria arbitraria que se hace en cualquier momento; responde a condiciones objetivas y subjetivas muy claras: 1° una crisis profunda del sistema que haya agotado las vías institucionales. 2° un ataque generalizado del gobierno contra toda la clase trabajadora. 3° divisiones internas en las clases dominantes. Pero además, exige un "momento subjetivo": que las masas trabajadoras estén maduras para la lucha, que hayan pasado por conflictos locales y parciales que las hayan organizado y radicalizado, que exista una vanguardia reconocida y escuchada por los sectores activos, y que las demandas económicas se hayan transformado en la pregunta política por el poder. Si esas condiciones no se dan, la huelga general no es una estrategia, es una aventura.</p>
+<p>Pero hay otro aspecto mas de fondo, que esa misma tradición exige, y que el llamado de Mesina o la valoración de Burgos tampoco resuelve: no basta con acumular fuerzas para llegar a la huelga general si no se dice para qué. ¿Cuál es el momento político de esa huelga? ¿La caída del gobierno de Kast y su reemplazo por otro dentro del mismo régimen? ¿La apertura de un nuevo proceso constituyente, como en 2019? ¿La construcción de un gobierno democrático popular? ¿El socialismo? Ni Mesina ni Burgos lo dice, y esa omisión no es un detalle menor: una huelga general sin horizonte de poder corre el riesgo de repetir el 18O, donde la fuerza desplegada en las calles terminó, a falta de un proyecto propio, entregada a instituciones que el mismo sistema había diseñado para contenerla. Una situación similar a la ocurrida en Argentina en 2001, con la dimisión de De la Rúa producto de grandes movilizaciones.</p>
+<p>La pregunta incómoda, entonces, es: ¿estamos en ese momento? ¿Están las masas maduras? ¿Han pasado por huelgas parciales y asambleas que las hayan organizado y radicalizado? ¿Existe una vanguardia reconocida y escuchada? ¿El descontento económico se ha transformado en la pregunta por el poder? La respuesta, con honestidad, es que no. Hoy, la clase trabajadora está fragmentada, los sindicatos están debilitados, las organizaciones políticas están divididas, y el sentido común dominante aún no ha sido disputado minimamente. Eso no significa que no haya lucha, ni que no haya descontento; significa que la lucha y el descontento aún no han alcanzado el nivel de organización y conciencia que una huelga general requiere. Convocar la Huelga antes de tiempo, sin esas condiciones, no es una muestra de audacia; puede ser una irresponsabilidad que lleve a una nueva derrota que desmovilice a los sectores populares por decadas mas.</p>
+<p>Y aquí, paradójicamente, el propio artículo de El Porteño ofrece una pista que contradice su conclusión. Cuando plantea que la tarea consiste en "convertir la resistencia dispersa en acción común; la acción común, en huelga general; y la huelga general, en una alternativa política independiente", está describiendo ---sin proponérselo--- exactamente el proceso de acumulación organizada que este artículo defiende, y que ni Mesina ni Burgos especifican en sus pasos concretos. ¿Quién convierte la resistencia dispersa en acción común? ¿Con qué estructuras, en qué territorios, con qué calendario, sobre qué luchas concretas? La secuencia que proponen pueden ser correctas; lo que falta es decir cómo se construye cada eslabón, no solo nombrar el último.</p>
+<p>La experiencia espontaneista del 18O debería haber cerrado esa particular ilusión política para siempre. El estallido social fue la mayor explosión de lucha de las últimas cuatro décadas, y sin embargo, cinco años después tenemos un gobierno de ultraderecha que está tratando de hacer lo que la dictadura no pudo terminar. Por eso, ante este, en general, justo llamado, no podemos dejar de preguntar: ¿qué ha cambiado desde entonces? ¿Dónde están las estructuras que puedan sostener una huelga general? ¿Qué sectores de trabajadores están dispuestos a movilizarse hoy, que no sean los mismos de siempre? Sin respuestas a estas preguntas, la huelga general no es una estrategia; es una apuesta, y las apuestas las paga el pueblo con sangre y derrota. No se trata de abandonar la huelga como horizonte, si ese terminara siendo el camino; pues existe el ataque generalizado del gobierno contra toda la clase trabajadora, se trata de entender que es la culminación de un proceso, no su punto de partida.</p>
+<p>El problema de fondo es que esa postura esta operando con una idea abstracta de "la clase trabajadora" y una idea igualmente abstracta del "empresariado", como si ambas fueran bloques homogéneos. Mesina en su articulo indica que "el Gobierno de Kast representa directamente los intereses del gran capital nacional y transnacional". Sin embargo, como hemos desarrollado en nuestro articulo "De quien es el plan de Kast", la burguesía chilena no es un bloque monolítico: el gobierno de Kast no representa a los grandes grupos económicos tradicionales, sino a una fracción subordinada ---retail, agroindustria, pesca, inmobiliarias, banca mediana--- desplazada históricamente de las grandes ganancias, que busca redefinir las reglas de la acumulación a costa de la mayoría. Y que ha puesto al gobierno de ultraderecha como su fuerza de choque política, para ejecutar el trabajo sucio que la derecha tradicional y la socialdemocracia ya no podía hacer sin destruir su propia imagen o futura viabilidad política.</p>
+<p>Este cambio, negociado o no, entre la gran burguesía y esta fracción subordinada, entrega importantes posibilidades tácticas para el movimiento popular y sindical. Pues al gran capital le incómoda la confrontación abierta con China y la posibilidad de un descalabro político economico; pero una huelga general al voleo que no considere estas grietas del poder, puede terminar uniendo a los capitalistas en su conjunto en defensa de la propiedad, en lugar de dividirlos entre sí.</p>
+<p>Ese analisis parcelado, tampoco considera que la propia base social del gobierno de Kast ---pequeños empresarios, sectores conservadores empobrecidos, clase media proletarizada--- comenzará a resentir el plan cuando vea sus salarios recortados, sus derechos eliminados y sus sueños de ascenso social desvanecidos. Esa base, que votó por Kast engañada por la demagogia de "mano dura" y "reconstrucción nacional", puede convertirse en un factor de inestabilidad para el gobierno, si se logra mostrar que el plan no beneficia a nadie más que a una fracción de la burguesía subordinada que está usando el poder para su beneficio parasitario. Pero eso requiere una táctica y una estrategia política que sepa distinguir entre los enemigos principales y los aliados potenciales, que sepa aislar a la fracción de Kast sin caer en el voluntarismo.</p>
+<p>Por lo tanto, en lugar de una convocatoria a la huelga general que no tiene asidero en las fuerzas reales hoy, proponemos un enfoque táctico que parte de los sectores inmediatamente golpeados por el plan, que ya se están movilizando. Esto no significa que el sindicalismo no deba hacer su tarea.</p>
+<p>Por ahora los estudiantes secundarios, la Confech, junto a pequeñas orgánicas politicas de izquierda antisistemica, fueron los primeros en percibir la virulencia del plan económico. El movimiento ecologista se está reactivando en los territorios amenazados por los proyectos de extracción de litio y tierras raras. Los trabajadores del transporte han protestado en Santiago y anuncian nuevas movilizaciones. La CUT, con todas sus limitaciones, logró convocar a decenas de miles el 1 de mayo. Los sectores de la salud, como la Fenats, se están movilizando incipientemente. Estos movimientos aun fragmentados; son la materia prima de un proceso de coordinación que, si se construye con inteligencia y sin sectarismos, puede convertirse en una fuerza capaz de imponer condiciones al gobierno.</p>
+<p>La primera batalla táctica podría ser, por ejemplo, frenar la aprobación de un proyecto específico de extracción de tierras raras en algún territorio en conflicto. O evitar recortes economicos en algún área critica para la poblaccion como la educación o la salud. Eso implicaría coordinar a las comunidades locales, a los sindicatos afines, a los movimientos ecologistas y a los estudiantes, y diseñar una campaña de propaganda que exponga los intereses de la fracción de Kast y de sus socios estadounidenses. Si se logra frenar un proyecto, se habrá dado un paso concreto y medible; se habrá demostrado que la resistencia puede imponerse; y se habrá comenzado a construir la confianza que permite coordinar acciones más amplias.</p>
+<p>No se trata de una meta menor: golpea directamente a la fracción que está en el poder y los compromisos que negoció con su apoyo geopolítico, involucra a comunidades que ya están organizadas, y permite tejer alianzas en torno a un objetivo claro. Porque, por ejemplo, en una mirada netamente política, aunque en la actualidad la mayoría de los conflictos "medioambientales" están en manos de ONGs que con sus recursos lideran las luchas sociales en los territorios, esos proyectos son una muestra de un neocolonialismo guerrerista norteamericano en Chile. Y su conducción política debe ser disputada por el movimiento popular.</p>
+<p>El siguiente paso colectivo, podría ser apoyar con autonomía las movilizaciones de los gremios afectados por los recortes presupuestarios - salud, educación, transporte - en la perspectiva de un Paro Nacional. Un Paro Nacional considera todas las fuerzas sociales en movimiento, no solo el mundo del trabajo: estudiantes, pobladores, jubilados, comunidades territoriales, junto a los trabajadores.</p>
+<p>Este trabajo no debe abordarse desde una lógica de dirección burocrática, al estilo de lo que fue NO+AFP, sino desde la solidaridad activa y la coordinación autónoma. Si los trabajadores de la salud ven que su lucha es respaldada por los estudiantes y los ecologistas, y que ese respaldo no es una declaración de principios sino una acción concreta - una jornada de paralización en solidaridad, una campaña de información en los barrios - la confianza se construye en la práctica. Y esa confianza es el único cemento que puede sostener una Huelga General, un Paro Nacional o, si las condiciones lo exigen, algo más, cuando llegue el momento. Porque cabe una tercera posibilidad que Mesina y Burgos no contemplan, y que conviene distinguir con precisión: la insurrección popular, entendida no como la paralización de la producción, sino como el enfrentamiento directo con el aparato del Estado. Es un salto cualitativo distinto, con condiciones y costos propios, que no debe confundirse ni con la huelga ni con el paro. No planteamos que eso vaya a ocurrir, solo decimos que hay mas caminos estratégicos.</p>
+<p>Pero, para que esta táctica que proponemos funcione, necesitamos espacios de coordinación que no repitan los errores del pasado. No se trata de fundar un nuevo partido ni de redactar un programa detallado que divida en la discusión ideológica. Se trata de convocar a reuniones territoriales donde las organizaciones que ya están en la calle puedan discutir un plan de acción común para los próximos meses, definir objetivos territoriales concretos y medibles, asignar responsabilidades y evaluar los resultados. La dirección de estas coordinaciones no debería ser fija, sino rotativa y temática, de modo que ninguna organización se sienta excluida y todas asuman responsabilidades. No es una receta perfecta, pero es realista, y tiene a la base una analisis mucho mas especifico de la situación: parte del reconocimiento de nuestras fuerzas, de las de nuestro enemigo de clase, y de que la confianza se construye en la acción compartida, no en los debates ideológicos previos.</p>
+<p>En el plano de la propaganda, debemos desenmascarar a la izquierda neoliberal que hoy se sienta a negociar indicaciones en el Senado mientras dice oponerse al plan de Kast. La "huelga legislativa" que algunos sectores exigieron en el 18O ---que el parlamento se niegue a tramitar las leyes del gobierno mientras se reprima al pueblo--- puede ser rescatada hoy como una demanda propagandística dirigida al PC, al PS, al FA y a toda la oposición institucional. No porque creamos que vayan a hacerla ---porque no la harán---, sino para mostrar en la práctica cómo negocian, tranzan y legitiman la reforma mientras dicen oponerse. Mostrar que no hay diferencia sustancial de proyecto económico entre "oposición" y oficialismo, que todos son parte del mismo engranaje pero con distinto papel, es una tarea política de primer orden para disputar el sentido común de quienes aún creen y creerán por mucho tiempo mas que la salida está en las urnas o en las gestiones parlamentarias y no entienden la abstracción del duopolio.</p>
+<p>La huelga general, cuando llegue, si es que ese es el camino que elige el pueblo, será la culminación de este proceso, no su punto de partida. Será el momento en que la confianza construida en las acciones concretas, la coordinación tejida en los territorios, y la claridad sobre el enemigo y sus fisuras, permitan que el pueblo paralice el país no como una protesta testimonial, sino como el inicio de una alternativa de poder. Pero para que eso ocurra, hay que dejar de lado el cortoplacismo de quienes creen que una consigna puede reemplazar la organización, y también el sectarismo de quienes se niegan a coordinar con otros porque no comparten todos sus principios. La paciencia estratégica no es pasividad; es la disciplina de construir, paso a paso, las condiciones para que cuando la huelga, el paro o la insurrección lleguen, no sean un acto de fe, sino una expresión de fuerza real. Advertir el abismo, como titula Burgos, es necesario. Pero advertirlo no construye el puente para cruzarlo; ese puente se construye tramo a tramo, con pasos concretos como los que aquí proponemos. El gobierno de Kast está produciendo contradicciones que podemos aprovechar, pero solo si aprendemos de los errores del pasado y nos atrevemos a ensayar formas nuevas de organización. Eso es lo que está en juego, y no hay tiempo que perder.</p>
+    <div class="share-actions">
+      <a class="share-x" target="_blank" rel="noopener noreferrer" href="https://twitter.com/intent/tweet?text=Leyendo%20%22Acerca%20de%20la%20Huelga%20General%22%20en%20La%20Trilla&amp;url=https%3A%2F%2Frevista-la-trilla.pages.dev%2Fpublicaciones%2Fhuelga-general.html"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>Compartir en X</a>
+      <a class="share-copy" href="https://revista-la-trilla.pages.dev/publicaciones/huelga-general.html" onclick="event.preventDefault(); navigator.clipboard.writeText(this.href).then(()=>{const t=this.textContent; this.textContent='✅ ¡Enlace copiado!'; setTimeout(()=>this.textContent=t,3000);});">🔗 Copiar enlace del artículo</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-note">
+      La Trilla es un espacio editorial del Colectivo La Trilla, región del Biobío. El nombre honra la faena campesina de separar el grano de la paja: la misma tarea que este espacio quiere hacer con el debate político y cultural.
+    </div>
+    <div class="footer-links">
+      <a href="../index.html#contacto">Contacto</a>
+      <a href="../index.html#legal">Aspectos legales</a>
+      <a href="https://www.instagram.com/colectivolatrilla/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+</footer>
+
+<a href="https://www.instagram.com/colectivolatrilla/" target="_blank" rel="noopener noreferrer" class="floating-ig" aria-label="Instagram">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+</a>
+</body>
+</html>

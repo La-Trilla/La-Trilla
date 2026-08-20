@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El plan de Kast — Revista La Trilla</title>
+<meta name="description" content="¿A quién representa realmente el gobierno de Kast? Un análisis de las fracciones de la burguesía chilena detrás del plan de reconstrucción.">
+<link rel="canonical" href="https://revista-la-trilla.pages.dev/publicaciones/plan-kast.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Revista La Trilla">
+<meta property="og:title" content="El plan de Kast">
+<meta property="og:description" content="¿A quién representa realmente el gobierno de Kast? Un análisis de las fracciones de la burguesía chilena detrás del plan de reconstrucción.">
+<meta property="og:url" content="https://revista-la-trilla.pages.dev/publicaciones/plan-kast.html">
+<meta property="og:image" content="https://revista-la-trilla.pages.dev/imagenes/trilla.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;700;900&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #EDE2C8;
+    --paper-2: #E4D6B4;
+    --ink: #241C14;
+    --wheat: #C9A227;
+    --wheat-dark: #9C7D1C;
+    --rust: #A63A2C;
+    --heather: #46613F;
+    --teal: #3D6B66;
+    --soil: #4A3B2A;
+    --sub: #6B5D45;
+    --card: #FAF6EC;
+    --border: #D8C79E;
+    --focus: #1F5F8B;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; overflow-x:hidden; background:var(--paper); color:var(--ink);
+    font-family:'Work Sans', -apple-system, sans-serif;
+    line-height:1.5;
+  }
+  h1,h2,h3,h4{font-family:'Bitter', Georgia, serif; margin:0; color:var(--ink)}
+  a{color:var(--rust)}
+  a:focus-visible, button:focus-visible, .card-head:focus-visible{outline:3px solid var(--focus); outline-offset:2px}
+  @media (prefers-reduced-motion: reduce){ *{transition:none !important; animation:none !important} }
+
+  /* ---- masthead ---- */
+  .masthead{
+    background:var(--ink); color:var(--paper);
+    padding:14px 24px; display:flex; justify-content:space-between; align-items:center;
+    flex-wrap:wrap; gap:10px; position:sticky; top:0; z-index:20;
+    border-bottom:3px solid var(--wheat);
+  }
+  .brand{display:flex; align-items:baseline; gap:10px}
+  .brand .word{font-family:'Bitter', serif; font-weight:900; font-size:26px; letter-spacing:.01em; color:var(--paper)}
+  .brand .sub{font-size:12px; color:var(--wheat); text-transform:uppercase; letter-spacing:.08em}
+  nav{display:flex; gap:4px; flex-wrap:wrap}
+  nav button, nav a{
+    font-family:'Work Sans', sans-serif; font-size:13px; font-weight:600; letter-spacing:.02em;
+    background:none; border:none; color:var(--paper); opacity:.75; cursor:pointer;
+    padding:8px 12px; border-radius:4px; text-transform:uppercase; text-decoration:none;
+  }
+  nav button:hover, nav a:hover{opacity:1; background:rgba(255,255,255,.08)}
+  nav button.active{opacity:1; color:var(--wheat); background:rgba(201,162,39,.14)}
+
+  /* ---- hero con imagen de fondo ---- */
+  .hero-wrap{position:relative; overflow:hidden; isolation:isolate}
+  .hero-wrap::before{
+    content:''; position:absolute; inset:-8px; z-index:-1;
+    background:url('../imagenes/trilla.jpg') center/cover no-repeat;
+    filter:blur(2px); opacity:.5;
+  }
+  .hero{max-width:820px; margin:0 auto; padding:64px 24px 40px; text-align:center}
+  .cuba-banner{
+    border-left:15px solid #ce1126;
+    background:repeating-linear-gradient(to bottom,#002a8f 0 20px,#fff 20px 40px);
+    padding:10px 0 10px 40px; color:#fff; font-weight:700; text-shadow:2px 2px 4px rgba(0,0,0,.8);
+  }
+  .solidarity-banner{padding-left:56px}
+  .visit-counter{text-align:right; margin:5px 20px 0; padding-bottom:10px}
+  .visit-counter img{vertical-align:middle}
+  .hero h1{font-size:clamp(30px, 5vw, 52px); line-height:1.08; margin-bottom:18px}
+  .hero .thesis{font-size:19px; color:var(--soil); max-width:560px; margin:0 auto 8px; font-weight:500}
+  .hero .thesis b{color:var(--rust)}
+  .hero .issue{font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--sub); margin-top:18px}
+
+  /* ---- grain divider (signature element) ---- */
+  .grain-divider{width:100%; height:22px; margin:8px 0 0}
+
+  /* ---- section filter feedback ---- */
+  .section-label{
+    max-width:1080px; margin:36px auto 4px; padding:0 24px;
+    font-size:12px; text-transform:uppercase; letter-spacing:.1em; color:var(--sub);
+  }
+
+  /* ---- grid ---- */
+  main{max-width:1080px; margin:0 auto; padding:0 24px 80px}
+  .grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(300px,1fr)); gap:22px; margin-top:14px}
+
+  .card{
+    background:var(--card); border:1px solid var(--border); border-radius:10px;
+    overflow:hidden; display:flex; flex-direction:column;
+  }
+  .card.open{grid-column:1 / -1}
+  .card.open .full{max-width:760px; margin:0 auto}
+  .card-image{width:100%; aspect-ratio:16/9; overflow:hidden; background:var(--paper-2)}
+  .card-image img{width:100%; height:100%; object-fit:cover; display:block; background:var(--paper-2)}
+  .card-image.contain img{object-fit:contain}
+  .card-head{padding:20px 22px; cursor:pointer}
+  .card-head .inline-figure{display:block; width:100%; max-width:300px; margin:20px auto 0; border-radius:4px}
+  a.card-link{text-decoration:none; color:inherit}
+  a.card-link:hover h3{color:var(--rust)}
+  a.card-link .expand-btn{display:inline-block; margin-top:4px}
+  .tag{
+    display:inline-block; font-size:10.5px; text-transform:uppercase; letter-spacing:.06em;
+    padding:3px 9px; border-radius:20px; color:#fff; margin-bottom:10px; font-weight:600;
+  }
+  .tag-nacional{background:var(--rust)}
+  .tag-ciencia{background:var(--wheat-dark)}
+  .tag-cultura{background:var(--heather)}
+  .tag-local{background:var(--teal)}
+  .tag-internacional{background:var(--soil)}
+  .tag-multimedia{background:var(--sub)}
+  .tag-debate{background:#5A4A7A}
+
+  .card h3{font-size:19px; line-height:1.25; margin-bottom:8px}
+  .card .dek{font-size:14px; color:var(--soil); margin:0 0 10px; line-height:1.5}
+  .card .meta{font-size:12px; color:var(--sub); margin:0 0 12px; font-style:italic}
+  .expand-btn{
+    font-family:'Work Sans',sans-serif; font-size:13px; font-weight:600; color:var(--rust);
+    background:none; border:none; padding:0; cursor:pointer;
+  }
+  .full{display:none; padding:0 22px 22px; border-top:1px dashed var(--border)}
+  .card.open .full{display:block; padding-top:16px}
+  .full p{font-size:15px; line-height:1.7; margin:0 0 14px; color:var(--ink)}
+  .full h4{font-size:16px; margin:18px 0 8px; color:var(--rust)}
+  .full h5{font-size:15px; margin:16px 0 6px; color:var(--soil)}
+  .full ul{margin:0 0 14px; padding-left:20px}
+  .full li{font-size:15px; line-height:1.6; margin-bottom:6px}
+  .full .plain-list{list-style:none; padding-left:0}
+  .full .plain-list li{margin-bottom:4px}
+  .full table{width:100%; border-collapse:collapse; margin:1.2em 0; font-size:.9rem; background:var(--card); border:1px solid var(--border)}
+  .full th, .full td{padding:8px; border:1px solid var(--border)}
+  .full thead tr{background:var(--soil); color:#fff}
+  .full th:first-child, .full td:first-child{text-align:center}
+  .full td:first-child{font-weight:700; background:var(--paper-2)}
+  .full blockquote{border-left:4px solid var(--rust); padding:.8em 1.2em; margin:1em 0; background:var(--paper-2); font-style:italic}
+  .full blockquote footer{margin-top:.5em; font-style:normal; font-weight:600}
+  .full .credits{font-size:.9rem; color:var(--sub); border-top:1px solid var(--border); padding-top:.8em; margin-top:1.5em}
+  .card.open .card-head .expand-btn::after{content:' — cerrar ▴'}
+  .share-actions{margin-top:16px; border-top:1px solid var(--border); padding-top:14px; display:flex; gap:18px; flex-wrap:wrap}
+  .share-actions a{font-family:'Work Sans',sans-serif; font-size:14px; font-weight:600; text-decoration:none; display:inline-flex; align-items:center; gap:5px}
+  .share-actions .share-x{color:var(--rust)}
+  .share-actions .share-copy{color:var(--heather)}
+  .card:target{outline:3px solid var(--wheat); outline-offset:2px}
+  .full .source-note{font-size:13px; color:var(--sub); font-style:italic; border-top:1px solid var(--border); padding-top:12px}
+
+  .hidden-by-filter{display:none !important}
+
+  /* ---- utility sections (contacto/legal) ---- */
+  .utility{
+    max-width:780px; margin:60px auto 0; padding:32px 28px; background:var(--card);
+    border:1px solid var(--border); border-radius:10px;
+  }
+  .utility h2{font-size:22px; margin-bottom:14px}
+  .utility p{font-size:14.5px; line-height:1.65; color:var(--soil)}
+  .utility .note{font-size:12.5px; color:var(--sub); background:var(--paper-2); border-radius:6px; padding:10px 14px; margin-top:16px}
+  .contact-form{display:flex; flex-direction:column; gap:10px; margin-top:16px; max-width:420px}
+  .contact-form input, .contact-form textarea{
+    font-family:'Work Sans',sans-serif; font-size:14px; padding:10px 12px; border:1px solid var(--border);
+    border-radius:6px; background:var(--paper); color:var(--ink);
+  }
+  .contact-form button{
+    font-family:'Work Sans',sans-serif; font-weight:600; font-size:14px; padding:10px 16px;
+    background:var(--rust); color:#fff; border:none; border-radius:6px; cursor:pointer; width:fit-content;
+  }
+
+  footer{background:var(--soil); color:var(--paper); padding:36px 24px 28px; margin-top:70px}
+  .footer-inner{max-width:1080px; margin:0 auto; display:flex; justify-content:space-between; flex-wrap:wrap; gap:20px}
+  .footer-inner a{color:var(--wheat); text-decoration:none; font-size:13px}
+  .footer-inner a:hover{text-decoration:underline}
+  .footer-links{display:flex; gap:18px; flex-wrap:wrap}
+  .footer-note{font-size:12px; color:#c9bfa8; max-width:420px}
+  .solidarity-banner{
+    background:linear-gradient(180deg,#000 0%,#000 33%,#fff 33%,#fff 66%,#007A3D 66%,#007A3D 100%);
+    position:relative; color:#fff; text-align:center; padding:20px 16px;
+    font-size:18px; font-weight:700; letter-spacing:.02em;
+    text-shadow:0 1px 3px rgba(0,0,0,.7);
+  }
+  .solidarity-banner::before{
+    content:''; position:absolute; left:0; top:0; bottom:0; width:36px;
+    background:#CE1126; clip-path:polygon(0 0,100% 50%,0 100%);
+  }
+  .solidarity-banner b{text-transform:uppercase; letter-spacing:.05em; font-size:19px}
+
+  /* ---- layout con columna lateral (X/Twitter) ---- */
+  .layout{display:flex; gap:24px; max-width:1400px; margin:0 auto; align-items:flex-start; padding:0 24px}
+  .layout main{max-width:1080px; margin:0; padding:0 0 80px; flex:1; min-width:0}
+  .sidebar{width:300px; flex-shrink:0; position:sticky; top:90px}
+  .sidebar-box{background:var(--card); border:1px solid var(--border); border-radius:10px; padding:16px}
+  .sidebar-box h3{font-size:13px; text-transform:uppercase; letter-spacing:.06em; margin:0 0 12px; color:var(--sub)}
+  @media (max-width:960px){
+    .layout{flex-direction:column; padding:0}
+    .sidebar{width:100%; position:static; padding:0 24px}
+  }
+
+  /* ---- botón flotante de Instagram ---- */
+  .floating-ig{
+    position:fixed; right:20px; bottom:140px; z-index:1000;
+    background:linear-gradient(45deg,#405DE6,#5851DB,#833AB4,#C13584,#E1306C,#FD1D1D);
+    color:#fff; width:50px; height:50px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    text-decoration:none; box-shadow:0 4px 10px rgba(0,0,0,.3); transition:transform .2s ease;
+  }
+  .floating-ig:hover{transform:scale(1.1)}
+
+  /* ---- página de publicación ---- */
+  .publicacion{max-width:820px; margin:0 auto; padding:40px 24px 80px}
+  .publicacion .volver{display:block; width:fit-content; font-size:13px; font-weight:600; text-transform:uppercase; letter-spacing:.04em; text-decoration:none; margin-bottom:26px}
+  .publicacion .tag{display:block; width:fit-content}
+  .publicacion h1{font-size:clamp(26px,4vw,40px); line-height:1.15; margin:0 0 14px}
+  .publicacion .dek{font-size:17px; color:var(--soil); line-height:1.5; margin:0 0 10px}
+  .publicacion .meta{font-size:13px; color:var(--sub); font-style:italic; margin:0 0 22px}
+  .publicacion figure{margin:0 0 26px; background:var(--paper-2); border-radius:10px; overflow:hidden}
+  .publicacion figure img{display:block; width:100%; max-height:480px; object-fit:contain}
+  .publicacion .full{display:block; background:var(--card); border:1px solid var(--border); border-radius:10px; padding:26px 28px; border-top:1px solid var(--border)}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="brand">
+    <span class="word">REVISTA LA TRILLA</span>
+    <span class="sub">Biobío</span>
+  </div>
+     <nav>
+    <a href="../index.html">← Portada</a>
+    <a href="../archivo.html">Archivo</a>
+  </nav>
+</header>
+<div class="solidarity-banner"><b>No es guerra, es Genocidio.</b>&nbsp; Solidaridad con Palestina </div>
+
+<main class="publicacion">
+  <a class="volver" href="../index.html">← Volver a la portada</a>
+  <span class="tag tag-nacional">Nacional</span>
+  <h1>El plan de Kast</h1>
+  <p class="dek">¿A quién representa realmente el gobierno de Kast? Un análisis de las fracciones de la burguesía chilena detrás del plan de reconstrucción.</p>
+  <p class="meta">Equipo La Trilla</p>
+  <div class="full">
+<p>La derecha chilena aprendió la lección. Después de que la revuelta popular de 2019 pusiera en jaque la Constitución de 1980 y que la Convención Constitucional demostrara, con todos sus defectos, que el pacto jurídico de la dictadura podía ser discutido, sectores de la oligarquía nacional cambiaron de estrategia. Ya no se trata de defender o reformar la constitución de Pinochet. Se trata de hacerla irrelevante. El gobierno de Kast, bajo el rótulo de "Plan de Reconstrucción Nacional", está intentando llevar a cabo un verdadero proceso constituyente por la vía económica y de los decretos.</p>
+<p>Así teoriza en sendo articulo titulado "Gobierno refundacional", el doctor en filosofía y profesor de la Universidad de Chile, Rodrigo Karmy.</p>
+<p>En su análisis nos plantea que en el gobierno de Kast no habrá nueva convención, ni plebiscito, y que no permitirán una discusión parlamentaria sustantiva. Lo que habría es una reforma tributaria ya en despliegue que junto a un paquete de medidas adicionales apuntarían a blindar el gran capital rentista, intentando cerrar cualquier posibilidad de que un futuro gobierno progresista o de izquierda modifique el régimen tributario y de acumulación que impulsan. La apuesta seria clara: <b>la Constitución que ellos quisieran para garantizar el nuevo reparto, se escribe ahora directamente con números, decisiones economicas y decretos como los gobiernos de Milei o antes de Bolsonaro</b>.</p>
+<h4>La burguesía no es una, son varias fracciones</h4>
+<p>No creemos que alguien un poco informado pudiese estar sorprendido por los afanes de la ultraderecha en el mundo o Latinoamérica. Sin embargo hay asuntos que Karmy no aborda, no comprende correctamente, o quizá solo cae en el fenómeno de "la economía del pensamiento" tan usual entre nuestra izquierda, al tildar a quienes están en el gobierno como esbirros de una "oligarquía" genérica de los grandes grupos economicos, o es mas, de la oligarquía rentista en particular.</p>
+<p>No interroga el origen social del gobierno ultraderechista, no intenta comprender la composición y correlación de fuerzas al interior del bloque que accedió al poder, o las pugnas internas debilitantes que pueda generar su plan ante otras fracciones de la burguesía, de la socialdemocracia o el liberalismo. Y por ello no ha logrado ver el "verdadero contenido" de la propuesta neofascista.</p>
+<p>Esta falencia del análisis lo ha llevado a abordar la critica al "plan de reconstrucción" de Kast, desde una perspectiva jurídico constitucional, en la cual la maniobra económica vendría de la mano de un proceso que, por la vía de la fuerza buscaría combatir "el agotamiento" y la suerte de "destitución" de la constitución pinochetista de Guzmán ocurrida por el levantamiento popular de Octubre de 2019. Constitución que a su entender, garantizaban la articulación del estado y el capital inmunizando a la oligarquía y sus privilegios, cuestión que si compartimos.</p>
+<p>En nuestra opinión esta suerte de miopía ocurre porque al centrar la discusión en los procesos constituyentes previos, otorgándole el estatus de "espacios de discusión a pesar de los defectos", demuestra no entender el papel de esos procesos como sucedáneos homeostáticos estructurales que solo buscaban apaciguar las verdaderas demandas democráticas y sociales del pueblo chileno. Es importante recordar que la idea de una asamblea constituyente no estuvo en el origen del estallido de 2019, donde la consigna inicial fue "Que se vayan todos". Posteriormente desde cierto sindicalismo y partidos de oposición como el PC, el PS y el FA, se impuso esta linea que traspasaba el control del movimiento desde las organizaciones territoriales y el sindicalismo radical, a sus manos, para terminar desmovilizando al pueblo en las calles.</p>
+<p>Un poco de historia. El proceso constituyente de Bachelet II que inicio en 2016, tuvo su origen como respuesta a las movilizaciones estudiantiles de 2011 y fueron parte de los compromisos de programa. En rigor se trato de un experimento burocrático y oficialista, con consultas ciudadanas y cabildos, que termino sin pena ni gloria como un breve ademan democrático cuyo resultado fue la imposición de una agenda woke que desplazo gran parte de las demandas populares, mas algunas concesiones focalizadas para responder a su origen, como la gratuidad estudiantil y derechos de minorías.</p>
+<p>El proceso abierto con Piñera II, tuvo que ser mas profundo por la masividad y profundidad de las luchas sociales que se habían iniciado el 18O. Proceso que luego no fue apoyado consecuentemente por el gobierno de Boric, que en un giro "republicano" se posiciono en el rol de garante del "evento", sin empujar ni sostener ideologicamente el proceso. Esto genero nuevas contradicciones al interior del conglomerado de gobierno, llevando a la derrota del 1er proceso constituyente. Cabe hacerse una pregunta ¿Karmy o cualquier ciudadano creía realmente que se podía nacionalizar los recursos naturales vía constituyente? ¿nacionalizar lo que fuese? ¿por eso salio la gente a la calle, o por necesidades economicas inmediatas? La salida constituyente fue lo que nos vendieron, para terminar culpando a los votantes por no conseguir los cambios que perseguían.</p>
+<p>El 2° proceso constituyente, ya completamente cooptado por la clase política y económica, fue un espacio político que con maniobras muy hábiles la derecha trato de aprovechar. Llegando al punto de que por medio de las reformas que incluían en la nueva carta, casi logran actualizar ultraneoliberalmente la constitución guzmaniana e iniciar el proceso que hoy viene a imponer de facto el gobierno de Kast. Mas alla de eso, Chile paso 4 años de constantes procesos eleccionarios que terminaron por sepultar cualquier afán de lucha social.</p>
+<p>En este contexto mucho se ha especulado sobre el agotamiento sistémico en general, el agotamiento electoral, sobre el declive de los acuerdos entre la clase política y la oligarquía y el estrechamiento de la gobernabilidad y la democracia, pero solo lo mencionan a propósito de procesos y resultados electorales. Las democracia formal chilena y latinoamericana, sin embargo, han dado hasta ahora signos de salud para seguir liderando los procesos de acumulación y reorganización capitalista, a pesar del empoderamiento momentáneo de ultralibertarios fascistoides, traidores como Lenin Moreno o Luis Arce, o de rebeliones como las varias argentinas o la chilena. O por ultimo nada que la represión acotada o un estado policiaco no pueda resolver. Por el momento.</p>
+<p>Y he aquí, un ultimo aspecto que Karmy extrañamente no explicito hablando de la mención a Portales del neofascista Kast. Si este gobierno tiene posibilidades de reprimir con mayor intensidad y eficacia las movilizaciones que puedan darse por su plan expoliador, se lo debe precisamente al gobierno de Boric. La socialdemocracia y la izquierda liberal institucional no son los defensores de la democracia frente al fascismo; fueron lo encargados de gestionar el tránsito hacia una sociedad mas represiva.</p>
+<p><b>El famoso Duopolio o los grandes grupos economicos</b></p>
+<p>Para intentar entender la operación que comenzó en Marzo, deberemos dejar de hablar de la clase política, "la oligarquía" o los grupos economicos al voleo como si fuesen una unidad monolítica. No toda la gran burguesía nacional ni los grupos políticos asociados a ellos ganan ni están tranquilos con este plan. Tampoco los capitales rentistas internacionales, que en un par de semanas sacaron ingentes sumas de dinero del país, en un gobierno se supone afín a su capitalización. Chile según todas las cifras economicas no sufre por el momento de un proceso de caída de la tasa de ganancia de los capitales, todo lo contrario se continua acumulando y exportando capital. Sin embargo la llegada del neofascismo ultraliberal parece indicar un proceso de preparación y readecuación del régimen para las nuevas condiciones economicas nacionales y mundiales.</p>
+<p>El núcleo duro de la gran burguesía ---dueños de tierras mineras, forestales, industrias energéticas ligadas a la gran minería y los grandes grupos financieros rentistas parasitarios nacionales y extranjeros, incluidas las AFP y quienes participan de esa riqueza--- tienen asegurada su hegemonía en la acumulación económica desde la salida de la dictadura. A ellos no hay que convencerlos de nada.</p>
+<p>Han manejado y trabajado con todos los gobiernos posdictatoriales, pero <b>hoy con su venia o sin ella, con algún nivel de acuerdo o no</b>, <b>han sido desplazados del poder político por la ultraderecha.</b> Esto no es un hecho político menor. Hasta ahora la alternancia del progresismo con la derecha siempre fue con su beneplácito, y jamas se vieron afectados ni en su control ni su acumulación de riqueza. Las cifras no mienten.</p>
+<p>Y he aquí el meollo de la situación: el verdadero pilar economico y político de Kast es otra fracción del capital: <b>la mediana burguesía subordinada empresarial y rentista</b>. Grupos economicos y familiares como el del propio presidente o de sus ministros, exportadores no mineros, del retail, agroindustria, pesca, servicios, inmobiliarias, salud y educación privada, comunicaciones, de la banca. Sectores que crecieron a la sombra de los grandes grupos, que siempre quedaron relegados en las decisiones y en las ganancias extraordinarias. Son ellos los que más han resentido la concentración del poder económico y la falta de acceso al crédito barato o las platas de las AFPs.</p>
+<p>Son ellos los que vieron en Kast a alguien que les promete, a diferencia de Piñera que gobernó para el y los de siempre, romper el statu quo que los ha mantenido a raya sin acceso a las grandes ganancias. Hoy en 3 meses de gobierno, con solo aumentar el precio de la gasolina, se han visto beneficiados por la inflación, la devaluación del peso, el aumento del dolar, y la subida de la UF. Porque a estos grupos economicos subordinados esta situación económica les conviene parasitariamente.</p>
+<p>El ministro Quiroz, por poner un ejemplo vulgar, no es el abogado de la gran minería. Es el abogado de las colusiones de los pollos, el papel higiénico, las farmacias, el de las ganancias con picanterias. Su plan está diseñado para mantener aunada a esta burguesía subordinada, ofreciéndole ventajas tributarias, desregulación laboral y participación en las decisiones a cambio de lealtad política para mantenerse en el poder. De todos modos la relación es simbiotica, ese capital subvenciono, condiciono estos grupos de ultraderecha y los llevo al poder político.</p>
+<p>No es un blindaje de los grandes capitales rentistas, aunque igual a ellos les conviene; o de un supuesto quiebre de la legitimidad de la constitución de Pinochet, que ciertamente necesita una actualización para aumentar los margenes de utilidad y acumulación; en lo central se trata de una <b>redistribución forzada de la acumulación de riqueza, a través de la sobreexplotación del trabajo y la naturaleza al interior de la propia burguesía, que requería el poder político y la fuerza del estado</b>.</p>
+<h4>La DC, Fa, el PC y el PS se oponen, pero el PDG pone los votos</h4>
+<p>Veamos el accionar de los grupos políticos del gobierno saliente ahora oposición. En el Congreso la Democracia Cristiana votó en contra del plan Kast. Pero su voto fue un gesto moral calculado y sin consecuencias, pues ya sabían que el Partido de la Gente (PDG) les daría los votos al gobierno para aprobarlo. Algo similar ocurrió con el FA, el PC, el PS, PPD, FRVS. Aunque en general todos ellos no solo se opusieron por el "pobre pueblo" que "representan", sino porque ellos son agentes de otros intereses economicos en la acumulación nacional y trasnacional.</p>
+<p>Eso quedo claro con el regalo de la estrategia nacional del Litio, la bajada de pantalones con el Royalty minero, su deflexión ecologista y feminista, la firma de los tratados TPP11 o el traspaso milmillonario a las AFPs y aseguradoras realizados por el Gobierno de Boric. Busquemos allí quienes eran o son sus verdaderos patrones.</p>
+<p>El PDG en cambio, partido bisagra que representa a sectores populares y profesionales despolitizados y a la pequeña burguesía empobrecida, demostró una vez más que su única lealtad es a la prebenda. Que son una operación de engaño social político electoral, como lo es el socialismo democrático, amarillos, demócratas, Evopoli o MEO. Así funciona la ingeniería parlamentaria del capital: unos se compran, otro sector se posiciona para las próximas elecciones, el otro ejecuta el ajuste.</p>
+<p><b>Descomposición social como estrategia</b></p>
+<p>El sofistamente llamado plan de "Reconstrucción Nacional", como vemos, no se limita a la cuestión impositiva como forma de garantizar ganancias a un grupo monolítico del capital nacional. Seria una locura que esa sea todo el plan, algo que ya tenían asegurado. Mas bien, a través de una enorme y profunda reforma impositiva, sumada a cambios constitucionales por la vía de facto y la consolidación de un estado policial, apuesta por la <b>sobreexplotación del trabajo y la naturaleza bajo la tutela de una nueva y voraz fracción de los grupos economicos nacionales</b>: con salarios reales a la baja, flexibilidad laboral extrema, arrasamiento de territorios sin consulta ambiental, aumento del costo de la vida y perdida de todos los derechos sociales.</p>
+<p>Debemos suponer que ellos saben que la implementación de su plan generara inevitablemente reacción social. Por eso es importante entender quienes blindaron policialmente al estado. El gobierno de Boric, empleados ellos si del gran capital nacional e internacional. Mas alla de eso, la derecha confía en que esa reacción si ocurre, será localizada, fragmentada y reprimible.</p>
+<p>Más aún, la actual administración no solo tolerara la descomposición social (violencia, narcotráfico, crisis de salud mental, desintegración familiar); la estimulara como mecanismo de control. Una sociedad que se desarma es una sociedad que no se organiza. El miedo, la precariedad y la desconfianza impiden la formación de sujetos colectivos estables. Disciplinamiento del sentido común por precariedad, temor o la fuerza. Esta es otra parte de la apuesta, quizá aun mas importante que un estado policial: <b>descomponer económica, social y eticamente para dominar a largo plazo</b>.</p>
+<p><b>¿Hay posibilidades de poner límites?</b></p>
+<p>La historia nos enseña que este tipo de estrategias tiene un punto de quiebre. Dadas las condiciones organizativas de los sectores populares y sus organizaciones politicas, generalmente de forma espontanea, por mas que sea dentro de ciclos de movilizaciones sociales nacionales o mundiales. Lo que pasa a ser un dato mas. En Argentina el 2001 la protesta social logro sacar a De La Rúa. 25 años después tienen a Milei!. En Chile a pesar de un ciclo de movilizaciones sociales desde 2008 mas o menos, hemos tenido gobiernos de derecha en 2 ocasiones sin resultados organizativos relevantes; la revuelta de 2019 fue un claro ejemplo: nadie la anticipó, nadie la organizo, nadie vio la maniobra política constituyente del poder, mucho menos en su magnitud.</p>
+<p>A pesar de todo, el descontento acumulado durante décadas encontró un detonante y se desbordó. Kast hoy puede ganar tiempo con el actuar solapado de su gobierno, con su no-comunicación efectiva, con el extenso trabajo de control de los medios de comunicación, pero las contradicciones y aprendizajes que quedaron de ese proceso no desaparecieron, se acumularan junto a las que su gobierno provoque: la caída del consumo, las quiebras de pymes, la cesantia, los conflictos ambientales, el desgaste de la alianza gobernante, la pérdida de legitimidad del "orden" por la represión... todo eso les puede pasar la cuenta.</p>
+<p><b>¿En que condiciones el gobierno neofascista de Kast podría entrar en crisis?</b></p>
+<p>Por aquí es donde toma relevancia el análisis de los sectores en el poder. Ante la eventualidad del aumento de la lucha social, conocer los sectores de la burguesía que son beneficiados y afectados por este gobierno, o conocer las posiciones politicas de cada uno de ellos, ayuda a planificar las posibilidades de los desposeídos a resistir el embate y a intentar debilitar el gobierno de Kast para comenzar a empujar nuevamente hacia el otro lado.</p>
+<p>Primero, una cosa es la base social del Kastismo, y otra son sus verdaderos acreedores como indicábamos mas arriba. Medianos y pequeños empresarios (comerciantes, transportistas, pequeños agricultores, profesionales independientes, sectores inmobiliarios) el sector rural y agrícola, sectores conservadores de la sociedad, clase media proletarizada y sectores populares pauperizados, que constituyen lo mas importante de la base social del neofascismo criollo, o que esta votando por ellos, sostienen intereses antagónicos al de las fracciones de <b>la burguesía subordinada empresarial y rentista</b> que impulsan el proyecto de "reconstrucción" a través de la ultraderecha.</p>
+<p>Es decir, en primer lugar su propia base social "votante" sufrirá la competencia desleal de los grandes grupos, el endeudamiento, la presión tributaria, la falta de acceso al crédito y sufrirá el embate sobreexplotador del trabajo y la perdida de derechos. La nueva concentración económica los pondrá contra la pared y con ellos a miles de trabajadores.</p>
+<p>Si los sectores burgueses que están detrás del gobierno de Kast, incluidos los sectores de la derecha tradicional que apoyan "haciéndose los lesos" como RN o la UDI, ven que este comienza a desdibujarse políticamente perdiendo posibilidades de continuar un segundo mandato derechista, o si mas importante, no logran beneficios rápidos para lo que los han puesto en el poder, comenzaran a poner en duda su apoyo.</p>
+<p>Y aunque no lo parezca, a la gran burguesía nacional, que en rigor les conviene o permitieron este gobierno, la idea de un gobierno policial nunca les ha agradado mucho. No por nada, de 37 años de "democracia", han gobernado 29 años de la mano de la DC y la socialdemocracia liberal hasta el PC y 8 años con la derecha tradicional. Sin embargo la condición de un estado fallido, pondría al país y su economía en una posición internacional difícil que si los afectaría. A través de medios como El Mercurio, Diario Financiero y varios otros, ya han comenzado a aleccionar al gobierno y los ministros de Kast. Recordemos que ellos, la gran burguesía, también estuvieron detrás del "Acuerdo por la Paz Social y la Nueva Constitución".</p>
+<p>Por ahora, muy rápidamente, solo los escolares y algunos gremios están comenzando a comprender la magnitud y la esencia del "plan de reconstrucción" ultraderechista, y han salido a manifestarlo junto a pequeñas orgánicas politicas de izquierda que aun existen.</p>
+<p>Así las cosas, un plan político para abordar la desposesión que se proponen, a nuestro parecer, solo debería considerar acciones que permitan acumular fuerzas y ojala propinar algún tipo de derrota central concreta a la facción de la burguesía tras el gobierno de Kast. La idea de maniobra es ponerlos rápidamente a la defensiva y profundizar la inestabilidad política que han mostrado tener.</p>
+<p>El movimiento ecologista, los estudiantes movilizados y sectores gremiales como la salud y el profesorado son los inicialmente mas afectados, y los que en rigor deberían ir a la vanguardia de la respuesta. Otros importantes grupos de presión son los portuarios y los pescadores artesanales.</p>
+<p>Muchos intereses economicos de este políticamente precario nuevo bloque en el poder, están en esas áreas de interés.</p>
+<p>Hoy mas que nunca la diferencia entre que la descomposición social derive en mas anomia o en procesos organizativos en defensa de los intereses de los postergados, depende de un factor clave: <b>la existencia de organización, plan y dirección política</b>. Coincidir en las calles es un paso fundamental, pero no para inmolarse, sino para construir fuerza. También lo es la propaganda coordinada. En este sentido resulta vital tener presente la experiencia del 18O y no repetir las manifestaciones episodicas y rutinarias en puntos céntricos donde la represión se hace mas fuerte.</p>
+<p>Hay posibilidades, es de esperar que todos los involucrados lo comprendamos lo mas pronto posible.</p>
+<p class="source-note">Artículo comentado: Rodrigo Karmy, <a href="https://lavozdelosquesobran.cl/opinion/gobierno-refundacional/17052026" rel="noopener" target="_blank">"Gobierno refundacional"</a>, La Voz de los que Sobran, 17 de mayo de 2026.</p>
+    <div class="share-actions">
+      <a class="share-x" target="_blank" rel="noopener noreferrer" href="https://twitter.com/intent/tweet?text=Leyendo%20%22El%20plan%20de%20Kast%22%20en%20La%20Trilla&amp;url=https%3A%2F%2Frevista-la-trilla.pages.dev%2Fpublicaciones%2Fplan-kast.html"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>Compartir en X</a>
+      <a class="share-copy" href="https://revista-la-trilla.pages.dev/publicaciones/plan-kast.html" onclick="event.preventDefault(); navigator.clipboard.writeText(this.href).then(()=>{const t=this.textContent; this.textContent='✅ ¡Enlace copiado!'; setTimeout(()=>this.textContent=t,3000);});">🔗 Copiar enlace del artículo</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-note">
+      La Trilla es un espacio editorial del Colectivo La Trilla, región del Biobío. El nombre honra la faena campesina de separar el grano de la paja: la misma tarea que este espacio quiere hacer con el debate político y cultural.
+    </div>
+    <div class="footer-links">
+      <a href="../index.html#contacto">Contacto</a>
+      <a href="../index.html#legal">Aspectos legales</a>
+      <a href="https://www.instagram.com/colectivolatrilla/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+</footer>
+
+<a href="https://www.instagram.com/colectivolatrilla/" target="_blank" rel="noopener noreferrer" class="floating-ig" aria-label="Instagram">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+</a>
+</body>
+</html>

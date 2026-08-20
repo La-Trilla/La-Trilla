@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sobre la producción teórica de la izquierda chilena: aciertos, limitaciones y una perspectiva para la articulación — Revista La Trilla</title>
+<meta name="description" content="Un análisis crítico de los diagnósticos de La Marejada, El Porteño, Rebelión, La Izquierda Diario y Revista Horizonte sobre la ofensiva de Kast, y una propuesta para superar sus limitaciones.">
+<link rel="canonical" href="https://revista-la-trilla.pages.dev/publicaciones/produccion-teorica-izquierda.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Revista La Trilla">
+<meta property="og:title" content="Sobre la producción teórica de la izquierda chilena: aciertos, limitaciones y una perspectiva para la articulación">
+<meta property="og:description" content="Un análisis crítico de los diagnósticos de La Marejada, El Porteño, Rebelión, La Izquierda Diario y Revista Horizonte sobre la ofensiva de Kast, y una propuesta para superar sus limitaciones.">
+<meta property="og:url" content="https://revista-la-trilla.pages.dev/publicaciones/produccion-teorica-izquierda.html">
+<meta property="og:image" content="https://revista-la-trilla.pages.dev/imagenes/trilla.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;700;900&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #EDE2C8;
+    --paper-2: #E4D6B4;
+    --ink: #241C14;
+    --wheat: #C9A227;
+    --wheat-dark: #9C7D1C;
+    --rust: #A63A2C;
+    --heather: #46613F;
+    --teal: #3D6B66;
+    --soil: #4A3B2A;
+    --sub: #6B5D45;
+    --card: #FAF6EC;
+    --border: #D8C79E;
+    --focus: #1F5F8B;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; overflow-x:hidden; background:var(--paper); color:var(--ink);
+    font-family:'Work Sans', -apple-system, sans-serif;
+    line-height:1.5;
+  }
+  h1,h2,h3,h4{font-family:'Bitter', Georgia, serif; margin:0; color:var(--ink)}
+  a{color:var(--rust)}
+  a:focus-visible, button:focus-visible, .card-head:focus-visible{outline:3px solid var(--focus); outline-offset:2px}
+  @media (prefers-reduced-motion: reduce){ *{transition:none !important; animation:none !important} }
+
+  /* ---- masthead ---- */
+  .masthead{
+    background:var(--ink); color:var(--paper);
+    padding:14px 24px; display:flex; justify-content:space-between; align-items:center;
+    flex-wrap:wrap; gap:10px; position:sticky; top:0; z-index:20;
+    border-bottom:3px solid var(--wheat);
+  }
+  .brand{display:flex; align-items:baseline; gap:10px}
+  .brand .word{font-family:'Bitter', serif; font-weight:900; font-size:26px; letter-spacing:.01em; color:var(--paper)}
+  .brand .sub{font-size:12px; color:var(--wheat); text-transform:uppercase; letter-spacing:.08em}
+  nav{display:flex; gap:4px; flex-wrap:wrap}
+  nav button, nav a{
+    font-family:'Work Sans', sans-serif; font-size:13px; font-weight:600; letter-spacing:.02em;
+    background:none; border:none; color:var(--paper); opacity:.75; cursor:pointer;
+    padding:8px 12px; border-radius:4px; text-transform:uppercase; text-decoration:none;
+  }
+  nav button:hover, nav a:hover{opacity:1; background:rgba(255,255,255,.08)}
+  nav button.active{opacity:1; color:var(--wheat); background:rgba(201,162,39,.14)}
+
+  /* ---- hero con imagen de fondo ---- */
+  .hero-wrap{position:relative; overflow:hidden; isolation:isolate}
+  .hero-wrap::before{
+    content:''; position:absolute; inset:-8px; z-index:-1;
+    background:url('../imagenes/trilla.jpg') center/cover no-repeat;
+    filter:blur(2px); opacity:.5;
+  }
+  .hero{max-width:820px; margin:0 auto; padding:64px 24px 40px; text-align:center}
+  .cuba-banner{
+    border-left:15px solid #ce1126;
+    background:repeating-linear-gradient(to bottom,#002a8f 0 20px,#fff 20px 40px);
+    padding:10px 0 10px 40px; color:#fff; font-weight:700; text-shadow:2px 2px 4px rgba(0,0,0,.8);
+  }
+  .solidarity-banner{padding-left:56px}
+  .visit-counter{text-align:right; margin:5px 20px 0; padding-bottom:10px}
+  .visit-counter img{vertical-align:middle}
+  .hero h1{font-size:clamp(30px, 5vw, 52px); line-height:1.08; margin-bottom:18px}
+  .hero .thesis{font-size:19px; color:var(--soil); max-width:560px; margin:0 auto 8px; font-weight:500}
+  .hero .thesis b{color:var(--rust)}
+  .hero .issue{font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--sub); margin-top:18px}
+
+  /* ---- grain divider (signature element) ---- */
+  .grain-divider{width:100%; height:22px; margin:8px 0 0}
+
+  /* ---- section filter feedback ---- */
+  .section-label{
+    max-width:1080px; margin:36px auto 4px; padding:0 24px;
+    font-size:12px; text-transform:uppercase; letter-spacing:.1em; color:var(--sub);
+  }
+
+  /* ---- grid ---- */
+  main{max-width:1080px; margin:0 auto; padding:0 24px 80px}
+  .grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(300px,1fr)); gap:22px; margin-top:14px}
+
+  .card{
+    background:var(--card); border:1px solid var(--border); border-radius:10px;
+    overflow:hidden; display:flex; flex-direction:column;
+  }
+  .card.open{grid-column:1 / -1}
+  .card.open .full{max-width:760px; margin:0 auto}
+  .card-image{width:100%; aspect-ratio:16/9; overflow:hidden; background:var(--paper-2)}
+  .card-image img{width:100%; height:100%; object-fit:cover; display:block; background:var(--paper-2)}
+  .card-image.contain img{object-fit:contain}
+  .card-head{padding:20px 22px; cursor:pointer}
+  .card-head .inline-figure{display:block; width:100%; max-width:300px; margin:20px auto 0; border-radius:4px}
+  a.card-link{text-decoration:none; color:inherit}
+  a.card-link:hover h3{color:var(--rust)}
+  a.card-link .expand-btn{display:inline-block; margin-top:4px}
+  .tag{
+    display:inline-block; font-size:10.5px; text-transform:uppercase; letter-spacing:.06em;
+    padding:3px 9px; border-radius:20px; color:#fff; margin-bottom:10px; font-weight:600;
+  }
+  .tag-nacional{background:var(--rust)}
+  .tag-ciencia{background:var(--wheat-dark)}
+  .tag-cultura{background:var(--heather)}
+  .tag-local{background:var(--teal)}
+  .tag-internacional{background:var(--soil)}
+  .tag-multimedia{background:var(--sub)}
+  .tag-debate{background:#5A4A7A}
+
+  .card h3{font-size:19px; line-height:1.25; margin-bottom:8px}
+  .card .dek{font-size:14px; color:var(--soil); margin:0 0 10px; line-height:1.5}
+  .card .meta{font-size:12px; color:var(--sub); margin:0 0 12px; font-style:italic}
+  .expand-btn{
+    font-family:'Work Sans',sans-serif; font-size:13px; font-weight:600; color:var(--rust);
+    background:none; border:none; padding:0; cursor:pointer;
+  }
+  .full{display:none; padding:0 22px 22px; border-top:1px dashed var(--border)}
+  .card.open .full{display:block; padding-top:16px}
+  .full p{font-size:15px; line-height:1.7; margin:0 0 14px; color:var(--ink)}
+  .full h4{font-size:16px; margin:18px 0 8px; color:var(--rust)}
+  .full h5{font-size:15px; margin:16px 0 6px; color:var(--soil)}
+  .full ul{margin:0 0 14px; padding-left:20px}
+  .full li{font-size:15px; line-height:1.6; margin-bottom:6px}
+  .full .plain-list{list-style:none; padding-left:0}
+  .full .plain-list li{margin-bottom:4px}
+  .full table{width:100%; border-collapse:collapse; margin:1.2em 0; font-size:.9rem; background:var(--card); border:1px solid var(--border)}
+  .full th, .full td{padding:8px; border:1px solid var(--border)}
+  .full thead tr{background:var(--soil); color:#fff}
+  .full th:first-child, .full td:first-child{text-align:center}
+  .full td:first-child{font-weight:700; background:var(--paper-2)}
+  .full blockquote{border-left:4px solid var(--rust); padding:.8em 1.2em; margin:1em 0; background:var(--paper-2); font-style:italic}
+  .full blockquote footer{margin-top:.5em; font-style:normal; font-weight:600}
+  .full .credits{font-size:.9rem; color:var(--sub); border-top:1px solid var(--border); padding-top:.8em; margin-top:1.5em}
+  .card.open .card-head .expand-btn::after{content:' — cerrar ▴'}
+  .share-actions{margin-top:16px; border-top:1px solid var(--border); padding-top:14px; display:flex; gap:18px; flex-wrap:wrap}
+  .share-actions a{font-family:'Work Sans',sans-serif; font-size:14px; font-weight:600; text-decoration:none; display:inline-flex; align-items:center; gap:5px}
+  .share-actions .share-x{color:var(--rust)}
+  .share-actions .share-copy{color:var(--heather)}
+  .card:target{outline:3px solid var(--wheat); outline-offset:2px}
+  .full .source-note{font-size:13px; color:var(--sub); font-style:italic; border-top:1px solid var(--border); padding-top:12px}
+
+  .hidden-by-filter{display:none !important}
+
+  /* ---- utility sections (contacto/legal) ---- */
+  .utility{
+    max-width:780px; margin:60px auto 0; padding:32px 28px; background:var(--card);
+    border:1px solid var(--border); border-radius:10px;
+  }
+  .utility h2{font-size:22px; margin-bottom:14px}
+  .utility p{font-size:14.5px; line-height:1.65; color:var(--soil)}
+  .utility .note{font-size:12.5px; color:var(--sub); background:var(--paper-2); border-radius:6px; padding:10px 14px; margin-top:16px}
+  .contact-form{display:flex; flex-direction:column; gap:10px; margin-top:16px; max-width:420px}
+  .contact-form input, .contact-form textarea{
+    font-family:'Work Sans',sans-serif; font-size:14px; padding:10px 12px; border:1px solid var(--border);
+    border-radius:6px; background:var(--paper); color:var(--ink);
+  }
+  .contact-form button{
+    font-family:'Work Sans',sans-serif; font-weight:600; font-size:14px; padding:10px 16px;
+    background:var(--rust); color:#fff; border:none; border-radius:6px; cursor:pointer; width:fit-content;
+  }
+
+  footer{background:var(--soil); color:var(--paper); padding:36px 24px 28px; margin-top:70px}
+  .footer-inner{max-width:1080px; margin:0 auto; display:flex; justify-content:space-between; flex-wrap:wrap; gap:20px}
+  .footer-inner a{color:var(--wheat); text-decoration:none; font-size:13px}
+  .footer-inner a:hover{text-decoration:underline}
+  .footer-links{display:flex; gap:18px; flex-wrap:wrap}
+  .footer-note{font-size:12px; color:#c9bfa8; max-width:420px}
+  .solidarity-banner{
+    background:linear-gradient(180deg,#000 0%,#000 33%,#fff 33%,#fff 66%,#007A3D 66%,#007A3D 100%);
+    position:relative; color:#fff; text-align:center; padding:20px 16px;
+    font-size:18px; font-weight:700; letter-spacing:.02em;
+    text-shadow:0 1px 3px rgba(0,0,0,.7);
+  }
+  .solidarity-banner::before{
+    content:''; position:absolute; left:0; top:0; bottom:0; width:36px;
+    background:#CE1126; clip-path:polygon(0 0,100% 50%,0 100%);
+  }
+  .solidarity-banner b{text-transform:uppercase; letter-spacing:.05em; font-size:19px}
+
+  /* ---- layout con columna lateral (X/Twitter) ---- */
+  .layout{display:flex; gap:24px; max-width:1400px; margin:0 auto; align-items:flex-start; padding:0 24px}
+  .layout main{max-width:1080px; margin:0; padding:0 0 80px; flex:1; min-width:0}
+  .sidebar{width:300px; flex-shrink:0; position:sticky; top:90px}
+  .sidebar-box{background:var(--card); border:1px solid var(--border); border-radius:10px; padding:16px}
+  .sidebar-box h3{font-size:13px; text-transform:uppercase; letter-spacing:.06em; margin:0 0 12px; color:var(--sub)}
+  @media (max-width:960px){
+    .layout{flex-direction:column; padding:0}
+    .sidebar{width:100%; position:static; padding:0 24px}
+  }
+
+  /* ---- botón flotante de Instagram ---- */
+  .floating-ig{
+    position:fixed; right:20px; bottom:140px; z-index:1000;
+    background:linear-gradient(45deg,#405DE6,#5851DB,#833AB4,#C13584,#E1306C,#FD1D1D);
+    color:#fff; width:50px; height:50px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    text-decoration:none; box-shadow:0 4px 10px rgba(0,0,0,.3); transition:transform .2s ease;
+  }
+  .floating-ig:hover{transform:scale(1.1)}
+
+  /* ---- página de publicación ---- */
+  .publicacion{max-width:820px; margin:0 auto; padding:40px 24px 80px}
+  .publicacion .volver{display:block; width:fit-content; font-size:13px; font-weight:600; text-transform:uppercase; letter-spacing:.04em; text-decoration:none; margin-bottom:26px}
+  .publicacion .tag{display:block; width:fit-content}
+  .publicacion h1{font-size:clamp(26px,4vw,40px); line-height:1.15; margin:0 0 14px}
+  .publicacion .dek{font-size:17px; color:var(--soil); line-height:1.5; margin:0 0 10px}
+  .publicacion .meta{font-size:13px; color:var(--sub); font-style:italic; margin:0 0 22px}
+  .publicacion figure{margin:0 0 26px; background:var(--paper-2); border-radius:10px; overflow:hidden}
+  .publicacion figure img{display:block; width:100%; max-height:480px; object-fit:contain}
+  .publicacion .full{display:block; background:var(--card); border:1px solid var(--border); border-radius:10px; padding:26px 28px; border-top:1px solid var(--border)}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="brand">
+    <span class="word">REVISTA LA TRILLA</span>
+    <span class="sub">Biobío</span>
+  </div>
+     <nav>
+    <a href="../index.html">← Portada</a>
+    <a href="../archivo.html">Archivo</a>
+  </nav>
+</header>
+<div class="solidarity-banner"><b>No es guerra, es Genocidio.</b>&nbsp; Solidaridad con Palestina </div>
+
+<main class="publicacion">
+  <a class="volver" href="../index.html">← Volver a la portada</a>
+  <span class="tag tag-nacional">Nacional</span>
+  <h1>Sobre la producción teórica de la izquierda chilena: aciertos, limitaciones y una perspectiva para la articulación</h1>
+  <p class="dek">Un análisis crítico de los diagnósticos de La Marejada, El Porteño, Rebelión, La Izquierda Diario y Revista Horizonte sobre la ofensiva de Kast, y una propuesta para superar sus limitaciones.</p>
+  <p class="meta">Equipo La Trilla · 10 de agosto de 2026</p>
+  <div class="full">
+<!-- Cuerpo del artículo -->
+<p><b>Sobre la producción teórica de la izquierda chilena: aciertos, limitaciones y una perspectiva para la articulación</b></p>
+<p>En el contexto de la ofensiva del gobierno de Kast, diversas orgánicas de izquierda a través de sus medios, han entregado análisis que, tomados en conjunto, constituyen un diagnóstico valioso aunque fragmentario. No se trata de un debate orgánico —los espacios no están abiertos a la discusión plural— sino de tomas de posición parceladas que abordan distintos aspectos de la realidad nacional: la Megarreforma tributaria, la militarización, la crisis del sindicalismo, la fragmentación de la clase trabajadora, y la necesidad de construir fuerza social. <em>La Marejada</em>, <em>El Porteño</em>, <em>Rebelión</em>, <em>La Izquierda Diario</em> y <em>Revista Horizonte</em> han señalado, cada uno desde su trinchera, aspectos relevantes de la ofensiva neoliberal. Sin embargo, estos análisis adolecen de limitaciones que es necesario señalar para avanzar hacia una articulación real y construir una perspectiva que articule los fragmentos y supere sus limitaciones.</p>
+<p><b>Coincidencias: un diagnóstico fragmentario pero complementario</b></p>
+<p>Hay un punto de partida común en todos los artículos revisados: la ofensiva de Kast no es un accidente político ni una anomalía, sino la expresión de un ataque superexplotador del capital. <em>La Marejada</em> describe con precisión los pilares de la Megarreforma —la rebaja del impuesto corporativo, la invariabilidad tributaria por hasta 25 años, el traslado del costo fiscal a las mayorías— y muestra que no se trata de un error técnico, sino de una redefinición de las reglas de la acumulación. <em>El Porteño</em> aporta una crítica aguda al "antifascismo liberal": la ultraderecha no se combate reconstruyendo la vieja institucionalidad democrático-burguesa, porque esa institucionalidad es parte del problema. <em>Rebelión</em> denuncia la militarización como mecanismo de control social. <em>La Izquierda Diario</em> critica la estrategia de la oposición parlamentaria y la burocracia sindical, que depositan toda su energía en el Congreso y el Tribunal Constitucional en lugar de movilizar a las bases. Y <em>Revista Horizonte</em> reflexiona sobre la fragmentación de la clase trabajadora y la necesidad de construir fuerza social en el movimiento popular.</p>
+<p>Estas coincidencias muestran que, aunque cada cual aborda aspectos distintos, hay una mirada general que resulta complementaria. Esa complementariedad es la base para un trabajo conjunto, aunque por ahora cada orgánica actúa por separado, sin coordinar sus esfuerzos. El diagnóstico, sin embargo, es incompleto. Ninguno de los artículos considera, por ejemplo, los efectos de la subida de los combustibles —que generaron inflación, aumento del costo de los créditos, depreciación de la moneda frente al dólar y aumento del valor de la UF— y cómo ese encarecimiento automático del costo de la vida impacta a un sector mayoritario que sobrevive con un sueldo mínimo inaceptable, mientras entrega ingentes ganancias parasitarias a distintos sectores económicos nacionales y transnacionales. Esa ausencia revela una limitación "técnica" del análisis económico, que se queda en la denuncia de la reforma tributaria sin conectar con la experiencia cotidiana de las mayorías.</p>
+<p>Tampoco se menciona, salvo de manera tangencial, la experiencia del 18 de octubre de 2019 como un proceso reciente del que hay que extraer lecciones. El 18O fue la mayor explosión social de las últimas cuatro décadas, y sin embargo fue cooptado rápidamente precisamente porque no tenía un proyecto orgánico, ni diagnóstico, ni análisis de la realidad, ni plan táctico. Fue un movimiento espontáneo con demandas generales, que carecía de una dirección política capaz de sostener la movilización y de evitar que el sistema la desactivara, en esa oportunidad, mediante una salida institucional. Que los artículos no lo mencionen como una experiencia reciente es una omisión significativa, porque las lecciones del 18O deberían ser el punto de partida de cualquier estrategia actual. Esto sugiere que, aunque el diagnóstico actual es un avance respecto a la espontaneidad de aquel momento, la autocrítica política aún no ha sido asumida.</p>
+<p><b>Carencias: lo que falta para pasar del diagnóstico a la acción</b></p>
+<h4>1. La identificación del bloque en el poder</h4>
+<p>Varios artículos hablan de "la oligarquía", "clase dominante" o "gran capital". Pero el gobierno de Kast no representa a los grandes grupos económicos oligárquicos tradicionales —la minería, la energía, los conglomerados financieros—, que han sido desplazados del poder político por una fracción del capital subordinada que incluye a empresarios del retail, la agroindustria, servicios, salud, la pesca, las inmobiliarias y la banca. Estos sectores quedaron relegados en las decisiones y en las ganancias extraordinarias de los últimos 40 años, y se han mantenido por debajo de la media de reparto del plusvalor, siendo afectados por el decrecimiento de su tasa de ganancia. Son la fracción del capital que vieron en Kast y el neofascismo la oportunidad de romper el statu quo y redefinir la acumulación a su favor. La gran burguesía, por su parte, está relativamente tranquila en tanto no le afecten sus negocios y pueda aprovechar las ganancias parasitarias que genera la situación económica, la nueva subordinación física y subjetiva del trabajo provocada por el gobierno de Kast. Esta distinción no es un dato menor; sin ella, la lucha se reduce a un "pueblo contra oligarquía" genérico, que no permite diseñar una estrategia para aislar a la fracción de Kast y eventualmente dividir al bloque dominante a nuestro favor.</p>
+<h4>2. El "camino" y el horizonte programático</h4>
+<p>Los artículos coinciden en que la vieja institucionalidad democrático-burguesa no es el camino. Pero ¿cuál es el camino? La izquierda revolucionaria, de extracción mirista, comunista o trotskista, ha asumido que, siendo la democracia formal un instrumento de dominación del capital, no se debe participar de nada que tenga que ver con ella. Esta visión, lo quieran o no, los ha separado del pueblo y la lucha de masas. Lenin escribió que mientras un obrero aún creyese y participase en el parlamento o en el sindicato burgués, los revolucionarios debían estar allí junto a ese trabajador y participar, le guste o no, independiente de su posición personal. No se trata de apoyar el "antifascismo liberal" —que también es un instrumento de dominación—, sino de no abandonar a las masas en los espacios donde están. Otro resultado objetivo de este principismo disfrazado de política radical, ha sido entregar a la población a los designios de la burguesía, en sus expresiones políticas socialdemócratas, izquierda neoliberal, derecha tradicional y ahora ultraderecha pinochetista.</p>
+<p>La construcción de fuerza social tiene tantas salidas como fuerzas políticas: el trotskismo habla de huelga general; el comunismo revolucionario (no el PC) habla de construir el comunismo sin aclarar bien el cómo; el PS y el PC de antes hablaban de diversos tipos de insurrección. Pero hoy, en las condiciones objetivas de la fuerza social, la cuestión no es qué herramienta será la correcta en abstracto en un futuro que parece bastante lejano, sino cuáles son las fuerzas que lograrán aglutinar al resto de la sociedad hoy, para conseguir sus objetivos. Nos parece correcto plantear el horizonte, pero sin que este se presente con una premura cortoplacista, que pareciese que en este gobierno se dará o debería darse una salida revolucionaria.</p>
+<p>Entonces si de horizontes de lucha se trata, desde la perspectiva que hemos desarrollado, la lucha debe apuntar hacia un gobierno democrático popular con un programa soberanista, en el camino al socialismo. Eso implica desmantelar la democracia formal y construir una nueva institucionalidad desde abajo. Algunos ejemplos de ese horizonte programático: la nacionalización del cobre, la protección efectiva de los derechos de las niñeces y derechos de minorías, la transversalización de la perspectiva de género, devolución de tierras y autonomía política a las naciones originarias, la reconfiguración de la democracia parlamentaria (incluyendo el fin del Senado), la creación de una policía de aduanas para perseguir el narcotráfico y la salida ilegal de minerales, un plan nacional de obras públicas con empresas estatales, el fin de las licitaciones de caminos, la recuperación del servicio de ferrocarriles, la nacionalización de servicios como el agua, la electricidad y las sanitarias, un plan de construcción de viviendas, una ley de medios que impida la propiedad monopólica de estos y controle los recursos del Estado invertidos en ellos, así como el control de las encuestadoras que fabrican opinión, y la reorganización general de las Fuerzas Armadas y Carabineros.</p>
+<p>La cuestión en este sentido estriba, en nuestra opinión, en que estas demandas son demandas generales, no reemplazan un plan táctico, pues en lo inmediato no activan una movilización general. De allí la necesidad de salir de los análisis estrechos para encontrar las zonas críticas que nos permitan reiniciar el camino de la organización.</p>
+<h4>3. La militarización y el control social</h4>
+<p>La militarización del país, que <em>Rebelión</em> denuncia, no puede ser analizada de forma aislada. Es parte de un dispositivo más amplio de control social que incluye entre otros: la pérdida de derechos, la pauperización económica, el desempleo como mecanismo de disciplinamiento, la idiotización y moldeo del sentido común mass media, la criminalización de la protesta y la persecución policial. El gobierno de Kast no solo usa el Ejército para reprimir; también usa la precariedad para disciplinar, la deuda para someter, y la cultura de masas para idiotizar. De hecho el primer gran enemigo a vencer es el sometimiento de más de 50 años de la subjetividad social. La vieja lucha ideológica. Sin esa totalidad, la denuncia de la militarización queda en un plano testimonial que, al no ser totalizada, puede llevar las opciones de construcción de fuerza social hacia alternativas militaristas y aparatistas que no se corresponden con el momento político.</p>
+<h4>4. La crítica a la oposición parlamentaria y al sindicalismo burocrático</h4>
+<p><em>La Izquierda Diario</em> critica a la oposición parlamentaria y a la burocracia sindical por su estrategia institucionalista que no apela a la movilización de masas. Pero ante la carencia autocrítica, esta resulta externa. El trotskismo, el mirismo y el comunismo revolucionario, como hemos indicado, han sido históricamente, maximalistas, abstencionistas y ultraizquierdistas, con algunas excepciones fracciónales. Han abandonado la lucha de masas y se han refugiado en la crítica moralista a quienes sí intentan estar en los espacios de masas. Esta ausencia de autocrítica, es un obstáculo para la construcción de una alternativa real que logre aglutinar en un proyecto común, los avances en el análisis que abordamos en este artículo. Además, hay que considerar los intentos de recomposición de la oposición como alternativa política: algunos de sus partidos están desplegando discursos de radicalización para asirse del descontento social creciente. Eso no debe ser ignorado ni subestimado.</p>
+<h4>5. La construcción de fuerza social y el sectarismo</h4>
+<p><em>Revista Horizonte</em> plantea que hay que construir fuerza social "dentro del movimiento popular, no por fuera de él". El llamado parece correcto en su intención, pero su formulación es sectaria. En esta frase, no solo se reduce el "movimiento popular" a los sectores organizados, sino que se deja fuera a todo sujeto calificado como "reformista", "vendido", "electoralista" o "sindicalista burocrático", no parte del "movimiento popular". Rescatar el llamado a construir fuerza social es necesario, pero sin exclusiones: la base social de la oposición, de la CUT, del Frente Amplio, etc., está también en disputa, aunque ahora esté fuera del campo de lo estrictamente popular. La experiencia de las asambleas territoriales durante el 18O también mostró que la forma conspirativa de construcción política de las variopintas orgánicas involucradas atentó contra las decisiones democráticas de un amplio grupo social que se suma a ellas. Hay que aprender de eso para construir espacios abiertos a la discusión y a la participación de todos los sectores que se movilizan.</p>
+<h4>6. Las contramedidas homeostáticas</h4>
+<p>Por último, ninguno de los artículos analiza cómo va a responder el sistema a una movilización popular creciente. La experiencia del 18O debería haber enseñado que el capital no se limita a reprimir; también hace concesiones focalizadas, divide al movimiento, ofrece migajas a algunos sectores y canaliza la energía hacia cauces institucionales. El gobierno de Kast ya está desplegando sus propias contramedidas: el ataque de los medios de comunicación, el castigo a los trabajadores del sector público (se está hablando de revisar su estatus laboral) que representa a la mayor masa de trabajadores organizados del país, el soborno de la clase política (la oposición se sienta a negociar indicaciones), las prebendas para sectores determinados de trabajadores, y la persecución política y por redes sociales: la criminalización de dirigentes sociales y la vigilancia digital de la protesta, que ya se plantea como parte de las medidas del programa de seguridad. Sin anticipar esas respuestas, cualquier llamado a la movilización corre el riesgo de ser neutralizado.</p>
+<p><b>Hacia una perspectiva común</b></p>
+<p>En general los artículos que hemos revisado son un aporte al debate estratégico chileno, pero su utilidad práctica está limitada por la persistencia de patrones que la izquierda revolucionaria debería haber superado: el sectarismo, la ausencia de autocrítica, el abstencionismo y la incapacidad de coordinar sin pretender conducir. La complementariedad de los diagnósticos muestra que hay una base para un trabajo conjunto, pero esa base no se materializará si cada orgánica sigue actuando por separado.</p>
+<p>En el artículo <em>"La hora de la política"</em> hemos propuesto un plan táctico que identifica las fuerzas sociales que hoy podrían movilizarse: los estudiantes secundarios junto a la Confech, el movimiento ecologista en los territorios amenazados, los trabajadores del transporte, los sectores de la salud, la educación, y la CUT con todas sus limitaciones. Estas son las fuerzas que pueden comenzar a construir una coordinación real. No se trata de fundar un nuevo partido ni de redactar un programa detallado que divida en la discusión ideológica, sino de convocar a reuniones territoriales donde las organizaciones que ya están en la calle puedan discutir un plan de acción común, definir objetivos concretos y medibles, asignar responsabilidades y evaluar los resultados. Por más difícil que esto parezca. La dirección de estas coordinaciones no debería ser fija, sino rotativa y temática, de modo que ninguna organización se sienta excluida y todas asuman responsabilidades.</p>
+<p>La huelga general, el paro nacional, cuando llegue, será la culminación de este proceso, no su punto de partida. Será el momento en que la confianza construida en las acciones concretas, la coordinación tejida en los territorios, y la claridad sobre el enemigo y sus fisuras, permitan que el pueblo paralice el país no como una protesta testimonial, sino como el inicio de una alternativa de poder. Pero para que eso ocurra, hay que dejar de lado el cortoplacismo de quienes creen que una consigna puede reemplazar la organización, y el sectarismo de quienes se niegan a coordinar con otros porque no comparten todos sus principios.</p>
+<p>Es necesario asumir que se debe construir con paciencia estratégica; la disciplina de construir, paso a paso, las condiciones para que la lucha popular, cuando llegue, sea una expresión de fuerza real. Esa es la tarea que tenemos por delante: construir, sin prisas pero sin pausas, la fuerza social y política que haga posible la transformación.</p>
+<p><b>Artículos analizados</b></p>
+<ul>
+<li><em>Revista Horizonte</em>: "Sobre el sujeto político y revolucionario" – <a href="https://revistahorizonte.cl/sobre-el-sujeto-politico-y-revolucionario/" rel="noopener noreferrer" target="_blank">https://revistahorizonte.cl/sobre-el-sujeto-politico-y-revolucionario/</a></li>
+<li><em>Revista Horizonte</em>: "Apuntes para un debate en torno a la construcción de fuerza social en el movimiento popular" – <a href="https://revistahorizonte.cl/apuntes-para-un-debate-en-torno-a-la-construccion-de-fuerza-social-en-el-movimiento-popular/" rel="noopener noreferrer" target="_blank">https://revistahorizonte.cl/apuntes-para-un-debate-en-torno-a-la-construccion-de-fuerza-social-en-el-movimiento-popular/</a></li>
+<li><em>Revista Horizonte</em>: "La izquierda después del progresismo" – <a href="https://revistahorizonte.cl/la-izquierda-despues-del-progresismo/" rel="noopener noreferrer" target="_blank">https://revistahorizonte.cl/la-izquierda-despues-del-progresismo/</a></li>
+<li><em>La Marejada</em>: "Megarreforma en Chile: el gobierno de Kast blinda a la oligarquía empresarial por veinte años y traslada el costo del ajuste fiscal a los municipios y mayorías más pobres" – <a href="https://lamarejada.cl/2026/08/09/megarreforma-en-chile-el-gobierno-de-kast-blinda-a-la-oligarquia-empresarial-por-veinte-anos-y-traslada-el-costo-del-ajuste-fiscal-a-los-municipios-y-mayorias-mas-pobres/" rel="noopener noreferrer" target="_blank">https://lamarejada.cl/2026/08/09/megarreforma-en-chile-el-gobierno-de-kast-blinda-a-la-oligarquia-empresarial-por-veinte-anos-y-traslada-el-costo-del-ajuste-fiscal-a-los-municipios-y-mayorias-mas-pobres/</a></li>
+<li><em>Rebelión</em>: "Seguridad pública como excusa, control social como objetivo" – <a href="https://rebelion.org/seguridad-publica-como-excusa-control-social-como-objetivo/" rel="noopener noreferrer" target="_blank">https://rebelion.org/seguridad-publica-como-excusa-control-social-como-objetivo/</a></li>
+<li><em>Rebelión</em>: "Central clasista y reformas laborales de Kast: la clase gobernante es una mala clase" – <a href="https://rebelion.org/central-clasista-y-reformas-laborales-de-kast-la-clase-gobernante-es-una-mala-clase/" rel="noopener noreferrer" target="_blank">https://rebelion.org/central-clasista-y-reformas-laborales-de-kast-la-clase-gobernante-es-una-mala-clase/</a></li>
+<li><em>La Izquierda Diario</em>: "La Fech busca otras vías para la presión parlamentaria" – <a href="https://www.laizquierdadiario.cl/La-Fech-busca-otras-vias-para-la-presion-parlamentaria" rel="noopener noreferrer" target="_blank">https://www.laizquierdadiario.cl/La-Fech-busca-otras-vias-para-la-presion-parlamentaria</a></li>
+<li><em>La Izquierda Diario</em>: "Coordinar desde abajo para cambiar la correlación de fuerzas" – <a href="https://www.laizquierdadiario.cl/Coordinar-desde-abajo-para-cambiar-la-correlacion-de-fuerzas" rel="noopener noreferrer" target="_blank">https://www.laizquierdadiario.cl/Coordinar-desde-abajo-para-cambiar-la-correlacion-de-fuerzas</a></li>
+<li><em>El Porteño</em>: "Contra el antifascismo liberal: la ultraderecha no se combate reconstruyendo la vieja institucionalidad democrático-burguesa" – <a href="https://elporteno.cl/contra-el-antifascismo-liberal-la-ultraderecha-no-se-combate-reconstruyendo-la-vieja-institucionalidad-democratico-burguesa/" rel="noopener noreferrer" target="_blank">https://elporteno.cl/contra-el-antifascismo-liberal-la-ultraderecha-no-se-combate-reconstruyendo-la-vieja-institucionalidad-democratico-burguesa/</a></li>
+</ul>
+    <div class="share-actions">
+      <a class="share-x" target="_blank" rel="noopener noreferrer" href="https://twitter.com/intent/tweet?text=Leyendo%20%22Sobre%20la%20producci%C3%B3n%20te%C3%B3rica%20de%20la%20izquierda%20chilena%3A%20aciertos%2C%20limitaciones%20y%20una%20perspectiva%20para%20la%20articulaci%C3%B3n%22%20en%20La%20Trilla&amp;url=https%3A%2F%2Frevista-la-trilla.pages.dev%2Fpublicaciones%2Fproduccion-teorica-izquierda.html"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>Compartir en X</a>
+      <a class="share-copy" href="https://revista-la-trilla.pages.dev/publicaciones/produccion-teorica-izquierda.html" onclick="event.preventDefault(); navigator.clipboard.writeText(this.href).then(()=>{const t=this.textContent; this.textContent='✅ ¡Enlace copiado!'; setTimeout(()=>this.textContent=t,3000);});">🔗 Copiar enlace del artículo</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-note">
+      La Trilla es un espacio editorial del Colectivo La Trilla, región del Biobío. El nombre honra la faena campesina de separar el grano de la paja: la misma tarea que este espacio quiere hacer con el debate político y cultural.
+    </div>
+    <div class="footer-links">
+      <a href="../index.html#contacto">Contacto</a>
+      <a href="../index.html#legal">Aspectos legales</a>
+      <a href="https://www.instagram.com/colectivolatrilla/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+</footer>
+
+<a href="https://www.instagram.com/colectivolatrilla/" target="_blank" rel="noopener noreferrer" class="floating-ig" aria-label="Instagram">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+</a>
+</body>
+</html>
