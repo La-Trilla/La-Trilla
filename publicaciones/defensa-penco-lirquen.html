@@ -223,6 +223,8 @@
   .publicacion .meta{font-size:13px; color:var(--sub); font-style:italic; margin:0 0 22px}
   .publicacion figure{margin:0 0 26px; background:var(--paper-2); border-radius:10px; overflow:hidden}
   .publicacion figure img{display:block; width:100%; max-height:480px; object-fit:contain}
+  .publicacion figure.encuadre{aspect-ratio:16/9}
+  .publicacion figure.encuadre img{height:100%; max-height:none; object-fit:cover; object-position:top}
   .publicacion .full{display:block; background:var(--card); border:1px solid var(--border); border-radius:10px; padding:26px 28px; border-top:1px solid var(--border)}
 </style>
 </head>
@@ -245,7 +247,7 @@
   <h1>¡La defensa de Penco y Lirquén llega a la justicia!</h1>
   <p class="dek">Las comunidades de Penco y Lirquén presentarán acciones legales para impugnar la aprobación ambiental del proyecto minero de tierras raras, por irregularidades en el proceso de evaluación.</p>
   <p class="meta">Colectivo La Trilla · 6 de agosto de 2026</p>
-  <figure><img src="../imagenes/penco-lirquen.jpg" alt="Convocatoria a la defensa de Penco y Lirquén"></figure>
+  <figure class="encuadre"><img src="../imagenes/penco-lirquen.jpg" alt="Convocatoria a la defensa de Penco y Lirquén"></figure>
   <div class="full">
 <p>Las comunidades de Penco y Lirquén damos un nuevo paso en la defensa de nuestro territorio.</p>
 <p><b>⚖️ Presentaremos acciones legales</b> para impugnar la aprobación ambiental del proyecto minero de tierras raras, debido a la insuficiente consideración de las observaciones ciudadanas y a las irregularidades que marcaron su proceso de evaluación.</p>
