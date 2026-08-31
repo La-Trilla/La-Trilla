@@ -283,6 +283,18 @@
 <img alt="Reunión bolchevique" class="inline-figure" loading="lazy" src="imagenes/reunion-bolchevique.jpg"/>
 </div>
  </article>
+<article class="card" data-section="debate" id="un-buen-comienzo">
+  <div class="card-image contain">
+    <img alt="Plenario de dirigentes sindicales en Antofagasta" loading="lazy" src="imagenes/socialismo.jpg"/>
+  </div>
+  <div class="card-head">
+    <span class="tag tag-debate">Debate</span>
+    <h3>Un buen comienzo</h3>
+    <p class="dek">El Plenario en Antofagasta y la reconstrucción del sindicalismo activo, democrático de base. Fragmentación, externalización y la urgencia de la solidaridad de clase.</p>
+    <p class="meta">Socialismo Desde Abajo · Reproducido con enlace al original</p>
+    <a class="expand-btn" href="publicaciones/un-buen-comienzo.html">Leer completo ▸</a>
+  </div>
+</article>
   <article class="card" data-section="local" id="union-comunal-altura-concepcion">
   <div class="card-image contain">
     <img alt="Edificio en altura en Concepción" loading="lazy" src="imagenes/altura-concepcion.jpg"/>
