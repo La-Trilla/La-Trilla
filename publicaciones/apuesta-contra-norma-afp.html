@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apuesta contra la norma, con la plata de las AFP — Revista La Trilla</title>
+<meta name="description" content="Cómo 7.700 millones de dólares de los trabajadores chilenos terminaron en bancos de EEUU. Un análisis del escándalo de los Swaps, el rol de BlackRock y el sistema de pensiones como mecanismo de financiarización global.">
+<link rel="canonical" href="https://revista-la-trilla.pages.dev/publicaciones/apuesta-contra-norma-afp.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Revista La Trilla">
+<meta property="og:title" content="Apuesta contra la norma, con la plata de las AFP">
+<meta property="og:description" content="Cómo 7.700 millones de dólares de los trabajadores chilenos terminaron en bancos de EEUU. Un análisis del escándalo de los Swaps, el rol de BlackRock y el sistema de pensiones como mecanismo de financiarización global.">
+<meta property="og:url" content="https://revista-la-trilla.pages.dev/publicaciones/apuesta-contra-norma-afp.html">
+<meta property="og:image" content="https://revista-la-trilla.pages.dev/imagenes/nomasafp.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;700;900&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #EDE2C8;
+    --paper-2: #E4D6B4;
+    --ink: #241C14;
+    --wheat: #C9A227;
+    --wheat-dark: #9C7D1C;
+    --rust: #A63A2C;
+    --heather: #46613F;
+    --teal: #3D6B66;
+    --soil: #4A3B2A;
+    --sub: #6B5D45;
+    --card: #FAF6EC;
+    --border: #D8C79E;
+    --focus: #1F5F8B;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; overflow-x:hidden; background:var(--paper); color:var(--ink);
+    font-family:'Work Sans', -apple-system, sans-serif;
+    line-height:1.5;
+  }
+  h1,h2,h3,h4{font-family:'Bitter', Georgia, serif; margin:0; color:var(--ink)}
+  a{color:var(--rust)}
+  a:focus-visible, button:focus-visible, .card-head:focus-visible{outline:3px solid var(--focus); outline-offset:2px}
+  @media (prefers-reduced-motion: reduce){ *{transition:none !important; animation:none !important} }
+
+  /* ---- masthead ---- */
+  .masthead{
+    background:var(--ink); color:var(--paper);
+    padding:14px 24px; display:flex; justify-content:space-between; align-items:center;
+    flex-wrap:wrap; gap:10px; position:sticky; top:0; z-index:20;
+    border-bottom:3px solid var(--wheat);
+  }
+  .brand{display:flex; align-items:baseline; gap:10px}
+  .brand .word{font-family:'Bitter', serif; font-weight:900; font-size:26px; letter-spacing:.01em; color:var(--paper)}
+  .brand .sub{font-size:12px; color:var(--wheat); text-transform:uppercase; letter-spacing:.08em}
+  nav{display:flex; gap:4px; flex-wrap:wrap}
+  nav button, nav a{
+    font-family:'Work Sans', sans-serif; font-size:13px; font-weight:600; letter-spacing:.02em;
+    background:none; border:none; color:var(--paper); opacity:.75; cursor:pointer;
+    padding:8px 12px; border-radius:4px; text-transform:uppercase; text-decoration:none;
+  }
+  nav button:hover, nav a:hover{opacity:1; background:rgba(255,255,255,.08)}
+  nav button.active{opacity:1; color:var(--wheat); background:rgba(201,162,39,.14)}
+
+  /* ---- hero con imagen de fondo ---- */
+  .hero-wrap{position:relative; overflow:hidden; isolation:isolate}
+  .hero-wrap::before{
+    content:''; position:absolute; inset:-8px; z-index:-1;
+    background:url('../imagenes/trilla.jpg') center/cover no-repeat;
+    filter:blur(2px); opacity:.5;
+  }
+  .hero{max-width:820px; margin:0 auto; padding:64px 24px 40px; text-align:center}
+  .cuba-banner{
+    border-left:15px solid #ce1126;
+    background:repeating-linear-gradient(to bottom,#002a8f 0 20px,#fff 20px 40px);
+    padding:10px 0 10px 40px; color:#fff; font-weight:700; text-shadow:2px 2px 4px rgba(0,0,0,.8);
+  }
+  .solidarity-banner{padding-left:56px}
+  .visit-counter{text-align:right; margin:5px 20px 0; padding-bottom:10px}
+  .visit-counter img{vertical-align:middle}
+  .hero h1{font-size:clamp(30px, 5vw, 52px); line-height:1.08; margin-bottom:18px}
+  .hero .thesis{font-size:19px; color:var(--soil); max-width:560px; margin:0 auto 8px; font-weight:500}
+  .hero .thesis b{color:var(--rust)}
+  .hero .issue{font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--sub); margin-top:18px}
+
+  /* ---- grain divider (signature element) ---- */
+  .grain-divider{width:100%; height:22px; margin:8px 0 0}
+
+  /* ---- section filter feedback ---- */
+  .section-label{
+    max-width:1080px; margin:36px auto 4px; padding:0 24px;
+    font-size:12px; text-transform:uppercase; letter-spacing:.1em; color:var(--sub);
+  }
+
+  /* ---- grid ---- */
+  main{max-width:1080px; margin:0 auto; padding:0 24px 80px}
+  .grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(300px,1fr)); gap:22px; margin-top:14px}
+
+  .card{
+    background:var(--card); border:1px solid var(--border); border-radius:10px;
+    overflow:hidden; display:flex; flex-direction:column;
+  }
+  .card.open{grid-column:1 / -1}
+  .card.open .full{max-width:760px; margin:0 auto}
+  .card-image{width:100%; aspect-ratio:16/9; overflow:hidden; background:var(--paper-2)}
+  .card-image img{width:100%; height:100%; object-fit:cover; display:block; background:var(--paper-2)}
+  .card-image.contain img{object-fit:contain}
+  .card-head{padding:20px 22px; cursor:pointer}
+  .card-head .inline-figure{display:block; width:100%; max-width:300px; margin:20px auto 0; border-radius:4px}
+  a.card-link{text-decoration:none; color:inherit}
+  a.card-link:hover h3{color:var(--rust)}
+  a.card-link .expand-btn{display:inline-block; margin-top:4px}
+  .tag{
+    display:inline-block; font-size:10.5px; text-transform:uppercase; letter-spacing:.06em;
+    padding:3px 9px; border-radius:20px; color:#fff; margin-bottom:10px; font-weight:600;
+  }
+  .tag-nacional{background:var(--rust)}
+  .tag-ciencia{background:var(--wheat-dark)}
+  .tag-cultura{background:var(--heather)}
+  .tag-local{background:var(--teal)}
+  .tag-internacional{background:var(--soil)}
+  .tag-multimedia{background:var(--sub)}
+  .tag-debate{background:#5A4A7A}
+
+  .card h3{font-size:19px; line-height:1.25; margin-bottom:8px}
+  .card .dek{font-size:14px; color:var(--soil); margin:0 0 10px; line-height:1.5}
+  .card .meta{font-size:12px; color:var(--sub); margin:0 0 12px; font-style:italic}
+  .expand-btn{
+    font-family:'Work Sans',sans-serif; font-size:13px; font-weight:600; color:var(--rust);
+    background:none; border:none; padding:0; cursor:pointer;
+  }
+  .full{display:none; padding:0 22px 22px; border-top:1px dashed var(--border)}
+  .card.open .full{display:block; padding-top:16px}
+  .full p{font-size:15px; line-height:1.7; margin:0 0 14px; color:var(--ink)}
+  .full h4{font-size:16px; margin:18px 0 8px; color:var(--rust)}
+  .full h5{font-size:15px; margin:16px 0 6px; color:var(--soil)}
+  .full ul{margin:0 0 14px; padding-left:20px}
+  .full li{font-size:15px; line-height:1.6; margin-bottom:6px}
+  .full .plain-list{list-style:none; padding-left:0}
+  .full .plain-list li{margin-bottom:4px}
+  .full table{width:100%; border-collapse:collapse; margin:1.2em 0; font-size:.9rem; background:var(--card); border:1px solid var(--border)}
+  .full th, .full td{padding:8px; border:1px solid var(--border)}
+  .full thead tr{background:var(--soil); color:#fff}
+  .full th:first-child, .full td:first-child{text-align:center}
+  .full td:first-child{font-weight:700; background:var(--paper-2)}
+  .full blockquote{border-left:4px solid var(--rust); padding:.8em 1.2em; margin:1em 0; background:var(--paper-2); font-style:italic}
+  .full blockquote footer{margin-top:.5em; font-style:normal; font-weight:600}
+  .full .credits{font-size:.9rem; color:var(--sub); border-top:1px solid var(--border); padding-top:.8em; margin-top:1.5em}
+  .card.open .card-head .expand-btn::after{content:' — cerrar ▴'}
+  .share-actions{margin-top:16px; border-top:1px solid var(--border); padding-top:14px; display:flex; gap:18px; flex-wrap:wrap}
+  .share-actions a{font-family:'Work Sans',sans-serif; font-size:14px; font-weight:600; text-decoration:none; display:inline-flex; align-items:center; gap:5px}
+  .share-actions .share-x{color:var(--rust)}
+  .share-actions .share-copy{color:var(--heather)}
+  .card:target{outline:3px solid var(--wheat); outline-offset:2px}
+  .full .source-note{font-size:13px; color:var(--sub); font-style:italic; border-top:1px solid var(--border); padding-top:12px}
+
+  .hidden-by-filter{display:none !important}
+
+  /* ---- utility sections (contacto/legal) ---- */
+  .utility{
+    max-width:780px; margin:60px auto 0; padding:32px 28px; background:var(--card);
+    border:1px solid var(--border); border-radius:10px;
+  }
+  .utility h2{font-size:22px; margin-bottom:14px}
+  .utility p{font-size:14.5px; line-height:1.65; color:var(--soil)}
+  .utility .note{font-size:12.5px; color:var(--sub); background:var(--paper-2); border-radius:6px; padding:10px 14px; margin-top:16px}
+  .contact-form{display:flex; flex-direction:column; gap:10px; margin-top:16px; max-width:420px}
+  .contact-form input, .contact-form textarea{
+    font-family:'Work Sans',sans-serif; font-size:14px; padding:10px 12px; border:1px solid var(--border);
+    border-radius:6px; background:var(--paper); color:var(--ink);
+  }
+  .contact-form button{
+    font-family:'Work Sans',sans-serif; font-weight:600; font-size:14px; padding:10px 16px;
+    background:var(--rust); color:#fff; border:none; border-radius:6px; cursor:pointer; width:fit-content;
+  }
+
+  footer{background:var(--soil); color:var(--paper); padding:36px 24px 28px; margin-top:70px}
+  .footer-inner{max-width:1080px; margin:0 auto; display:flex; justify-content:space-between; flex-wrap:wrap; gap:20px}
+  .footer-inner a{color:var(--wheat); text-decoration:none; font-size:13px}
+  .footer-inner a:hover{text-decoration:underline}
+  .footer-links{display:flex; gap:18px; flex-wrap:wrap}
+  .footer-note{font-size:12px; color:#c9bfa8; max-width:420px}
+  .solidarity-banner{
+    background:linear-gradient(180deg,#000 0%,#000 33%,#fff 33%,#fff 66%,#007A3D 66%,#007A3D 100%);
+    position:relative; color:#fff; text-align:center; padding:20px 16px;
+    font-size:18px; font-weight:700; letter-spacing:.02em;
+    text-shadow:0 1px 3px rgba(0,0,0,.7);
+  }
+  .solidarity-banner::before{
+    content:''; position:absolute; left:0; top:0; bottom:0; width:36px;
+    background:#CE1126; clip-path:polygon(0 0,100% 50%,0 100%);
+  }
+  .solidarity-banner b{text-transform:uppercase; letter-spacing:.05em; font-size:19px}
+
+  /* ---- layout con columna lateral (X/Twitter) ---- */
+  .layout{display:flex; gap:24px; max-width:1400px; margin:0 auto; align-items:flex-start; padding:0 24px}
+  .layout main{max-width:1080px; margin:0; padding:0 0 80px; flex:1; min-width:0}
+  .sidebar{width:300px; flex-shrink:0; position:sticky; top:90px}
+  .sidebar-box{background:var(--card); border:1px solid var(--border); border-radius:10px; padding:16px}
+  .sidebar-box h3{font-size:13px; text-transform:uppercase; letter-spacing:.06em; margin:0 0 12px; color:var(--sub)}
+  @media (max-width:960px){
+    .layout{flex-direction:column; padding:0}
+    .sidebar{width:100%; position:static; padding:0 24px}
+  }
+
+  /* ---- botón flotante de Instagram ---- */
+  .floating-ig{
+    position:fixed; right:20px; bottom:140px; z-index:1000;
+    background:linear-gradient(45deg,#405DE6,#5851DB,#833AB4,#C13584,#E1306C,#FD1D1D);
+    color:#fff; width:50px; height:50px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    text-decoration:none; box-shadow:0 4px 10px rgba(0,0,0,.3); transition:transform .2s ease;
+  }
+  .floating-ig:hover{transform:scale(1.1)}
+
+  /* ---- página de publicación ---- */
+  .publicacion{max-width:820px; margin:0 auto; padding:40px 24px 80px}
+  .publicacion .volver{display:block; width:fit-content; font-size:13px; font-weight:600; text-transform:uppercase; letter-spacing:.04em; text-decoration:none; margin-bottom:26px}
+  .publicacion .tag{display:block; width:fit-content}
+  .publicacion h1{font-size:clamp(26px,4vw,40px); line-height:1.15; margin:0 0 14px}
+  .publicacion .dek{font-size:17px; color:var(--soil); line-height:1.5; margin:0 0 10px}
+  .publicacion .meta{font-size:13px; color:var(--sub); font-style:italic; margin:0 0 22px}
+  .publicacion figure{margin:0 0 26px; background:var(--paper-2); border-radius:10px; overflow:hidden}
+  .publicacion figure img{display:block; width:100%; max-height:480px; object-fit:contain}
+  .publicacion .full{display:block; background:var(--card); border:1px solid var(--border); border-radius:10px; padding:26px 28px; border-top:1px solid var(--border)}
+  .publicacion .full .footnote{font-size:0.9rem; color:var(--sub); border-top:1px solid var(--border); padding-top:0.8em; margin-top:1.5em}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="brand">
+    <span class="word">REVISTA LA TRILLA</span>
+    <span class="sub">Biobío</span>
+  </div>
+     <nav>
+    <a href="../index.html">← Portada</a>
+  </nav>
+</header>
+<div class="solidarity-banner"><b>No es guerra, es Genocidio.</b>&nbsp; Solidaridad con Palestina </div>
+
+<main class="publicacion">
+  <a class="volver" href="../index.html">← Volver a la portada</a>
+  <span class="tag tag-debate">Debate</span>
+  <h1>Apuesta contra la norma, con la plata de las AFP: Cómo 7.700 millones de dólares de los trabajadores chilenos terminaron en bancos de EEUU</h1>
+  <p class="dek">En septiembre de 2026, las siete AFP que operan en Chile revelaron una pérdida de valoración de 7.700 millones de dólares acumulada en contratos financieros complejos vinculados a las tasas de interés de Estados Unidos. Un análisis del escándalo de los Swaps, el rol de BlackRock y el sistema de pensiones como mecanismo de financiarización global.</p>
+  <p class="meta">John Zieballe · Octubre 2026</p>
+  <figure><img src="../imagenes/nomasafp.jpg" alt="No más AFP"></figure>
+  <div class="full">
+
+<h3>I. EL HECHO CONCRETO</h3>
+<p>En septiembre de 2026, las siete Administradoras de Fondos de Pensiones (AFP) que operan en Chile revelaron una cifra que ha sacudido al sistema previsional: una pérdida de valoración de 7.700 millones de dólares (7.7 billion en inglés) acumulada en contratos financieros complejos vinculados a las tasas de interés de Estados Unidos.</p>
+<p>Para dimensionar la magnitud: estamos hablando de aproximadamente 7 billones de pesos chilenos (7.000.000.000.000 pesos), una suma equivalente a casi el 2,5% del Producto Interno Bruto anual de Chile (que ronda los 300.000 millones de dólares), extraída en forma de pérdida contable de los ahorros previsionales de más de 10 millones de trabajadores.</p>
+
+<h4>Contexto temporal: Una apuesta iniciada en 2024</h4>
+<p>Es fundamental precisar que esta estrategia especulativa se acumuló principalmente durante el año 2024 y principios de 2025, bajo el gobierno del presidente Gabriel Boric. Durante este periodo, la discusión sobre las AFP en Chile vivió hitos críticos de negociación política y de mercado. El debate se concentró en destrabar la Reforma Previsional en el Congreso tras años de estancamiento. Mientras los políticos discutían la ley en Valparaíso, las administradoras ejecutaban estrategias de inversión agresivas. Entre enero de 2024 y el inicio de 2025, las AFP realizaron un movimiento financiero masivo: apostaron en el extranjero a que las tasas de interés de Estados Unidos iban a bajar de forma acelerada.</p>
+<p>Y un dato clave: Los contratos de derivados financieros (Swaps de tasas de interés) operados por las AFP pasaron de US$ 22.000 millones en enero de 2024 a más de US$ 100.000 millones a inicios de 2025. Un 355% más en un año.</p>
+
+<h4>¿Qué son los famosos "Swaps" y cómo funcionó la apuesta?</h4>
+<p>La pérdida no se debió a una caída tradicional de acciones, sino a una estrategia financiera sofisticada basada en instrumentos derivados, específicamente contratos llamados "Swaps" (permutas financieras).</p>
+<p>Un ejemplo concreto para entender la mecánica:</p>
+<p>Imaginemos que una AFP firma un contrato swap por 1.000 millones de dólares con un banco de Wall Street. El acuerdo es el siguiente:</p>
+<ul>
+  <li>La AFP recibe: una tasa fija del 4% anual sobre esos 1.000 millones (es decir, 40 millones de dólares al año).</li>
+  <li>La AFP paga una tasa variable que depende de lo que haga la Reserva Federal de EE.UU.</li>
+</ul>
+<p><b>Escenario A</b> (lo que las AFP esperaban): Si las tasas de la Fed bajaban al 3%, la AFP pagaba solo 30 millones pero recibía 40 millones. Ganancia neta: 10 millones de dólares.</p>
+<p><b>Escenario B</b> (lo que realmente ocurrió): Si las tasas de la Fed subían al 6%, la AFP tenía que pagar 60 millones pero solo recibía 40 millones. Pérdida neta: 20 millones de dólares.</p>
+<p>Durante los últimos dos años, las siete AFP acumularon posiciones masivas en estos Swaps bajo la lógica del Escenario A. De hecho, hace apenas un año, esta estrategia le generaba al sistema una ganancia de valoración de unos 1.400 millones de dólares.</p>
+
+<h4>¿Entonces qué salió mal?</h4>
+<p>Factores macroeconómicos globales dieron vuelta la jugada:</p>
+<ul>
+  <li>El aumento de la deuda pública de Estados Unidos: El déficit fiscal estadounidense se disparó, generando desconfianza en los bonos del Tesoro.</li>
+  <li>Presiones inflacionarias persistentes: A pesar de que la inflación había bajado desde sus picos de 2022, se mantuvo por encima del objetivo del 2% de la Fed durante 2024 y 2025, alimentada por:</li>
+  <li>El aumento de los precios de la energía debido a la guerra en Irán.</li>
+  <li>La disrupción de cadenas de suministro globales.</li>
+  <li>El aumento de los costos de vivienda y servicios en EE.UU.</li>
+</ul>
+<p>Ante estas presiones inflacionarias que no cedían, la Fed decidió subir las tasas de interés nuevamente en septiembre de 2025 (la primera subida desde 2023), sorprendiendo a los mercados que esperaban recortes.</p>
+<p>El resultado: Al subir las tasas variables por encima de la tasa fija que las AFP recibían, el valor de estos contratos se desplomó. En cuestión de meses, la posición pasó de ser una ganancia de 1.400 millones a una pérdida de valoración de 7.700 millones de dólares en septiembre de 2026.</p>
+<p>La situación se volvió crítica cuando la Superintendencia de Pensiones de Chile, ante el creciente riesgo, impuso nuevos límites a la exposición en derivados. La nueva normativa exige a las AFP reducir sus posiciones en estos instrumentos a partir del 4 de noviembre de 2026, con un plazo máximo de 210 días para ajustarse. Aquí está la trágica ironía: esta regla obliga a las administradoras a cerrar (desarmar) estas posiciones en un momento en que su valoración es negativa. Por lo tanto, lo que era una "pérdida de papel" (una caída contable que podría haberse recuperado si se esperaba a que las tasas bajaran en el futuro) se está convirtiendo en una pérdida real y efectiva, ya que las AFP deben pagar la diferencia en efectivo a los bancos contrapartes al cerrar los contratos.</p>
+<p>Sin embargo, hay que ser objetivos: si la Superintendencia no hubiera intervenido para obligar a cerrar estas posiciones, existía el riesgo real de que las tasas siguieran subiendo y la pérdida fuera aún mayor (potencialmente 15.000 o 20.000 millones de dólares). La regulación, aunque dolorosa, busca evitar una catástrofe mayor. Es un "mal menor" regulatorio.</p>
+
+<h4>El Fondo E: el refugio que se convirtió en trampa</h4>
+<p>Aunque todos los multifondos tienen exposición, el Fondo E ha sido el más golpeado. Este fondo está diseñado por ley para ser el más conservador y de menor riesgo, ideal para personas que están a pocos años de jubilar y no pueden permitirse sobresaltos.</p>
+<p>Extrañamente, este fondo concentraba una gran parte de estas posiciones especulativas. Como resultado, el Fondo E acumula una caída de alrededor del 10,4% en lo que va del año 2026, con casi la mitad de esa pérdida ocurriendo solo en el mes de septiembre.</p>
+<p>Acá, la crítica de fondo y que puede constituir dolo, es que invertir masivamente en Swaps especulativos no es un instrumento de inversión adecuado para los fondos D y E, que por su naturaleza conservadora deberían priorizar la seguridad sobre la rentabilidad.</p>
+
+<h3>II. LOS BENEFICIARIOS: WALL STREET Y EL ECOSISTEMA BLACKROCK</h3>
+
+<h4>Las contrapartes directas: Bank of America y Citigroup</h4>
+<p>Los reportes financieros, citados por Bloomberg y medios especializados, <b>identifican explícitamente a Bank of America y Citigroup,</b> entre otros grandes bancos de Wall Street, como las contrapartes de estos contratos de Swaps. Al tener que cerrar estas posiciones con una valoración negativa, las AFP están obligadas a pagar la diferencia de dinero directamente a estas instituciones financieras para saldar los contratos. El dinero de los ahorros de trabajadores chilenos —profesores, cajeros, enfermeras, obreros— termina fluyendo hacia los balances de estos gigantes bancarios estadounidenses.</p>
+
+<h4>La pregunta sobre la diversificación: ¿Realmente es diversa?</h4>
+<p>Las AFP argumentan que deben invertir en el extranjero para "diversificar el riesgo" y no depender exclusivamente de la economía chilena. Sin embargo, la realidad es que una parte desproporcionada de estas inversiones se concentra en Estados Unidos. Cuando las AFP invierten en "renta fija internacional" o "derivados de tasas extranjeras", en la práctica están apostando a los bonos del Tesoro estadounidense y a los mercados financieros de Wall Street. Esto significa que toda la cartera de los trabajadores chilenos está expuesta a las decisiones de la Reserva Federal de EE.UU., lo que contradice el principio de diversificación geográfica real.</p>
+<p>Una diversificación verdaderamente efectiva implicaría distribuir las inversiones de manera más equilibrada entre diferentes regiones (Europa, Asia, mercados emergentes), no concentrarlas en un solo país cuyo banco central puede cambiar las reglas del juego de un día para otro.</p>
+
+<h4>El papel sistémico de BlackRock</h4>
+<p>Aquí es donde entra uno de los actores más poderosos del sistema financiero global: BlackRock, el gestor de activos más grande del mundo, que administra cerca de 10 billones de dólares (en inglés, trillions).</p>
+<p>Aunque BlackRock no es dueño directo de ninguna AFP en Chile (los dueños son grupos como Sura, Principal Financial Group, MetLife, BTG Pactual, etc.), su influencia en el sistema financiero chileno es masiva y estructural a través de cuatro canales principales:</p>
+<ol>
+  <li><b>Las AFP invierten miles de millones en productos de BlackRock.</b> Las AFP chilenas deben diversificar sus carteras en el extranjero. Para hacerlo, compran fondos mutuos y ETFs (fondos cotizados en bolsa). BlackRock, a través de su marca iShares, es uno de los mayores proveedores mundiales de estos instrumentos. Una parte significativa de los ahorros de los chilenos en el "componente extranjero" de las carteras está depositada en fondos administrados por BlackRock.</li>
+  <li><b>BlackRock es accionista masivo en las empresas chilenas que usan la plata de las AFP.</b> A través de sus fondos indexados, BlackRock es consistentemente uno de los 10 principales accionistas de las empresas más grandes de Chile que cotizan en bolsa: SQM, Falabella, Cencosud, Banco de Chile, Santander, Aguas Andinas, Enel, entre otras. Estas mismas empresas son las que reciben financiamiento de las AFP a través de la compra de bonos corporativos y acciones. Es decir, la plata de los trabajadores chilenos financia a estas empresas, y BlackRock es accionista de esas mismas empresas. Esto crea un conflicto de interés estructural: BlackRock se beneficia tanto de las comisiones que las AFP pagan por invertir en sus productos, como de la valorización de las empresas chilenas donde es accionista y que son financiadas con la plata de las AFP.</li>
+  <li><b>La tecnología de riesgo: el sistema "Aladdin" y nuestras reservas internacionales.</b> BlackRock posee Aladdin (Asset, Liability, Debt and Derivative Investment Network), el software de gestión de riesgos y análisis de carteras más poderoso del mundo. Este sistema monitorea más de 20 billones de dólares en activos a nivel global y es utilizado por los mayores bancos centrales, fondos soberanos y gestores de activos del planeta. El vínculo en Chile es profundo y preocupante: El Banco Central de Chile ha utilizado históricamente el sistema Aladdin para la gestión de riesgos de sus propias reservas internacionales. Estamos hablando de las reservas que respaldan la estabilidad monetaria del país, administradas con tecnología de una empresa privada extranjera que, al mismo tiempo, es accionista de los bancos contraparte de las AFP y de las matrices de las propias AFP. La pregunta obligada es: Si nuestras reservas internacionales —que son patrimonio de todos los chilenos— están siendo gestionadas con herramientas de BlackRock, ¿qué nivel de influencia real tiene esta corporación sobre las decisiones económicas del país? ¿Quién vigila al vigilante?</li>
+  <li><b>La "puerta giratoria": ¿Solo Lobby o algo más?</b> No existe un caso documentado públicamente de un ex ejecutivo de BlackRock llegando directamente a ser Superintendente de Pensiones en Chile. Sin embargo, la pregunta incómoda es: ¿Qué relaciones existen más allá de lo que registra la Ley de Lobby? Lo que sabemos: La élite financiera chilena (gerentes de inversiones, directores de bancos, ex autoridades del Ministerio de Hacienda y Banco Central) suele formarse en las mismas universidades de EE.UU. (Harvard, MIT, Stanford, Chicago) y compartir redes profesionales con ejecutivos de Wall Street. Muchos de los gerentes de inversiones de las AFP han trabajado previamente en bancos de inversión globales (J.P. Morgan, Goldman Sachs, Citigroup, Morgan Stanley), que son socios y contrapartes habituales de BlackRock. Ex autoridades chilenas (ministros de Hacienda, presidentes del Banco Central, superintendentes) han terminado trabajando en el sector privado financiero, incluyendo consultoras que asesoran a las AFP o a sus matrices extranjeras. Lo que debemos preguntarnos: ¿Ha habido funcionarios de la Superintendencia de Pensiones que, antes o después de su cargo, hayan trabajado en las AFP, en sus matrices extranjeras, o en bancos de Wall Street? ¿Existen reuniones privadas entre gerentes de inversiones de las 7 AFP donde se coordinen estrategias? ¿Hay actas, correos electrónicos, mensajes que lo documenten? ¿Los directorios de las AFP tienen miembros que simultáneamente sean directores de bancos contraparte o de empresas vinculadas a BlackRock? La transparencia es mínima: A diferencia de lo que ocurre en otros países, en Chile no existe un registro público detallado de la "puerta giratoria" entre el sector público financiero y el sector privado. Esto permite que conflictos de interés estructurales operen bajo el radar.</li>
+</ol>
+
+<h3>III. RESPONSABILIDADES: ¿QUIÉN APROBÓ ESTA JUGADA?</h3>
+
+<h4>La estructura del CISCI: El "freno de mano" que no funcionó</h4>
+<p>No es una decisión de una sola persona, sino que sigue una estructura de gobierno corporativo obligatoria dentro de cada AFP. El órgano clave es el Comité de Inversiones y Solución de Conflictos de Interés (CISCI), que es un comité interno de cada AFP (no de la Superintendencia), aunque su existencia y funciones están reguladas por el ente fiscalizador.</p>
+<p><b>Composición del CISCI:</b></p>
+<ul>
+  <li><b>Nivel Directivo:</b> Tres miembros del Directorio de la AFP, dos de los cuales deben ser Directores Autónomos (independientes).</li>
+  <li><b>Nivel Gerencial:</b> Participan el Gerente General, el Gerente de Inversiones y el Gerente de Riesgos de la AFP.</li>
+</ul>
+
+<h4>Los involucrados: Nombres y AFPs</h4>
+<p>A continuación, los principales ejecutivos que lideraron las decisiones de inversión en cada AFP durante el período en que se acumularon estas posiciones:</p>
+<ol>
+  <li><b>AFP Capital (Controlada por Grupo Sura, Colombia)</b><br>
+  Gerente General: Renzo Vercelli Baladrón<br>
+  Gerente de Inversiones: Gonzalo Hurtado de Mendoza (estructura Sura)<br>
+  Presidente del Directorio: Juan Carlos Chomalí Acuña</li>
+  <li><b>AFP Cuprum (Controlada por Principal Financial Group, EE.UU.)</b><br>
+  Gerente General: Martín Mujica O.<br>
+  Gerente de Inversiones: Andrés García<br>
+  Presidente del Directorio: Pedro Atria</li>
+  <li><b>AFP Hábitat (Controlada por la Cámara Chilena de la Construcción)</b><br>
+  Gerente General: Max Sichel (asumió en enero 2026, reemplazando a Alejandro Bezanilla)<br>
+  Gerente de Inversiones: Piero Irivarren<br>
+  Presidente del Directorio: Luis Rodríguez Villasuso</li>
+  <li><b>AFP Modelo (Controlada por BTG Pactual)</b><br>
+  Gerente General: Andrés Flisfisch Camhi<br>
+  Gerente de Inversiones: Andrés Balassa<br>
+  Presidente del Directorio: Ricardo Edwards Vial</li>
+  <li><b>AFP PlanVital (Controlada por Generali, Italia)</b><br>
+  Gerente General: José Joaquín Prat Errázuriz<br>
+  Gerente de Inversiones: Diego Dziekonski Vásquez</li>
+  <li><b>AFP ProVida (Controlada por MetLife, EE.UU.)</b><br>
+  Gerente General: Santiago Donoso Hüe<br>
+  Gerente de Inversiones: Patricio Muñoz<br>
+  Presidente del Directorio: Andrés Merino Cangas</li>
+  <li><b>AFP Uno (Controlada por grupo de inversionistas chilenos)</b><br>
+  Gerente General: Teo Colombo Santorsola<br>
+  Gerente de Inversiones: Fernando Bustamante López<br>
+  Presidente del Directorio: Mario Ignacio Álvarez Avendaño</li>
+</ol>
+
+<h4>La actuación en manada: ¿Incentivo perverso o coordinación explícita?</h4>
+<p>Las siete AFP hicieron prácticamente la misma apuesta. Hasta ahora, la explicación oficial es que esto se debe al incentivo perverso de la normativa de "rentabilidad mínima", que castiga a la AFP que se desvía del promedio del sistema. Sin embargo, esta explicación es insuficiente. Un incentivo perverso puede llevar a comportamientos similares, pero no explica por qué 7 gerentes de inversiones independientes, con diferentes formaciones y experiencias, tomaron exactamente la misma decisión especulativa al mismo tiempo.</p>
+<p>La pregunta incómoda es: ¿Realmente actuaron de forma independiente, o hubo coordinación explícita?</p>
+<p><b>Argumentos para sospechar coordinación:</b></p>
+<ul>
+  <li><b>La magnitud de la apuesta:</b> Acumular 100 mil millones de dólares en Swaps no es una decisión que se tome a la ligera. Requiere análisis, aprobación del CISCI, y monitoreo constante. Es difícil creer que 7 equipos independientes llegaran exactamente a la misma conclusión sin haberse comunicado.</li>
+  <li><b>Las señales de alerta estaban ahí desde 2022-2023:</b> Cuando la Reserva Federal comenzó a subir las tasas agresivamente, cualquier modelo básico de riesgo indicaba que apostar a que las tasas bajarían era peligroso. ¿Realmente los 7 gerentes de inversiones ignoraron estas señales simultáneamente? ¿O decidieron colectivamente que el riesgo valía la pena?</li>
+  <li><b>Debe haber documentos:</b> En el mundo financiero corporativo, las decisiones de inversión de esta magnitud dejan rastro: correos electrónicos, actas de reuniones, presentaciones internas, análisis de riesgo. Estos documentos deben existir y deben ser accesibles para una investigación.</li>
+  <li><b>La Asociación de AFP como espacio de coordinación:</b> Las 7 AFP son miembros de la Asociación de AFP de Chile, que organiza reuniones, seminarios y grupos de trabajo. ¿Se discutieron estas estrategias de Swaps en esos espacios? ¿Hubo consenso tácito o explícito?</li>
+  <li><b>El rol de la Fiscalía Nacional Económica (FNE):</b> Más allá del incentivo perverso, la FNE debería investigar si hubo coordinación explícita entre las AFP. La Ley de Defensa de la Libre Competencia prohíbe los acuerdos entre competidores que restrinjan la competencia o perjudiquen a los consumidores. Si se demuestra que las AFP se coordinaron para hacer la misma apuesta especulativa, compartiendo información privilegiada o tomando decisiones concertadas, esto podría configurar colusión, no solo un incentivo perverso.</li>
+</ul>
+<p><b>La FNE tiene la facultad y el deber de investigar:</b> Solicitar los correos electrónicos y actas de reuniones entre gerentes de inversiones de las 7 AFP. Investigar si hubo reuniones de la Asociación de AFP donde se discutieran estas estrategias. Determinar si los directorios autónomos de las AFP tenían conocimiento de que las demás AFP estaban haciendo la misma apuesta. No es exagerado pedir esta investigación. Estamos hablando de 7.700 millones de dólares en pérdidas para los trabajadores chilenos. Si hubo coordinación explícita, esto no es solo una mala gestión, es un delito.</p>
+
+<h3>V. ¿POR QUÉ LA SUPERINTENDENCIA ES PRIVADA Y NO ESTATAL?</h3>
+
+<h4>La pregunta que nadie se hace</h4>
+<p>Si la Superintendencia de Pensiones falló tan rotundamente en su labor de supervisión, uno se pregunta: ¿Por qué esta función crítica está delegada a una entidad que opera con lógica privada y no es una institución estatal robusta?</p>
+<p>La comparación con BancoEstado es reveladora: El Estado chileno protege activamente los ahorros de los ciudadanos en BancoEstado, una institución pública. Cuando hubo crisis bancarias en el pasado, el Estado garantizó los depósitos de los ahorrantes. El Estado asume la responsabilidad directa de proteger esos ahorros.</p>
+<p>Sin embargo, con las AFP, el Estado se lava las manos: Los ahorros previsionales están en cuentas individuales de capitalización, no en un fondo solidario estatal. Cuando las AFP pierden dinero, el Estado no compensa a los afiliados. La pérdida la asume cada trabajador en su cuenta personal. La Superintendencia de Pensiones, aunque es un organismo público, opera con una lógica de "supervisión de caja" y no tiene la capacidad (ni aparentemente la voluntad) de intervenir preventivamente cuando detecta riesgos sistémicos.</p>
+<p><b>¿Por qué esta diferencia?</b> La respuesta está en el diseño original del sistema: las AFP fueron creadas como empresas privadas con fines de lucro, y el Estado optó por no asumir la responsabilidad directa de proteger los ahorros previsionales. El argumento fue que la competencia entre AFP garantizaría eficiencia y mejores rentabilidades. La realidad es que las AFP cobran comisiones fijas independientemente de la rentabilidad, por lo que no tienen incentivo real para maximizar el retorno de los afiliados. La "competencia" entre AFP es ilusoria: todas hacen prácticamente las mismas inversiones (como lo demuestra esta crisis de los Swaps).</p>
+<p>Cuando las cosas salen mal, el Estado no interviene para proteger a los afiliados, sino que deja que el mercado "se ajuste". La pregunta que surge es: Si el Estado considera que los ahorros en BancoEstado merecen protección estatal, ¿por qué los ahorros previsionales de millones de chilenos no merecen el mismo nivel de protección? La respuesta incómoda es porque el sistema de AFP fue diseñado para transferir por una parte el riesgo desde el Estado hacia los trabajadores individuales, mientras las comisiones fluyen hacia las empresas privadas (y sus matrices extranjeras).</p>
+
+<h3>VI. CONCLUSIÓN: UN SISTEMA DISEÑADO PARA FINANCIAR EL SISTEMA FINANCIERO GLOBAL</h3>
+
+<h4>No solo transferir riesgos: usar los ahorros para financiar el sistema financiero</h4>
+<p>El escándalo de los 7.700 millones de dólares no es solo un caso de "transferencia de riesgos" desde las instituciones financieras hacia los trabajadores. Es algo más profundo y estructural: los ahorros previsionales de los chilenos están siendo utilizados para financiar el sistema financiero nacional y global, en manos de grandes capitales nacionales e internacionales.</p>
+<p><b>La lógica del sistema es la siguiente:</b></p>
+<ul>
+  <li>Los trabajadores chilenos ahorran obligatoriamente el 10% de su sueldo (más comisiones) para su pensión.</li>
+  <li>Las AFP administran esos ahorros y, en lugar de invertirlos principalmente en proyectos productivos nacionales (vivienda, infraestructura, industria), los destinan masivamente a:
+    <ul>
+      <li>Derivados financieros (Swaps) que son apuestas especulativas sobre las tasas de interés de EE.UU.</li>
+      <li>Bonos del Tesoro estadounidense (financiando el déficit fiscal de EE.UU.)</li>
+      <li>ETFs y fondos mutuos de gigantes como BlackRock (que cobran comisiones por administrarlos)</li>
+      <li>Acciones de empresas chilenas (pero donde los principales accionistas son fondos extranjeros como BlackRock)</li>
+    </ul>
+  </li>
+</ul>
+<p><b>El resultado es un círculo vicioso:</b></p>
+<ul>
+  <li>Los ahorros de los trabajadores chilenos financian el déficit fiscal de EE.UU. (a través de bonos del Tesoro).</li>
+  <li>Los ahorros de los trabajadores chilenos financian las comisiones de BlackRock (a través de ETFs y fondos mutuos).</li>
+  <li>Los ahorros de los trabajadores chilenos financian los bancos de Wall Street (a través de los Swaps, cuando las apuestas fallan).</li>
+  <li>Los ahorros de los trabajadores chilenos financian las empresas chilenas (a través de acciones y bonos corporativos), pero donde los principales beneficiarios son los accionistas extranjeros.</li>
+</ul>
+
+<h4>En primera instancia, los ahorros no se usan para desarrollar el país</h4>
+<p>El argumento original del sistema de AFP era que la capitalización individual permitiría financiar el desarrollo de Chile. La realidad es que los ahorros se usan principalmente para:</p>
+<ul>
+  <li>Especular en los mercados financieros globales.</li>
+  <li>Financiar el consumo y el déficit fiscal de otros países (especialmente EE.UU.).</li>
+  <li>Enriquecer a los grandes gestores de activos globales (BlackRock, Vanguard, State Street).</li>
+  <li>Pagar comisiones a las AFP y sus matrices extranjeras.</li>
+</ul>
+<p><b>La financiarización del ahorro chileno:</b> El sistema de pensiones chileno es un ejemplo perfecto de lo que los economistas llaman "financiarización": la economía real (producción, empleo, salarios) queda subordinada a la lógica de los mercados financieros. Los ahorros de los trabajadores no se destinan a crear empleos o construir infraestructura productiva, sino a alimentar la maquinaria financiera global.</p>
+
+<h4>¿Quién gana y quién pierde?</h4>
+<p><b>Ganan:</b> Las AFP (comisiones garantizadas), los bancos de Wall Street (contrapartes de los Swaps), BlackRock y otros gigantes financieros (comisiones de gestión y valorización de sus inversiones).</p>
+<p><b>Pierden:</b> Los trabajadores chilenos, que asumen el riesgo de las apuestas especulativas y ven cómo sus ahorros se reducen cuando las apuestas fallan.</p>
+
+<h4>La pregunta final</h4>
+<p>¿Es este el sistema que queremos? ¿Un sistema donde los ahorros de millones de chilenos se usan para financiar el sistema financiero global, en manos de los grandes capitales nacionales e internacionales, mientras los trabajadores asumen todo el riesgo?</p>
+<p>La respuesta debe ser un rotundo no. Y el primer paso inmediato es exigir transparencia, responsabilidad y, eventualmente penas legales, mientras se recuperan las pérdidas, y posteriormente un cambio estructural en el sistema. Una demanda que los trabajadores y las calles deben asumir nuevamente. No hay otro camino.</p>
+
+    <div class="share-actions">
+      <a class="share-x" target="_blank" rel="noopener noreferrer" href="https://twitter.com/intent/tweet?text=Leyendo%20%22Apuesta%20contra%20la%20norma%2C%20con%20la%20plata%20de%20las%20AFP%22%20en%20La%20Trilla&amp;url=https%3A%2F%2Frevista-la-trilla.pages.dev%2Fpublicaciones%2Fapuesta-contra-norma-afp.html"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>Compartir en X</a>
+      <a class="share-copy" href="https://revista-la-trilla.pages.dev/publicaciones/apuesta-contra-norma-afp.html" onclick="event.preventDefault(); navigator.clipboard.writeText(this.href).then(()=>{const t=this.textContent; this.textContent='✅ ¡Enlace copiado!'; setTimeout(()=>this.textContent=t,3000);});">🔗 Copiar enlace del artículo</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-note">
+      La Trilla es un espacio editorial del Colectivo La Trilla, región del Biobío. El nombre honra la faena campesina de separar el grano de la paja: la misma tarea que este espacio quiere hacer con el debate político y cultural.
+    </div>
+    <div class="footer-links">
+      <a href="../index.html#contacto">Contacto</a>
+      <a href="../index.html#legal">Aspectos legales</a>
+      <a href="https://www.instagram.com/colectivolatrilla/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+</footer>
+
+<a href="https://www.instagram.com/colectivolatrilla/" target="_blank" rel="noopener noreferrer" class="floating-ig" aria-label="Instagram">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+</a>
+</body>
+</html>
