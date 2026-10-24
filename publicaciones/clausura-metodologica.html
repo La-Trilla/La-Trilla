@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La clausura metodológica y la homeostasis estructural del capital — Revista La Trilla</title>
+<meta name="description" content="Crítica materialista a la escuela de Íñigo Carrera. Un análisis de cómo la pretensión de pureza metodológica termina reproduciendo la estructura fetichista que Marx se propuso desmontar.">
+<link rel="canonical" href="https://revista-la-trilla.pages.dev/publicaciones/clausura-metodologica.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Revista La Trilla">
+<meta property="og:title" content="La clausura metodológica y la homeostasis estructural del capital">
+<meta property="og:description" content="Crítica materialista a la escuela de Íñigo Carrera. Un análisis de cómo la pretensión de pureza metodológica termina reproduciendo la estructura fetichista que Marx se propuso desmontar.">
+<meta property="og:url" content="https://revista-la-trilla.pages.dev/publicaciones/clausura-metodologica.html">
+<meta property="og:image" content="https://revista-la-trilla.pages.dev/imagenes/clausura.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;700;900&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #EDE2C8;
+    --paper-2: #E4D6B4;
+    --ink: #241C14;
+    --wheat: #C9A227;
+    --wheat-dark: #9C7D1C;
+    --rust: #A63A2C;
+    --heather: #46613F;
+    --teal: #3D6B66;
+    --soil: #4A3B2A;
+    --sub: #6B5D45;
+    --card: #FAF6EC;
+    --border: #D8C79E;
+    --focus: #1F5F8B;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; overflow-x:hidden; background:var(--paper); color:var(--ink);
+    font-family:'Work Sans', -apple-system, sans-serif;
+    line-height:1.5;
+  }
+  h1,h2,h3,h4{font-family:'Bitter', Georgia, serif; margin:0; color:var(--ink)}
+  a{color:var(--rust)}
+  a:focus-visible, button:focus-visible, .card-head:focus-visible{outline:3px solid var(--focus); outline-offset:2px}
+  @media (prefers-reduced-motion: reduce){ *{transition:none !important; animation:none !important} }
+
+  /* ---- masthead ---- */
+  .masthead{
+    background:var(--ink); color:var(--paper);
+    padding:14px 24px; display:flex; justify-content:space-between; align-items:center;
+    flex-wrap:wrap; gap:10px; position:sticky; top:0; z-index:20;
+    border-bottom:3px solid var(--wheat);
+  }
+  .brand{display:flex; align-items:baseline; gap:10px}
+  .brand .word{font-family:'Bitter', serif; font-weight:900; font-size:26px; letter-spacing:.01em; color:var(--paper)}
+  .brand .sub{font-size:12px; color:var(--wheat); text-transform:uppercase; letter-spacing:.08em}
+  nav{display:flex; gap:4px; flex-wrap:wrap}
+  nav button, nav a{
+    font-family:'Work Sans', sans-serif; font-size:13px; font-weight:600; letter-spacing:.02em;
+    background:none; border:none; color:var(--paper); opacity:.75; cursor:pointer;
+    padding:8px 12px; border-radius:4px; text-transform:uppercase; text-decoration:none;
+  }
+  nav button:hover, nav a:hover{opacity:1; background:rgba(255,255,255,.08)}
+  nav button.active{opacity:1; color:var(--wheat); background:rgba(201,162,39,.14)}
+
+  /* ---- hero con imagen de fondo ---- */
+  .hero-wrap{position:relative; overflow:hidden; isolation:isolate}
+  .hero-wrap::before{
+    content:''; position:absolute; inset:-8px; z-index:-1;
+    background:url('../imagenes/trilla.jpg') center/cover no-repeat;
+    filter:blur(2px); opacity:.5;
+  }
+  .hero{max-width:820px; margin:0 auto; padding:64px 24px 40px; text-align:center}
+  .cuba-banner{
+    border-left:15px solid #ce1126;
+    background:repeating-linear-gradient(to bottom,#002a8f 0 20px,#fff 20px 40px);
+    padding:10px 0 10px 40px; color:#fff; font-weight:700; text-shadow:2px 2px 4px rgba(0,0,0,.8);
+  }
+  .solidarity-banner{padding-left:56px}
+  .visit-counter{text-align:right; margin:5px 20px 0; padding-bottom:10px}
+  .visit-counter img{vertical-align:middle}
+  .hero h1{font-size:clamp(30px, 5vw, 52px); line-height:1.08; margin-bottom:18px}
+  .hero .thesis{font-size:19px; color:var(--soil); max-width:560px; margin:0 auto 8px; font-weight:500}
+  .hero .thesis b{color:var(--rust)}
+  .hero .issue{font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--sub); margin-top:18px}
+
+  /* ---- grain divider (signature element) ---- */
+  .grain-divider{width:100%; height:22px; margin:8px 0 0}
+
+  /* ---- section filter feedback ---- */
+  .section-label{
+    max-width:1080px; margin:36px auto 4px; padding:0 24px;
+    font-size:12px; text-transform:uppercase; letter-spacing:.1em; color:var(--sub);
+  }
+
+  /* ---- grid ---- */
+  main{max-width:1080px; margin:0 auto; padding:0 24px 80px}
+  .grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(300px,1fr)); gap:22px; margin-top:14px}
+
+  .card{
+    background:var(--card); border:1px solid var(--border); border-radius:10px;
+    overflow:hidden; display:flex; flex-direction:column;
+  }
+  .card.open{grid-column:1 / -1}
+  .card.open .full{max-width:760px; margin:0 auto}
+  .card-image{width:100%; aspect-ratio:16/9; overflow:hidden; background:var(--paper-2)}
+  .card-image img{width:100%; height:100%; object-fit:cover; display:block; background:var(--paper-2)}
+  .card-image.contain img{object-fit:contain}
+  .card-head{padding:20px 22px; cursor:pointer}
+  .card-head .inline-figure{display:block; width:100%; max-width:300px; margin:20px auto 0; border-radius:4px}
+  a.card-link{text-decoration:none; color:inherit}
+  a.card-link:hover h3{color:var(--rust)}
+  a.card-link .expand-btn{display:inline-block; margin-top:4px}
+  .tag{
+    display:inline-block; font-size:10.5px; text-transform:uppercase; letter-spacing:.06em;
+    padding:3px 9px; border-radius:20px; color:#fff; margin-bottom:10px; font-weight:600;
+  }
+  .tag-nacional{background:var(--rust)}
+  .tag-ciencia{background:var(--wheat-dark)}
+  .tag-cultura{background:var(--heather)}
+  .tag-local{background:var(--teal)}
+  .tag-internacional{background:var(--soil)}
+  .tag-multimedia{background:var(--sub)}
+  .tag-debate{background:#5A4A7A}
+
+  .card h3{font-size:19px; line-height:1.25; margin-bottom:8px}
+  .card .dek{font-size:14px; color:var(--soil); margin:0 0 10px; line-height:1.5}
+  .card .meta{font-size:12px; color:var(--sub); margin:0 0 12px; font-style:italic}
+  .expand-btn{
+    font-family:'Work Sans',sans-serif; font-size:13px; font-weight:600; color:var(--rust);
+    background:none; border:none; padding:0; cursor:pointer;
+  }
+  .full{display:none; padding:0 22px 22px; border-top:1px dashed var(--border)}
+  .card.open .full{display:block; padding-top:16px}
+  .full p{font-size:15px; line-height:1.7; margin:0 0 14px; color:var(--ink)}
+  .full h4{font-size:16px; margin:18px 0 8px; color:var(--rust)}
+  .full h5{font-size:15px; margin:16px 0 6px; color:var(--soil)}
+  .full ul{margin:0 0 14px; padding-left:20px}
+  .full li{font-size:15px; line-height:1.6; margin-bottom:6px}
+  .full .plain-list{list-style:none; padding-left:0}
+  .full .plain-list li{margin-bottom:4px}
+  .full table{width:100%; border-collapse:collapse; margin:1.2em 0; font-size:.9rem; background:var(--card); border:1px solid var(--border)}
+  .full th, .full td{padding:8px; border:1px solid var(--border)}
+  .full thead tr{background:var(--soil); color:#fff}
+  .full th:first-child, .full td:first-child{text-align:center}
+  .full td:first-child{font-weight:700; background:var(--paper-2)}
+  .full blockquote{border-left:4px solid var(--rust); padding:.8em 1.2em; margin:1em 0; background:var(--paper-2); font-style:italic}
+  .full blockquote footer{margin-top:.5em; font-style:normal; font-weight:600}
+  .full .credits{font-size:.9rem; color:var(--sub); border-top:1px solid var(--border); padding-top:.8em; margin-top:1.5em}
+  .card.open .card-head .expand-btn::after{content:' — cerrar ▴'}
+  .share-actions{margin-top:16px; border-top:1px solid var(--border); padding-top:14px; display:flex; gap:18px; flex-wrap:wrap}
+  .share-actions a{font-family:'Work Sans',sans-serif; font-size:14px; font-weight:600; text-decoration:none; display:inline-flex; align-items:center; gap:5px}
+  .share-actions .share-x{color:var(--rust)}
+  .share-actions .share-copy{color:var(--heather)}
+  .card:target{outline:3px solid var(--wheat); outline-offset:2px}
+  .full .source-note{font-size:13px; color:var(--sub); font-style:italic; border-top:1px solid var(--border); padding-top:12px}
+
+  .hidden-by-filter{display:none !important}
+
+  /* ---- utility sections (contacto/legal) ---- */
+  .utility{
+    max-width:780px; margin:60px auto 0; padding:32px 28px; background:var(--card);
+    border:1px solid var(--border); border-radius:10px;
+  }
+  .utility h2{font-size:22px; margin-bottom:14px}
+  .utility p{font-size:14.5px; line-height:1.65; color:var(--soil)}
+  .utility .note{font-size:12.5px; color:var(--sub); background:var(--paper-2); border-radius:6px; padding:10px 14px; margin-top:16px}
+  .contact-form{display:flex; flex-direction:column; gap:10px; margin-top:16px; max-width:420px}
+  .contact-form input, .contact-form textarea{
+    font-family:'Work Sans',sans-serif; font-size:14px; padding:10px 12px; border:1px solid var(--border);
+    border-radius:6px; background:var(--paper); color:var(--ink);
+  }
+  .contact-form button{
+    font-family:'Work Sans',sans-serif; font-weight:600; font-size:14px; padding:10px 16px;
+    background:var(--rust); color:#fff; border:none; border-radius:6px; cursor:pointer; width:fit-content;
+  }
+
+  footer{background:var(--soil); color:var(--paper); padding:36px 24px 28px; margin-top:70px}
+  .footer-inner{max-width:1080px; margin:0 auto; display:flex; justify-content:space-between; flex-wrap:wrap; gap:20px}
+  .footer-inner a{color:var(--wheat); text-decoration:none; font-size:13px}
+  .footer-inner a:hover{text-decoration:underline}
+  .footer-links{display:flex; gap:18px; flex-wrap:wrap}
+  .footer-note{font-size:12px; color:#c9bfa8; max-width:420px}
+  .solidarity-banner{
+    background:linear-gradient(180deg,#000 0%,#000 33%,#fff 33%,#fff 66%,#007A3D 66%,#007A3D 100%);
+    position:relative; color:#fff; text-align:center; padding:20px 16px;
+    font-size:18px; font-weight:700; letter-spacing:.02em;
+    text-shadow:0 1px 3px rgba(0,0,0,.7);
+  }
+  .solidarity-banner::before{
+    content:''; position:absolute; left:0; top:0; bottom:0; width:36px;
+    background:#CE1126; clip-path:polygon(0 0,100% 50%,0 100%);
+  }
+  .solidarity-banner b{text-transform:uppercase; letter-spacing:.05em; font-size:19px}
+
+  /* ---- layout con columna lateral (X/Twitter) ---- */
+  .layout{display:flex; gap:24px; max-width:1400px; margin:0 auto; align-items:flex-start; padding:0 24px}
+  .layout main{max-width:1080px; margin:0; padding:0 0 80px; flex:1; min-width:0}
+  .sidebar{width:300px; flex-shrink:0; position:sticky; top:90px}
+  .sidebar-box{background:var(--card); border:1px solid var(--border); border-radius:10px; padding:16px}
+  .sidebar-box h3{font-size:13px; text-transform:uppercase; letter-spacing:.06em; margin:0 0 12px; color:var(--sub)}
+  @media (max-width:960px){
+    .layout{flex-direction:column; padding:0}
+    .sidebar{width:100%; position:static; padding:0 24px}
+  }
+
+  /* ---- botón flotante de Instagram ---- */
+  .floating-ig{
+    position:fixed; right:20px; bottom:140px; z-index:1000;
+    background:linear-gradient(45deg,#405DE6,#5851DB,#833AB4,#C13584,#E1306C,#FD1D1D);
+    color:#fff; width:50px; height:50px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    text-decoration:none; box-shadow:0 4px 10px rgba(0,0,0,.3); transition:transform .2s ease;
+  }
+  .floating-ig:hover{transform:scale(1.1)}
+
+  /* ---- página de publicación ---- */
+  .publicacion{max-width:820px; margin:0 auto; padding:40px 24px 80px}
+  .publicacion .volver{display:block; width:fit-content; font-size:13px; font-weight:600; text-transform:uppercase; letter-spacing:.04em; text-decoration:none; margin-bottom:26px}
+  .publicacion .tag{display:block; width:fit-content}
+  .publicacion h1{font-size:clamp(26px,4vw,40px); line-height:1.15; margin:0 0 14px}
+  .publicacion .dek{font-size:17px; color:var(--soil); line-height:1.5; margin:0 0 10px}
+  .publicacion .meta{font-size:13px; color:var(--sub); font-style:italic; margin:0 0 22px}
+  .publicacion figure{margin:0 0 26px; background:var(--paper-2); border-radius:10px; overflow:hidden}
+  .publicacion figure img{display:block; width:100%; max-height:480px; object-fit:contain}
+  .publicacion .full{display:block; background:var(--card); border:1px solid var(--border); border-radius:10px; padding:26px 28px; border-top:1px solid var(--border)}
+  .publicacion .full .footnote{font-size:0.9rem; color:var(--sub); border-top:1px solid var(--border); padding-top:0.8em; margin-top:1.5em}
+  .publicacion .full blockquote.destacado{
+    border-left:5px solid var(--rust); background:var(--paper-2);
+    padding:1.2em 1.4em; margin:1.5em 0; font-style:italic;
+    font-size:15.5px; line-height:1.7;
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="brand">
+    <span class="word">REVISTA LA TRILLA</span>
+    <span class="sub">Biobío</span>
+  </div>
+     <nav>
+    <a href="../index.html">← Portada</a>
+  </nav>
+</header>
+<div class="solidarity-banner"><b>No es guerra, es Genocidio.</b>&nbsp; Solidaridad con Palestina </div>
+
+<main class="publicacion">
+  <a class="volver" href="../index.html">← Volver a la portada</a>
+  <span class="tag tag-debate">Debate</span>
+  <h1>La clausura metodológica y la homeostasis estructural del capital: crítica materialista a la escuela de Íñigo Carrera</h1>
+  <p class="dek">Existe en el marxismo contemporáneo una corriente que se presenta a sí misma como la única lectura verdaderamente científica de El Capital. Su pretensión de pureza metodológica termina, paradójicamente, dejando a Marx fuera del juego.</p>
+  <p class="meta">John Zieballe · Octubre 2026</p>
+  <figure><img src="../imagenes/clausura.jpg" alt="Crítica a la escuela de Íñigo Carrera"></figure>
+  <div class="full">
+
+<blockquote>
+  <p>"La maquinaria es un medio para producir plusvalía"</p>
+  <footer>— K. Marx</footer>
+</blockquote>
+
+<h3>I. Introducción: el problema de la pureza en tiempos de reflujo</h3>
+<p>Existe en el marxismo contemporáneo una corriente que se presenta a sí misma como la única lectura verdaderamente científica de El Capital. Su premisa fundacional es simple y seductora: no se trata de aplicar conceptos externos a la realidad, sino de dejar que las categorías de Marx se desplieguen orgánicamente, de lo abstracto a lo concreto, sin añadir nada que no emane del propio movimiento inmanente de la forma-valor. La realidad, se nos dice, debe explicarse a sí misma mediante la dialéctica interna del capital, y toda introducción de categorías provenientes de la sociología, la ciencia política, los estudios culturales o la teoría de la dependencia, etc. constituye una recaída en el pensamiento burgués.</p>
+<p>Esta pretensión de pureza metodológica, defendida con rigor filológico y densidad filosófica por autores como el argentino Juan Íñigo Carrera y el Centro de Investigación como Crítica Práctica (CICP), ha seducido a generaciones de jóvenes intelectuales. La promesa es tentadora: un marxismo puro, autosuficiente, que no necesita recurrir a conceptos "contaminados" para explicar el capitalismo.</p>
+
+<blockquote class="destacado">
+<p>...al someter esta operación teórica al examen del propio materialismo histórico y la dialéctica materialista, emerge un problema de fondo que no es menor ni secundario: la escuela de Íñigo Carrera opera, en los hechos, una clausura del sistema teórico que reproduce, en el plano del pensamiento, la misma estructura fetichista que Marx se propuso desmontar. Lo que se presenta como el retorno más fiel a Marx termina, paradójicamente, dejando a Marx fuera del juego.</p>
+</blockquote>
+
+<p>Pero este afán de pureza, lógico conceptual, no es el primero que se ha intentado. Limpiar la obra de Marx de elementos morales, románticos o estrictamente filosóficos para elevarla al rango de ciencia rigurosa, fue uno de los debates más intensos de la segunda mitad del siglo XX.</p>
+<p>Uno de sus máximos exponentes, que obnubiló a importantes sectores de izquierda mundial antiestalinista, fue el Marxismo Estructuralista de Louis Althusser, desarrollado junto a sus alumnos como Étienne Balibar, Marta Harnecker y Nicos Poulantzas. Para efectos de esta crítica nos centraremos en la tesis althusseriana sobre el Antihumanismo Teórico, esbozadas en sus textos: <i>La revolución teórica de Marx</i> (1965) y <i>Para leer El Capital</i>. Allí Althusser nos indica que las explicaciones burguesas e ideológicas de la sociedad siempre parten del sujeto: la sociedad funciona porque hay individuos libres que toman decisiones, compran, venden o firman contratos.</p>
+<p>Althusser da vuelta esta lógica argumentando que Marx demostró que la historia es un <b>"proceso sin sujeto ni fines"</b>. Lo que verdaderamente explica el funcionamiento de una sociedad no son las intenciones de los hombres, sino las relaciones de producción y las estructuras objetivas en las que esos hombres nacen y son colocados. Más adelante nos referiremos al entronque con las ideas de Íñigo Carrera.</p>
+<p>Sin embargo un par de años antes, en 1960 había surgido La Nueva Lectura de Marx (Neue Marx-Lektüre), escuela que en su momento no llegó a tener la relevancia de Althusser, encarnada en pensadores como Hans-Georg Backhaus y Helmut Reichelt alumnos de Theodor Adorno, y Michael Heinrich por ejemplo. La Nueva Lectura de Marx, más que reaccionar contra el estalinismo epocal, lo hacía directamente contra las concepciones marxistas-leninistas que aún se extendía hacia los partidos comunistas y revolucionarios a través de la academia rusa. Estos autores también se propusieron analizar la estructura lógica y estrictamente científica de la crítica de la economía política de Marx. Su enfoque se centró de forma casi matemática en las categorías analíticas de El Capital: la forma-mercancía, la forma-valor y el carácter fetiche del dinero.</p>
+<p>A finales de los 70, en medio de lo que se dio en llamar posmodernidad, surgió la escuela de el Marxismo Analítico (La "Escuela de Septiembre"). Cuyos máximos exponentes John Roemer, Jon Elster y G.A. Cohen buscaron dotar al marxismo de la máxima rigurosidad científica utilizando las herramientas de la filosofía analítica contemporánea y de la ciencia económica convencional.</p>
+
+<h3>II. La epoché metodológica: clausura operacional y solipsismo del valor</h3>
+<p>Para comprender la operación teórica de Íñigo Carrera, resulta ilustrativo parangonarla, sin detenernos a explicitarlas, con dos tradiciones filosóficas que, aunque distantes en su origen, comparten una estructura metodológica común: la fenomenología trascendental de Husserl y la biología del conocimiento de Maturana. Husserl propuso la epoché o "puesta entre paréntesis" de la realidad natural para concentrarse en el análisis puro de las estructuras de la conciencia. Maturana, por su parte, desarrolló el concepto de autopoiesis y la clausura operacional, sobre las bases idealistas de Husserl: los sistemas vivos se organizan de tal modo que toda referencia al entorno queda internalizada en los propios mecanismos del sistema.</p>
+<p>La escuela de Íñigo Carrera opera una epoché análoga sobre el propio texto de El Capital. Todo lo que no emane del despliegue inmanente de las formas del valor ---la lucha de clases concreta, la geopolítica del imperialismo, la dependencia estructural del Tercer Mundo, las mutaciones de la subjetividad productiva, toda la superestructura político-ideológica, etc.--- queda puesto entre paréntesis, en este caso expulsados heurísticamente como "contaminación burguesa". El sistema teórico se vuelve autorreferencial: las categorías se explican entre sí, el capital se despliega a sí mismo, y la realidad material concreta queda reducida a una mera ilustración o a un dato empírico sin peso teórico propio.</p>
+<p>Esta clausura metodológica tiene una consecuencia: el texto de Marx, que fue escrito como herramienta para la transformación revolucionaria de la realidad, queda fetichizado. Se convierte en un sistema lógico autosuficiente cuyo movimiento interno es el verdadero objeto de estudio, mientras la realidad histórica concreta --- con sus contradicciones sangrientas, sus saqueos imperiales y sus luchas de clases --- queda suspendida. Es la reproducción, en el plano de la teoría marxista, de la misma estructura fetichista que Marx denunció en la mercancía: las relaciones sociales entre personas aparecen ahora como relaciones entre conceptos.</p>
+
+<h3>III. El fideísmo categorial, el antihumanismo extremo y la ausencia de praxis</h3>
+<p>La clausura metodológica descrita produce lo que, en términos del marxismo-leninismo, debe calificarse como solipsismo teórico y fideísmo categorial. El solipsismo consiste en la creencia de que solo existe el propio pensamiento y sus contenidos; el fideísmo consiste en la adhesión a ciertas verdades por acto de fe, sin mediación de la práctica material ni de la verificación histórica. La escuela de Íñigo Carrera incurre en ambas operaciones. Al sostener que la totalidad de la realidad social puede deducirse del despliegue lógico de la forma-valor, se afirma un solipsismo categorial. Creer que esta deducción es la única forma "verdaderamente científica" de conocer el capitalismo, afirma un fideísmo en la infalibilidad del sistema categorial.</p>
+<p>Esta clausura determinista revela una dimensión aún más extrema que el antihumanismo estructural de Louis Althusser. Aunque ambos operan por vías opuestas (Althusser disuelve al sujeto en la estructura; Íñigo hipostatiza la estructura en un Sujeto metafísico), ambos convergen en el mismo resultado político: la anulación de la praxis humana histórica. Para Althusser, la historia es un proceso sin sujeto; para Íñigo, la historia es el autodespliegue del Sujeto-Valor. En ambos casos, el ser humano concreto queda reducido a un mero Träger (portador) o a una función matemática, eliminando la posibilidad de la intervención revolucionaria consciente.</p>
+<p>La "fe" de esta corriente se manifiesta de manera palmatoria en la absoluta ausencia de una vía concreta para el surgimiento de la conciencia revolucionaria. Para ellos, la emancipación no nace de la praxis, de la organización política, de la construcción de hegemonía o de la lucha de clases, sino de un acto casi místico: <b>leer y entender teórica y subjetivamente la situación de dominación que se vive</b>. Es una gnosis académica que sustituye la acción política por la contemplación del fetiche, condenando a la clase trabajadora a la espera pasiva de que el capital, por su propia contradicción lógica inmanente, colapse por sí solo.</p>
+<p>Esta omisión no es accidental, sino una necesidad estructural de su método. Para que la relación de explotación se reproduzca de manera efectiva, el capital no puede limitarse a la extracción de plusvalía en la esfera productiva; requiere la mediación activa de la superestructura (el Estado de derecho, la educación formal, la cultura de masas y la subsunción del consumo). Si el análisis se limita a la forma material del trabajo, no puede explicar por qué la clase trabajadora se somete "voluntariamente" o por qué el profesional precarizado se cree "sujeto" cuando solo opera una maquinaria que no controla. Sin esta mediación superestructural, la alienación no se reproduce de forma efectiva.</p>
+<p>Al extirpar este componente político y cultural bajo el argumento de que <i>"todo es un despliegue automático del valor"</i>, Íñigo Carrera vacía de contenido la subsunción real. Si la alienación fuera un problema puramente "teórico" que el proletario puede resolver mediante el "descubrimiento" intelectual de su condición, Marx habría sido un filósofo iluminista de la razón, no un revolucionario materialista. Sin embargo Marx nos legó esta frase, en su texto <i>Contribución a la crítica de la filosofía del derecho de Hegel</i> (1844):</p>
+<blockquote>
+  <p>"La fuerza material no puede ser derrocada sino por la fuerza material; pero la teoría también se convierte en fuerza material tan pronto como prende en las masas."</p>
+</blockquote>
+<p>La tesis de que la subjetividad y las ideas, al encarnar en las masas, adquieren fuerza material es uno de los pilares del materialismo histórico de Karl Marx. Esta idea derriba la dicotomía mecánica entre "infraestructura económica pura" y "superestructura espiritual ideal". Marx no era un materialista vulgar que reducía todo a átomos, máquinas o ecuaciones matemáticas de valor; era un materialista dialéctico para quien la conciencia humana es parte constitutiva de la realidad material.</p>
+
+<h3>IV. La homeostasis estructural del capital: una alternativa materialista</h3>
+<p>Para desarmar esta postura sin caer en el voluntarismo ingenuo, es imperativo introducir una mirada que la escuela de Íñigo Carrera no puede ver (ya sea por falta de buena fe, incomprensión teórica o conveniencia ideológica): <b>La homeostasis estructural del capital</b>, tal como se desarrolla en el texto "Lenin: La persistencia del materialismo dialéctico. Homeostasis estructural del capital" [1].</p>
+<p>Allí se despliega la idea de el capitalismo contemporáneo, aun considerando las analogías organicistas del propio Marx, no es un "sujeto vivo autónomo", ni un Dios con voluntad propia, sino una estructura que ha desarrollado mecanismos autorregulados, algorítmicos, aparentemente automáticos en el sentido en que Gramsci teorizaba la idea del capitalismo como "Realidad Rebelde", para absorber, neutralizar y procesar las crisis y disidencias, manteniendo su estabilidad a nivel sistémico. El capital no colapsa por una contradicción lógica pura; se defiende. Sus sensores y efectores (algoritmos predictivos, blindajes jurídicos, patentes biotecnológicas, control biométrico, renta financiera, tratados de libre comercio, la Mass Media, etc) mutan constantemente para contener la presión de la lucha de clases y la resistencia de los pueblos.</p>
+<p>Esta perspectiva permite articular tres ejes centrales que desmontan la parálisis escolástica:</p>
+<ul>
+  <li><b>Homeostasis estructural del capital:</b> El estudio de las herramientas homeostáticas del capital nos indica que su potencia posee límites mensurables. La estabilidad no es ausencia de cambio, sino "acumulación contenida" bajo presión, precisamente por todos los elementos que la escuela iñiguista desecha. Esa presión proviene de los cuerpos explotados, de los territorios saqueados y de las contradicciones materiales que el sistema no puede resolver del todo, obligándolo a reconfigurarse constantemente.</li>
+  <li><b>Derrota hegemónica, no gnoseológica:</b> La marginación del materialismo dialéctico en Occidente no se debió a fallas científicas u ontológicas, como pretenden sus detractores, sino a una derrota hegemónica: el idealismo subjetivo y el positivismo que combatió Lenin, se impusieron cultural y económicamente, neutralizando la praxis revolucionaria y disfrazando la dominación de clase bajo la apariencia de "leyes naturales" del mercado.</li>
+  <li><b>Persistencia dialéctica:</b> Frente a la parálisis de los grupos de estudio cerrados, el materialismo dialéctico sigue vivo y resistiendo a través de la militancia concreta, la biología dialéctica, la ciencia disidente y en los modelos de desarrollo que desafían la hegemonía occidental, demostrando que existen vías de desarrollo que no se pliegan automáticamente a la lógica del capital financiero global.</li>
+</ul>
+
+<h3>V. El moralismo hegeliano, el racismo geopolítico y la ceguera ante el mega-capital</h3>
+<p>Esta ceguera teórica se vuelve <b>vil</b>, cuando se aplica al análisis de las formaciones sociales periféricas y dependientes. Al sostener que el capital es una relación social global que se despliega de manera homogénea, esta corriente borra sistemáticamente la realidad del imperialismo, la dependencia estructural y la superexplotación del trabajo en el Tercer Mundo. Para ellos, no existen países oprimidos y países opresores; existe el capital social global y sus determinaciones lógicas.</p>
+<p>Aquí reside un peligro ideológico grave y la idea de un racismo geopolítico encubierto. Al explicar las dinámicas de la Nueva División Internacional del Trabajo (NDIT) o las Cadenas Globales de Valor (CGV) únicamente a través de abstracciones como "diferenciación cualitativa de capitales" o "atributos productivos", la escuela iñiguista deja la puerta abierta a la interpretación de que los trabajadores del Tercer Mundo son, por naturaleza o cultura, menos capaces, menos intelectuales o más propensos a la "disciplinación" que los del Primer Mundo.</p>
+<p>Lo que se niega a explicitar, por conveniencia teórica, es la causa material e intencionada de esta situación: el capital global mantiene deliberadamente a las poblaciones del tercer mundo en la precarización, la ignorancia forzada y la superexplotación para garantizar el flujo ininterrumpido de materias primas y valores de uso baratos. No es una "cualidad" del trabajador periférico; es el resultado de una violencia geopolítica planificada.</p>
+<p>Esta operación teórica tiene un contenido material que no puede ser soslayado. Cuando la escuela de Íñigo Carrera analiza la acumulación de capital en Argentina, lo hace desde la abstracción lógica de la renta diferencial, sin confrontarse con la realidad concreta de un país que, por ejemplo, exporta al mundo los mejores cortes de carne vacuna, mientras sus trabajadores, hoy bajo el gobierno libertario del ultraderechista Javier Milei, fueron invitados ante la pérdida total de poder adquisitivo, oficialmente a "comer carne de burro", en cadena nacional, evidenciando la brutal transferencia de valor y el saqueo de los recursos nacionales.</p>
+<p>Del mismo modo, cuando se habla de la inserción de Chile o América Latina en el mercado mundial, se podría recurrir a la abstracción de la "formación de la tasa general de ganancia" y a la falacia de que en la periferia solo operan "pequeños capitales" o capitales "especiales" con lógicas atrasadas. Sin confrontarse también, con la realidad de un país que exporta concentrado de cobre ---barro con mineral, sin refinar--- mientras su población sufre la devastación ambiental de las zonas de sacrificio y la precarización y proletarización creciente absoluta de su fuerza de trabajo.</p>
+<p>Aspectos de esta narrativa se desmoronan ante la evidencia material: gigantes del capital de inversión como BlackRock están presentes y apropiándose de todos los valores de uso posibles a su paso en el Tercer Mundo, incluyendo hoy el valor de uso cognitivo-biológico (datos, patentes genéticas, recursos naturales estratégicos). No se trata de "pequeños capitales" rezagados; se trata de la punta de lanza del capital financiero global extrayendo plusvalor de la periferia con una eficiencia brutal.</p>
+
+<h3>VI. El sobreintelectualismo como salida psicológica de un pensamiento derrotado</h3>
+<p>La pretensión de pureza metodológica conduce inevitablemente a un sobreintelectualismo que ignora la geografía real de la explotación. Análogamente, conceptos importados del Primer Mundo, como la "autoexplotación" descrita por autores como Byung-Chul Han, presuponen un sujeto hiperindividualista que solo existe en ciertos círculos académicos o laborales de élite. En el Tercer Mundo, la realidad es radicalmente distinta: el trabajador de una maquila, el recolector de fruta o el repartidor de aplicaciones no se "autoexplota" por una crisis de ego o por un exceso de optimismo existencial. Lo hace porque existe una coacción material directa y descarnada: si no trabaja jornadas extenuantes bajo el mando de un algoritmo o un capataz, su familia no come. No hay espacio gnoseológico para la sutileza de la "autoexplotación" cuando lo que opera es la disciplina del hambre.</p>
+<p>Este sobreintelectualismo no es casual; cumple una función homeostática precisa. Puede abordarse relacionándolo con ciertas derivas de la Escuela de Frankfurt o con el irracionalismo del siglo XIX: es <b>el pensamiento derrotado</b> que, al no encontrar una salida práctica en la praxis revolucionaria, se refugia en una <b>construcción teórica elitista</b> que le otorga una salida psicológica. Una especie de "Marxismo Zen" - al estilo de Filosofía Integral, la Psicología Transpersonal, Existencial, Fenomenológica o de Tradiciones Espirituales y Místicas Occidentales y Orientales. Incluso de algunas ideas esotéricas surgidas de la Física Cuántica - que buscan una "conciencia total" secularizada, <b>esta corriente ofrece a sus seguidores la paz mental del cínico</b>: la ilusión de que, al comprender perfectamente las leyes abstractas del capital en un pizarrón, se ha trascendido la realidad.</p>
+<p>Es en general, una militancia de cubículo que sustituye la acción por la contemplación. El sistema no necesita refutar esta corriente; le basta con dejarla encerrada en su propia pureza. Una izquierda que se pasa el tiempo discutiendo si la soja en Argentina es renta diferencial tipo I o tipo II, mientras las corporaciones transnacionales operan con total impunidad en el territorio real, es una izquierda funcional a la homeostasis estructural del capital.</p>
+
+<h3>VII. La filosofía de la praxis como alternativa</h3>
+<p>Frente a esta escolástica, existe una tradición marxista que siempre entendió que la teoría no es un sistema cerrado, sino una herramienta abierta, histórica, que debe ser actualizada en el contacto con la realidad concreta. Es la tradición de la filosofía de la praxis, que tiene, <i><b>precisamente</b></i> en Marx, su creador y máximo exponente, luego en Engels, Antonio Labriola, Vladímir Ilich Ulianov, Antonio Gramsci y George Lukács.</p>
+<p><b>Marx nunca pretendió crear un sistema filosófico cerrado</b>; su método es histórico-crítico.</p>
+<p>Antonio Labriola desarrolló el concepto de "filosofía de la praxis" precisamente para combatir el dogmatismo de la Segunda Internacional. Para Labriola, el materialismo histórico no era una teoría que explicara el movimiento social desde fuera, sino un método que debía ser aplicado desde dentro de la práctica histórica concreta.</p>
+<p>Antonio Gramsci llevó esto al extremo. Si nos quedamos solo con la economía pura, no podemos explicar por qué la gente actúa en contra de sus propios intereses materiales. Por eso incorporó conceptos como la cultura, el sentido común, los intelectuales orgánicos y la hegemonía para formular una teoría que diera cuenta de la complejidad real de la dominación capitalista. Gramsci no "contaminó" el marxismo; lo enriqueció con conceptos necesarios para entender por qué el capitalismo no colapsa a pesar de sus contradicciones objetivas, y cómo se puede construir un bloque histórico alternativo.</p>
+
+<h3>VIII. Conclusión estratégica: las tareas de la izquierda revolucionaria</h3>
+<p>La crítica desarrollada en estas páginas no "busca descalificar" <i>porque sí</i>, el esfuerzo filológico de la escuela de Íñigo Carrera, pensamos que ha contribuido a mantener viva la discusión sobre las categorías fundamentales de la crítica de la economía política en un contexto académico hostil, paradójicamente para los demás, no así para sus ideas. Sin embargo la clausura metodológica que esta escuela realiza sobre el texto de Marx tiene consecuencias teóricas y políticas, como ya lo hemos explicitado. En ese sentido nuestra crítica, se trata de una crítica <i>per se</i>.</p>
+<p>En resumen, teóricamente, la pretensión de pureza de la escuela de Íñigo Carrera, conduce a un solipsismo categorial que es incapaz de explicar los fenómenos concretos del capitalismo contemporáneo: el imperialismo como sistema de dominación geopolítica, o si se quiere la financiarización de la economía, la dependencia estructural del Tercer Mundo, las mutaciones de la subjetividad productiva en la era digital y la crisis ecológica global. Políticamente, la clausura metodológica conduce a un elitismo que desarma a la clase trabajadora, condenándola a la espera pasiva de que el desarrollo de las fuerzas productivas la libere, borrando la necesidad de la organización política, de la construcción del partido de nuevo tipo y de la construcción de hegemonía.</p>
+<p>Las tareas de la izquierda revolucionaria en el contexto actual exigen exactamente lo contrario: una teoría abierta, concreta, que se enriquezca en el contacto con la realidad. Esto significa recuperar la totalidad concreta del análisis marxista, que incluye no solo las categorías fundamentales de la crítica de la economía política, sino también las teorías históricas del imperialismo, la cuestión nacional, la teoría de la dependencia y el análisis de la hegemonía, etc. Etc. Recuperar particularmente, el leninismo como herramienta teórica y política para la intervención concreta en la realidad. Finalmente, recuperar la praxis como criterio de verdad, no como una lógica escolástica.</p>
+<p>La escuela de Íñigo Carrera, en su afán de depurar el marxismo de toda contaminación, ha terminado por convertir a Marx en una teoría más. Sus ideas, que pretenden ser la más fiel interpretación de El Capital, es en realidad la que menos puede explicar la realidad concreta del capitalismo contemporáneo y la que menos puede contribuir a su superación revolucionaria. La tarea de la izquierda revolucionaria es, entre tanto quehacer, por lo tanto, superar esta clausura metodológica y recuperar la riqueza, la complejidad y la potencia transformadora del marxismo como teoría y como práctica. En el fondo Íñigo Carrera desarrolla una revisión de las ideas de Marx cubiertas de un manto escolástico, cuya idea central es la inversión de una de los aspectos principales de la crítica de la economía política elaborada por Marx:</p>
+
+<blockquote>
+  <p>"El móvil y la fuerza motriz de la producción capitalista [...] <b>es la autovalorización del capital, la producción de plusvalía, la extracción de plustrabajo no pagado</b>. [...] La maquinaria, considerada como el medio más eficaz de aumentar la productividad del trabajo, es decir, de abaratar las mercancías, se convierte, en manos del capital, en el medio más eficaz para prolongar la jornada de trabajo más allá de todo límite natural."</p>
+  <footer>— Karl Marx, El Capital, Tomo I, Capítulo 15</footer>
+</blockquote>
+
+<p>No el desarrollo de las Fuerzas Productivas del capital.</p>
+<p>Entonces, como escribió Antonio Gramsci, "la realidad es rica en caminos y extraños recovecos". Y nuestra teoría debe ser igual de rica, igual de compleja, igual de abierta a los recovecos de la realidad. De lo contrario, no seremos capaces de entender el mundo, y mucho menos de transformarlo.</p>
+
+<div class="footnote">
+  <p>[1] Zieballe, John, "Lenin: La persistencia del materialismo dialéctico. Homeostasis estructural del capital."</p>
+</div>
+
+    <div class="share-actions">
+      <a class="share-x" target="_blank" rel="noopener noreferrer" href="https://twitter.com/intent/tweet?text=Leyendo%20%22La%20clausura%20metodol%C3%B3gica%20y%20la%20homeostasis%20estructural%20del%20capital%22%20en%20La%20Trilla&amp;url=https%3A%2F%2Frevista-la-trilla.pages.dev%2Fpublicaciones%2Fclausura-metodologica.html"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>Compartir en X</a>
+      <a class="share-copy" href="https://revista-la-trilla.pages.dev/publicaciones/clausura-metodologica.html" onclick="event.preventDefault(); navigator.clipboard.writeText(this.href).then(()=>{const t=this.textContent; this.textContent='✅ ¡Enlace copiado!'; setTimeout(()=>this.textContent=t,3000);});">🔗 Copiar enlace del artículo</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-note">
+      La Trilla es un espacio editorial del Colectivo La Trilla, región del Biobío. El nombre honra la faena campesina de separar el grano de la paja: la misma tarea que este espacio quiere hacer con el debate político y cultural.
+    </div>
+    <div class="footer-links">
+      <a href="../index.html#contacto">Contacto</a>
+      <a href="../index.html#legal">Aspectos legales</a>
+      <a href="https://www.instagram.com/colectivolatrilla/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+</footer>
+
+<a href="https://www.instagram.com/colectivolatrilla/" target="_blank" rel="noopener noreferrer" class="floating-ig" aria-label="Instagram">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+</a>
+</body>
+</html>
