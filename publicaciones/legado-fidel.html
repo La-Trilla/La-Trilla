@@ -1,132 +1,194 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EL LEGADO DE FIDEL. Pasado, presente y futuro — La Trilla</title>
-  <style>
-    /* ===== ESTILOS BASE (copia los mismos de tu index.html) ===== */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: Georgia, 'Times New Roman', serif;
-      background: #f5f2eb;
-      color: #1a1a1a;
-      line-height: 1.7;
-      padding: 2rem 1rem;
-    }
-    .container { max-width: 800px; margin: 0 auto; }
-    .back-link {
-      display: inline-block;
-      margin-bottom: 2rem;
-      font-family: Arial, sans-serif;
-      font-size: 0.9rem;
-      color: #8b1a1a;
-      text-decoration: none;
-      font-weight: bold;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.2s;
-    }
-    .back-link:hover { border-bottom-color: #8b1a1a; }
-    .tag {
-      display: inline-block;
-      font-family: Arial, sans-serif;
-      font-size: 0.7rem;
-      font-weight: bold;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      padding: 0.25rem 0.6rem;
-      border-radius: 3px;
-      margin-bottom: 1rem;
-    }
-    .tag-internacional { background: #1a3a5c; color: #fff; }
-    h1 {
-      font-size: 2.2rem;
-      line-height: 1.2;
-      margin-bottom: 1rem;
-      color: #1a1a1a;
-    }
-    .meta {
-      font-family: Arial, sans-serif;
-      font-size: 0.9rem;
-      color: #666;
-      margin-bottom: 2rem;
-      padding-bottom: 1.5rem;
-      border-bottom: 1px solid #ddd;
-    }
-    .full img {
-      max-width: 100%;
-      height: auto;
-      margin-bottom: 1.5rem;
-      border-radius: 8px;
-    }
-    .full h4 {
-      font-size: 1.3rem;
-      margin-top: 2rem;
-      margin-bottom: 0.8rem;
-      color: #8b1a1a;
-      border-left: 4px solid #8b1a1a;
-      padding-left: 0.8rem;
-    }
-    .full p { margin-bottom: 1.2rem; text-align: justify; }
-    .source-note {
-      font-family: Arial, sans-serif;
-      font-size: 0.85rem;
-      color: #555;
-      background: #ebe6db;
-      padding: 1rem;
-      border-radius: 6px;
-      margin-top: 2rem;
-    }
-    .source-note a { color: #8b1a1a; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EL LEGADO DE FIDEL. Pasado, presente y futuro — Revista La Trilla</title>
+<meta name="description" content="El legado de futuro de Fidel Castro no reside en fórmulas mágicas ni en recetas dogmáticas, sino en una praxis revolucionaria intransigente y en una ética de la liberación.">
+<link rel="canonical" href="https://revista-la-trilla.pages.dev/publicaciones/legado-fidel.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Revista La Trilla">
+<meta property="og:title" content="EL LEGADO DE FIDEL. Pasado, presente y futuro">
+<meta property="og:description" content="El legado de futuro de Fidel Castro no reside en fórmulas mágicas ni en recetas dogmáticas, sino en una praxis revolucionaria intransigente y en una ética de la liberación.">
+<meta property="og:url" content="https://revista-la-trilla.pages.dev/publicaciones/legado-fidel.html">
+<meta property="og:image" content="https://revista-la-trilla.pages.dev/imagenes/fidelbandera.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;700;900&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #EDE2C8;
+    --paper-2: #E4D6B4;
+    --ink: #241C14;
+    --wheat: #C9A227;
+    --wheat-dark: #9C7D1C;
+    --rust: #A63A2C;
+    --heather: #46613F;
+    --teal: #3D6B66;
+    --soil: #4A3B2A;
+    --sub: #6B5D45;
+    --card: #FAF6EC;
+    --border: #D8C79E;
+    --focus: #1F5F8B;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; overflow-x:hidden; background:var(--paper); color:var(--ink);
+    font-family:'Work Sans', -apple-system, sans-serif;
+    line-height:1.5;
+  }
+  h1,h2,h3,h4{font-family:'Bitter', Georgia, serif; margin:0; color:var(--ink)}
+  a{color:var(--rust)}
+  a:focus-visible, button:focus-visible, .card-head:focus-visible{outline:3px solid var(--focus); outline-offset:2px}
+  @media (prefers-reduced-motion: reduce){ *{transition:none !important; animation:none !important} }
+
+  .masthead{
+    background:var(--ink); color:var(--paper);
+    padding:14px 24px; display:flex; justify-content:space-between; align-items:center;
+    flex-wrap:wrap; gap:10px; position:sticky; top:0; z-index:20;
+    border-bottom:3px solid var(--wheat);
+  }
+  .brand{display:flex; align-items:baseline; gap:10px}
+  .brand .word{font-family:'Bitter', serif; font-weight:900; font-size:26px; letter-spacing:.01em; color:var(--paper)}
+  .brand .sub{font-size:12px; color:var(--wheat); text-transform:uppercase; letter-spacing:.08em}
+  nav{display:flex; gap:4px; flex-wrap:wrap}
+  nav button, nav a{
+    font-family:'Work Sans', sans-serif; font-size:13px; font-weight:600; letter-spacing:.02em;
+    background:none; border:none; color:var(--paper); opacity:.75; cursor:pointer;
+    padding:8px 12px; border-radius:4px; text-transform:uppercase; text-decoration:none;
+  }
+  nav button:hover, nav a:hover{opacity:1; background:rgba(255,255,255,.08)}
+
+  .solidarity-banner{
+    background:linear-gradient(180deg,#000 0%,#000 33%,#fff 33%,#fff 66%,#007A3D 66%,#007A3D 100%);
+    position:relative; color:#fff; text-align:center; padding:20px 16px;
+    font-size:18px; font-weight:700; letter-spacing:.02em;
+    text-shadow:0 1px 3px rgba(0,0,0,.7);
+  }
+  .solidarity-banner::before{
+    content:''; position:absolute; left:0; top:0; bottom:0; width:36px;
+    background:#CE1126; clip-path:polygon(0 0,100% 50%,0 100%);
+  }
+  .solidarity-banner b{text-transform:uppercase; letter-spacing:.05em; font-size:19px}
+
+  .publicacion{max-width:820px; margin:0 auto; padding:40px 24px 80px}
+  .publicacion .volver{display:block; width:fit-content; font-size:13px; font-weight:600; text-transform:uppercase; letter-spacing:.04em; text-decoration:none; margin-bottom:26px}
+  .publicacion .tag{display:block; width:fit-content}
+  .publicacion h1{font-size:clamp(26px,4vw,40px); line-height:1.15; margin:0 0 14px}
+  .publicacion .dek{font-size:17px; color:var(--soil); line-height:1.5; margin:0 0 10px}
+  .publicacion .meta{font-size:13px; color:var(--sub); font-style:italic; margin:0 0 22px}
+  .publicacion figure{margin:0 0 26px; background:var(--paper-2); border-radius:10px; overflow:hidden}
+  .publicacion figure img{display:block; width:100%; max-height:480px; object-fit:contain}
+  .publicacion .full{display:block; background:var(--card); border:1px solid var(--border); border-radius:10px; padding:26px 28px; border-top:1px solid var(--border)}
+  .publicacion .full .footnote{font-size:0.9rem; color:var(--sub); border-top:1px solid var(--border); padding-top:0.8em; margin-top:1.5em}
+  .publicacion .full blockquote.destacado{
+    border-left:5px solid var(--rust); background:var(--paper-2);
+    padding:1.2em 1.4em; margin:1.5em 0; font-style:italic;
+    font-size:15.5px; line-height:1.7;
+  }
+  .tag{
+    display:inline-block; font-size:10.5px; text-transform:uppercase; letter-spacing:.06em;
+    padding:3px 9px; border-radius:20px; color:#fff; margin-bottom:10px; font-weight:600;
+  }
+  .tag-internacional{background:var(--soil)}
+
+  footer{background:var(--soil); color:var(--paper); padding:36px 24px 28px; margin-top:70px}
+  .footer-inner{max-width:1080px; margin:0 auto; display:flex; justify-content:space-between; flex-wrap:wrap; gap:20px}
+  .footer-inner a{color:var(--wheat); text-decoration:none; font-size:13px}
+  .footer-inner a:hover{text-decoration:underline}
+  .footer-links{display:flex; gap:18px; flex-wrap:wrap}
+  .footer-note{font-size:12px; color:#c9bfa8; max-width:420px}
+
+  .floating-ig{
+    position:fixed; right:20px; bottom:140px; z-index:1000;
+    background:linear-gradient(45deg,#405DE6,#5851DB,#833AB4,#C13584,#E1306C,#FD1D1D);
+    color:#fff; width:50px; height:50px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    text-decoration:none; box-shadow:0 4px 10px rgba(0,0,0,.3); transition:transform .2s ease;
+  }
+  .floating-ig:hover{transform:scale(1.1)}
+</style>
 </head>
 <body>
-  <div class="container">
-    <a href="index.html" class="back-link">← Volver a la portada</a>
 
-    <span class="tag tag-internacional">Internacional</span>
-    <h1>EL LEGADO DE FIDEL. Pasado, presente y futuro</h1>
-    <p class="meta">Cristhian Riquelme · Antropólogo, miembro de TejeR-ConstruIR</p>
+<header class="masthead">
+  <div class="brand">
+    <span class="word">REVISTA LA TRILLA</span>
+    <span class="sub">Biobío</span>
+  </div>
+  <nav>
+    <a href="../index.html">← Portada</a>
+  </nav>
+</header>
+<div class="solidarity-banner"><b>No es guerra, es Genocidio.</b>&nbsp; Solidaridad con Palestina </div>
 
-    <div class="full">
-      <img src="fidelbandera.jpg" alt="Fidel Castro con la bandera cubana">
+<main class="publicacion">
+  <a class="volver" href="../index.html">← Volver a la portada</a>
+  <span class="tag tag-internacional">Internacional</span>
+  <h1>EL LEGADO DE FIDEL. Pasado, presente y futuro</h1>
+  <p class="dek">El legado de futuro de Fidel Castro no reside en fórmulas mágicas ni en recetas dogmáticas, sino en una praxis revolucionaria intransigente y en una ética de la liberación.</p>
+  <p class="meta">Cristhian Riquelme · Antropólogo, miembro de TejeR-ConstruIR</p>
+  <figure><img src="../imagenes/fidelbandera.jpg" alt="Fidel Castro con la bandera cubana"></figure>
+  <div class="full">
 
-      <h4>Introducción</h4>
-      <p>El tema que queremos revisar hoy con ustedes es el legado de futuro de Fidel Castro. Para eso no nos basaremos sólo en lecturas propias, sino también en lo que se ha discutido desde numerosas perspectivas, ya que su figura nunca pasó ni pasará inadvertida para la mayorías, menos aún para activistas e intelectuales. A menudo, cuando se aborda su figura, se corre el riesgo de caer en dos extremos: la apología vacía o la repetición mecánica de consignas. Sin embargo, como bien advierte el sociólogo cubano Aurelio Alonso en un artículo publicado por LA TIZZA, cualquier ejercicio de lectura sobre el pensamiento de Fidel debe ser un llamado a no conformarnos con aprender y repetir citas, sino a comprender la profundidad de un pensamiento que sigue interpelándonos.</p>
-      <p>Para comprender por qué Fidel es una figura del siglo XXI y no solo un ícono del siglo XX, en primer lugar, analizaremos los fundamentos de su legado político: la Revolución como praxis, y la centralidad del anticapitalismo y el antimperialismo. En segundo lugar, abordaremos su proyección internacionalista, que demostró con hechos que la solidaridad no es una utopía; y, en tercer lugar, nos detendremos en su visión del futuro, que abarca desde la construcción del socialismo y la batalla cultural, hasta su profético humanismo ambientalista. Todo ello, basado estrictamente en las reflexiones de autores como Fernando Martínez Heredia, el sociólogo Aurelio Alonso, el colectivo de autores que ha estudiado su pensamiento ambientalista, y los análisis publicados en medios cubanos sobre su legado.</p>
+    <h3>Introducción</h3>
+    <p>El tema que queremos revisar hoy con ustedes es el legado de futuro de Fidel Castro. Para eso no nos basaremos sólo en lecturas propias, sino también en lo que se ha discutido desde numerosas perspectivas, ya que su figura nunca pasó ni pasará inadvertida para la mayorías, menos aún para activistas e intelectuales. A menudo, cuando se aborda su figura, se corre el riesgo de caer en dos extremos: la apología vacía o la repetición mecánica de consignas. Sin embargo, como bien advierte el sociólogo cubano Aurelio Alonso en un artículo publicado por LA TIZZA, cualquier ejercicio de lectura sobre el pensamiento de Fidel debe ser un llamado a no conformarnos con aprender y repetir citas, sino a comprender la profundidad de un pensamiento que sigue interpelándonos.</p>
+    <p>Para comprender por qué Fidel es una figura del siglo XXI y no solo un ícono del siglo XX, en primer lugar, analizaremos los fundamentos de su legado político: la Revolución como praxis, y la centralidad del anticapitalismo y el antimperialismo. En segundo lugar, abordaremos su proyección internacionalista, que demostró con hechos que la solidaridad no es una utopía; y, en tercer lugar, nos detendremos en su visión del futuro, que abarca desde la construcción del socialismo y la batalla cultural, hasta su profético humanismo ambientalista. Todo ello, basado estrictamente en las reflexiones de autores como Fernando Martínez Heredia, el sociólogo Aurelio Alonso, el colectivo de autores que ha estudiado su pensamiento ambientalista, y los análisis publicados en medios cubanos sobre su legado.</p>
 
-      <h4>El fundamento del legado. Revolución como praxis y antimperialismo</h4>
-      <p>Para entender hacia dónde miraba Fidel, primero hay que entender desde dónde partía. Aurelio Alonso nos recuerda que el concepto de Revolución, aunque originado en la geometría, aplicado a la historia se vincula al momento de cambio radical. En el imaginario cubano, la Revolución aflora como una constante histórica: es expresión de dignidad, de orgullo, de audacia, de desafío, de sacrificio y de esperanza. En la Cuba de la segunda mitad del siglo XX, ser revolucionario se identificó con la entrega total, la incondicionalidad y el reto de hacer posible metas que parecían irrealizables.</p>
-      <p>Alonso señala que la dura experiencia de forjar una república auténticamente soberana, sobre principios de justicia social y equidad, demostró que tal propósito solo podía ser socialista. Ese acercamiento natural fue calificado por Cintio Vitier como un milagro histórico, el mayor suceso espiritual y la mayor originalidad de la Revolución cubana. Ese es el primer gran legado para Cuba y para el mundo: la demostración práctica de que la liberación nacional indisolublemente unida a la revolución socialista era posible.</p>
-      <p>Ahora bien, Fernando Martínez Heredia, en sus palabras en los Paradigmas Emancipatorios, nos ofrece las claves para entender este legado como una herramienta para el presente y el futuro. Nos advierte que el primer homenaje que recibió Fidel al morir fue una consigna de hoy, una invención de los jóvenes que hizo suya todo el pueblo: “Yo soy Fidel”. Esto demuestra que su pensamiento pertenece al futuro, no al pasado. Para sacarle provecho a Fidel, tenemos que evitar repetir lugares comunes y conocer más las creaciones y las razones que lo condujeron a sus victorias, las dificultades y los reveses que enfrentó.</p>
-      <p>Entonces nos sistematiza las enseñanzas de Fidel en trece puntos clave que resultan decisivos para los objetivos emancipatorios actuales. Entre ellos, destaca la capacidad de partir de lo imposible y de lo impensable para convertirlos en posibilidades mediante la práctica consciente, organizada y el pensamiento crítico. Esta es la esencia de la praxis revolucionaria. Asimismo, subraya la determinación de no aceptar jamás la derrota como un estado permanente. Martínez Heredia recuerda cinco momentos cruciales en la vida de Fidel - el Moncada en 1953, el Granma en 1956, la zafra de 1970, el proceso de rectificación ante el colapso de la URSS en 1985, y la batalla de ideas en el año 2000 - donde los reveses fueron convertidos en puntos de partida para nuevas ofensivas.</p>
-      <p>Otros puntos fundamentales de este legado son la organización constante, que fue una verdadera fiebre para Fidel; la comunicación permanente con cada ser humano y con las masas; la utilización de tácticas creativas y estrategias impensables pero factibles; y la comprensión de que se lucha por el poder para conquistarlo, mantenerlo, defenderlo y expandirlo. Fidel entendió que solo las prácticas revolucionarias logran convertir al poder en un problema que pueda resolverse, y que hay que crear los instrumentos y los protagonistas, tomando las instituciones para ponerlas al servicio del pueblo, y no al revés.</p>
-      <p>En el plano teórico, Martínez Heredia destaca una de las mayores contribuciones de Fidel frente a los reduccionismos del pensamiento revolucionario. Se trata de la crítica a la deformación que atribuye una supuesta causa puramente económica a todos los procesos sociales. El triunfo del capitalismo cosificó la vida espiritual, llevando a muchos a creer que los seres humanos no son los protagonistas de la historia. Fidel, por el contrario, demostró que la actividad consciente y organizada del pueblo es la única fuerza capaz de cambiar la realidad. Las clases dominantes nunca cederán el poder por una simple evolución económica. Como dijo Fidel en 1969: son los poderes y los procesos socialistas la condición necesaria para plantearse el desarrollo, y no el desarrollo la condición para plantearse el socialismo.</p>
-      <p>Por otro lado, es vital entender su visión del antimperialismo. También Martínez Heredia analiza tres procesos de las últimas cuatro décadas: el fin del llamado socialismo real, la imposibilidad de que los países logren un desarrollo autónomo fuera del capitalismo, y la consumación del dominio de Estados Unidos sobre América Latina. Las lecciones son claras: los avances sociales son reversibles, el capitalismo es un sistema mundial hipercentralizado, financiarizado, parasitario y depredador que no va a cambiar por sí solo, y Estados Unidos actúa siempre para impedir la autonomía de nuestros pueblos. Por tanto, el antimperialismo debe ser una parte inalienable de todas las políticas del campo popular.</p>
+    <h3>El fundamento del legado. Revolución como praxis y antimperialismo</h3>
+    <p>Para entender hacia dónde miraba Fidel, primero hay que entender desde dónde partía. Aurelio Alonso nos recuerda que el concepto de Revolución, aunque originado en la geometría, aplicado a la historia se vincula al momento de cambio radical. En el imaginario cubano, la Revolución aflora como una constante histórica: es expresión de dignidad, de orgullo, de audacia, de desafío, de sacrificio y de esperanza. En la Cuba de la segunda mitad del siglo XX, ser revolucionario se identificó con la entrega total, la incondicionalidad y el reto de hacer posible metas que parecían irrealizables.</p>
+    <p>Alonso señala que la dura experiencia de forjar una república auténticamente soberana, sobre principios de justicia social y equidad, demostró que tal propósito solo podía ser socialista. Ese acercamiento natural fue calificado por Cintio Vitier como un milagro histórico, el mayor suceso espiritual y la mayor originalidad de la Revolución cubana. Ese es el primer gran legado para Cuba y para el mundo: la demostración práctica de que la liberación nacional indisolublemente unida a la revolución socialista era posible.</p>
+    <p>Ahora bien, Fernando Martínez Heredia, en sus palabras en los Paradigmas Emancipatorios, nos ofrece las claves para entender este legado como una herramienta para el presente y el futuro. Nos advierte que el primer homenaje que recibió Fidel al morir fue una consigna de hoy, una invención de los jóvenes que hizo suya todo el pueblo: “Yo soy Fidel”. Esto demuestra que su pensamiento pertenece al futuro, no al pasado. Para sacarle provecho a Fidel, tenemos que evitar repetir lugares comunes y conocer más las creaciones y las razones que lo condujeron a sus victorias, las dificultades y los reveses que enfrentó.</p>
+    <p>Entonces nos sistematiza las enseñanzas de Fidel en trece puntos clave que resultan decisivos para los objetivos emancipatorios actuales. Entre ellos, destaca la capacidad de partir de lo imposible y de lo impensable para convertirlos en posibilidades mediante la práctica consciente, organizada y el pensamiento crítico. Esta es la esencia de la praxis revolucionaria. Asimismo, subraya la determinación de no aceptar jamás la derrota como un estado permanente. Martínez Heredia recuerda cinco momentos cruciales en la vida de Fidel - el Moncada en 1953, el Granma en 1956, la zafra de 1970, el proceso de rectificación ante el colapso de la URSS en 1985, y la batalla de ideas en el año 2000 - donde los reveses fueron convertidos en puntos de partida para nuevas ofensivas.</p>
+    <p>Otros puntos fundamentales de este legado son la organización constante, que fue una verdadera fiebre para Fidel; la comunicación permanente con cada ser humano y con las masas; la utilización de tácticas creativas y estrategias impensables pero factibles; y la comprensión de que se lucha por el poder para conquistarlo, mantenerlo, defenderlo y expandirlo. Fidel entendió que solo las prácticas revolucionarias logran convertir al poder en un problema que pueda resolverse, y que hay que crear los instrumentos y los protagonistas, tomando las instituciones para ponerlas al servicio del pueblo, y no al revés.</p>
+    <p>En el plano teórico, Martínez Heredia destaca una de las mayores contribuciones de Fidel frente a los reduccionismos del pensamiento revolucionario. Se trata de la crítica a la deformación que atribuye una supuesta causa puramente económica a todos los procesos sociales. El triunfo del capitalismo cosificó la vida espiritual, llevando a muchos a creer que los seres humanos no son los protagonistas de la historia. Fidel, por el contrario, demostró que la actividad consciente y organizada del pueblo es la única fuerza capaz de cambiar la realidad. Las clases dominantes nunca cederán el poder por una simple evolución económica. Como dijo Fidel en 1969: son los poderes y los procesos socialistas la condición necesaria para plantearse el desarrollo, y no el desarrollo la condición para plantearse el socialismo.</p>
+    <p>Por otro lado, es vital entender su visión del antimperialismo. También Martínez Heredia analiza tres procesos de las últimas cuatro décadas: el fin del llamado socialismo real, la imposibilidad de que los países logren un desarrollo autónomo fuera del capitalismo, y la consumación del dominio de Estados Unidos sobre América Latina. Las lecciones son claras: los avances sociales son reversibles, el capitalismo es un sistema mundial hipercentralizado, financiarizado, parasitario y depredador que no va a cambiar por sí solo, y Estados Unidos actúa siempre para impedir la autonomía de nuestros pueblos. Por tanto, el antimperialismo debe ser una parte inalienable de todas las políticas del campo popular.</p>
 
-      <h4>La dimensión internacionalista. Solidaridad concreta y no sólo retórica</h4>
-      <p>El legado de Fidel no se circunscribe a las fronteras cubanas. Muchos artículos y análisis publicados por periodistas e intelectuales cubanos dan cuenta de cómo la política exterior de la Revolución, inspirada en su pensamiento, se convirtió en una práctica real y tangible. Frente a quienes acusaban a Cuba de exportar su revolución, Fidel defendió siempre la idea de que las revoluciones no se exportan, sino que las hacen los pueblos. Sin embargo, la solidaridad cubana se materializó en hechos concretos.</p>
-      <p>Entre 1960 y 1990, más de 300 mil combatientes y 50 mil civiles cubanos participaron en misiones solidarias en África, específicamente en las luchas de liberación nacional en Angola, Namibia, Zaire, Guinea, Cabo Verde y el Congo. Miles de ellos perdieron la vida en esas tierras. Este esfuerzo titánico fue reconocido por líderes como Nelson Mandela, quien afirmó que el pueblo cubano ocupa un lugar especial en el corazón de África. Incluso el Che Guevara, en su carta de despedida, reconoció la talla de Fidel como estadista en momentos críticos como la crisis de los misiles, afirmando que pocas veces brilló más alto un estadista que en esos días.</p>
-      <p>Este internacionalismo no es un accesorio del proyecto revolucionario, sino una de sus columnas vertebrales. En la actualidad, ese legado se mantiene vigente con decenas de miles de cooperantes cubanos, principalmente médicos, alfabetizadores y técnicos deportistas desplegados en América Latina, el Caribe y África. Esta solidaridad demuestra que la liberación de Cuba es inseparable de la liberación de los pueblos oprimidos del mundo. Es una forma de entender la política que trasciende el egoísmo nacional y que constituye una lección de futuro en un mundo donde la cooperación y el multilateralismo son cada vez más necesarios frente a las crisis globales.</p>
+    <h3>La dimensión internacionalista. Solidaridad concreta y no sólo retórica</h3>
+    <p>El legado de Fidel no se circunscribe a las fronteras cubanas. Muchos artículos y análisis publicados por periodistas e intelectuales cubanos dan cuenta de cómo la política exterior de la Revolución, inspirada en su pensamiento, se convirtió en una práctica real y tangible. Frente a quienes acusaban a Cuba de exportar su revolución, Fidel defendió siempre la idea de que las revoluciones no se exportan, sino que las hacen los pueblos. Sin embargo, la solidaridad cubana se materializó en hechos concretos.</p>
+    <p>Entre 1960 y 1990, más de 300 mil combatientes y 50 mil civiles cubanos participaron en misiones solidarias en África, específicamente en las luchas de liberación nacional en Angola, Namibia, Zaire, Guinea, Cabo Verde y el Congo. Miles de ellos perdieron la vida en esas tierras. Este esfuerzo titánico fue reconocido por líderes como Nelson Mandela, quien afirmó que el pueblo cubano ocupa un lugar especial en el corazón de África. Incluso el Che Guevara, en su carta de despedida, reconoció la talla de Fidel como estadista en momentos críticos como la crisis de los misiles, afirmando que pocas veces brilló más alto un estadista que en esos días.</p>
+    <p>Este internacionalismo no es un accesorio del proyecto revolucionario, sino una de sus columnas vertebrales. En la actualidad, ese legado se mantiene vigente con decenas de miles de cooperantes cubanos, principalmente médicos, alfabetizadores y técnicos deportistas desplegados en América Latina, el Caribe y África. Esta solidaridad demuestra que la liberación de Cuba es inseparable de la liberación de los pueblos oprimidos del mundo. Es una forma de entender la política que trasciende el egoísmo nacional y que constituye una lección de futuro en un mundo donde la cooperación y el multilateralismo son cada vez más necesarios frente a las crisis globales.</p>
 
-      <h4>La visión de futuro. Socialismo, conciencia y medio ambiente</h4>
-      <p>Llegamos así al núcleo de nuestra exposición: ¿Cómo veía Fidel el futuro y cuál es su aporte a esa mirada?</p>
-      <p>Primero, el socialismo como condición del desarrollo y la batalla de ideas. Como ya mencionamos, Fidel invirtió las concepciones deterministas al plantear que el socialismo es la condición para el desarrollo y no al revés. Pero Fidel no concebía el futuro como un proceso automático. Su visión incluía la necesidad de librar una batalla permanente por la conciencia.</p>
-      <p>Martínez Heredia explica que Fidel lanzó la batalla de ideas en el año 2000 ante la ofensiva mundial capitalista y los retrocesos internos. Esta batalla respondía a una comprensión profunda de la guerra cultural que libra el capitalismo. El esfuerzo principal del capitalismo actual está puesto en dominar la vida cotidiana, lograr que todos acepten que la única cultura posible es la suya. Para ganar esta guerra, el capitalismo no intenta imponer un pensamiento único, sino inducir que no haya ningún pensamiento. Está en marcha un colosal proceso de desarmar los instrumentos de pensar, de erradicar la capacidad humana de hacer inferencias mediatas, hasta alcanzar una especie de idiotización de masas. El capitalismo busca eliminar la rebeldía, homogeneizar los sentimientos e igualar los sueños.</p>
-      <p>Frente a esto, Fidel entendió que la concientización debía estar en el centro del trabajo político. Como señala Martínez Heredia, Fidel fue siempre un educador, buscando que el pueblo se levante espiritualmente y moralmente para convertirse en un participante consciente y capaz de todo. La política, para Fidel, no puede conformarse con administrar; debe ser una propiedad de todos. Alcanzar victorias electorales, o administrar mejor que las pandillas de gobernantes, en ciertas circunstancias concretas puede ser algún tipo de avance, pero es completamente insuficiente. Se necesita una nueva política, la centralidad de la praxis y la radicalización de los procesos para garantizar la supervivencia del campo popular.</p>
-      <p>Segundo, el humanismo ambientalista: la previsión científica. No podemos hablar de la visión de futuro de Fidel sin abordar su pensamiento ambientalista, un aspecto que podemos captar fácilmente a través de sus discursos, los cuales son analizados por un numeroso colectivo de autores, y que hoy resulta extraordinariamente vigente.</p>
-      <p>El pensamiento ambientalista de Fidel se caracteriza por comprender la relación entre la naturaleza, la humanidad y la sociedad como un intercambio activo, es decir, un metabolismo social como diría Marx. Para Fidel, deben primar tanto la racionalidad en el empleo del medio y sus recursos, como la previsión científica, vista esta como un instrumento para la acción humana con sentido ambientalista. Sus ideas expresan un verdadero humanismo ambientalista.</p>
-      <p>No se trata de un ecologismo pasivo o romántico, sino de una visión profundamente política y pedagógica. El futuro, para Fidel, requería la formación de modos de actuación ambientalistas en las nuevas generaciones. La educación ambiental se convierte así en una herramienta para la transformación, en la que los seres humanos aprenden a relacionarse con su entorno de manera sostenible y consciente. Esta previsión científica es un aporte crucial para el siglo XXI, en un contexto de crisis climática y depredación capitalista de los recursos naturales, o una “fractura metabólica” como lo denomino John Bellamy Foster. Fidel entendió que el futuro de la humanidad dependía de la capacidad de establecer una relación racional y sostenible con la naturaleza, y que esa tarea no podía dejarse al azar, sino que requería planificación, ciencia y conciencia.</p>
+    <h3>La visión de futuro. Socialismo, conciencia y medio ambiente</h3>
+    <p>Llegamos así al núcleo de nuestra exposición: ¿Cómo veía Fidel el futuro y cuál es su aporte a esa mirada?</p>
+    <p>Primero, el socialismo como condición del desarrollo y la batalla de ideas. Como ya mencionamos, Fidel invirtió las concepciones deterministas al plantear que el socialismo es la condición para el desarrollo y no al revés. Pero Fidel no concebía el futuro como un proceso automático. Su visión incluía la necesidad de librar una batalla permanente por la conciencia.</p>
+    <p>Martínez Heredia explica que Fidel lanzó la batalla de ideas en el año 2000 ante la ofensiva mundial capitalista y los retrocesos internos. Esta batalla respondía a una comprensión profunda de la guerra cultural que libra el capitalismo. El esfuerzo principal del capitalismo actual está puesto en dominar la vida cotidiana, lograr que todos acepten que la única cultura posible es la suya. Para ganar esta guerra, el capitalismo no intenta imponer un pensamiento único, sino inducir que no haya ningún pensamiento. Está en marcha un colosal proceso de desarmar los instrumentos de pensar, de erradicar la capacidad humana de hacer inferencias mediatas, hasta alcanzar una especie de idiotización de masas. El capitalismo busca eliminar la rebeldía, homogeneizar los sentimientos e igualar los sueños.</p>
+    <p>Frente a esto, Fidel entendió que la concientización debía estar en el centro del trabajo político. Como señala Martínez Heredia, Fidel fue siempre un educador, buscando que el pueblo se levante espiritualmente y moralmente para convertirse en un participante consciente y capaz de todo. La política, para Fidel, no puede conformarse con administrar; debe ser una propiedad de todos. Alcanzar victorias electorales, o administrar mejor que las pandillas de gobernantes, en ciertas circunstancias concretas puede ser algún tipo de avance, pero es completamente insuficiente. Se necesita una nueva política, la centralidad de la praxis y la radicalización de los procesos para garantizar la supervivencia del campo popular.</p>
+    <p>Segundo, el humanismo ambientalista: la previsión científica. No podemos hablar de la visión de futuro de Fidel sin abordar su pensamiento ambientalista, un aspecto que podemos captar fácilmente a través de sus discursos, los cuales son analizados por un numeroso colectivo de autores, y que hoy resulta extraordinariamente vigente.</p>
+    <p>El pensamiento ambientalista de Fidel se caracteriza por comprender la relación entre la naturaleza, la humanidad y la sociedad como un intercambio activo, es decir, un metabolismo social como diría Marx. Para Fidel, deben primar tanto la racionalidad en el empleo del medio y sus recursos, como la previsión científica, vista esta como un instrumento para la acción humana con sentido ambientalista. Sus ideas expresan un verdadero humanismo ambientalista.</p>
+    <p>No se trata de un ecologismo pasivo o romántico, sino de una visión profundamente política y pedagógica. El futuro, para Fidel, requería la formación de modos de actuación ambientalistas en las nuevas generaciones. La educación ambiental se convierte así en una herramienta para la transformación, en la que los seres humanos aprenden a relacionarse con su entorno de manera sostenible y consciente. Esta previsión científica es un aporte crucial para el siglo XXI, en un contexto de crisis climática y depredación capitalista de los recursos naturales, o una “fractura metabólica” como lo denomino John Bellamy Foster. Fidel entendió que el futuro de la humanidad dependía de la capacidad de establecer una relación racional y sostenible con la naturaleza, y que esa tarea no podía dejarse al azar, sino que requería planificación, ciencia y conciencia.</p>
 
-      <h4>Conclusiones</h4>
-      <p>A modo de conclusión, podemos afirmar que el legado de futuro de Fidel Castro no reside en fórmulas mágicas ni en recetas dogmáticas, sino en una praxis revolucionaria intransigente y en una ética de la liberación.</p>
-      <p>Sus enseñanzas nos dejan varias certezas. Primero, que el anticapitalismo y el antimperialismo no son opciones, sino necesidades inalienables para cualquier proyecto de emancipación. Segundo, que la organización, la comunicación y la concientización del pueblo son las armas más poderosas frente a la guerra cultural y la alienación. Tercero, que el socialismo debe ser asumido desde las complejidades reales, sin hacer concesiones, como un proceso de creación cultural y liberación humana. Y cuarto, que la relación con la naturaleza debe basarse en un humanismo ambientalista, con previsión científica y responsabilidad hacia las generaciones futuras.</p>
-      <p>Fernando Martínez Heredia termina su reflexión diciendo que la liberación de los seres humanos y las sociedades es lo que abrirá las puertas a un mundo nuevo. Parece una ambición enorme, pero como él mismo afirma, es lo único factible. La consigna de los jóvenes cubanos, “Yo soy Fidel”, no es un lamento por el pasado, sino la constatación de que su pensamiento y su ejemplo siguen siendo un mapa indispensable para navegar el futuro.</p>
-      <p>Como señaló Aurelio Alonso, la Revolución es un proceso complejo que exige distinguir entre el clímax revolucionario y el tiempo de revolución. El legado de Fidel nos invita a asumir ese tiempo de revolución como una construcción permanente, donde la dignidad, la justicia social y la soberanía siguen siendo las brújulas que guían nuestras luchas.</p>
-      <p>Muchas gracias.</p>
+    <h3>Conclusiones</h3>
+    <p>A modo de conclusión, podemos afirmar que el legado de futuro de Fidel Castro no reside en fórmulas mágicas ni en recetas dogmáticas, sino en una praxis revolucionaria intransigente y en una ética de la liberación.</p>
+    <p>Sus enseñanzas nos dejan varias certezas. Primero, que el anticapitalismo y el antimperialismo no son opciones, sino necesidades inalienables para cualquier proyecto de emancipación. Segundo, que la organización, la comunicación y la concientización del pueblo son las armas más poderosas frente a la guerra cultural y la alienación. Tercero, que el socialismo debe ser asumido desde las complejidades reales, sin hacer concesiones, como un proceso de creación cultural y liberación humana. Y cuarto, que la relación con la naturaleza debe basarse en un humanismo ambientalista, con previsión científica y responsabilidad hacia las generaciones futuras.</p>
+    <p>Fernando Martínez Heredia termina su reflexión diciendo que la liberación de los seres humanos y las sociedades es lo que abrirá las puertas a un mundo nuevo. Parece una ambición enorme, pero como él mismo afirma, es lo único factible. La consigna de los jóvenes cubanos, “Yo soy Fidel”, no es un lamento por el pasado, sino la constatación de que su pensamiento y su ejemplo siguen siendo un mapa indispensable para navegar el futuro.</p>
+    <p>Como señaló Aurelio Alonso, la Revolución es un proceso complejo que exige distinguir entre el clímax revolucionario y el tiempo de revolución. El legado de Fidel nos invita a asumir ese tiempo de revolución como una construcción permanente, donde la dignidad, la justicia social y la soberanía siguen siendo las brújulas que guían nuestras luchas.</p>
+    <p>Muchas gracias.</p>
 
-      <p class="source-note">Cristhian Riquelme · Antropólogo, miembro de TejeR-ConstruIR · IG: <a href="https://instagram.com/tejer_org" target="_blank">@tejer_org</a> · Revista Horizonte: <a href="https://www.revistahorizonte.cl" target="_blank">www.revistahorizonte.cl</a></p>
+    <div class="footnote">
+      <p>Cristhian Riquelme · Antropólogo, miembro de TejeR-ConstruIR · IG: <a href="https://instagram.com/tejer_org" target="_blank">@tejer_org</a> · Revista Horizonte: <a href="https://www.revistahorizonte.cl" target="_blank">www.revistahorizonte.cl</a></p>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-note">
+      La Trilla es un espacio editorial del Colectivo La Trilla, región del Biobío. El nombre honra la faena campesina de separar el grano de la paja: la misma tarea que este espacio quiere hacer con el debate político y cultural.
+    </div>
+    <div class="footer-links">
+      <a href="../index.html#contacto">Contacto</a>
+      <a href="../index.html#legal">Aspectos legales</a>
+      <a href="https://www.instagram.com/colectivolatrilla/" target="_blank" rel="noopener">Instagram</a>
     </div>
   </div>
+</footer>
+
+<a href="https://www.instagram.com/colectivolatrilla/" target="_blank" rel="noopener noreferrer" class="floating-ig" aria-label="Instagram">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+</a>
 </body>
 </html>
